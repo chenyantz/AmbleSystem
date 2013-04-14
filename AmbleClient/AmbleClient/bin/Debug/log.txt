@@ -1,0 +1,104 @@
+2013-04-12 13:58:43,048 [10] ERROR Amble (null) - 远程主机强迫关闭了一个现有的连接。
+2013-04-12 13:58:43,068 [10] ERROR Amble (null) - 
+Server stack trace: 
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Runtime.Remoting.Channels.SocketStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   在 System.Runtime.Remoting.Channels.SocketHandler.ReadFromSocket(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Runtime.Remoting.Channels.SocketHandler.Read(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.Runtime.Remoting.Channels.SocketHandler.ReadAndMatchFourBytes(Byte[] buffer)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpSocketHandler.ReadAndMatchPreamble()
+   在 System.Runtime.Remoting.Channels.Tcp.TcpSocketHandler.ReadVersionAndOperation(UInt16& operation)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientSocketHandler.ReadHeaders()
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 PasswordServer.DatabaseInfo.GetDbUser()
+   在 AmbleClient.Password..cctor() 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\global.cs:行号 192
+2013-04-12 14:28:43,327 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 14:35:15,001 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 14:45:28,609 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 15:04:01,046 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-12 15:04:20,099 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 15:07:00,266 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 15:07:48,968 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 15:07:55,983 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 15:09:00,467 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 15:10:08,241 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 15:15:06,137 [10] ERROR Amble (null) - 由于目标计算机积极拒绝，无法连接。 192.168.1.101:1111
+2013-04-12 15:15:06,153 [10] ERROR Amble (null) - 
+Server stack trace: 
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 PasswordServer.DatabaseInfo.GetDbUser()
+   在 AmbleClient.ServerInfo..cctor() 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\global.cs:行号 202
+2013-04-12 15:15:09,995 [10] ERROR Amble (null) - Authentication to host '192.168.1.101' for user '' using method 'mysql_native_password' failed with message: Access denied for user ''@'%' to database 'shenzhenerp'
+2013-04-12 15:15:09,996 [10] ERROR Amble (null) -    在 AmbleClient.DataClass.DataBase.GetDataReader(String strSql) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:行号 179
+   在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 47
+2013-04-12 15:15:11,394 [10] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 68
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\Login.cs:行号 37
+2013-04-12 15:15:38,791 [9] ERROR Amble (null) - Authentication to host '192.168.1.101' for user '' using method 'mysql_native_password' failed with message: Access denied for user ''@'%' to database 'shenzhenerp'
+2013-04-12 15:15:38,814 [9] ERROR Amble (null) -    在 AmbleClient.DataClass.DataBase.GetDataReader(String strSql) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:行号 179
+   在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 47
+2013-04-12 15:15:40,043 [9] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 68
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\Login.cs:行号 37
+2013-04-12 15:27:39,344 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 15:37:50,234 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 21:32:53,435 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 21:42:28,301 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 21:48:04,611 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 21:53:28,141 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:02:48,865 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:11:02,653 [10] ERROR Amble (null) -    在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\Login.cs:行号 38
+2013-04-12 22:11:08,150 [10] ERROR Amble (null) -    在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\Login.cs:行号 38
+2013-04-12 22:11:14,086 [10] ERROR Amble (null) -    在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\Login.cs:行号 38
+2013-04-12 22:11:40,424 [9] ERROR Amble (null) -    在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\ShenZhenSystem\AmbleClient\AmbleClient\Login.cs:行号 38
+2013-04-12 22:11:45,299 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:12:13,375 [10] INFO  Amble (null) - 6,4 logged in
+2013-04-12 22:12:52,155 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:15:07,710 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:16:18,269 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:17:15,868 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:19:20,248 [9] INFO  Amble (null) - 6,4 logged in
+2013-04-12 22:24:27,978 [9] INFO  Amble (null) - 6,4 logged in
+2013-04-12 22:27:40,438 [9] INFO  Amble (null) - 6,4 logged in
+2013-04-12 22:32:23,835 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:33:56,791 [8] INFO  Amble (null) - 6,4 logged in
+2013-04-12 22:38:01,746 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:41:20,757 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:46:31,594 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:49:21,098 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:53:21,817 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:59:07,622 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 22:59:47,095 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 23:00:27,979 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-12 23:01:39,372 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-12 23:02:37,219 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 23:06:51,960 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-12 23:11:13,037 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-12 23:12:55,645 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-14 20:31:45,957 [10] INFO  Amble (null) - 6,4 logged in
+2013-04-14 20:31:58,286 [10] INFO  Amble (null) - 6,4 logged in
+2013-04-14 20:46:25,410 [9] INFO  Amble (null) - 4,5 logged in
+2013-04-14 20:47:36,825 [10] INFO  Amble (null) - 5,2 logged in
+2013-04-14 20:49:07,596 [10] INFO  Amble (null) - 4,5 logged in
+2013-04-14 20:52:02,127 [10] INFO  Amble (null) - 4,5 logged in
+2013-04-14 20:55:27,985 [10] INFO  Amble (null) - 4,5 logged in
+2013-04-14 21:11:22,701 [10] INFO  Amble (null) - 4,5 logged in
+2013-04-14 21:12:04,849 [10] INFO  Amble (null) - 5,2 logged in
+2013-04-14 21:18:33,004 [10] INFO  Amble (null) - 5,2 logged in
+2013-04-14 21:18:51,510 [10] INFO  Amble (null) - 4,5 logged in
+2013-04-14 21:23:22,868 [10] INFO  Amble (null) - 4,5 logged in

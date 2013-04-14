@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{87B4F290-C4B4-4488-957D-20774AFEFD06}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AmbleClient</RootNamespace>
+    <AssemblyName>AmbleClient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AmpleAppServer">
+      <HintPath>..\..\..\Application\AmpleAppServer\AmpleAppServer\bin\Debug\AmpleAppServer.exe</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="NPOI">
+      <HintPath>C:\Users\yan\Desktop\npoi\dotnet4\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="PasswordServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\PasswordServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\AccountMainFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AccountMainFrame.Designer.cs">
+      <DependentUpon>AccountMainFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AccountManager\AccountMgr.cs" />
+    <Compile Include="Admin\AccountManager\PropertyClass.cs" />
+    <Compile Include="Admin\AddAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AccountOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AccountOperation.Designer.cs">
+      <DependentUpon>AccountOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ModifyAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicGui\TimePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicGui\TimePicker.Designer.cs">
+      <DependentUpon>TimePicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\BomOffer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BomOffer.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferCustVendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferCustVendor.Designer.cs">
+      <DependentUpon>BomOfferCustVendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferList.Designer.cs">
+      <DependentUpon>BomOfferList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferNew.Designer.cs">
+      <DependentUpon>BomOfferNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferNewCustVen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferNewCustVen.Designer.cs">
+      <DependentUpon>BomOfferNewCustVen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComClass\OperatorFile.cs" />
+    <Compile Include="custVendor\AddCustomerVendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="custVendor\customerVendorMainFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="custVendor\customerVendorMainFrame.Designer.cs">
+      <DependentUpon>customerVendorMainFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="custVendor\customerVendorOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="custVendor\customerVendorOperation.Designer.cs">
+      <DependentUpon>customerVendorOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="custVendor\CustVendorManager\CustomerVendorMgr.cs" />
+    <Compile Include="custVendor\ModifyCustomerVendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataClass\DataClass.cs" />
+    <Compile Include="ExcelHelper\ExcelHelper.cs" />
+    <Compile Include="Finances\CustomerVenderPrimaryKey.cs" />
+    <Compile Include="Finances\FinancesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finances\FinancesView.Designer.cs">
+      <DependentUpon>FinancesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="global.cs" />
+    <Compile Include="Help\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFrame.Designer.cs">
+      <DependentUpon>MainFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OfferGui\BuyerOfferItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OfferGui\NewOffer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OfferGui\NewOffer.Designer.cs">
+      <DependentUpon>NewOffer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OfferGui\OfferItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OfferGui\OfferItems.Designer.cs">
+      <DependentUpon>OfferItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OfferGui\OfferListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OfferGui\OfferView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OfferGui\OfferView.designer.cs">
+      <DependentUpon>OfferView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OfferGui\OfferManager\Offer.cs" />
+    <Compile Include="OfferGui\OfferManager\OfferMgr.cs" />
+    <Compile Include="OfferGui\SalesOfferItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Order\ItemSplit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\ItemSplit.Designer.cs">
+      <DependentUpon>ItemSplit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderListView\FLPoListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\OrderListView\FLSoListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\OrderListView\OrderListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\OrderListView\OrderListView.Designer.cs">
+      <DependentUpon>OrderListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderListView\PoListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\OrderListView\SoListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\PoMgr\Po.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Po.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Order\PoView\PoMgr.cs" />
+    <Compile Include="Order\PoStates.cs" />
+    <Compile Include="Order\PoView\NewPo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\PoView\NewPo.Designer.cs">
+      <DependentUpon>NewPo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\PoView\PoItemsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\PoView\PoItemsView.Designer.cs">
+      <DependentUpon>PoItemsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\PoView\PoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\PoView\PoView.Designer.cs">
+      <DependentUpon>PoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\SoOrderState.cs" />
+    <Compile Include="Order\PoView\PoItemsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Order\PoView\PoItemsControl.Designer.cs">
+      <DependentUpon>PoItemsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\SoPoExcelHelper.cs" />
+    <Compile Include="PO\PoManager\Po.cs" />
+    <Compile Include="PO\PoManager\PoMgr.cs" />
+    <Compile Include="Order\PoView\PoViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Order\PoView\PoViewControl.Designer.cs">
+      <DependentUpon>PoViewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfqGui\BuyerManagerRfqItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RfqGui\BuyerManagerRfqListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\BuyerRfqItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RfqGui\BuyerRfqListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\BuyerRfqView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\BuyerRfqView.Designer.cs">
+      <DependentUpon>BuyerRfqView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfqGui\BuyerManagerRfqView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\BuyerManagerRfqView.Designer.cs">
+      <DependentUpon>BuyerManagerRfqView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfqGui\NewRfq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\NewRfq.Designer.cs">
+      <DependentUpon>NewRfq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfqGui\RfqItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RfqGui\RfqItems.Designer.cs">
+      <DependentUpon>RfqItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfqGui\RFQListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\RFQListView.Designer.cs">
+      <DependentUpon>RFQListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfqGui\RfqManager\Rfq.cs" />
+    <Compile Include="RfqGui\RfqManager\RfqMgr.cs" />
+    <Compile Include="RfqGui\RfqPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\RfqPrint.Designer.cs">
+      <DependentUpon>RfqPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfqGui\RFQView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\RFQView.Designer.cs">
+      <DependentUpon>RFQView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfqGui\SalesNewRfqItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RfqGui\SalesRfqItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RfqGui\SalesRfqListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\PasswordChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\PasswordChange.Designer.cs">
+      <DependentUpon>PasswordChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Order\OrderListView\BuyerSoListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\SoView\NewSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\SoView\NewSo.Designer.cs">
+      <DependentUpon>NewSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderListView\SalesSoListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\SoView\SoItemsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Order\SoView\SoItemsControl.Designer.cs">
+      <DependentUpon>SoItemsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\SoView\SoItemView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\SoView\SoItemView.Designer.cs">
+      <DependentUpon>SoItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\SoManager\So.cs" />
+    <Compile Include="Order\SoManager\SoMgr.cs" />
+    <Compile Include="Order\SoView\SoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\SoView\SoView.Designer.cs">
+      <DependentUpon>SoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\SoView\SoViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Order\SoView\SoViewControl.Designer.cs">
+      <DependentUpon>SoViewControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin\AccountMainFrame.resx">
+      <DependentUpon>AccountMainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AccountOperation.resx">
+      <DependentUpon>AccountOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicGui\TimePicker.resx">
+      <DependentUpon>TimePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BomOffer\BomOfferCustVendor.resx">
+      <DependentUpon>BomOfferCustVendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BomOffer\BomOfferList.resx">
+      <DependentUpon>BomOfferList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BomOffer\BomOfferNew.resx">
+      <DependentUpon>BomOfferNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BomOffer\BomOfferNewCustVen.resx">
+      <DependentUpon>BomOfferNewCustVen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="custVendor\AddCustomerVendor.resx">
+      <DependentUpon>AddCustomerVendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="custVendor\customerVendorMainFrame.resx">
+      <DependentUpon>customerVendorMainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="custVendor\customerVendorOperation.resx">
+      <DependentUpon>customerVendorOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="custVendor\ModifyCustomerVendor.resx">
+      <DependentUpon>ModifyCustomerVendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finances\FinancesView.resx">
+      <DependentUpon>FinancesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrame.resx">
+      <DependentUpon>MainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OfferGui\NewOffer.resx">
+      <DependentUpon>NewOffer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OfferGui\OfferItems.resx">
+      <DependentUpon>OfferItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OfferGui\OfferView.resx">
+      <DependentUpon>OfferView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\ItemSplit.resx">
+      <DependentUpon>ItemSplit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderListView\OrderListView.resx">
+      <DependentUpon>OrderListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\PoView\NewPo.resx">
+      <DependentUpon>NewPo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\PoView\PoItemsControl.resx">
+      <DependentUpon>PoItemsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\PoView\PoItemsView.resx">
+      <DependentUpon>PoItemsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\PoView\PoView.resx">
+      <DependentUpon>PoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\PoView\PoViewControl.resx">
+      <DependentUpon>PoViewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\BuyerManagerRfqListView.resx">
+      <DependentUpon>BuyerManagerRfqListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\BuyerManagerRfqView.resx">
+      <DependentUpon>BuyerManagerRfqView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\BuyerRfqListView.resx">
+      <DependentUpon>BuyerRfqListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\BuyerRfqView.resx">
+      <DependentUpon>BuyerRfqView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\NewRfq.resx">
+      <DependentUpon>NewRfq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\RfqItems.resx">
+      <DependentUpon>RfqItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\RFQListView.resx">
+      <DependentUpon>RFQListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\RfqPrint.resx">
+      <DependentUpon>RfqPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\RFQView.resx">
+      <DependentUpon>RFQView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\SalesNewRfqItems.resx">
+      <DependentUpon>SalesNewRfqItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\PasswordChange.resx">
+      <DependentUpon>PasswordChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Order\SoView\NewSo.resx">
+      <DependentUpon>NewSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\SoView\SoItemsControl.resx">
+      <DependentUpon>SoItemsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\SoView\SoItemView.resx">
+      <DependentUpon>SoItemView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\SoView\SoView.resx">
+      <DependentUpon>SoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\SoView\SoViewControl.resx">
+      <DependentUpon>SoViewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="BomOffer\BomOffer.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BomOffer.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Order\PoMgr\Po.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Po.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="custVendor\AmbleClient.exe.config" />
+    <None Include="Properties\DataSources\AmbleAppServer.SoMgr.So.datasource" />
+    <None Include="Properties\DataSources\AmbleClient.BomOffer.BomOfferEntities.datasource" />
+    <None Include="Properties\DataSources\AmbleClient.Order.PoMgr.PoEntities.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="OrderTemplate\" />
+    <Folder Include="Personal\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,5 @@
+C:\Users\ChenYan\Documents\Visual Studio 2010\Projects\PasswordServer\ConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\ChenYan\Documents\Visual Studio 2010\Projects\PasswordServer\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\ChenYan\Documents\Visual Studio 2010\Projects\PasswordServer\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\ChenYan\Documents\Visual Studio 2010\Projects\PasswordServer\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+C:\Users\ChenYan\Documents\Visual Studio 2010\Projects\PasswordServer\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
