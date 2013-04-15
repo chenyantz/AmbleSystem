@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinancesView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tscbSearchType = new System.Windows.Forms.ToolStripComboBox();
@@ -72,7 +72,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(58, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(63, 22);
             this.toolStripLabel1.Text = "SearchBy:";
             // 
             // tscbSearchType
@@ -87,7 +87,7 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(61, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(66, 22);
             this.toolStripLabel2.Text = "Filter Text:";
             // 
             // tstbSearchWord
@@ -112,8 +112,8 @@
             this.tsbClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsbClearSearch.Image")));
             this.tsbClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClearSearch.Name = "tsbClearSearch";
-            this.tsbClearSearch.Size = new System.Drawing.Size(76, 22);
-            this.tsbClearSearch.Text = "Clear Search";
+            this.tsbClearSearch.Size = new System.Drawing.Size(41, 22);
+            this.tsbClearSearch.Text = "Clear";
             this.tsbClearSearch.Click += new System.EventHandler(this.tsbClearSearch_Click);
             // 
             // toolStripSeparator2
@@ -127,8 +127,8 @@
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(35, 22);
-            this.tsbSave.Text = "Save";
+            this.tsbSave.Size = new System.Drawing.Size(100, 22);
+            this.tsbSave.Text = "Save Change(s)";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // dataGridView1
@@ -145,65 +145,65 @@
             this.Country,
             this.OwnerName,
             this.CustomerVendorNumber});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 26);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(889, 382);
+            this.dataGridView1.Size = new System.Drawing.Size(889, 353);
             this.dataGridView1.TabIndex = 1;
             // 
             // CompanyType
             // 
             this.CompanyType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.CompanyType.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.CompanyType.DefaultCellStyle = dataGridViewCellStyle21;
             this.CompanyType.HeaderText = "Company Type";
             this.CompanyType.Name = "CompanyType";
             this.CompanyType.ReadOnly = true;
             this.CompanyType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CompanyType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.CompanyType.Width = 76;
+            this.CompanyType.Width = 53;
             // 
             // CompanyName
             // 
             this.CompanyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.CompanyName.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.CompanyName.DefaultCellStyle = dataGridViewCellStyle22;
             this.CompanyName.HeaderText = "Company Name";
             this.CompanyName.Name = "CompanyName";
             this.CompanyName.ReadOnly = true;
-            this.CompanyName.Width = 98;
+            this.CompanyName.Width = 72;
             // 
             // Country
             // 
             this.Country.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Country.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Country.DefaultCellStyle = dataGridViewCellStyle23;
             this.Country.HeaderText = "Country";
             this.Country.Name = "Country";
             this.Country.ReadOnly = true;
-            this.Country.Width = 68;
+            this.Country.Width = 72;
             // 
             // OwnerName
             // 
             this.OwnerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.OwnerName.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.OwnerName.DefaultCellStyle = dataGridViewCellStyle24;
             this.OwnerName.HeaderText = "Owner Name";
             this.OwnerName.Name = "OwnerName";
             this.OwnerName.ReadOnly = true;
-            this.OwnerName.Width = 87;
+            this.OwnerName.Width = 61;
             // 
             // CustomerVendorNumber
             // 
             this.CustomerVendorNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CustomerVendorNumber.HeaderText = "CustomerVendorNumber";
             this.CustomerVendorNumber.Name = "CustomerVendorNumber";
-            this.CustomerVendorNumber.Width = 147;
+            this.CustomerVendorNumber.Width = 150;
             // 
             // FinancesView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 410);
+            this.ClientSize = new System.Drawing.Size(889, 378);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FinancesView";

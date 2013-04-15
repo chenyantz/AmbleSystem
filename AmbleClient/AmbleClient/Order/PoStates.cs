@@ -514,7 +514,7 @@ namespace AmbleClient.Order
         }
         public override string GetStateString()
         {
-            return "Pull Received Before Pay";
+            return "Full Received Before Pay";
         }  
     
     
@@ -626,7 +626,7 @@ namespace AmbleClient.Order
             poStateList.Add(new PoPartialReceivedAfterPay());
             poStateList.Add(new PoFullReceivedBeforePay());
             poStateList.Add(new PoPartialReceivedBeforePay());
-            poStateList.Add(new PoFullPaymentBeforeReceived());
+            poStateList.Add(new PoFullPaymentAfterReceived());
             poStateList.Add(new PoClosed());
         }
 

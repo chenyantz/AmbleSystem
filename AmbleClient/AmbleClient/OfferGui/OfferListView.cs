@@ -23,14 +23,13 @@ namespace AmbleClient.OfferGui
             System.Windows.Forms.DataGridViewTextBoxColumn RfqNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
             System.Windows.Forms.DataGridViewTextBoxColumn mpn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            mpn.DefaultCellStyle.Font = new System.Drawing.Font(dataGridView1.Font, System.Drawing.FontStyle.Bold);
+           
             System.Windows.Forms.DataGridViewTextBoxColumn mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
             System.Windows.Forms.DataGridViewTextBoxColumn VendorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            System.Windows.Forms.DataGridViewTextBoxColumn Fax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
-            System.Windows.Forms.DataGridViewTextBoxColumn Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
             System.Windows.Forms.DataGridViewTextBoxColumn Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,14 +67,6 @@ namespace AmbleClient.OfferGui
             Phone.HeaderText = "Phone";
             Phone.Name = "Phone";
 
-            Fax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            Fax.HeaderText = "Fax";
-            Fax.Name = "Fax";
-
-            Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            Email.HeaderText = "Email";
-            Email.Name = "Email";
-
             Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             Amount.HeaderText = "Payment Terms";
             Amount.Name = "PaymentTerms";
@@ -110,8 +101,6 @@ namespace AmbleClient.OfferGui
             VendorName,
             Contact,
             Phone,
-            Fax,
-            Email,
             Amount,
             Price,
             DeliverTime,
@@ -161,7 +150,7 @@ namespace AmbleClient.OfferGui
 
             foreach (Offer offer in offerList)
             {
-                dataGridView1.Rows.Add(offer.offerId,Tool.Get6DigitalNumberAccordingToId(offer.rfqNo), offer.mpn, offer.mfg, offer.vendorName, offer.contact, offer.phone, offer.fax, offer.email,
+                dataGridView1.Rows.Add(offer.offerId,Tool.Get6DigitalNumberAccordingToId(offer.rfqNo), offer.mpn, offer.mfg, offer.vendorName, offer.contact, offer.phone, 
                     offer.amount, offer.price, offer.deliverTime +" "+Enum.GetName(typeof(TimeUnit), offer.timeUnit), idNameDict[offer.buyerId], offer.offerDate.ToShortDateString(),
                     Enum.GetName(typeof(OfferState), offer.offerStates));
             }

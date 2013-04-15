@@ -38,12 +38,30 @@ namespace AmbleClient.Order.SoMgr
            }
            sb.Append(" ) ");
 
-           //append the filter
-           if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
-           { 
-            sb.Append(string.Format(" and {0} like '%{1}%' ",filterColumn,filterString));
-           }
+           if (filterColumn.Trim() == "mpn" && (!string.IsNullOrWhiteSpace(filterString)))
+           {
+              List<int> idsList=GetSoIdByMPN(filterString.Trim());
+               if(idsList.Count>=1)
+               {
+                 sb.Append(" and (soId="+idsList[0]);
 
+                 for (int i = 1; i < idsList.Count; i++)
+                 {
+                     sb.Append(" or soId=" + idsList[i]);
+                 }
+                   sb.Append(" ) ");
+    
+               }
+               
+          }
+           else
+           {
+               //append the filter
+               if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+               {
+                   sb.Append(string.Format(" and {0} like '%{1}%' ", filterColumn, filterString));
+               }
+           }
            sb.Append(" and (soStates="+states[0]);
            for(int i=1;i<states.Count;i++)
            {
@@ -91,12 +109,29 @@ namespace AmbleClient.Order.SoMgr
            }
            sb.Append(" ) ");
 
-           //append the filter
-           if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+           if (filterColumn.Trim() == "mpn" && (!string.IsNullOrWhiteSpace(filterString)))
            {
-               sb.Append(string.Format(" and {0} like '%{1}%' ", filterColumn, filterString));
-           }
+               List<int> idsList = GetSoIdByMPN(filterString.Trim());
+               if (idsList.Count >= 1)
+               {
+                   sb.Append(" and (soId=" + idsList[0]);
 
+                   for (int i = 1; i < idsList.Count; i++)
+                   {
+                       sb.Append(" or soId=" + idsList[i]);
+                   }
+                   sb.Append(" ) ");
+
+               }
+           }
+           else
+           {
+               //append the filter
+               if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+               {
+                   sb.Append(string.Format(" and {0} like '%{1}%' ", filterColumn, filterString));
+               }
+           }
            sb.Append(" and (soStates=" + states[0]);
            for (int i = 1; i < states.Count; i++)
            {
@@ -320,6 +355,23 @@ namespace AmbleClient.Order.SoMgr
        }
 
 
+       public static List<int> GetSoIdByMPN(string mpn)
+       { 
+        List<int> ids=new List<int>();
+
+        string strSql = string.Format("select distinct soId from SoItems where partNo like '%{0}%'", mpn);
+             DataTable dt=db.GetDataTable(strSql,"idTable");
+           foreach(DataRow dr in dt.Rows)
+           {
+            ids.Add(Convert.ToInt32(dr["soId"]));
+           }
+           return ids;
+       
+       }
+
+
+
+
        public static string GetUpDateSoItemString(SoItems soItem)
        {
 
@@ -342,8 +394,6 @@ namespace AmbleClient.Order.SoMgr
        {
            string strSql= string.Format("delete from SoItems where soItemsId={0}",soItemsId);
            db.ExecDataBySql(strSql);
-
-
        }
 
 

@@ -248,7 +248,7 @@ namespace AmbleClient
             try
             {
                 ChannelServices.RegisterChannel(new TcpClientChannel(), false);
-                dbinfo = (DatabaseInfo)Activator.GetObject(typeof(DatabaseInfo), "tcp://192.168.1.101:1111/DatabaseInfo");
+                dbinfo = (DatabaseInfo)Activator.GetObject(typeof(DatabaseInfo), "tcp://"+strServer+":1111/DatabaseInfo");
                 userId = DesOp.DecryptDES(dbinfo.GetDbUser());
                 password=DesOp.DecryptDES(dbinfo.GetDbPassword());
             }

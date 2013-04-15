@@ -39,7 +39,7 @@ namespace AmbleClient.Order.PoMgr
 
               }
 
-               if (filterColumn.Trim() == "vendorName" && filterString.Trim().Length != 0)
+               else  if (filterColumn.Trim() == "vendorName" && filterString.Trim().Length != 0)
                {
                    var poListFromDb = from poItem in poEntity.po
                                       where (userIds.Contains((int)poItem.pa)) && (stateList.Contains((int)poItem.poStates)&&
@@ -49,6 +49,32 @@ namespace AmbleClient.Order.PoMgr
                    poList.AddRange(poListFromDb);
                
               }
+               else if (filterColumn.Trim() == "poNo" && filterString.Trim().Length != 0)
+               {
+                   var poListFromDb = from poItem in poEntity.po
+                                      where (userIds.Contains((int)poItem.pa)) && (stateList.Contains((int)poItem.poStates) &&
+                                      (poItem.poNo.Contains(filterString.Trim())))
+                                      select poItem;
+
+                   poList.AddRange(poListFromDb);
+               
+               }
+               else if (filterColumn.Trim() == "mpn" && filterString.Trim().Length != 0)
+               {
+                   var poIds = (from poExactItem in poEntity.poitems
+                                where poExactItem.partNo.Contains(filterString.Trim())
+                                select poExactItem.poId).Distinct();
+                   var poListFromDb = from poItem in poEntity.po
+                                      where (userIds.Contains((int)poItem.pa)) && (stateList.Contains((int)poItem.poStates) &&
+                                      (poIds.Contains(poItem.poId)))
+                                      select poItem;
+                   poList.AddRange(poListFromDb);
+               }
+               else
+               {
+                   Logger.Info(filterColumn + "," + filterString);
+               }
+
            return poList;
          
        }

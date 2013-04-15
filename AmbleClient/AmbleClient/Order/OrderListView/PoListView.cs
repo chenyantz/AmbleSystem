@@ -88,7 +88,8 @@ namespace AmbleClient.Order
         protected override void FillTheFilterColumnDict()
         {
             filterColumnDict.Add("Vendor Name", "vendorName");
-            filterColumnDict.Add("PO number", "poNo");
+            filterColumnDict.Add("PO Number", "poNo");
+            filterColumnDict.Add("Part No", "mpn");
 
         }
 
@@ -167,4 +168,5 @@ namespace AmbleClient.Order
 
 
     }
+
 }

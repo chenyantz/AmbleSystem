@@ -150,6 +150,7 @@ namespace AmbleClient.Finances
             }
 
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
+            //dataGridView1.CurrentCellChanged+=new EventHandler(dataGridView1_CurrentCellChanged);
             changeList.Clear();
 
         }
@@ -176,6 +177,13 @@ namespace AmbleClient.Finances
             //clear the changeList
             changeList.Clear();
 
+        }
+
+        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        {
+           // dataGridView1.CurrentCell.Style.BackColor = Color.Red;
+            
+          //  dataGridView1[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.Red;
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -218,6 +226,8 @@ namespace AmbleClient.Finances
             tstbSearchWord.Text = string.Empty;
             FillTheDataGrid();
         }
+
+
 
 
     }

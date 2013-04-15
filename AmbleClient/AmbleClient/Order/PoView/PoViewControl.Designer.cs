@@ -339,6 +339,7 @@
             // PartNo
             // 
             this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PartNo.DefaultCellStyle.Font = new System.Drawing.Font(dataGridView1.Font, System.Drawing.FontStyle.Bold);
             this.PartNo.HeaderText = "Part #";
             this.PartNo.Name = "PartNo";
             this.PartNo.ReadOnly = true;

@@ -298,7 +298,7 @@ namespace AmbleClient.Order
         }
         public override string GetStateString()
         {
-            return "PayMent Received Before Ship";
+            return "Payment Received Before Ship";
         }
     
     }

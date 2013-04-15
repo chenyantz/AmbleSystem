@@ -102,3 +102,147 @@ Exception rethrown at [0]:
 2013-04-14 21:18:33,004 [10] INFO  Amble (null) - 5,2 logged in
 2013-04-14 21:18:51,510 [10] INFO  Amble (null) - 4,5 logged in
 2013-04-14 21:23:22,868 [10] INFO  Amble (null) - 4,5 logged in
+2013-04-14 21:55:50,041 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-14 21:58:22,514 [10] INFO  Amble (null) - 11,6 logged in
+2013-04-14 21:59:34,203 [9] INFO  Amble (null) - 10,7 logged in
+2013-04-15 01:49:23,469 [9] INFO  Amble (null) - 10,7 logged in
+2013-04-15 01:51:55,753 [10] INFO  Amble (null) - 9,8 logged in
+2013-04-15 02:10:31,106 [9] INFO  Amble (null) - 8,9 logged in
+2013-04-15 02:14:06,016 [10] INFO  Amble (null) - 8,9 logged in
+2013-04-15 02:19:55,841 [10] INFO  Amble (null) - 8,9 logged in
+2013-04-15 02:21:44,146 [9] INFO  Amble (null) - 8,9 logged in
+2013-04-15 02:22:39,472 [10] INFO  Amble (null) - 8,9 logged in
+2013-04-15 02:23:44,504 [9] INFO  Amble (null) - 8,9 logged in
+2013-04-15 02:25:28,262 [9] INFO  Amble (null) - 8,9 logged in
+2013-04-15 02:47:34,662 [10] INFO  Amble (null) - 8,9 logged in
+2013-04-15 02:48:38,747 [8] INFO  Amble (null) - 8,9 logged in
+2013-04-15 09:50:22,268 [1] ERROR Amble (null) - 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.101:1111
+2013-04-15 09:50:22,299 [1] ERROR Amble (null) - 
+Server stack trace: 
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 PasswordServer.DatabaseInfo.GetDbUser()
+   在 AmbleClient.ServerInfo..cctor() 位置 E:\AmbleSystem\AmbleClient\AmbleClient\global.cs:行号 252
+2013-04-15 09:51:55,993 [1] ERROR Amble (null) - 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.101:1111
+2013-04-15 09:51:56,008 [1] ERROR Amble (null) - 
+Server stack trace: 
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 PasswordServer.DatabaseInfo.GetDbUser()
+   在 AmbleClient.ServerInfo..cctor() 位置 E:\AmbleSystem\AmbleClient\AmbleClient\global.cs:行号 252
+2013-04-15 09:53:50,739 [1] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
+2013-04-15 09:53:50,740 [1] ERROR Amble (null) -    在 AmbleClient.DataClass.DataBase.GetDataReader(String strSql) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:行号 179
+   在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 47
+2013-04-15 09:53:51,884 [1] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 68
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:行号 50
+2013-04-15 09:53:59,263 [9] ERROR Amble (null) - 由于目标计算机积极拒绝，无法连接。 192.168.1.101:1111
+2013-04-15 09:53:59,279 [9] ERROR Amble (null) - 
+Server stack trace: 
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 PasswordServer.DatabaseInfo.GetDbUser()
+   在 AmbleClient.ServerInfo..cctor() 位置 E:\AmbleSystem\AmbleClient\AmbleClient\global.cs:行号 252
+2013-04-15 09:54:01,564 [9] ERROR Amble (null) - Authentication to host '192.168.1.102' for user '' using method 'mysql_native_password' failed with message: Access denied for user ''@'%' to database 'shenzhenerp'
+2013-04-15 09:54:01,564 [9] ERROR Amble (null) -    在 AmbleClient.DataClass.DataBase.GetDataReader(String strSql) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:行号 179
+   在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 47
+2013-04-15 09:54:02,580 [9] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 68
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:行号 50
+2013-04-15 09:55:02,526 [9] ERROR Amble (null) - 由于目标计算机积极拒绝，无法连接。 192.168.1.101:1111
+2013-04-15 09:55:02,542 [9] ERROR Amble (null) - 
+Server stack trace: 
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 PasswordServer.DatabaseInfo.GetDbUser()
+   在 AmbleClient.ServerInfo..cctor() 位置 E:\AmbleSystem\AmbleClient\AmbleClient\global.cs:行号 252
+2013-04-15 09:55:04,556 [9] ERROR Amble (null) - Authentication to host '192.168.1.102' for user '' using method 'mysql_native_password' failed with message: Access denied for user ''@'%' to database 'shenzhenerp'
+2013-04-15 09:55:04,557 [9] ERROR Amble (null) -    在 AmbleClient.DataClass.DataBase.GetDataReader(String strSql) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:行号 179
+   在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 47
+2013-04-15 09:55:05,548 [9] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 68
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:行号 50
+2013-04-15 09:56:33,991 [8] ERROR Amble (null) - 由于目标计算机积极拒绝，无法连接。 192.168.1.101:1111
+2013-04-15 09:56:34,007 [8] ERROR Amble (null) - 
+Server stack trace: 
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 PasswordServer.DatabaseInfo.GetDbUser()
+   在 AmbleClient.ServerInfo..cctor() 位置 E:\AmbleSystem\AmbleClient\AmbleClient\global.cs:行号 252
+2013-04-15 09:56:37,417 [8] ERROR Amble (null) - Authentication to host '192.168.1.102' for user '' using method 'mysql_native_password' failed with message: Access denied for user ''@'%' to database 'shenzhenerp'
+2013-04-15 09:56:37,417 [8] ERROR Amble (null) -    在 AmbleClient.DataClass.DataBase.GetDataReader(String strSql) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:行号 179
+   在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 47
+2013-04-15 09:56:39,316 [8] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 68
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:行号 50
+2013-04-15 09:58:07,717 [10] INFO  Amble (null) - 8,9 logged in
+2013-04-15 10:11:27,781 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-15 10:14:05,370 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-15 10:18:17,863 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-15 10:25:29,010 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-15 10:30:01,876 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-15 10:32:01,238 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-15 10:34:47,230 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-15 10:36:13,537 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-15 10:39:26,388 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-15 10:41:46,160 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-15 10:42:56,101 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-15 11:03:07,172 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-15 13:19:27,032 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-15 15:03:11,813 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-15 15:09:01,232 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-15 15:34:05,630 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-15 16:01:30,159 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-15 16:05:03,250 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-15 16:09:07,375 [9] INFO  Amble (null) - 1,0 logged in

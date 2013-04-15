@@ -45,6 +45,7 @@ namespace AmbleClient.Order
            filterColumnDict.Add("Customer", "customerName");
            filterColumnDict.Add("SO number", "salesOrderNo");
            filterColumnDict.Add("Customer PO No", "customerPo");
+           filterColumnDict.Add("Part No", "mpn");
        }
 
        protected override void StateChanged(object sender, EventArgs e)

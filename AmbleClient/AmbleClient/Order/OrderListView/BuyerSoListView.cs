@@ -12,6 +12,7 @@ namespace AmbleClient.Order
 
         protected override void ViewStart()
         {
+            this.Text = "SO List View";
             tscbList.Items.Add("List All SO I Can See");
             tscbList.Items.Add("List SO which PA is me");
             tscbFilterColumn.Items.Add("SalesOrderNo");
