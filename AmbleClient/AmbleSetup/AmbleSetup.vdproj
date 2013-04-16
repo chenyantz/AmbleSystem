@@ -51,6 +51,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_7DEDE4B65EBA4CCBA324CBE3D480241D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_87141FFD1BDF6E40B879360B0DEA7D58"
         "OwnerKey" = "8:_F55EEF042EFE43CDA5A342862EDEC73D"
         "MsmSig" = "8:_UNDEFINED"
@@ -158,6 +164,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
         "Release"
@@ -342,6 +361,26 @@
             {
             "SourcePath" = "8:..\\AmbleClient\\bin\\Release\\AmbleAppServer.ini"
             "TargetName" = "8:AmbleAppServer.ini"
+            "Tag" = "8:"
+            "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7DEDE4B65EBA4CCBA324CBE3D480241D"
+            {
+            "SourcePath" = "8:AmbleClient.exe.config"
+            "TargetName" = "8:AmbleClient.exe.config"
             "Tag" = "8:"
             "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
             "Condition" = "8:"
@@ -1149,6 +1188,7 @@
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
+                "ExcludeFilter" = "8:*.exe.config"
                 }
             }
         }
