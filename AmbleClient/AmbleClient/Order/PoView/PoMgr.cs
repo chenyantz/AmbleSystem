@@ -179,7 +179,13 @@ namespace AmbleClient.Order.PoMgr
 
        public static void DeletePoItembyPoItemId(int poItemId)
        {
-           poitems item = poEntity.poitems.Where(i => i.PoItemsId == poItemId).First();
+            var items=poEntity.poitems.Where(i => i.PoItemsId == poItemId);
+           
+           if (items.Count()==0)
+           {
+               return;
+           }
+           poitems item = items.First();
            poEntity.poitems.DeleteObject(item);
            poEntity.SaveChanges();
        }

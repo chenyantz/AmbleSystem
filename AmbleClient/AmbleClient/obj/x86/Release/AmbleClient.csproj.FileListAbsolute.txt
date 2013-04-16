@@ -95,7 +95,6 @@ E:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.RfqGui.BuyerR
 E:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.RfqGui.NewRfq.resources
 E:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.RfqGui.RfqItems.resources
 E:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.RfqGui.RFQListView.resources
-E:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.RfqGui.RfqPrint.resources
 E:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.RfqGui.RFQView.resources
 E:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.RfqGui.SalesNewRfqItems.resources
 E:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.Settings.PasswordChange.resources

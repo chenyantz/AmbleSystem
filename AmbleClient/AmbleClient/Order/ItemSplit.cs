@@ -47,6 +47,12 @@ namespace AmbleClient.Order
             lbSecond.Text = (qty - numericUpDown1.Value).ToString();
         }
 
+        private void numericUpDown1_TextChanged(object sender, EventArgs e)
+        {
+            numericUpDown1_ValueChanged(sender, e);
+
+
+        }
 
         private void btOK_Click(object sender, EventArgs e)
         {

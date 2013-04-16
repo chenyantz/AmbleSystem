@@ -33,17 +33,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>amble128.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CheckBoxComboBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\CheckBoxComboBox.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data.Entity, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="NPOI">
@@ -62,7 +59,6 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -311,12 +307,6 @@
     </Compile>
     <Compile Include="RfqGui\RfqManager\Rfq.cs" />
     <Compile Include="RfqGui\RfqManager\RfqMgr.cs" />
-    <Compile Include="RfqGui\RfqPrint.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RfqGui\RfqPrint.Designer.cs">
-      <DependentUpon>RfqPrint.cs</DependentUpon>
-    </Compile>
     <Compile Include="RfqGui\RFQView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -474,9 +464,6 @@
     <EmbeddedResource Include="RfqGui\RFQListView.resx">
       <DependentUpon>RFQListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RfqGui\RfqPrint.resx">
-      <DependentUpon>RfqPrint.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\RFQView.resx">
       <DependentUpon>RFQView.cs</DependentUpon>
     </EmbeddedResource>
@@ -542,6 +529,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="amble128.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

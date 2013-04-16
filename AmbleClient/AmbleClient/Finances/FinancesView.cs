@@ -158,7 +158,8 @@ namespace AmbleClient.Finances
 
         private void tsbSave_Click(object sender, EventArgs e)
         {
-           //get data from the changeList
+            dataGridView1.EndEdit();
+            //get data from the changeList
             int failrecord = 0;
             if (changeList.Count == 0) return;
             foreach (CustomerVenderPrimaryKey changeItem in changeList)

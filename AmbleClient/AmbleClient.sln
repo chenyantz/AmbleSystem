@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbleClient", "AmbleClient\AmbleClient.csproj", "{87B4F290-C4B4-4488-957D-20774AFEFD06}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AmbleSetup", "AmbleSetup\AmbleSetup.vdproj", "{4D263173-0C4F-4D93-A440-B79562BA3CDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,8 @@ Global
 		{87B4F290-C4B4-4488-957D-20774AFEFD06}.Debug|x86.Build.0 = Debug|x86
 		{87B4F290-C4B4-4488-957D-20774AFEFD06}.Release|x86.ActiveCfg = Release|x86
 		{87B4F290-C4B4-4488-957D-20774AFEFD06}.Release|x86.Build.0 = Release|x86
+		{4D263173-0C4F-4D93-A440-B79562BA3CDA}.Debug|x86.ActiveCfg = Debug
+		{4D263173-0C4F-4D93-A440-B79562BA3CDA}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
