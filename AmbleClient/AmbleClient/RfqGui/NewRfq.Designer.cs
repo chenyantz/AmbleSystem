@@ -57,7 +57,7 @@
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(38, 22);
+            this.tsbSave.Size = new System.Drawing.Size(35, 22);
             this.tsbSave.Text = "Save";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
@@ -67,7 +67,7 @@
             this.tsbPaste.Image = ((System.Drawing.Image)(resources.GetObject("tsbPaste.Image")));
             this.tsbPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPaste.Name = "tsbPaste";
-            this.tsbPaste.Size = new System.Drawing.Size(70, 22);
+            this.tsbPaste.Size = new System.Drawing.Size(64, 22);
             this.tsbPaste.Text = "Paste RFQ";
             this.tsbPaste.Click += new System.EventHandler(this.tsbPaste_Click);
             // 
@@ -77,7 +77,7 @@
             this.tsbCreateAnother.Image = ((System.Drawing.Image)(resources.GetObject("tsbCreateAnother.Image")));
             this.tsbCreateAnother.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCreateAnother.Name = "tsbCreateAnother";
-            this.tsbCreateAnother.Size = new System.Drawing.Size(127, 22);
+            this.tsbCreateAnother.Size = new System.Drawing.Size(116, 22);
             this.tsbCreateAnother.Text = "Create Another RFQ";
             this.tsbCreateAnother.Click += new System.EventHandler(this.tsbCreateAnother_Click);
             // 
@@ -87,7 +87,7 @@
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
             this.tsbClose.Text = "Close";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -96,14 +96,14 @@
             this.rfqItems1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rfqItems1.Location = new System.Drawing.Point(0, 25);
             this.rfqItems1.Name = "rfqItems1";
-            this.rfqItems1.Size = new System.Drawing.Size(933, 501);
+            this.rfqItems1.Size = new System.Drawing.Size(933, 545);
             this.rfqItems1.TabIndex = 1;
             // 
             // NewRfq
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 526);
+            this.ClientSize = new System.Drawing.Size(933, 570);
             this.Controls.Add(this.rfqItems1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

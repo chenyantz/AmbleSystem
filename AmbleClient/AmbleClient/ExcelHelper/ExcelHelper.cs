@@ -5,6 +5,7 @@ using System.Text;
 using NPOI.HPSF;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
+using System.Windows.Forms;
 namespace AmbleClient.ExcelHelper
 {
 
@@ -115,7 +116,7 @@ namespace AmbleClient.ExcelHelper
                         headerRow.CreateCell(0).SetCellValue(strHeaderText);
 
                         ICellStyle headStyle = workbook.CreateCellStyle();
-                        headStyle.Alignment = HorizontalAlignment.CENTER;
+                        headStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.CENTER;
                         IFont font = workbook.CreateFont();
                         font.FontHeightInPoints = 20;
                         font.Boldweight = 700;
@@ -134,7 +135,7 @@ namespace AmbleClient.ExcelHelper
                         IRow headerRow = sheet.CreateRow(1);
 
                         ICellStyle headStyle = workbook.CreateCellStyle();
-                        headStyle.Alignment = HorizontalAlignment.CENTER;
+                        headStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.CENTER;
                         IFont font = workbook.CreateFont();
                         font.FontHeightInPoints = 10;
                         font.Boldweight = 700;
@@ -237,9 +238,18 @@ namespace AmbleClient.ExcelHelper
             DataTable dt = new DataTable();
 
             HSSFWorkbook hssfworkbook;
-            using (FileStream file = new FileStream(strFileName, FileMode.Open, FileAccess.Read))
+            try
             {
-                hssfworkbook = new HSSFWorkbook(file);
+                using (FileStream file = new FileStream(strFileName, FileMode.Open, FileAccess.Read))
+                {
+                    hssfworkbook = new HSSFWorkbook(file);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The file " + strFileName + " is used by another program, please close the program and try again.");
+                return dt;
+            
             }
             ISheet sheet = hssfworkbook.GetSheetAt(0);
             System.Collections.IEnumerator rows = sheet.GetRowEnumerator();

@@ -6,6 +6,7 @@ using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.IO;
 using System.Security.Cryptography;
+using System.Reflection;
 
 
 namespace PasswordServer
@@ -15,17 +16,19 @@ namespace PasswordServer
        private string desKey = "AmbleSYS";
        private static byte[] Keys = { 0x12, 0x34, 0x56, 0x78, 0x90, 0xAB, 0xCD, 0xEF };
 
-  
+        static string strAssemblyFilePath = Assembly.GetExecutingAssembly().Location;
+        static string AppPath = Path.GetDirectoryName(strAssemblyFilePath);
+
 
        public string GetDbUser()
        {
-           string userId=OperatorFile.GetIniFileString("DataBase", "UserID", "", Environment.CurrentDirectory + "\\Amble.ini");
+           string userId=OperatorFile.GetIniFileString("DataBase", "UserID", "", AppPath+ "\\Amble.ini");
            return EncryptDES(userId, desKey);
        }
 
        public string GetDbPassword()
        {
-           string password = OperatorFile.GetIniFileString("DataBase", "Pwd", "", Environment.CurrentDirectory + "\\Amble.ini");
+           string password = OperatorFile.GetIniFileString("DataBase", "Pwd", "", AppPath + "\\Amble.ini");
 
            return EncryptDES(password, desKey);
        }

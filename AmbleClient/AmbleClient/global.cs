@@ -57,9 +57,6 @@ namespace AmbleClient
            return canBeBuyers;
        }
 
-
-
-    
     
     }
 
@@ -161,6 +158,12 @@ namespace AmbleClient
             return int.TryParse(tb.Text.Trim(),out tempvalue);
 
         }
+        public static bool CheckIntNumber(object o)
+        {
+            int tempvalue;
+            return int.TryParse(o.ToString(),out tempvalue);
+        }
+
      
         public static bool CheckFloatNumber(TextBox tb)
         {
@@ -168,6 +171,12 @@ namespace AmbleClient
             return float.TryParse(tb.Text.Trim(), out tempvalue);
            
         }
+        public static bool CheckFloatNumber(object o)
+        {
+            float tempvalue;
+            return float.TryParse(o.ToString(), out tempvalue);
+        }
+
             
     
     }

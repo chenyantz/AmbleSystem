@@ -1,0 +1,5 @@
+C:\AmbleSystem\PasswordServer\ConsoleApplication1\bin\Release\ConsoleApplication1.exe
+C:\AmbleSystem\PasswordServer\ConsoleApplication1\bin\Release\ConsoleApplication1.pdb
+C:\AmbleSystem\PasswordServer\ConsoleApplication1\obj\x86\Release\ResolveAssemblyReference.cache
+C:\AmbleSystem\PasswordServer\ConsoleApplication1\obj\x86\Release\ConsoleApplication1.exe
+C:\AmbleSystem\PasswordServer\ConsoleApplication1\obj\x86\Release\ConsoleApplication1.pdb

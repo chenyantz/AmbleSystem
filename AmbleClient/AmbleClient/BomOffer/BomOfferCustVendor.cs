@@ -27,6 +27,7 @@ namespace AmbleClient.BomOffer
                 this.Text = "Vendors For Offers";
                 this.toolStripButton1.Text = "New Vendor";
                 this.tscbDisplayBomOffer.Text = "List Offer for Selected Vendor";
+                this.tsbExportFromExcel.Text = "Import Offer from xls File";
                 this.tsbNewBomOff.Text = "New Offer for Selected Vendor";
                 this.tsbDelete.Text = "Delete the Selected Vendor";
 
@@ -36,6 +37,7 @@ namespace AmbleClient.BomOffer
                 this.Text = "Customer For BOMs";
                 this.toolStripButton1.Text = "New Customer";
                 this.tscbDisplayBomOffer.Text = "List BOM for Selected Customer";
+                this.tsbExportFromExcel.Text = "Import BOM from xls File";
                 this.tsbNewBomOff.Text = "New BOM for Selected Customer";
                 this.tsbDelete.Text="Delete the Selected Customer";
             }
@@ -171,6 +173,104 @@ namespace AmbleClient.BomOffer
             int custVenId = Convert.ToInt32(dgvr.Cells["Id"].Value);
             BomOffer.BomOfferList bomOfferList = new BomOfferList(isOffer, custVenId);
             bomOfferList.ShowDialog();
+        }
+
+        private void tsbExportFromExcel_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0) return;
+
+            DataGridViewRow dgvr = dataGridView1.SelectedRows[0];
+            int custVenId = Convert.ToInt32(dgvr.Cells["Id"].Value);
+            
+            
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Excel文件(*.xls)|*.xls";
+            ofd.RestoreDirectory = true;
+            ofd.Multiselect = false;
+
+            if (DialogResult.OK == ofd.ShowDialog())
+            {
+                DataTable dt = ExcelHelper.ExcelHelper.Import(ofd.FileName);
+                if (dt.Rows.Count == 0)
+                    return;
+                
+                bool hasCpn=false,hasMpn=false,hasMfg=false,hasQty=false,hasPrice=false;
+                int cpnColumn = -1, mpnColumn = -1, mfgColumn = -1, qtyColumn = -1, priceColumn = -1;
+                foreach (DataColumn dc in dt.Columns)
+                { 
+                    if (dc.ColumnName.ToUpper() == "MPN")
+                    {
+                        hasMpn = true;
+                        mpnColumn=dt.Columns.IndexOf(dc);
+                    }
+                    if (dc.ColumnName.ToUpper() == "CPN")
+                    {
+                        hasCpn = true;
+                        cpnColumn = dt.Columns.IndexOf(dc);
+                    }
+                    if (dc.ColumnName.ToUpper() == "MFG")
+                    {
+                        hasMfg = true;
+                        mfgColumn = dt.Columns.IndexOf(dc);
+                    }
+                    if (dc.ColumnName.ToUpper() == "QTY")
+                    {
+                        hasQty = true;
+                        qtyColumn = dt.Columns.IndexOf(dc);
+                    }
+                    if (dc.ColumnName.ToUpper() == "PRICE")
+                    {
+                        hasPrice = true;
+                        priceColumn = dt.Columns.IndexOf(dc);
+                    }
+                }
+                if (false == (hasPrice && hasMpn && hasCpn && hasMfg && hasQty))
+                {
+                    MessageBox.Show("Please check the xls File Column.(CPN,MPN,MFG,QTY,PRICE)");
+                    return;
+                }
+
+              //  List<publicbomoffer> publicbomOfferList = new List<publicbomoffer>();
+                 using (BomOfferEntities entity = new BomOfferEntities())
+                {   int i=1;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+
+                        if (!ItemsCheck.CheckIntNumber(dr[qtyColumn]))
+                        {
+                            MessageBox.Show("The Qty value is not correct in row " + i.ToString());
+                            return;
+                        }
+                        if (!ItemsCheck.CheckFloatNumber(dr[priceColumn]))
+                        {
+                            MessageBox.Show("The Price value is not correct in row " + i.ToString());
+                            return;
+                        }
+                        
+                        
+                        entity.publicbomoffer.AddObject(
+                        new publicbomoffer
+                         {
+                       mfg = dr[mfgColumn].ToString(),
+                       mpn = dr[mpnColumn].ToString(),
+                       qty = Convert.ToInt32(dr[qtyColumn]),
+                       price = Convert.ToSingle(dr[priceColumn]),
+                       cpn = dr[cpnColumn].ToString(),
+                       userID = (short)UserInfo.UserId,
+                       BomCustVendId = custVenId,
+                       enerDay = DateTime.Now
+                         }
+
+                       );
+                     i++;
+                    }
+                    entity.SaveChanges();
+                }
+
+                 MessageBox.Show("Import file " + ofd.FileName + " successfully.");
+            }
+
+
         }
     
     

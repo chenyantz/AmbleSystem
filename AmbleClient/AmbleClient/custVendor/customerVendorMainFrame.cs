@@ -239,6 +239,10 @@ namespace AmbleClient.custVendor
             {
                 selectedRow = dataGridView1.Rows.Count - 1;
             }
+            else if (selectedRow < 0)
+            {
+                selectedRow = 0;
+            }
             dataGridView1.Rows[selectedRow].Selected = true;
         
         }

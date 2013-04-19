@@ -209,6 +209,21 @@ namespace AmbleClient.RfqGui.RfqManager
                              "To"
                             };
            string[] str = fromto.Split(spliter, StringSplitOptions.RemoveEmptyEntries);
+
+           if (str.Count() < 2)
+           {
+               string[] str1 =
+              {
+               "",
+               ""
+              
+              };
+               return str1;
+
+           
+           }
+
+
            return str;
 
        
@@ -233,7 +248,7 @@ namespace AmbleClient.RfqGui.RfqManager
                 {
                     string[] date = GetStartDateAndEndDate(filterString);
 
-                 strSql.Append(string.Format("select count(*) from rfq where {0} between '{1}' and '{2}' and salesId={3} ", filterColumn, date[0],date[1], salesId));
+                    strSql.Append(string.Format("select count(*) from rfq where {0} between '{1}' and '{2}' and salesId={3} ", filterColumn, date[0],date[1], salesId));
                 }
                 else
                 {
@@ -401,7 +416,7 @@ namespace AmbleClient.RfqGui.RfqManager
                 {
                     string[] date = GetStartDateAndEndDate(filterString);
 
-                    strSql.Append(string.Format("select * from rfq where {0} between '{1}' and '{2}' ", filterColumn, date[0], date[1]));
+                    strSql.Append(string.Format("select * from rfq where {0} between '{1}' and '{2}' ", filterColumn, date[0],date[1]));
                 }
                 else
                 {
@@ -444,7 +459,7 @@ namespace AmbleClient.RfqGui.RfqManager
                 {
                     string[] date = GetStartDateAndEndDate(filterString);
 
-                    strSql.Append(string.Format("select count(*) from rfq where {0} between '{1}' and '{2}' and (firstPA={3} or secondPA={3} ", filterColumn, date[0], date[1],buyerId));
+                    strSql.Append(string.Format("select count(*) from rfq where {0} between '{1}' and '{2}' and (firstPA={3} or secondPA={3} ", filterColumn, date[0],date[1], buyerId));
                 }
                 else
                 {
@@ -479,7 +494,7 @@ namespace AmbleClient.RfqGui.RfqManager
                 {
                     string[] date = GetStartDateAndEndDate(filterString);
 
-                    strSql.Append(string.Format("select * from rfq where {0} between '{1}' and '{2}' and (firstPA={3} or secondPA={3} ", filterColumn, date[0], date[1],buyerId));
+                    strSql.Append(string.Format("select * from rfq where {0} between '{1}' and '{2}' and (firstPA={3} or secondPA={3} ", filterColumn, date[0], date[1], buyerId));
                 }
                 else
                 {

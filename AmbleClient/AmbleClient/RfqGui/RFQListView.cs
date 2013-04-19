@@ -315,6 +315,11 @@ namespace AmbleClient.RfqGui
             {
                 selectedRowIndex = dataGridView1.Rows.Count - 1;
             }
+            else if (selectedRowIndex < 0)
+            {
+                selectedRowIndex = 0;
+            }
+
             dataGridView1.Rows[selectedRowIndex].Selected = true;
         }
 

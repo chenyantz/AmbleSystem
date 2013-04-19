@@ -1,0 +1,85 @@
+2013-04-18 14:34:45,897 [10] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-04-18 14:34:45,930 [10] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
+2013-04-18 14:34:48,019 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-18 14:43:47,209 [9] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-04-18 14:43:47,240 [9] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
+2013-04-18 14:44:27,089 [9] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-04-18 14:44:27,105 [9] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
+2013-04-18 14:44:36,910 [9] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-04-18 14:44:36,910 [9] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
+2013-04-18 14:44:44,845 [9] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-04-18 14:44:44,846 [9] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
+2013-04-18 14:47:23,424 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-18 15:02:20,732 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-18 15:02:50,695 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-18 15:07:40,565 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-18 15:08:40,339 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-18 15:16:21,608 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-18 15:54:39,975 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-18 16:00:51,559 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-18 16:02:34,076 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-18 16:10:26,421 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-18 16:11:47,190 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-18 16:17:52,590 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-18 16:22:17,363 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-18 16:33:02,019 [9] ERROR Amble (null) - Data is Null. This method or property cannot be called on Null values.
+2013-04-18 16:33:02,050 [9] ERROR Amble (null) -    at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue(Int32 index, Boolean checkNull)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt32(Int32 i)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt32(String column)
+   at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 57
+2013-04-18 16:33:02,050 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-18 21:34:19,715 [1] ERROR Amble (null) - A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 192.168.1.234:1111
+2013-04-18 21:34:19,871 [1] ERROR Amble (null) - 
+Server stack trace: 
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
+   at System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   at System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   at System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   at System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   at System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   at System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at PasswordServer.DatabaseInfo.GetDbUser()
+   at AmbleClient.ServerInfo..cctor() in C:\AmbleSystem\AmbleClient\AmbleClient\global.cs:line 261
+2013-04-18 21:34:55,494 [1] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
+2013-04-18 21:34:55,509 [1] ERROR Amble (null) -    at AmbleClient.DataClass.DataBase.GetDataReader(String strSql) in C:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:line 179
+   at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 47
+2013-04-18 21:40:01,763 [9] ERROR Amble (null) - A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 192.168.1.234:1111
+2013-04-18 21:40:01,826 [9] ERROR Amble (null) - 
+Server stack trace: 
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
+   at System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   at System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   at System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   at System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   at System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   at System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at PasswordServer.DatabaseInfo.GetDbUser()
+   at AmbleClient.ServerInfo..cctor() in C:\AmbleSystem\AmbleClient\AmbleClient\global.cs:line 261
+2013-04-18 21:40:27,181 [9] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
+2013-04-18 21:40:27,181 [9] ERROR Amble (null) -    at AmbleClient.DataClass.DataBase.GetDataReader(String strSql) in C:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:line 179
+   at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 47
+2013-04-18 21:40:50,609 [9] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-04-18 21:40:50,609 [9] ERROR Amble (null) -    at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 68
+   at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 50
+2013-04-18 21:41:14,371 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-19 09:52:52,182 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-19 09:56:11,313 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-19 10:08:02,807 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-19 10:11:23,314 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-19 10:13:23,507 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-19 10:18:48,744 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-19 10:24:12,234 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-19 10:26:30,012 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-19 10:28:44,009 [10] INFO  Amble (null) - 1,0 logged in

@@ -35,7 +35,7 @@ CREATE TABLE custVendor (
   lastUpdateName SMALLINT,
   lastUpdateDate DATETIME,
   blacklisted TINYINT,
-  /*0: no, 1:yes*/3
+  /*0: no, 1:yes*/
   amount INT,
   notes VARCHAR (65535),
   CONSTRAINT pk_cvtype_cvname_ownerName PRIMARY KEY (cvtype,cvname,ownerName)
@@ -199,7 +199,7 @@ custVenName VARCHAR(255) NOT NULL,
 contact VARCHAR(255),
 tel VARCHAR(255),
 email VARCHAR(255),
-userID SMALLINT`publiccustven` NOT NULL REFERENCES account ,
+userID SMALLINT NOT NULL REFERENCES account ,
 enterDay DATETIME
 );
 

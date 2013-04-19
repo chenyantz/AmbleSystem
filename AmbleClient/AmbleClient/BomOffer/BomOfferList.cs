@@ -36,13 +36,17 @@ namespace AmbleClient.BomOffer
             else
                 this.Text = "BOMs List";
 
+            tscbFilterBy.Items.Clear();
             if (listbyCustVen)
             {
-                tscbFilterBy.Enabled = false;
-                tstbFilterString.Enabled = false;
-                tsbSearch.Enabled = false;
-                tsbCancel.Enabled = false;
+                tscbFilterBy.Items.Add("MPN");
             }
+            else
+            {
+                tscbFilterBy.Items.Add("MPN");
+                tscbFilterBy.Items.Add("Company Name");
+            }
+
 
 
             using (BomOfferEntities entity = new BomOfferEntities())
@@ -55,7 +59,8 @@ namespace AmbleClient.BomOffer
                                        
                                        select new
                                        {
-                                           Id = bomOffer.BomCustVendId,
+                                          // Id = bomOffer.BomCustVendId,
+                                           Company = custVen.custVenName,
                                            MFG = bomOffer.mfg,
                                            MPN = bomOffer.mpn,
                                            Qty = bomOffer.qty,
@@ -75,7 +80,7 @@ namespace AmbleClient.BomOffer
                                        where custVen.custVendorType == (isOffer ? 1 : 0)
                                        select new
                                        {
-                                           Id=bomOffer.BomCustVendId,
+                                         //  Id=bomOffer.BomCustVendId,
                                            Company = custVen.custVenName,
                                            MFG = bomOffer.mfg,
                                            MPN = bomOffer.mpn,
@@ -125,8 +130,12 @@ namespace AmbleClient.BomOffer
             if ((tscbFilterBy.Text.Trim().Length == 0)|| (tstbFilterString.Text.Trim().Length == 0))
                 return;
 
-            if ((tscbFilterBy.SelectedIndex == 0) && (tstbFilterString.Text.Trim().Length != 0))
+            if ((tscbFilterBy.Text.Trim() == "Company Name") && (tstbFilterString.Text.Trim().Length != 0))
             {
+                if (listbyCustVen)
+                {
+                    return;
+                }
                 using (BomOfferEntities entity = new BomOfferEntities())
                 {
                     var bomOfferList = from bomOffer in entity.publicbomoffer
@@ -134,7 +143,7 @@ namespace AmbleClient.BomOffer
                                        where custVen.custVendorType == (isOffer ? 1 : 0) &&(custVen.custVenName.Contains(tstbFilterString.Text.Trim()))
                                        select new
                                        {
-                                           Id = bomOffer.BomCustVendId,
+                                          // Id = bomOffer.BomCustVendId,
                                            Company = custVen.custVenName,
                                            MFG = bomOffer.mfg,
                                            MPN = bomOffer.mpn,
@@ -148,6 +157,56 @@ namespace AmbleClient.BomOffer
                 }
             
             
+            }
+            if ((tscbFilterBy.Text.Trim() == "MPN") && (tstbFilterString.Text.Trim().Length != 0))
+            {
+                using (BomOfferEntities entity = new BomOfferEntities())
+                {
+                    if (listbyCustVen)
+                    {
+                        var bomOfferList = from bomOffer in entity.publicbomoffer
+                                           join custVen in entity.publiccustven on bomOffer.BomCustVendId equals custVen.custVenId
+                                           where custVen.custVendorType == (isOffer ? 1 : 0) && (bomOffer.mpn.Contains(tstbFilterString.Text.Trim())
+                                           && (custVen.custVenId == this.custVenId))
+                                           select new
+                                           {
+                                               //  Id = bomOffer.BomCustVendId,
+                                               Company = custVen.custVenName,
+                                               MFG = bomOffer.mfg,
+                                               MPN = bomOffer.mpn,
+                                               Qty = bomOffer.qty,
+                                               Price = bomOffer.price,
+                                               CPN = bomOffer.cpn
+                                           };
+
+                        this.dataGridView1.DataSource = bomOfferList;
+
+
+
+                    }
+                    else
+                    {
+
+
+                        var bomOfferList = from bomOffer in entity.publicbomoffer
+                                           join custVen in entity.publiccustven on bomOffer.BomCustVendId equals custVen.custVenId
+                                           where custVen.custVendorType == (isOffer ? 1 : 0) && (bomOffer.mpn.Contains(tstbFilterString.Text.Trim()))
+                                           select new
+                                           {
+                                               //  Id = bomOffer.BomCustVendId,
+                                               Company = custVen.custVenName,
+                                               MFG = bomOffer.mfg,
+                                               MPN = bomOffer.mpn,
+                                               Qty = bomOffer.qty,
+                                               Price = bomOffer.price,
+                                               CPN = bomOffer.cpn
+                                           };
+
+                        this.dataGridView1.DataSource = bomOfferList;
+
+                    }
+                }
+
             }
 
 

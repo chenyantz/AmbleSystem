@@ -38,6 +38,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tsbExportFromExcel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +51,8 @@
             this.toolStripSeparator1,
             this.tsbNewBomOff,
             this.toolStripSeparator2,
+            this.tsbExportFromExcel,
+            this.toolStripSeparator4,
             this.tscbDisplayBomOffer,
             this.toolStripSeparator3,
             this.tsbDelete});
@@ -64,7 +68,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(88, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(82, 22);
             this.toolStripButton1.Text = "New CustVen";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -79,7 +83,7 @@
             this.tsbNewBomOff.Image = ((System.Drawing.Image)(resources.GetObject("tsbNewBomOff.Image")));
             this.tsbNewBomOff.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNewBomOff.Name = "tsbNewBomOff";
-            this.tsbNewBomOff.Size = new System.Drawing.Size(168, 22);
+            this.tsbNewBomOff.Size = new System.Drawing.Size(153, 22);
             this.tsbNewBomOff.Text = "New OfferBom for custVen";
             this.tsbNewBomOff.Click += new System.EventHandler(this.tsbNewBomOff_Click);
             // 
@@ -94,7 +98,7 @@
             this.tscbDisplayBomOffer.Image = ((System.Drawing.Image)(resources.GetObject("tscbDisplayBomOffer.Image")));
             this.tscbDisplayBomOffer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscbDisplayBomOffer.Name = "tscbDisplayBomOffer";
-            this.tscbDisplayBomOffer.Size = new System.Drawing.Size(114, 22);
+            this.tscbDisplayBomOffer.Size = new System.Drawing.Size(104, 22);
             this.tscbDisplayBomOffer.Text = "Display BomOffer";
             this.tscbDisplayBomOffer.Click += new System.EventHandler(this.tscbDisplayBomOffer_Click);
             // 
@@ -109,7 +113,7 @@
             this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
             this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(152, 22);
+            this.tsbDelete.Size = new System.Drawing.Size(138, 22);
             this.tsbDelete.Text = "Delete Selected CustVen";
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
@@ -123,15 +127,30 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(896, 398);
+            this.dataGridView1.Size = new System.Drawing.Size(896, 433);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
+            // tsbExportFromExcel
+            // 
+            this.tsbExportFromExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbExportFromExcel.Image = ((System.Drawing.Image)(resources.GetObject("tsbExportFromExcel.Image")));
+            this.tsbExportFromExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbExportFromExcel.Name = "tsbExportFromExcel";
+            this.tsbExportFromExcel.Size = new System.Drawing.Size(159, 22);
+            this.tsbExportFromExcel.Text = "Export OfferBom From Excel";
+            this.tsbExportFromExcel.Click += new System.EventHandler(this.tsbExportFromExcel_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
             // BomOfferCustVendor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 423);
+            this.ClientSize = new System.Drawing.Size(896, 458);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -157,5 +176,7 @@
         private System.Windows.Forms.ToolStripButton tscbDisplayBomOffer;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsbDelete;
+        private System.Windows.Forms.ToolStripButton tsbExportFromExcel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
