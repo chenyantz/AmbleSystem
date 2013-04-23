@@ -14,20 +14,34 @@ namespace AmbleClient.Order
         int qty;
         int firstQty;
         
-        public ItemSplit(int qty)
+        public ItemSplit(int qty,DateTime dockDate)
         {
             InitializeComponent();
             this.qty = qty;
+            this.preDtp.Value = dockDate;
+            this.preDtp.Enabled = false;
             numericUpDown1.Minimum = 1;
             numericUpDown1.Maximum = qty;
             numericUpDown1.Increment = 1;
-
+            this.firstDateTime.Value = this.secondDateTime.Value = dockDate;
+            
         }
 
         public int GetFirstQty()
         {
             return firstQty;
         
+        }
+
+        public DateTime GetFirstDateTime()
+        {
+            return firstDateTime.Value;
+        
+        }
+
+        public DateTime GetSecondDateTime()
+        {
+            return secondDateTime.Value;
         }
 
         private void ItemSplit_Load(object sender, EventArgs e)

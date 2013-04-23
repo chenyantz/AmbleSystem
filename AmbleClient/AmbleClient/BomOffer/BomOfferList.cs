@@ -15,7 +15,6 @@ namespace AmbleClient.BomOffer
          bool listbyCustVen = false;
          int custVenId;
 
-
         public BomOfferList(bool isOffer)
         {
             InitializeComponent();
@@ -47,8 +46,6 @@ namespace AmbleClient.BomOffer
                 tscbFilterBy.Items.Add("Company Name");
             }
 
-
-
             using (BomOfferEntities entity = new BomOfferEntities())
             {
                 if (listbyCustVen)
@@ -74,7 +71,6 @@ namespace AmbleClient.BomOffer
 
                 else
                 {
-
                     var bomOfferList = from bomOffer in entity.publicbomoffer
                                        join custVen in entity.publiccustven on bomOffer.BomCustVendId equals custVen.custVenId
                                        where custVen.custVendorType == (isOffer ? 1 : 0)

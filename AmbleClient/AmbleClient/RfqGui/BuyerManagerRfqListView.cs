@@ -16,8 +16,8 @@ namespace AmbleClient.RfqGui
 
             base.tsbNewRfq.Enabled = false;
             base.tscbAllOrMine.Enabled = true;
-            base.tscbAllOrMine.Items.Add("List All RFQs");
-            base.tscbAllOrMine.Items.Add("List RFQs which PA is me");
+            base.tscbAllOrMine.Items.Add("All RFQs");
+            base.tscbAllOrMine.Items.Add("My Related RFQs");
 
 
             tscbAllOrMine.SelectedIndexChanged -= tscbAllOrMine_SelectedIndexChanged;

@@ -77,7 +77,7 @@ namespace AmbleClient.BomOffer
             var publicBomOff = new publicbomoffer
             {
                 mfg = tbMfg.Text.Trim(),
-                mpn = tbMpn.Text.Trim(),
+                mpn = tbMpn.Text.Trim().ToUpper(), //upper
                 qty = int.Parse(tbQty.Text.Trim()),
                 price = float.Parse(tbPrice.Text.Trim()),
                 cpn = tbCpn.Text.Trim(),

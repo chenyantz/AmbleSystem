@@ -35,9 +35,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tscbStateList = new System.Windows.Forms.ToolStripComboBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbExportToExcel = new System.Windows.Forms.ToolStripButton();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@
             this.tsbUpdate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUpdate.Name = "tsbUpdate";
-            this.tsbUpdate.Size = new System.Drawing.Size(54, 22);
+            this.tsbUpdate.Size = new System.Drawing.Size(49, 22);
             this.tsbUpdate.Text = "Update";
             this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
@@ -71,7 +71,7 @@
             this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
             this.tsbClose.Text = "Close";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -83,7 +83,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(120, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(108, 22);
             this.toolStripLabel1.Text = "Set the PO to State:";
             // 
             // tscbStateList
@@ -91,16 +91,6 @@
             this.tscbStateList.Name = "tscbStateList";
             this.tscbStateList.Size = new System.Drawing.Size(200, 25);
             this.tscbStateList.SelectedIndexChanged += new System.EventHandler(this.tscbStateList_SelectedIndexChanged);
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 25);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(949, 481);
-            this.tabControl1.TabIndex = 1;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // toolStripSeparator2
             // 
@@ -113,15 +103,25 @@
             this.tsbExportToExcel.Image = ((System.Drawing.Image)(resources.GetObject("tsbExportToExcel.Image")));
             this.tsbExportToExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbExportToExcel.Name = "tsbExportToExcel";
-            this.tsbExportToExcel.Size = new System.Drawing.Size(110, 22);
+            this.tsbExportToExcel.Size = new System.Drawing.Size(98, 22);
             this.tsbExportToExcel.Text = "Export To xls File";
             this.tsbExportToExcel.Click += new System.EventHandler(this.tsbExportToExcel_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 25);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(949, 523);
+            this.tabControl1.TabIndex = 1;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
             // PoView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 506);
+            this.ClientSize = new System.Drawing.Size(949, 548);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

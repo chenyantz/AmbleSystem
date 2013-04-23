@@ -228,6 +228,25 @@ namespace AmbleClient.Order.SoMgr
            DataTable dt = db.GetDataTable(strSql, "soitems");
            foreach (DataRow dr in dt.Rows)
            {
+               int? qtyShippedLocal; DateTime? shippedDateLocal;
+               if (dr["qtyShipped"] == DBNull.Value)
+               {
+                   qtyShippedLocal = null;
+               }
+               else
+               {
+                   qtyShippedLocal = Convert.ToInt32(dr["qtyShipped"]);
+               }
+               if (dr["shippedDate"] == DBNull.Value)
+               {
+                   shippedDateLocal = null;
+               }
+               else
+               { 
+                 shippedDateLocal=Convert.ToDateTime(dr["shippedDate"]);
+               }
+
+               
                soItemsList.Add(
                    new SoItems
                    {
@@ -243,12 +262,12 @@ namespace AmbleClient.Order.SoMgr
                        shipMethod=dr["shipMethod"].ToString(),
                        trackingNo = dr["trackingNo"].ToString(),
                        qty = Convert.ToInt32(dr["qty"]),
-                       qtyshipped = Convert.ToInt32(dr["qtyShipped"]),
+                       qtyshipped = qtyShippedLocal,
                        currencyType = Convert.ToInt32(dr["currency"]),
                        unitPrice = Convert.ToSingle(dr["unitPrice"]),
                       
                        dockDate = Convert.ToDateTime(dr["dockDate"]),
-                       shippedDate = Convert.ToDateTime(dr["shippedDate"]),
+                       shippedDate =shippedDateLocal,
                        shippingInstruction = dr["shippingInstruction"].ToString(),
                        packingInstruction = dr["packingInstruction"].ToString()
 
@@ -376,7 +395,7 @@ namespace AmbleClient.Order.SoMgr
        {
 
           return string.Format("update SoItems set saleType={0},partNo='{1}',mfg='{2}',rohs={3},dc='{4}',intPartNo='{5}',shipFrom='{6}',shipMethod='{7}',trackingNo='{8}',qty={9},qtyShipped={10},currency={11},unitPrice={12},dockDate='{13}',shippedDate='{14}',shippingInstruction='{15}',packingInstruction='{16}' where soItemsId={17} ",
-       soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? soItem.shippedDate.Value.ToShortDateString() : "null",
+       soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc, soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped.HasValue ? soItem.qtyshipped.Value.ToString() : "null", soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? soItem.shippedDate.Value.ToShortDateString() : "null",
     soItem.shippingInstruction, soItem.packingInstruction,soItem.soItemsId);
 
        }
@@ -385,7 +404,7 @@ namespace AmbleClient.Order.SoMgr
        {
            string strsql = "insert into SoItems(soId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,packingInstruction) " +
         string.Format(" values({0},{1},'{2}','{3}',{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13},'{14}','{15}','{16}','{17}')", soItem.soId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
-        soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? soItem.shippedDate.Value.ToShortDateString() : "null",
+        soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped.HasValue?soItem.qtyshipped.Value.ToString():"null", soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? soItem.shippedDate.Value.ToShortDateString() : "null",
         soItem.shippingInstruction, soItem.packingInstruction);
            return strsql;
        }

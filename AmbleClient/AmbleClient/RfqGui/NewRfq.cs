@@ -12,40 +12,55 @@ namespace AmbleClient.RfqGui
 {
     public partial class NewRfq : Form
     {
+        bool copied = false;
                
         public NewRfq()
         {
             InitializeComponent();
         }
 
+        public NewRfq(bool copied)
+        {
+            InitializeComponent();
+            this.copied = true;
+        }
+
+
         private void NewRfq_Load(object sender, EventArgs e)
         {
-            rfqItems1.NewRfqFill();
 
-
-
+               rfqItems1.NewRfqFill();
+            if(this.copied)
+            {
+                tsbPaste_Click(this, null);
+            }
         }
+
+
 
         private void tsbSave_Click(object sender, EventArgs e)
         {
             if (rfqItems1.SaveInfo())
             {
-                MessageBox.Show("The RFQ has been saved successfully");
+                MessageBox.Show("The RFQ saved successfully");
                 tsbSave.Enabled = false;
             }
+            this.Close();
 
         }
 
+        /*
         private void tsbClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        }*/
 
+        /*
         private void tsbCreateAnother_Click(object sender, EventArgs e)
         {
             rfqItems1.NewRfqFill();
             tsbSave.Enabled = true;
-        }
+        }*/
 
         private void tsbPaste_Click(object sender, EventArgs e)
         {

@@ -53,7 +53,7 @@
             this.tsbOp.Image = ((System.Drawing.Image)(resources.GetObject("tsbOp.Image")));
             this.tsbOp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbOp.Name = "tsbOp";
-            this.tsbOp.Size = new System.Drawing.Size(71, 22);
+            this.tsbOp.Size = new System.Drawing.Size(66, 22);
             this.tsbOp.Text = "Op&&Close";
             this.tsbOp.Click += new System.EventHandler(this.tsbOp_Click);
             // 
@@ -63,7 +63,7 @@
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
             this.tsbClose.Text = "Close";
             // 
             // soItemsControl1
@@ -71,14 +71,14 @@
             this.soItemsControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.soItemsControl1.Location = new System.Drawing.Point(0, 25);
             this.soItemsControl1.Name = "soItemsControl1";
-            this.soItemsControl1.Size = new System.Drawing.Size(694, 477);
+            this.soItemsControl1.Size = new System.Drawing.Size(694, 519);
             this.soItemsControl1.TabIndex = 1;
             // 
             // SoItemView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 502);
+            this.ClientSize = new System.Drawing.Size(694, 544);
             this.Controls.Add(this.soItemsControl1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

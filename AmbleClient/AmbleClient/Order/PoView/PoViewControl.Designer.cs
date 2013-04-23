@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.tbVendor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -84,7 +85,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 25);
+            this.label1.Location = new System.Drawing.Point(31, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 0;
@@ -93,17 +94,17 @@
             // tbVendor
             // 
             this.tbVendor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbVendor.Location = new System.Drawing.Point(97, 14);
+            this.tbVendor.Location = new System.Drawing.Point(97, 15);
             this.tbVendor.Multiline = true;
             this.tbVendor.Name = "tbVendor";
-            this.tbVendor.Size = new System.Drawing.Size(203, 35);
+            this.tbVendor.Size = new System.Drawing.Size(203, 38);
             this.tbVendor.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(329, 25);
+            this.label2.Location = new System.Drawing.Point(329, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 15);
             this.label2.TabIndex = 2;
@@ -112,7 +113,7 @@
             // tbContact
             // 
             this.tbContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbContact.Location = new System.Drawing.Point(391, 22);
+            this.tbContact.Location = new System.Drawing.Point(391, 24);
             this.tbContact.Name = "tbContact";
             this.tbContact.Size = new System.Drawing.Size(184, 21);
             this.tbContact.TabIndex = 3;
@@ -121,7 +122,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(615, 25);
+            this.label3.Location = new System.Drawing.Point(615, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 15);
             this.label3.TabIndex = 4;
@@ -131,7 +132,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(31, 80);
+            this.label4.Location = new System.Drawing.Point(31, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 15);
             this.label4.TabIndex = 7;
@@ -140,7 +141,7 @@
             // tbVendorNumber
             // 
             this.tbVendorNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbVendorNumber.Location = new System.Drawing.Point(132, 80);
+            this.tbVendorNumber.Location = new System.Drawing.Point(132, 87);
             this.tbVendorNumber.Name = "tbVendorNumber";
             this.tbVendorNumber.Size = new System.Drawing.Size(131, 21);
             this.tbVendorNumber.TabIndex = 8;
@@ -149,7 +150,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(290, 80);
+            this.label5.Location = new System.Drawing.Point(290, 87);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 15);
             this.label5.TabIndex = 9;
@@ -158,7 +159,7 @@
             // tbPoDate
             // 
             this.tbPoDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPoDate.Location = new System.Drawing.Point(348, 77);
+            this.tbPoDate.Location = new System.Drawing.Point(348, 83);
             this.tbPoDate.Name = "tbPoDate";
             this.tbPoDate.ReadOnly = true;
             this.tbPoDate.Size = new System.Drawing.Size(114, 21);
@@ -168,7 +169,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(495, 80);
+            this.label6.Location = new System.Drawing.Point(495, 87);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 15);
             this.label6.TabIndex = 11;
@@ -177,7 +178,7 @@
             // tbPoNo
             // 
             this.tbPoNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPoNo.Location = new System.Drawing.Point(543, 77);
+            this.tbPoNo.Location = new System.Drawing.Point(543, 83);
             this.tbPoNo.Name = "tbPoNo";
             this.tbPoNo.Size = new System.Drawing.Size(100, 21);
             this.tbPoNo.TabIndex = 12;
@@ -187,7 +188,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(658, 80);
+            this.label7.Location = new System.Drawing.Point(658, 87);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 15);
             this.label7.TabIndex = 13;
@@ -196,7 +197,7 @@
             // tbFreight
             // 
             this.tbFreight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFreight.Location = new System.Drawing.Point(712, 77);
+            this.tbFreight.Location = new System.Drawing.Point(712, 83);
             this.tbFreight.Name = "tbFreight";
             this.tbFreight.Size = new System.Drawing.Size(97, 21);
             this.tbFreight.TabIndex = 14;
@@ -205,7 +206,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(31, 128);
+            this.label8.Location = new System.Drawing.Point(31, 139);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 15);
             this.label8.TabIndex = 15;
@@ -214,7 +215,7 @@
             // tbShipMethod
             // 
             this.tbShipMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbShipMethod.Location = new System.Drawing.Point(117, 127);
+            this.tbShipMethod.Location = new System.Drawing.Point(117, 138);
             this.tbShipMethod.Name = "tbShipMethod";
             this.tbShipMethod.Size = new System.Drawing.Size(175, 21);
             this.tbShipMethod.TabIndex = 16;
@@ -223,7 +224,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(307, 130);
+            this.label9.Location = new System.Drawing.Point(307, 141);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 15);
             this.label9.TabIndex = 17;
@@ -232,7 +233,7 @@
             // tbPaymentTerms
             // 
             this.tbPaymentTerms.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPaymentTerms.Location = new System.Drawing.Point(409, 127);
+            this.tbPaymentTerms.Location = new System.Drawing.Point(409, 138);
             this.tbPaymentTerms.Name = "tbPaymentTerms";
             this.tbPaymentTerms.Size = new System.Drawing.Size(144, 21);
             this.tbPaymentTerms.TabIndex = 18;
@@ -241,16 +242,16 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(564, 130);
+            this.label10.Location = new System.Drawing.Point(581, 141);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 15);
+            this.label10.Size = new System.Drawing.Size(85, 15);
             this.label10.TabIndex = 19;
-            this.label10.Text = "Ship To Location:";
+            this.label10.Text = "Ship Location:";
             // 
             // tbShipToLocation
             // 
             this.tbShipToLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbShipToLocation.Location = new System.Drawing.Point(672, 129);
+            this.tbShipToLocation.Location = new System.Drawing.Point(672, 140);
             this.tbShipToLocation.Name = "tbShipToLocation";
             this.tbShipToLocation.Size = new System.Drawing.Size(137, 21);
             this.tbShipToLocation.TabIndex = 20;
@@ -259,7 +260,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(31, 172);
+            this.label11.Location = new System.Drawing.Point(31, 186);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 15);
             this.label11.TabIndex = 21;
@@ -268,17 +269,17 @@
             // tbBillTo
             // 
             this.tbBillTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbBillTo.Location = new System.Drawing.Point(97, 169);
+            this.tbBillTo.Location = new System.Drawing.Point(97, 183);
             this.tbBillTo.Multiline = true;
             this.tbBillTo.Name = "tbBillTo";
-            this.tbBillTo.Size = new System.Drawing.Size(294, 60);
+            this.tbBillTo.Size = new System.Drawing.Size(294, 65);
             this.tbBillTo.TabIndex = 22;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(424, 172);
+            this.label12.Location = new System.Drawing.Point(424, 186);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 15);
             this.label12.TabIndex = 23;
@@ -287,10 +288,10 @@
             // tbShipTo
             // 
             this.tbShipTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbShipTo.Location = new System.Drawing.Point(498, 169);
+            this.tbShipTo.Location = new System.Drawing.Point(498, 183);
             this.tbShipTo.Multiline = true;
             this.tbShipTo.Name = "tbShipTo";
-            this.tbShipTo.Size = new System.Drawing.Size(311, 60);
+            this.tbShipTo.Size = new System.Drawing.Size(311, 65);
             this.tbShipTo.TabIndex = 24;
             // 
             // dataGridView1
@@ -319,12 +320,12 @@
             this.RecvDate,
             this.StepCode,
             this.SalesAgent});
-            this.dataGridView1.Location = new System.Drawing.Point(33, 292);
+            this.dataGridView1.Location = new System.Drawing.Point(33, 316);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(778, 160);
+            this.dataGridView1.Size = new System.Drawing.Size(778, 173);
             this.dataGridView1.TabIndex = 29;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -334,16 +335,17 @@
             this.No.HeaderText = "No";
             this.No.Name = "No";
             this.No.ReadOnly = true;
-            this.No.Width = 42;
+            this.No.Width = 46;
             // 
             // PartNo
             // 
             this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PartNo.DefaultCellStyle.Font = new System.Drawing.Font(dataGridView1.Font, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.PartNo.DefaultCellStyle = dataGridViewCellStyle2;
             this.PartNo.HeaderText = "Part #";
             this.PartNo.Name = "PartNo";
             this.PartNo.ReadOnly = true;
-            this.PartNo.Width = 56;
+            this.PartNo.Width = 51;
             // 
             // Mfg
             // 
@@ -351,7 +353,7 @@
             this.Mfg.HeaderText = "Mfg";
             this.Mfg.Name = "Mfg";
             this.Mfg.ReadOnly = true;
-            this.Mfg.Width = 48;
+            this.Mfg.Width = 50;
             // 
             // Dc
             // 
@@ -359,7 +361,7 @@
             this.Dc.HeaderText = "D/C";
             this.Dc.Name = "Dc";
             this.Dc.ReadOnly = true;
-            this.Dc.Width = 48;
+            this.Dc.Width = 52;
             // 
             // VendorIntPartNo
             // 
@@ -367,7 +369,7 @@
             this.VendorIntPartNo.HeaderText = "VendorIntPart #";
             this.VendorIntPartNo.Name = "VendorIntPartNo";
             this.VendorIntPartNo.ReadOnly = true;
-            this.VendorIntPartNo.Width = 110;
+            this.VendorIntPartNo.Width = 98;
             // 
             // Org
             // 
@@ -375,7 +377,7 @@
             this.Org.HeaderText = "Org";
             this.Org.Name = "Org";
             this.Org.ReadOnly = true;
-            this.Org.Width = 48;
+            this.Org.Width = 49;
             // 
             // Qty
             // 
@@ -391,7 +393,7 @@
             this.QtyRecd.HeaderText = "Qty Recd";
             this.QtyRecd.Name = "QtyRecd";
             this.QtyRecd.ReadOnly = true;
-            this.QtyRecd.Width = 72;
+            this.QtyRecd.Width = 71;
             // 
             // QtyCorrected
             // 
@@ -399,7 +401,7 @@
             this.QtyCorrected.HeaderText = "Qty Corrected";
             this.QtyCorrected.Name = "QtyCorrected";
             this.QtyCorrected.ReadOnly = true;
-            this.QtyCorrected.Width = 99;
+            this.QtyCorrected.Width = 89;
             // 
             // QtyAccept
             // 
@@ -407,7 +409,7 @@
             this.QtyAccept.HeaderText = "Qty Accept";
             this.QtyAccept.Name = "QtyAccept";
             this.QtyAccept.ReadOnly = true;
-            this.QtyAccept.Width = 83;
+            this.QtyAccept.Width = 79;
             // 
             // QtyReject
             // 
@@ -415,7 +417,7 @@
             this.QtyReject.HeaderText = "Qty Reject";
             this.QtyReject.Name = "QtyReject";
             this.QtyReject.ReadOnly = true;
-            this.QtyReject.Width = 83;
+            this.QtyReject.Width = 76;
             // 
             // QtyRTV
             // 
@@ -423,7 +425,7 @@
             this.QtyRTV.HeaderText = "Qty RTV";
             this.QtyRTV.Name = "QtyRTV";
             this.QtyRTV.ReadOnly = true;
-            this.QtyRTV.Width = 51;
+            this.QtyRTV.Width = 68;
             // 
             // QcPending
             // 
@@ -431,7 +433,7 @@
             this.QcPending.HeaderText = "QC/Pending";
             this.QcPending.Name = "QcPending";
             this.QcPending.ReadOnly = true;
-            this.QcPending.Width = 90;
+            this.QcPending.Width = 91;
             // 
             // Currency
             // 
@@ -439,7 +441,7 @@
             this.Currency.HeaderText = "Currency";
             this.Currency.Name = "Currency";
             this.Currency.ReadOnly = true;
-            this.Currency.Width = 78;
+            this.Currency.Width = 74;
             // 
             // UnitPrice
             // 
@@ -447,7 +449,7 @@
             this.UnitPrice.HeaderText = "Unit Price";
             this.UnitPrice.Name = "UnitPrice";
             this.UnitPrice.ReadOnly = true;
-            this.UnitPrice.Width = 83;
+            this.UnitPrice.Width = 72;
             // 
             // Total
             // 
@@ -455,15 +457,15 @@
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
-            this.Total.Width = 60;
+            this.Total.Width = 56;
             // 
             // DueDate
             // 
             this.DueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DueDate.HeaderText = "Due Date";
+            this.DueDate.HeaderText = "Dock Date";
             this.DueDate.Name = "DueDate";
             this.DueDate.ReadOnly = true;
-            this.DueDate.Width = 72;
+            this.DueDate.Width = 78;
             // 
             // RecvDate
             // 
@@ -471,7 +473,7 @@
             this.RecvDate.HeaderText = "Recv Date";
             this.RecvDate.Name = "RecvDate";
             this.RecvDate.ReadOnly = true;
-            this.RecvDate.Width = 56;
+            this.RecvDate.Width = 78;
             // 
             // StepCode
             // 
@@ -479,7 +481,7 @@
             this.StepCode.HeaderText = "Step Code";
             this.StepCode.Name = "StepCode";
             this.StepCode.ReadOnly = true;
-            this.StepCode.Width = 56;
+            this.StepCode.Width = 76;
             // 
             // SalesAgent
             // 
@@ -487,13 +489,13 @@
             this.SalesAgent.HeaderText = "Sales Agent";
             this.SalesAgent.Name = "SalesAgent";
             this.SalesAgent.ReadOnly = true;
-            this.SalesAgent.Width = 61;
+            this.SalesAgent.Width = 82;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(31, 258);
+            this.label13.Location = new System.Drawing.Point(35, 277);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(40, 15);
             this.label13.TabIndex = 26;
@@ -502,9 +504,9 @@
             // btAdd
             // 
             this.btAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAdd.Location = new System.Drawing.Point(97, 252);
+            this.btAdd.Location = new System.Drawing.Point(97, 273);
             this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(72, 21);
+            this.btAdd.Size = new System.Drawing.Size(72, 23);
             this.btAdd.TabIndex = 27;
             this.btAdd.Text = "Add";
             this.btAdd.UseVisualStyleBackColor = true;
@@ -513,9 +515,9 @@
             // btDelete
             // 
             this.btDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDelete.Location = new System.Drawing.Point(196, 252);
+            this.btDelete.Location = new System.Drawing.Point(196, 273);
             this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(67, 21);
+            this.btDelete.Size = new System.Drawing.Size(67, 23);
             this.btDelete.TabIndex = 28;
             this.btDelete.Text = "Delete";
             this.btDelete.UseVisualStyleBackColor = true;
@@ -526,16 +528,16 @@
             this.cbPa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPa.FormattingEnabled = true;
-            this.cbPa.Location = new System.Drawing.Point(656, 22);
+            this.cbPa.Location = new System.Drawing.Point(656, 24);
             this.cbPa.Name = "cbPa";
             this.cbPa.Size = new System.Drawing.Size(153, 23);
             this.cbPa.TabIndex = 5;
             // 
             // btSplit
             // 
-            this.btSplit.Location = new System.Drawing.Point(293, 252);
+            this.btSplit.Location = new System.Drawing.Point(293, 273);
             this.btSplit.Name = "btSplit";
-            this.btSplit.Size = new System.Drawing.Size(67, 21);
+            this.btSplit.Size = new System.Drawing.Size(67, 23);
             this.btSplit.TabIndex = 30;
             this.btSplit.Text = "Split";
             this.btSplit.UseVisualStyleBackColor = true;
@@ -543,7 +545,7 @@
             // 
             // PoViewControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btSplit);
             this.Controls.Add(this.cbPa);
@@ -575,7 +577,7 @@
             this.Controls.Add(this.tbVendor);
             this.Controls.Add(this.label1);
             this.Name = "PoViewControl";
-            this.Size = new System.Drawing.Size(880, 469);
+            this.Size = new System.Drawing.Size(880, 508);
             this.Load += new System.EventHandler(this.PoViewControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -612,6 +614,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.ComboBox cbPa;
+        private System.Windows.Forms.Button btSplit;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mfg;
@@ -632,7 +636,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RecvDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn StepCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalesAgent;
-        private System.Windows.Forms.ComboBox cbPa;
-        private System.Windows.Forms.Button btSplit;
     }
 }

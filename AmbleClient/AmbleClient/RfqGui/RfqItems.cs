@@ -52,7 +52,7 @@ namespace AmbleClient.RfqGui
             }
             rfq.rfqdate = DateTime.Now.Date;
             rfq.dockdate = dateTimePicker1.Value.Date;
-            rfq.partNo = tbPartNo.Text.Trim();
+            rfq.partNo = tbPartNo.Text.Trim().ToUpper();  //part No自动改成大写 
             rfq.mfg = tbMfg.Text.Trim();
             rfq.dc = tbDc.Text.Trim();
             rfq.custPartNo = tbCustPartNo.Text.Trim();

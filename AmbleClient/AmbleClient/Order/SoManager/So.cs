@@ -41,7 +41,7 @@ namespace AmbleClient.Order.SoMgr
         public string shipMethod;
         public string trackingNo;
         public int qty;
-        public int qtyshipped;
+        public int?  qtyshipped;
         public int currencyType;
         public float unitPrice;
         public DateTime dockDate;

@@ -83,3 +83,34 @@ Exception rethrown at [0]:
 2013-04-19 10:24:12,234 [9] INFO  Amble (null) - 1,0 logged in
 2013-04-19 10:26:30,012 [10] INFO  Amble (null) - 1,0 logged in
 2013-04-19 10:28:44,009 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-19 10:36:57,895 [11] INFO  Amble (null) - 1,0 logged in
+2013-04-19 13:02:18,722 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-23 13:26:40,797 [8] INFO  Amble (null) - 2,1 logged in
+2013-04-23 13:33:49,377 [8] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:04:32,198 [9] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:20:39,924 [8] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:22:26,375 [9] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:24:57,329 [9] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:26:05,080 [10] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:32:36,174 [8] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:35:09,543 [8] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:39:10,561 [9] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:40:24,559 [8] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:41:05,648 [9] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:42:43,268 [8] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:45:02,364 [9] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:46:52,095 [9] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:47:51,336 [9] INFO  Amble (null) - 2,1 logged in
+2013-04-23 14:50:30,983 [9] INFO  Amble (null) - 2,1 logged in
+2013-04-23 15:20:42,449 [10] INFO  Amble (null) - 2,1 logged in
+2013-04-23 15:24:36,117 [9] INFO  Amble (null) - 2,1 logged in
+2013-04-23 15:31:35,981 [9] INFO  Amble (null) - 2,1 logged in
+2013-04-23 16:56:10,346 [8] INFO  Amble (null) - 2,1 logged in
+2013-04-23 16:59:13,436 [8] INFO  Amble (null) - 2,1 logged in
+2013-04-23 17:02:26,456 [8] INFO  Amble (null) - 2,1 logged in
+2013-04-23 21:21:17,486 [10] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-04-23 21:21:17,513 [10] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
+2013-04-23 21:21:26,817 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-23 21:39:13,542 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-23 21:43:15,230 [8] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-04-23 21:43:15,259 [8] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51

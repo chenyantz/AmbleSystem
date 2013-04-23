@@ -12,8 +12,8 @@ namespace AmbleClient.RfqGui
 
         public SalesRfqListView()
         {
-            base.tscbAllOrMine.Items.Add("List All RFQs I Can See");
-            base.tscbAllOrMine.Items.Add("Only List My RFQs");
+            base.tscbAllOrMine.Items.Add("All RFQs");
+            base.tscbAllOrMine.Items.Add("My RFQs");
             tscbAllOrMine.SelectedIndexChanged -= tscbAllOrMine_SelectedIndexChanged;
             tscbAllOrMine.SelectedIndex = 0;
             tscbAllOrMine.SelectedIndexChanged += tscbAllOrMine_SelectedIndexChanged;

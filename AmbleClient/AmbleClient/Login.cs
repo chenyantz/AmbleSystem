@@ -48,7 +48,7 @@ namespace AmbleClient
             try
             {
                 accountProperty =accountMgr.CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
-                Logger.Info(accountProperty.UserId + "," + accountProperty.Job + " logged in");
+
             }
             catch (Exception ex)
             {
@@ -61,11 +61,14 @@ namespace AmbleClient
 
             if (accountProperty== null)
             {
-                MessageBox.Show("Invalid Name or Password");
+                MessageBox.Show("Invalid Name or Password.");
+                return;
 
             }
             else
             {
+                Logger.Info(accountProperty.UserId + "," + accountProperty.Job + " logged in");
+
                 UserInfo.UserId = accountProperty.UserId;
                 UserInfo.UserName = accountProperty.AccountName;
                 UserInfo.Job = (JobDescription)accountProperty.Job;

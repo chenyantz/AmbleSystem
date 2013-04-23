@@ -32,8 +32,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.tsbPaste = new System.Windows.Forms.ToolStripButton();
-            this.tsbCreateAnother = new System.Windows.Forms.ToolStripButton();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.rfqItems1 = new AmbleClient.RfqGui.SalesNewRfqItems();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -42,9 +40,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbSave,
-            this.tsbPaste,
-            this.tsbCreateAnother,
-            this.tsbClose});
+            this.tsbPaste});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(933, 25);
@@ -70,26 +66,6 @@
             this.tsbPaste.Size = new System.Drawing.Size(64, 22);
             this.tsbPaste.Text = "Paste RFQ";
             this.tsbPaste.Click += new System.EventHandler(this.tsbPaste_Click);
-            // 
-            // tsbCreateAnother
-            // 
-            this.tsbCreateAnother.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbCreateAnother.Image = ((System.Drawing.Image)(resources.GetObject("tsbCreateAnother.Image")));
-            this.tsbCreateAnother.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCreateAnother.Name = "tsbCreateAnother";
-            this.tsbCreateAnother.Size = new System.Drawing.Size(116, 22);
-            this.tsbCreateAnother.Text = "Create Another RFQ";
-            this.tsbCreateAnother.Click += new System.EventHandler(this.tsbCreateAnother_Click);
-            // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(40, 22);
-            this.tsbClose.Text = "Close";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // rfqItems1
             // 
@@ -121,9 +97,7 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbSave;
-        private System.Windows.Forms.ToolStripButton tsbClose;
         private SalesNewRfqItems rfqItems1;
-        private System.Windows.Forms.ToolStripButton tsbCreateAnother;
         private System.Windows.Forms.ToolStripButton tsbPaste;
     }
 }

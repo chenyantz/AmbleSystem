@@ -156,6 +156,8 @@ namespace AmbleClient.RfqGui
         private void tsbCopy_Click(object sender, EventArgs e)
         {
             rfqMgr.CopyRfq(rfqId, UserInfo.UserId);
+            NewRfq newRfq = new NewRfq(true);
+            newRfq.ShowDialog();
         }
 
         private void tsbSo_Click(object sender, EventArgs e)

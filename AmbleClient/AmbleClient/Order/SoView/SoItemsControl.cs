@@ -107,16 +107,7 @@ namespace AmbleClient.SO
             }
 
 
-            if (!ItemsCheck.CheckTextBoxEmpty(tbQtyShipped))
-            {
-                MessageBox.Show("Please input the QtyShipped value.");
-                tbQtyShipped.Focus();
-                return false;
-            
-            
-            }
-
-            if(!ItemsCheck.CheckIntNumber(tbQtyShipped))
+            if(ItemsCheck.CheckTextBoxEmpty(tbQtyShipped)&&!ItemsCheck.CheckIntNumber(tbQtyShipped))
             {
                MessageBox.Show("The Qty Shipped should be an integer value.");
                 tbQtyShipped.Focus();
@@ -150,7 +141,7 @@ namespace AmbleClient.SO
 
         public SoItems GetSoItem()
         {
-            DateTime? datetime;
+            DateTime? datetime; int? qtyS;
             if (dateTimePicker2.Checked)
             {
                 datetime = dateTimePicker2.Value.Date;
@@ -159,6 +150,16 @@ namespace AmbleClient.SO
             {
                 datetime = null;
             }
+            if (tbQtyShipped.Text.Trim().Length == 0)
+            {
+                qtyS = null;
+            }
+            else
+            { 
+               qtyS=Convert.ToInt32(tbQtyShipped.Text.Trim());
+            }
+
+
 
             return new SoItems
             {
@@ -172,7 +173,7 @@ namespace AmbleClient.SO
              shipMethod=tbShipMethod.Text.Trim(),
              trackingNo=tbTrackingNo.Text.Trim(),
              qty=Convert.ToInt32(tbQty.Text.Trim()), //will check first
-             qtyshipped=Convert.ToInt32(tbQtyShipped.Text.Trim()),
+             qtyshipped=qtyS,
              currencyType=cbCurrency.SelectedIndex,
              unitPrice=Convert.ToSingle(tbUnitPrice.Text.Trim()),
              dockDate=dateTimePicker1.Value.Date,
@@ -222,6 +223,11 @@ namespace AmbleClient.SO
             }
 
 
+
+        }
+
+        private void tbQty_TextChanged(object sender, EventArgs e)
+        {
 
         }
         

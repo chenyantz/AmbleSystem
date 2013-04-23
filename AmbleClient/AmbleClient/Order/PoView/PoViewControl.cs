@@ -69,6 +69,8 @@ namespace AmbleClient.Order.PoView
                 cbPa.Items.Add(buyerName);
             
             }
+            cbPa.SelectedIndex = 0; //0为myself
+
         }
 
 
@@ -275,13 +277,14 @@ namespace AmbleClient.Order.PoView
            }
            int rowIndex = dataGridView1.SelectedRows[0].Index;
            int qty = poItemsStateList[rowIndex].poItem.qty.Value;
-
-           ItemSplit itemSplit = new ItemSplit(qty);
+           DateTime dockDate=poItemsStateList[rowIndex].poItem.dueDate.Value;
+           ItemSplit itemSplit = new ItemSplit(qty,dockDate);
            if (DialogResult.OK == itemSplit.ShowDialog())
            {
                //get the first value;
                int firstValue = itemSplit.GetFirstQty();
                poItemsStateList[rowIndex].poItem.qty = firstValue;
+               poItemsStateList[rowIndex].poItem.dueDate = itemSplit.GetFirstDateTime();
                poItemsStateList[rowIndex].state = OrderItemsState.Modified;
                //set the second one
 
@@ -290,7 +293,7 @@ namespace AmbleClient.Order.PoView
                poItemContentAndState.poItem = new poitems();
                poItemContentAndState.poItem.currency = poItemsStateList[rowIndex].poItem.currency;
                poItemContentAndState.poItem.dc = poItemsStateList[rowIndex].poItem.dc;
-               poItemContentAndState.poItem.dueDate = poItemsStateList[rowIndex].poItem.dueDate;
+               poItemContentAndState.poItem.dueDate = itemSplit.GetSecondDateTime();
                poItemContentAndState.poItem.mfg = poItemsStateList[rowIndex].poItem.mfg;
                poItemContentAndState.poItem.noteToVendor = poItemsStateList[rowIndex].poItem.noteToVendor;
                poItemContentAndState.poItem.org = poItemsStateList[rowIndex].poItem.org;

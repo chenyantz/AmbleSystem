@@ -48,6 +48,7 @@ namespace AmbleClient.SO
             }
             catch (Exception ex)
             {
+                logger.Error(ex.Message);
                 logger.Error(ex.StackTrace);
                 MessageBox.Show("Save So Error");
                 return;

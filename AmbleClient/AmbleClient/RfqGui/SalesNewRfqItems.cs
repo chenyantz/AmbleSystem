@@ -148,10 +148,6 @@ namespace AmbleClient.RfqGui
             tbContact.Text = contactInfo["contact1"];
             contactSource.Add(contactInfo["contact1"]);
         }
-        else
-        {
-            tbContact.Text = "";
-        }
         if(contactInfo.Keys.Contains("contact2"))
            {
             contactSource.Add(contactInfo["contact2"]);
@@ -166,10 +162,7 @@ namespace AmbleClient.RfqGui
             tbPhone.Text = contactInfo["phone1"];
             phoneSource.Add(contactInfo["phone1"]);
         }
-        else
-        {
-            tbPhone.Text = "";
-        }
+
         if(contactInfo.Keys.Contains("phone2"))
         {
          phoneSource.Add(contactInfo["phone2"]);
@@ -188,10 +181,7 @@ namespace AmbleClient.RfqGui
             tbFax.Text = contactInfo["fax"];
             faxSource.Add(contactInfo["fax"]);
         }
-        else
-        {
-            tbFax.Text = "";
-        }
+
         tbFax.AutoCompleteMode=AutoCompleteMode.SuggestAppend;
         tbFax.AutoCompleteSource=AutoCompleteSource.CustomSource;
         tbFax.AutoCompleteCustomSource=faxSource;

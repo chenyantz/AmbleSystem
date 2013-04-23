@@ -72,8 +72,8 @@ namespace AmbleClient.SO
 
               dataGridView1.Rows.Add(i + 1, strSaleType, soItemsStateList[i].soitem.partNo, soItemsStateList[i].soitem.mfg, soItemsStateList[i].soitem.rohs, soItemsStateList[i].soitem.dc,
                   soItemsStateList[i].soitem.intPartNo, soItemsStateList[i].soitem.shipFrom, soItemsStateList[i].soitem.shipMethod, soItemsStateList[i].soitem.trackingNo, soItemsStateList[i].soitem.qty,
-                  soItemsStateList[i].soitem.qtyshipped, strCurrency, soItemsStateList[i].soitem.unitPrice, soItemsStateList[i].soitem.qtyshipped * soItemsStateList[i].soitem.unitPrice, soItemsStateList[i].soitem.dockDate,
-                  soItemsStateList[i].soitem.shippedDate);
+                  soItemsStateList[i].soitem.qtyshipped, strCurrency, soItemsStateList[i].soitem.unitPrice, soItemsStateList[i].soitem.qtyshipped * soItemsStateList[i].soitem.unitPrice, soItemsStateList[i].soitem.dockDate.ToShortDateString(),
+                  soItemsStateList[i].soitem.shippedDate.HasValue?soItemsStateList[i].soitem.shippedDate.Value.ToShortDateString():"");
           }
 
      
@@ -359,13 +359,15 @@ namespace AmbleClient.SO
             }
             int rowIndex = dataGridView1.SelectedRows[0].Index;
             int qty = soItemsStateList[rowIndex].soitem.qty;
+            DateTime dockDate = soItemsStateList[rowIndex].soitem.dockDate;
 
-            ItemSplit itemSplit = new ItemSplit(qty);
+            ItemSplit itemSplit = new ItemSplit(qty,dockDate);
             if (DialogResult.OK == itemSplit.ShowDialog())
             { 
              //get the first value;
                 int firstValue = itemSplit.GetFirstQty();
                 soItemsStateList[rowIndex].soitem.qty = firstValue;
+                soItemsStateList[rowIndex].soitem.dockDate = itemSplit.GetFirstDateTime();
                 soItemsStateList[rowIndex].state = OrderItemsState.Modified;
             //set the second one
 
@@ -373,6 +375,7 @@ namespace AmbleClient.SO
                 soItemContentAndState.soitem = (SoItems)soItemsStateList[rowIndex].soitem.Clone();
                 soItemContentAndState.soitem.soId = this.soId;
                 soItemContentAndState.soitem.qty = qty - firstValue;
+                soItemContentAndState.soitem.dockDate = itemSplit.GetSecondDateTime();
                 soItemContentAndState.state = OrderItemsState.New;
                 soItemsStateList.Insert(rowIndex + 1, soItemContentAndState);
                 ShowDataInDataGridView();

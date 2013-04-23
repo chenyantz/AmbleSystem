@@ -53,8 +53,8 @@
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(59, 22);
-            this.tsbSave.Text ="Save PO&&Close";
+            this.tsbSave.Size = new System.Drawing.Size(93, 22);
+            this.tsbSave.Text = "Save PO&&Close";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // tsbClose
@@ -63,7 +63,7 @@
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
             this.tsbClose.Text = "Close";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -72,14 +72,14 @@
             this.poViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.poViewControl1.Location = new System.Drawing.Point(0, 25);
             this.poViewControl1.Name = "poViewControl1";
-            this.poViewControl1.Size = new System.Drawing.Size(879, 471);
+            this.poViewControl1.Size = new System.Drawing.Size(879, 512);
             this.poViewControl1.TabIndex = 1;
             // 
             // NewPo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 496);
+            this.ClientSize = new System.Drawing.Size(879, 537);
             this.Controls.Add(this.poViewControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "NewPo";

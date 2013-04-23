@@ -126,7 +126,10 @@ namespace AmbleClient.Order
                itemRow.CreateCell(8).SetCellValue(scs.soitem.shipMethod);
                itemRow.CreateCell(9).SetCellValue(scs.soitem.trackingNo);
                itemRow.CreateCell(10).SetCellValue(scs.soitem.qty);
-               itemRow.CreateCell(11).SetCellValue(scs.soitem.qtyshipped);
+               if (scs.soitem.qtyshipped != null)
+               {
+                   itemRow.CreateCell(11).SetCellValue(scs.soitem.qtyshipped.Value);
+               }
                itemRow.CreateCell(12).SetCellValue(Enum.GetName(typeof(AmbleClient.Currency), scs.soitem.currencyType));
                itemRow.CreateCell(13).SetCellValue(scs.soitem.unitPrice);
                itemRow.CreateCell(14).SetCellValue(scs.soitem.unitPrice * scs.soitem.qty);

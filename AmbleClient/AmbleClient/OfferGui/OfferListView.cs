@@ -16,7 +16,7 @@ namespace AmbleClient.OfferGui
             this.Text = "Offer List";
             tscbList.Items.Add("List All Offer I Can See");
             tscbList.Items.Add("List My Offer");
-            tscbFilterColumn.Items.Add("vendorName");
+          //  tscbFilterColumn.Items.Add("vendorName");
 
             //Add columns for datagridView1
             System.Windows.Forms.DataGridViewTextBoxColumn OfferId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,6 +110,15 @@ namespace AmbleClient.OfferGui
          });
 
         }
+
+
+        protected override void FillTheFilterColumnDict()
+        {
+            filterColumnDict.Add("Vendor Name", "vendorName");
+
+        }
+
+
 
         protected override void GetTheStateList()
         {

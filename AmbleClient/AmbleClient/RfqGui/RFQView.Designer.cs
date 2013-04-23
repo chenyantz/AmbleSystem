@@ -34,12 +34,12 @@
             this.tsbQuote = new System.Windows.Forms.ToolStripButton();
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
             this.tsbCopy = new System.Windows.Forms.ToolStripButton();
+            this.tsbOfferView = new System.Windows.Forms.ToolStripButton();
             this.tsbSo = new System.Windows.Forms.ToolStripButton();
             this.tsbViewSo = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseRfq = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.rfqItems1 = new AmbleClient.RfqGui.SalesRfqItems();
-            this.tsbOfferView = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +67,7 @@
             this.tsbRoute.Image = ((System.Drawing.Image)(resources.GetObject("tsbRoute.Image")));
             this.tsbRoute.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRoute.Name = "tsbRoute";
-            this.tsbRoute.Size = new System.Drawing.Size(45, 22);
+            this.tsbRoute.Size = new System.Drawing.Size(42, 22);
             this.tsbRoute.Text = "Route";
             this.tsbRoute.Click += new System.EventHandler(this.tsbRoute_Click);
             // 
@@ -77,7 +77,7 @@
             this.tsbQuote.Image = ((System.Drawing.Image)(resources.GetObject("tsbQuote.Image")));
             this.tsbQuote.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbQuote.Name = "tsbQuote";
-            this.tsbQuote.Size = new System.Drawing.Size(47, 22);
+            this.tsbQuote.Size = new System.Drawing.Size(44, 22);
             this.tsbQuote.Text = "Quote";
             this.tsbQuote.Click += new System.EventHandler(this.tsbQuote_Click);
             // 
@@ -87,7 +87,7 @@
             this.tsbUpdate.Image = ((System.Drawing.Image)(resources.GetObject("tsbUpdate.Image")));
             this.tsbUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUpdate.Name = "tsbUpdate";
-            this.tsbUpdate.Size = new System.Drawing.Size(54, 22);
+            this.tsbUpdate.Size = new System.Drawing.Size(49, 22);
             this.tsbUpdate.Text = "Update";
             this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
@@ -97,9 +97,19 @@
             this.tsbCopy.Image = ((System.Drawing.Image)(resources.GetObject("tsbCopy.Image")));
             this.tsbCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCopy.Name = "tsbCopy";
-            this.tsbCopy.Size = new System.Drawing.Size(41, 22);
+            this.tsbCopy.Size = new System.Drawing.Size(39, 22);
             this.tsbCopy.Text = "Copy";
             this.tsbCopy.Click += new System.EventHandler(this.tsbCopy_Click);
+            // 
+            // tsbOfferView
+            // 
+            this.tsbOfferView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbOfferView.Image = ((System.Drawing.Image)(resources.GetObject("tsbOfferView.Image")));
+            this.tsbOfferView.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbOfferView.Name = "tsbOfferView";
+            this.tsbOfferView.Size = new System.Drawing.Size(79, 22);
+            this.tsbOfferView.Text = "View Offer(s)";
+            this.tsbOfferView.Click += new System.EventHandler(this.tsbOfferView_Click);
             // 
             // tsbSo
             // 
@@ -107,7 +117,7 @@
             this.tsbSo.Image = ((System.Drawing.Image)(resources.GetObject("tsbSo.Image")));
             this.tsbSo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSo.Name = "tsbSo";
-            this.tsbSo.Size = new System.Drawing.Size(85, 22);
+            this.tsbSo.Size = new System.Drawing.Size(76, 22);
             this.tsbSo.Text = "Generate SO";
             this.tsbSo.Click += new System.EventHandler(this.tsbSo_Click);
             // 
@@ -117,7 +127,7 @@
             this.tsbViewSo.Image = ((System.Drawing.Image)(resources.GetObject("tsbViewSo.Image")));
             this.tsbViewSo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbViewSo.Name = "tsbViewSo";
-            this.tsbViewSo.Size = new System.Drawing.Size(73, 22);
+            this.tsbViewSo.Size = new System.Drawing.Size(67, 22);
             this.tsbViewSo.Text = "View SO(s)";
             this.tsbViewSo.Click += new System.EventHandler(this.tsbViewSo_Click);
             // 
@@ -127,7 +137,7 @@
             this.tsbCloseRfq.Image = ((System.Drawing.Image)(resources.GetObject("tsbCloseRfq.Image")));
             this.tsbCloseRfq.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCloseRfq.Name = "tsbCloseRfq";
-            this.tsbCloseRfq.Size = new System.Drawing.Size(71, 22);
+            this.tsbCloseRfq.Size = new System.Drawing.Size(65, 22);
             this.tsbCloseRfq.Text = "Close RFQ";
             this.tsbCloseRfq.Click += new System.EventHandler(this.tsbCloseRfq_Click);
             // 
@@ -137,7 +147,7 @@
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
             this.tsbClose.Text = "Close";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -146,24 +156,14 @@
             this.rfqItems1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rfqItems1.Location = new System.Drawing.Point(0, 25);
             this.rfqItems1.Name = "rfqItems1";
-            this.rfqItems1.Size = new System.Drawing.Size(912, 510);
+            this.rfqItems1.Size = new System.Drawing.Size(912, 555);
             this.rfqItems1.TabIndex = 1;
-            // 
-            // tsbOfferView
-            // 
-            this.tsbOfferView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbOfferView.Image = ((System.Drawing.Image)(resources.GetObject("tsbOfferView.Image")));
-            this.tsbOfferView.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbOfferView.Name = "tsbOfferView";
-            this.tsbOfferView.Size = new System.Drawing.Size(86, 22);
-            this.tsbOfferView.Text = "View Offer(s)";
-            this.tsbOfferView.Click += new System.EventHandler(this.tsbOfferView_Click);
             // 
             // RFQView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 535);
+            this.ClientSize = new System.Drawing.Size(912, 580);
             this.Controls.Add(this.rfqItems1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
