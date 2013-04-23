@@ -46,7 +46,7 @@ namespace AmbleClient.Order
          Sp.Name = "Sp";
 
          SalesOrderNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-         SalesOrderNo.HeaderText = "Sales Order #";
+         SalesOrderNo.HeaderText = "SO#";
          SalesOrderNo.Name = "SalesOrderNo";
 
          OrderDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -75,10 +75,11 @@ namespace AmbleClient.Order
 
          dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             No,
+            SalesOrderNo,
             Customer,
             Contact,
             Sp,
-            SalesOrderNo,
+            
             OrderDate,
             CustomerPo,
             PaymentTerms,
@@ -108,7 +109,7 @@ namespace AmbleClient.Order
            int i = 0;
            foreach(So so in soList)
            {
-               dataGridView1.Rows.Add(i++,so.customerName, so.contact,idNameDict[so.salesId], so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,
+               dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), so.customerName, so.contact, idNameDict[so.salesId], so.orderDate.ToShortDateString(), so.customerPo,
                    so.paymentTerm, so.freightTerm, so.customerAccount,soStateList.GetSoStateStringAccordingToValue(so.soStates));
            }
 

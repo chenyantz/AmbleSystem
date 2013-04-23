@@ -36,7 +36,7 @@ namespace AmbleClient.Settings
                 maskedTextBox1.Focus();
                 return;
             }
-           new AmbleClient.Admin.AccountMgr.AccountMgr().ChangePasswd(UserInfo.UserId, maskedTextBox1.Text.Trim());
+           AmbleClient.Admin.AccountMgr.AccountMgr.ChangePasswd(UserInfo.UserId, maskedTextBox1.Text.Trim());
            this.Close();
         }
     }

@@ -68,14 +68,13 @@ namespace AmbleClient.Order
 
        static void FillTheSoSheet(ISheet sheet,So so, List<SoItemsContentAndState> soitemList)
        {
-           AmbleClient.Admin.AccountMgr.AccountMgr accMgr=new Admin.AccountMgr.AccountMgr();
            sheet.GetRow(0).CreateCell(2).SetCellValue(so.customerName);
            sheet.GetRow(0).CreateCell(6).SetCellValue(so.contact);
-           sheet.GetRow(0).CreateCell(9).SetCellValue(accMgr.GetNameById(so.salesId));
+           sheet.GetRow(0).CreateCell(9).SetCellValue(AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(so.salesId));
          
            if (so.approverId != null)
            {
-               sheet.GetRow(0).CreateCell(14).SetCellValue(accMgr.GetNameById(so.approverId.Value) + "," + so.approveDate.Value.ToShortDateString());
+               sheet.GetRow(0).CreateCell(14).SetCellValue(AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(so.approverId.Value) + "," + so.approveDate.Value.ToShortDateString());
            }
            sheet.GetRow(1).CreateCell(2).SetCellValue(so.salesOrderNo);
            sheet.GetRow(1).CreateCell(6).SetCellValue(so.orderDate.ToShortDateString());
@@ -196,13 +195,12 @@ namespace AmbleClient.Order
 
        static void FillThePoSheet(ISheet sheet,po po, List<PoItemContentAndState> poitemList)
        {
-           AmbleClient.Admin.AccountMgr.AccountMgr accMgr = new Admin.AccountMgr.AccountMgr();
 
            sheet.GetRow(0).CreateCell(2).SetCellValue(po.vendorName);
            sheet.GetRow(0).CreateCell(9).SetCellValue(po.contact);
            if (po.pa != null)
            {
-               sheet.GetRow(0).CreateCell(14).SetCellValue(accMgr.GetNameById((int)po.pa.Value));
+               sheet.GetRow(0).CreateCell(14).SetCellValue(AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById((int)po.pa.Value));
            }
            sheet.GetRow(1).CreateCell(2).SetCellValue(po.vendorNumber);
 

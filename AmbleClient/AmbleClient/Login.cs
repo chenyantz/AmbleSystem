@@ -47,7 +47,7 @@ namespace AmbleClient
         {
             try
             {
-                accountProperty =accountMgr.CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
+                accountProperty =AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
 
             }
             catch (Exception ex)
@@ -56,7 +56,6 @@ namespace AmbleClient
                 Logger.Error(ex.Message);
                 Logger.Error(ex.StackTrace);
                 return;
-            
             }
 
             if (accountProperty== null)

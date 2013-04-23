@@ -43,7 +43,7 @@ namespace AmbleClient.custVendor
 
         private void customerVendorMainFrame_Load(object sender, EventArgs e)
         {
-            userTable = new AmbleClient.Admin.AccountMgr.AccountMgr().ReturnWholeAccountTable();
+            userTable = AmbleClient.Admin.AccountMgr.AccountMgr.ReturnWholeAccountTable();
                     
            
             showTable = new DataTable();

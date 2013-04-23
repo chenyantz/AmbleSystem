@@ -48,9 +48,8 @@ namespace AmbleClient.custVendor.customerVendorMgr
        public DataTable GetTheCustomersOrVendorsICanSee(int cvtype,int id)
        {
            //get the subs IDs include himself
-           var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
 
-           List<int> subIds = accountMgr.GetAllSubsId(id,null);
+           List<int> subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(id, null);
            List<string> sqlCodes = new List<string>();
 
 

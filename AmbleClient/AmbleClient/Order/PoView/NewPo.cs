@@ -43,7 +43,9 @@ namespace AmbleClient.Order.PoView
             poMain.poDate = DateTime.Now;
             PoMgr.PoMgr.SavePoMain(poMain);
             int poId = PoMgr.PoMgr.GetTheInsertId(UserInfo.UserId);
-            List<PoItemContentAndState> items = poViewControl1.GetPoItemContentAndSate();
+            PoMgr.PoMgr.SetPoNumber(poId);
+            
+            List<PoItemContentAndState> items = poViewControl1.GetPoItemContentAndState();
             foreach (PoItemContentAndState pics in items)
             {
                 pics.poItem.poId = poId;

@@ -509,7 +509,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Po.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="custVendor\AmbleClient.exe.config" />
     <None Include="Properties\DataSources\AmbleAppServer.SoMgr.So.datasource" />
     <None Include="Properties\DataSources\AmbleClient.BomOffer.BomOfferEntities.datasource" />
     <None Include="Properties\DataSources\AmbleClient.Order.PoMgr.PoEntities.datasource" />

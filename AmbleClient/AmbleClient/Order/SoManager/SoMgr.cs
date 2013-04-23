@@ -22,8 +22,8 @@ namespace AmbleClient.Order.SoMgr
 
            if (includedSubs)
            {
-               var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
-               salesIds.AddRange(accountMgr.GetAllSubsId(userId,UserCombine.GetUserCanBeSales()));
+              
+               salesIds.AddRange(AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(userId,UserCombine.GetUserCanBeSales()));
            }
            else
            {
@@ -93,8 +93,8 @@ namespace AmbleClient.Order.SoMgr
 
            if (includedSubs)
            {
-               var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
-               buyersIds.AddRange(accountMgr.GetAllSubsId(userId,UserCombine.GetUserCanBeBuyers()));
+
+               buyersIds.AddRange(AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(userId, UserCombine.GetUserCanBeBuyers()));
            }
            else
            {
@@ -364,14 +364,22 @@ namespace AmbleClient.Order.SoMgr
 
        public static bool UpdateSoMain(So so)
        {
-           string strSql = string.Format("update So set customerName='{0}',contact='{1}',salesId={2},salesOrderNo='{3}',customerPo='{4}',paymentTerm='{5}',freightTerm='{6}',customerAccount='{7}',specialInstructions='{8}',billTo='{9}',shipTo='{10}' where soId={11}",
-        so.customerName, so.contact, so.salesId, so.salesOrderNo, so.customerPo,so.paymentTerm, so.freightTerm, so.customerAccount, so.specialInstructions, so.billTo, so.shipTo,so.soId);
+           string strSql = string.Format("update So set customerName='{0}',contact='{1}',salesId={2},customerPo='{3}',paymentTerm='{4}',freightTerm='{5}',customerAccount='{6}',specialInstructions='{7}',billTo='{8}',shipTo='{9}' where soId={10}",
+        so.customerName, so.contact, so.salesId, so.customerPo,so.paymentTerm, so.freightTerm, so.customerAccount, so.specialInstructions, so.billTo, so.shipTo,so.soId);
 
            if (db.ExecDataBySql(strSql) == 1)
                return true;
 
            return false;
        }
+       public static void SetSoNumber(int soId)
+       { 
+           //This is only used for search by so number, because so id is digital value, can not be search by string
+           string strsql=string.Format("update So set salesOrderNo='{0}' where soId={1}",Tool.Get6DigitalNumberAccordingToId(soId),soId);
+           db.ExecDataBySql(strsql);
+       
+       }
+       
 
 
        public static List<int> GetSoIdByMPN(string mpn)
@@ -388,7 +396,7 @@ namespace AmbleClient.Order.SoMgr
        
        }
 
-
+       
 
 
        public static string GetUpDateSoItemString(SoItems soItem)

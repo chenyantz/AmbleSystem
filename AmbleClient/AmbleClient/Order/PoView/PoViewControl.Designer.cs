@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.tbVendor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,7 +41,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbPoNo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tbFreight = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbShipMethod = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -78,6 +77,7 @@
             this.btDelete = new System.Windows.Forms.Button();
             this.cbPa = new System.Windows.Forms.ComboBox();
             this.btSplit = new System.Windows.Forms.Button();
+            this.cbFreight = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,6 +180,7 @@
             this.tbPoNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPoNo.Location = new System.Drawing.Point(543, 83);
             this.tbPoNo.Name = "tbPoNo";
+            this.tbPoNo.ReadOnly = true;
             this.tbPoNo.Size = new System.Drawing.Size(100, 21);
             this.tbPoNo.TabIndex = 12;
             this.tbPoNo.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
@@ -193,14 +194,6 @@
             this.label7.Size = new System.Drawing.Size(48, 15);
             this.label7.TabIndex = 13;
             this.label7.Text = "Freight:";
-            // 
-            // tbFreight
-            // 
-            this.tbFreight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFreight.Location = new System.Drawing.Point(712, 83);
-            this.tbFreight.Name = "tbFreight";
-            this.tbFreight.Size = new System.Drawing.Size(97, 21);
-            this.tbFreight.TabIndex = 14;
             // 
             // label8
             // 
@@ -340,8 +333,8 @@
             // PartNo
             // 
             this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.PartNo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.PartNo.DefaultCellStyle = dataGridViewCellStyle1;
             this.PartNo.HeaderText = "Part #";
             this.PartNo.Name = "PartNo";
             this.PartNo.ReadOnly = true;
@@ -543,10 +536,22 @@
             this.btSplit.UseVisualStyleBackColor = true;
             this.btSplit.Click += new System.EventHandler(this.btSplit_Click);
             // 
+            // cbFreight
+            // 
+            this.cbFreight.FormattingEnabled = true;
+            this.cbFreight.Items.AddRange(new object[] {
+            "We Pay",
+            "Vendor Pay"});
+            this.cbFreight.Location = new System.Drawing.Point(712, 83);
+            this.cbFreight.Name = "cbFreight";
+            this.cbFreight.Size = new System.Drawing.Size(99, 21);
+            this.cbFreight.TabIndex = 31;
+            // 
             // PoViewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbFreight);
             this.Controls.Add(this.btSplit);
             this.Controls.Add(this.cbPa);
             this.Controls.Add(this.btDelete);
@@ -563,7 +568,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbShipMethod);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.tbFreight);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbPoNo);
             this.Controls.Add(this.label6);
@@ -599,7 +603,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbPoNo;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbFreight;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbShipMethod;
         private System.Windows.Forms.Label label9;
@@ -636,5 +639,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RecvDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn StepCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalesAgent;
+        private System.Windows.Forms.ComboBox cbFreight;
     }
 }

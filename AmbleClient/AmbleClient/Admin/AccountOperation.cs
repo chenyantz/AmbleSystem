@@ -15,13 +15,11 @@ namespace AmbleClient.Admin
     {
      
            public  DataTable dt;
-          protected AccountMgr.AccountMgr accountMgr;
         
         public AccountOperation()
         {
             InitializeComponent();
-            accountMgr = new AccountMgr.AccountMgr();
-        
+                 
         }
 
 

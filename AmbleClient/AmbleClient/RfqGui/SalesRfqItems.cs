@@ -45,10 +45,10 @@ namespace AmbleClient.RfqGui
            tbCustomer.Text = rfq.customerName;
            //select the sales ID
            //获得下级号和名字
-           AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new Admin.AccountMgr.AccountMgr();
-           mySubs = accountMgr.GetAllSubsId(UserInfo.UserId,UserCombine.GetUserCanBeSales());
 
-           Dictionary<int, string> mySubsIdAndName = accountMgr.GetIdsAndNames(mySubs);
+           mySubs = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(UserInfo.UserId, UserCombine.GetUserCanBeSales());
+
+           Dictionary<int, string> mySubsIdAndName = AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(mySubs);
            foreach (string name in mySubsIdAndName.Values)
            {
                cbSales.Items.Add(name);
@@ -74,7 +74,7 @@ namespace AmbleClient.RfqGui
 
           if (pAList.Count > 0)
           {
-              Dictionary<int, string> paIDAndName = accountMgr.GetIdsAndNames(pAList);
+              Dictionary<int, string> paIDAndName = AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(pAList);
 
               if (rfq.firstPA.HasValue&&rfq.secondPA.HasValue)
               {

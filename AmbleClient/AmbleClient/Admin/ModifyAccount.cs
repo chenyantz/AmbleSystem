@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using AmbleClient.Admin.AccountMgr;
 
 namespace AmbleClient.Admin
 {
@@ -59,7 +60,7 @@ namespace AmbleClient.Admin
         {
             int id =int.Parse( dt.Rows[rowIndex]["id"].ToString());
 
-            accountMgr.ModifyAnAccount(id,textBox1.Text.Trim(), maskedTextBox1.Text.Trim(), textBox2.Text.Trim(),
+            AccountMgr.AccountMgr.ModifyAnAccount(id,textBox1.Text.Trim(), maskedTextBox1.Text.Trim(), textBox2.Text.Trim(),
                             GetJobIdFromJobName(comboBox1.Text), GetIdFromName(comboBox2.Text));
             return true;
            

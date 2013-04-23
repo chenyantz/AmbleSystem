@@ -38,7 +38,7 @@ namespace AmbleClient.RfqGui
                 if (UserInfo.UserId == rfq.salesId)
                     rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + "  Created the RFQ" + System.Environment.NewLine;
                 else
-                    rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + " Created the RFQ for " + new AmbleClient.Admin.AccountMgr.AccountMgr().GetNameById(rfq.salesId) + System.Environment.NewLine;
+                    rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + " Created the RFQ for " + AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(rfq.salesId) + System.Environment.NewLine;
             }
             catch (Exception ex)
             {
@@ -100,10 +100,9 @@ namespace AmbleClient.RfqGui
             
         //Fill the cbSale;
             //获得下级号和名字
-            AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new Admin.AccountMgr.AccountMgr();
-          mySubs = accountMgr.GetAllSubsId(UserInfo.UserId,UserCombine.GetUserCanBeSales());
+            mySubs = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(UserInfo.UserId, UserCombine.GetUserCanBeSales());
 
-          Dictionary<int, string> mySubsIdAndName = accountMgr.GetIdsAndNames(mySubs);
+            Dictionary<int, string> mySubsIdAndName = AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(mySubs);
           foreach (string name in mySubsIdAndName.Values)
           {
               cbSales.Items.Add(name);

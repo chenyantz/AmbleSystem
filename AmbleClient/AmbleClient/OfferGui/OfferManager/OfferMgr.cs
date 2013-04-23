@@ -55,8 +55,7 @@ namespace AmbleClient.OfferGui.OfferMgr
 
             if (includeSubs)
             {
-                var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
-                buyerId.AddRange(accountMgr.GetAllSubsId(userId, UserCombine.GetUserCanBeBuyers()));
+                buyerId.AddRange(AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(userId, UserCombine.GetUserCanBeBuyers()));
             }
             else
             {

@@ -22,20 +22,19 @@ namespace AmbleClient.RfqGui
            this.tbContact.Text = string.Empty;
            this.tbPhone.Text = string.Empty;
 
-           AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new Admin.AccountMgr.AccountMgr();
-           cbSales.Items.Add(accountMgr.GetNameById(rfq.salesId));
+           cbSales.Items.Add(AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(rfq.salesId));
            cbSales.SelectedIndex = 0;
 
 
           if (rfq.firstPA != null) 
            {
-               cbPrimaryPA.Items.Add(accountMgr.GetNameById(rfq.firstPA.Value));
+               cbPrimaryPA.Items.Add(AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(rfq.firstPA.Value));
                cbPrimaryPA.SelectedIndex = 0;
 
            }
            if (rfq.secondPA != null)
            {
-               cbAltPA.Items.Add(accountMgr.GetNameById(rfq.secondPA.Value));
+               cbAltPA.Items.Add(AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(rfq.secondPA.Value));
               cbAltPA.SelectedIndex = 0;
 
            }

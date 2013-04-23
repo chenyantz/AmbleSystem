@@ -16,16 +16,11 @@ namespace AmbleClient.Admin.AccountMgr
 {
     public class AccountMgr
     {
-        DataClass.DataBase db = new DataClass.DataBase();
-        MySqlDataReader sdr=null;
+       static DataClass.DataBase db = new DataClass.DataBase();
+       static MySqlDataReader sdr=null;
 
 
-        public AccountMgr()
-        {
-          
-        }
-
-        public bool ChangePasswd(int id, string passwd)
+        public static bool ChangePasswd(int id, string passwd)
         {
             string strSql = string.Format("update account set accountPassword='{0}' where id={1}", passwd, id);
              if (db.ExecDataBySql(strSql) > 0)
@@ -37,7 +32,7 @@ namespace AmbleClient.Admin.AccountMgr
 
 
        //when check name and password, get the user's information
-       public PropertyClass CheckNameAndPasswd(string name,string password)
+       public static PropertyClass CheckNameAndPasswd(string name,string password)
        {
            PropertyClass accountClass=null;
 
@@ -71,7 +66,7 @@ namespace AmbleClient.Admin.AccountMgr
       
        }
 
-       public bool IsNameExist(string name)
+       public static bool IsNameExist(string name)
        {
        string strSql="select * from account where accountName='"+name.Trim()+"'";
            try{
@@ -102,20 +97,20 @@ namespace AmbleClient.Admin.AccountMgr
        }
        
   
-        public DataSet ReturnDataSet()
+        public static DataSet ReturnDataSet()
         {
 
            return db.GetDataSet("select * from account", "test");
         
       
         }
-       public DataTable ReturnWholeAccountTable()
+       public static DataTable ReturnWholeAccountTable()
        {
            return db.GetDataTable("select * from account", "AccountTable");
        
        }
 
-       public bool AddAnAccount(string accountName,string password,string email,int job,int superviser)
+       public static bool AddAnAccount(string accountName,string password,string email,int job,int superviser)
        {
            string strSql = "INSERT INTO account(accountName,accountPassword,email,job,superviser)VALUES('" + accountName + "','" + password+ "','" +
                email + "'," + job + "," + superviser + ")";
@@ -126,7 +121,7 @@ namespace AmbleClient.Admin.AccountMgr
        }
 
 
-       public bool ModifyAnAccount(int id,string accountName,string password,string email,int job,int superviser)
+       public static bool ModifyAnAccount(int id,string accountName,string password,string email,int job,int superviser)
        {
            string strSql = "UPDATE account SET accountName='" + accountName + "',accountPassword='" + password + "',email='" + email + "',job="
                + job + ",superviser=" + superviser + "   WHERE id="+id;
@@ -136,7 +131,7 @@ namespace AmbleClient.Admin.AccountMgr
 
        }
 
-       public List<int> GetAllIds()
+       public static List<int> GetAllIds()
        {
            List<int> ids = new List<int>();
            string strSql = "select id from account";
@@ -153,7 +148,7 @@ namespace AmbleClient.Admin.AccountMgr
        }
 
 
-       public List<int> GetAllSubsId(int id,List<int> jobs)
+       public static List<int> GetAllSubsId(int id,List<int> jobs)
        {
             List<int> allSubsId = new List<int>();
            allSubsId.Add(id);
@@ -189,7 +184,7 @@ namespace AmbleClient.Admin.AccountMgr
        }
 
 
-       public Dictionary<int, string> GetIdsAndNames(List<int> ids)
+       public static Dictionary<int, string> GetIdsAndNames(List<int> ids)
        {
            Dictionary<int,string> idsAndNames=new Dictionary<int,string>();
            string strSql = "select id,accountName from account";
@@ -216,7 +211,7 @@ namespace AmbleClient.Admin.AccountMgr
        
        }
 
-       public string GetNameById(int id)
+       public static string GetNameById(int id)
        {
            string strSql = "select accountName from account where id=" + id;
            return (string)db.GetSingleObject(strSql);

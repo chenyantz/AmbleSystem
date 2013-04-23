@@ -113,11 +113,10 @@ namespace AmbleClient.SO
         private void FillTheSalesComboBox()
         {
 
-            AmbleClient.Admin.AccountMgr.AccountMgr accMgr = new Admin.AccountMgr.AccountMgr();
 
-            mySubs =accMgr.GetAllSubsId(UserInfo.UserId,UserCombine.GetUserCanBeSales());
+            mySubs = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(UserInfo.UserId, UserCombine.GetUserCanBeSales());
 
-            Dictionary<int, string> mySubsIdAndName = accMgr.GetIdsAndNames(mySubs);
+            Dictionary<int, string> mySubsIdAndName = AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(mySubs);
             foreach (string name in mySubsIdAndName.Values)
             {
                 cbSp.Items.Add(name);
@@ -148,10 +147,10 @@ namespace AmbleClient.SO
             {
                 tbContact.Text = so.contact;
             }
-                tbSalesOrder.Text = so.salesOrderNo;
+                tbSalesOrder.Text = Tool.Get6DigitalNumberAccordingToId(so.soId);
             if (so.approverId != null)
             {
-                tbApprover.Text = new AmbleClient.Admin.AccountMgr.AccountMgr().GetNameById(so.approverId.Value);
+                tbApprover.Text = AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(so.approverId.Value);
             }
             if (so.approveDate != null)
             {
@@ -175,7 +174,7 @@ namespace AmbleClient.SO
             else
             {
                 cbSp.Items.Clear();
-                cbSp.Items.Add(new Admin.AccountMgr.AccountMgr().GetNameById(so.salesId));
+                cbSp.Items.Add(Admin.AccountMgr.AccountMgr.GetNameById(so.salesId));
                 cbSp.SelectedIndex = 0;
             
             }
@@ -208,6 +207,10 @@ namespace AmbleClient.SO
                 return;
             }
             int soId = SoMgr.GetTheInsertId(so.salesId);
+            //save an So number just for search
+            SoMgr.SetSoNumber(soId);
+
+
 
             foreach(SoItemsContentAndState sics in soItemsStateList)
             {

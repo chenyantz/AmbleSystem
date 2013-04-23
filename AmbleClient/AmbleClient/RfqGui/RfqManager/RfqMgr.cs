@@ -36,8 +36,7 @@ namespace AmbleClient.RfqGui.RfqManager
        {
            string strSql = "select routingHistory from rfq where rfqNo=" + rfqId;
            string history = db.GetSingleObject(strSql).ToString();
-           AmbleClient.Admin.AccountMgr.AccountMgr accountMgr=new AmbleClient.Admin.AccountMgr.AccountMgr();
-           history = DateTime.Now.ToString() + ": " + accountMgr.GetNameById(who) + " " + action+System.Environment.NewLine+history;
+           history = DateTime.Now.ToString() + ": " + AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(who) + " " + action + System.Environment.NewLine + history;
            strSql = string.Format("update rfq set routingHistory='{0}'", history);
            int row = db.ExecDataBySql(strSql);
            if (row == 1)
@@ -183,9 +182,8 @@ namespace AmbleClient.RfqGui.RfqManager
        public int GetThePageCountOfDataTable(int itemsPerPage, int salesId, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         { int count=0;
                      //get the subs IDs include himself
-           AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
 
-           List<int> subIds = accountMgr.GetAllSubsId(salesId,null);
+        List<int> subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(salesId, null);
 
            foreach (int id in subIds)
            {
@@ -318,10 +316,9 @@ namespace AmbleClient.RfqGui.RfqManager
         {
             if (selections.Count == 0)
                 return null;
-            
-            var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
 
-            List<int> subIds = accountMgr.GetAllSubsId(salesId,UserCombine.GetUserCanBeSales());
+
+            List<int> subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(salesId, UserCombine.GetUserCanBeSales());
 
             StringBuilder sb = new StringBuilder();
 

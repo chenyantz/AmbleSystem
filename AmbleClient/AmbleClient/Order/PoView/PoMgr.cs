@@ -21,8 +21,8 @@ namespace AmbleClient.Order.PoMgr
 
            if (includedSubs)
            {
-               var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
-               userIds.AddRange(accountMgr.GetAllSubsId(userId,UserCombine.GetUserCanBeBuyers()));
+
+               userIds.AddRange(AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(userId, UserCombine.GetUserCanBeBuyers()));
            }
            else
            {
@@ -84,7 +84,15 @@ namespace AmbleClient.Order.PoMgr
        {
            return poEntity.po.Where(poMain => poMain.soId == soId).Count();
        }
+
+       public static void SetPoNumber(int poId)
+       {
+           po poItem = poEntity.po.Where(item => item.poId == poId).First();
+           poItem.poNo = Tool.Get6DigitalNumberAccordingToId(poId);
+           poEntity.SaveChanges();
        
+       }
+
        
        public static List<po> GetPoAccordingToSoId(int soId)
        {
@@ -196,7 +204,18 @@ namespace AmbleClient.Order.PoMgr
        public static void UpdatePo(po poMain)
        {
            po poItem = poEntity.po.Where(item => item.poId == poMain.poId).First();
-           poItem = poMain;
+         //  poItem = poMain;
+                 poItem.vendorName = poMain.vendorName;
+                poItem.contact = poMain.contact;
+                 poItem.pa = poMain.pa;
+                poItem.vendorNumber=poMain.vendorName;
+                poItem.freight=poMain.freight;
+                poItem.shipMethod=poMain.shipMethod;
+                poItem.paymentTerms=poMain.paymentTerms;
+                poItem.shipToLocation=poMain.shipToLocation;
+                poItem.billTo=poMain.billTo;
+                poItem.shipTo = poMain.shipTo;
+                   
            poEntity.SaveChanges();
        }
 

@@ -47,7 +47,7 @@ namespace AmbleClient.Order
             Sp.Name = "Sp";
 
             SalesOrderNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            SalesOrderNo.HeaderText = "Sales Order #";
+            SalesOrderNo.HeaderText = "SO#";
             SalesOrderNo.Name = "SalesOrderNo";
 
             OrderDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -79,9 +79,10 @@ namespace AmbleClient.Order
             {
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             No,
+            SalesOrderNo,
             Customer,
             Sp,
-            SalesOrderNo,
+            
             OrderDate,
             CustomerPo,
             PaymentTerms,
@@ -94,8 +95,8 @@ namespace AmbleClient.Order
             {
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             No,
-            Sp,
             SalesOrderNo,
+            Sp,
             OrderDate,
             CustomerPo,
             PaymentTerms,
@@ -127,12 +128,12 @@ namespace AmbleClient.Order
             {
                 if (UserInfo.Job == JobDescription.Purchaser)
                 {
-                    dataGridView1.Rows.Add(i++,idNameDict[so.salesId], so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,
+                    dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), idNameDict[so.salesId], so.orderDate.ToShortDateString(), so.customerPo,
                         so.paymentTerm, so.freightTerm, so.customerAccount, soStateList.GetSoStateStringAccordingToValue(so.soStates));
                 }
                 else
                 {
-                    dataGridView1.Rows.Add(i++,so.customerName, idNameDict[so.salesId], so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,
+                    dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), so.customerName, idNameDict[so.salesId], so.orderDate.ToShortDateString(), so.customerPo,
                           so.paymentTerm, so.freightTerm, so.customerAccount, soStateList.GetSoStateStringAccordingToValue(so.soStates));
                 
                 }

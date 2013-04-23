@@ -28,7 +28,7 @@ namespace AmbleClient.Admin
         {
             //fill the datagrid view
 
-            originalTable = accountMgr.ReturnWholeAccountTable();
+            originalTable = AmbleClient.Admin.AccountMgr.AccountMgr.ReturnWholeAccountTable();
 
             DataTable showTable = new DataTable();
             showTable.Columns.Add("Name");

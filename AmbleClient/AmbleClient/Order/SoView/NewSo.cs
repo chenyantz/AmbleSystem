@@ -61,7 +61,7 @@ namespace AmbleClient.SO
             }
             else
             { 
-              rfqMgr.AddRfqHistory(rfqId,UserInfo.UserId,"Created an SO for "+new AmbleClient.Admin.AccountMgr.AccountMgr().GetNameById(soViewControl1.GetAssignedSaleID()));
+              rfqMgr.AddRfqHistory(rfqId,UserInfo.UserId,"Created an SO for "+AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(soViewControl1.GetAssignedSaleID()));
             
             }
             this.Close();

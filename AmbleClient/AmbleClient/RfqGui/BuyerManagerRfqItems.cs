@@ -30,8 +30,6 @@ namespace AmbleClient.RfqGui
            base.FillTheTable(rfq);
            tbCustomer.Text = rfq.customerName;
 
-           AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new Admin.AccountMgr.AccountMgr();
-
            this.tbContact.Text = string.Empty;//can not be seen by sales Manager
            this.tbPhone.Text = string.Empty; //can not be seen by sales Manager.
 
@@ -40,13 +38,13 @@ namespace AmbleClient.RfqGui
            List<int> sales = new List<int>();
            sales.Add(rfq.salesId);
 
-           cbSales.Items.Add(accountMgr.GetIdsAndNames(sales)[rfq.salesId]);
+           cbSales.Items.Add(AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(sales)[rfq.salesId]);
            cbSales.SelectedIndex = 0;
            // cbSales.Text = (GlobalRemotingClient.GetAccountMgr().GetIdsAndNames(sales))[rfq.salesId];
            
            //Fill the PA
-           mySubs = accountMgr.GetAllSubsId(UserInfo.UserId,UserCombine.GetUserCanBeBuyers());
-           Dictionary<int, string> mySubsIdAndName = accountMgr.GetIdsAndNames(mySubs);
+           mySubs = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(UserInfo.UserId, UserCombine.GetUserCanBeBuyers());
+           Dictionary<int, string> mySubsIdAndName = AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(mySubs);
 
            //确认里面的buyer是不是我的下属，如果不是，不能更改。
            if (rfq.firstPA.HasValue == false || mySubs.Contains(rfq.firstPA.Value))
@@ -69,7 +67,7 @@ namespace AmbleClient.RfqGui
            {
                List<int> buyer = new List<int>();
                buyer.Add(rfq.firstPA.Value);
-               cbPrimaryPA.Items.Add(accountMgr.GetIdsAndNames(buyer)[rfq.firstPA.Value]);
+               cbPrimaryPA.Items.Add(AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(buyer)[rfq.firstPA.Value]);
                cbPrimaryPA.SelectedIndex = 0;
            }
            if (rfq.secondPA.HasValue == false || mySubs.Contains(rfq.secondPA.Value))
@@ -93,7 +91,7 @@ namespace AmbleClient.RfqGui
            {
                List<int> buyer = new List<int>();
                buyer.Add(rfq.secondPA.Value);
-              cbAltPA.Items.Add(accountMgr.GetIdsAndNames(buyer)[rfq.secondPA.Value]);
+               cbAltPA.Items.Add(AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(buyer)[rfq.secondPA.Value]);
               cbAltPA.SelectedIndex = 0;
            }
 
@@ -104,8 +102,6 @@ namespace AmbleClient.RfqGui
                label23.ForeColor = System.Drawing.Color.Red;
                label24.ForeColor = System.Drawing.Color.Red;
                cbPrimaryPA.Focus();
-           
-           
            }
 
 

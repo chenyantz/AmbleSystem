@@ -53,9 +53,8 @@ namespace AmbleClient.Order
 
         private void FillTheIdNameDict()
         {
-            AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new Admin.AccountMgr.AccountMgr();
-          // idNameDict =accountMgr.GetIdsAndNames(accountMgr.GetAllSubsId(UserInfo.UserId,null));
-            idNameDict = accountMgr.GetIdsAndNames(accountMgr.GetAllIds());
+           // idNameDict =accountMgr.GetIdsAndNames(accountMgr.GetAllSubsId(UserInfo.UserId,null));
+            idNameDict = AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(AmbleClient.Admin.AccountMgr.AccountMgr.GetAllIds());
         }
 
         protected virtual void FillTheFilterColumnDict()

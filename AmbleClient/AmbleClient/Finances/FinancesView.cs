@@ -44,7 +44,7 @@ namespace AmbleClient.Finances
         private void FillTheDataGrid()
         {
             customerVendorTable = customerVendorMgr.GetTheCompanyNecessaryInfoForFinance();
-            userTable = accountMgr.ReturnWholeAccountTable();
+            userTable = AmbleClient.Admin.AccountMgr.AccountMgr.ReturnWholeAccountTable();
             
             dataGridView1.Rows.Clear();
             dataGridView1.CellValueChanged -= dataGridView1_CellValueChanged;

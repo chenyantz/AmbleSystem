@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using AmbleClient.Order.PoMgr;
+using AmbleClient;
 
 namespace AmbleClient.Order.PoView
 {
@@ -50,7 +51,7 @@ namespace AmbleClient.Order.PoView
         }
 
 
-        public List<PoItemContentAndState> GetPoItemContentAndSate()
+        public List<PoItemContentAndState> GetPoItemContentAndState()
         {
             return poItemsStateList;
         }
@@ -58,11 +59,11 @@ namespace AmbleClient.Order.PoView
 
         private void FillThePACombo()
         {
-          
-            AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new Admin.AccountMgr.AccountMgr();
-            mysubs = accountMgr.GetAllSubsId(UserInfo.UserId, UserCombine.GetUserCanBeBuyers());
 
-            buyerIdsAndNames=accountMgr.GetIdsAndNames(mysubs);
+
+            mysubs = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(UserInfo.UserId, UserCombine.GetUserCanBeBuyers());
+
+            buyerIdsAndNames = AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(mysubs);
 
             foreach (string buyerName in buyerIdsAndNames.Values)
             {
@@ -156,13 +157,13 @@ namespace AmbleClient.Order.PoView
             else
             {
                 cbPa.Items.Clear();
-                cbPa.Items.Add(new AmbleClient.Admin.AccountMgr.AccountMgr().GetNameById(poMain.pa.Value));
+                cbPa.Items.Add(AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(poMain.pa.Value));
                 cbPa.SelectedIndex=0;
             }
             tbVendorNumber.Text = poMain.vendorNumber;
             tbPoDate.Text = poMain.poDate.Value.ToShortDateString();
-            tbPoNo.Text = poMain.poNo;
-            tbFreight.Text = poMain.freight;
+            tbPoNo.Text = Tool.Get6DigitalNumberAccordingToId(poMain.poId);
+            cbFreight.Text = poMain.freight;
             tbShipMethod.Text = poMain.shipMethod;
             tbPaymentTerms.Text = poMain.paymentTerms;
             tbShipToLocation.Text = poMain.shipToLocation;
@@ -211,8 +212,8 @@ namespace AmbleClient.Order.PoView
                 pa = (short)mysubs[cbPa.SelectedIndex],
                 vendorNumber=tbVendorNumber.Text.Trim(),
                 //poDate=DateTime.Now, //update时不可写入
-                poNo=tbPoNo.Text.Trim(),
-                freight=tbFreight.Text.Trim(),
+                //poNo=tbPoNo.Text.Trim(),
+                freight=cbFreight.Text.Trim(),
                 shipMethod=tbShipMethod.Text.Trim(),
                 paymentTerms=tbPaymentTerms.Text.Trim(),
                 shipToLocation=tbShipToLocation.Text.Trim(),

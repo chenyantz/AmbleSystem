@@ -47,7 +47,7 @@ namespace AmbleClient.RfqGui
 
         private void FillTheIdNameDict()
         {
-         DataTable dt=new AmbleClient.Admin.AccountMgr.AccountMgr().ReturnWholeAccountTable();
+         DataTable dt=AmbleClient.Admin.AccountMgr.AccountMgr.ReturnWholeAccountTable();
             foreach(DataRow dr in dt.Rows)
             {
                idToName.Add(Convert.ToInt32(dr["id"]),dr["accountName"].ToString());
