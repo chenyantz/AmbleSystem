@@ -8,6 +8,7 @@ using System.Data;
 
 namespace AmbleClient.custVendor.customerVendorMgr
 {
+    [Obsolete]
    public class CustomerVendorMgr
     {
        DataClass.DataBase db = new DataClass.DataBase();

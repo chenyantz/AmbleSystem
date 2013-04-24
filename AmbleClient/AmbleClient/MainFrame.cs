@@ -106,17 +106,24 @@ namespace AmbleClient
 
         private void customerManagermentToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*
             custVendor.customerVendorMainFrame mainFrame = new custVendor.customerVendorMainFrame(0);
             mainFrame.MdiParent = this;
-            mainFrame.Show();
+            mainFrame.Show();*/
+            custVendor.CustVenderListView custVenderListView = new custVendor.SalesBuyerCustomerListView(0);
+            custVenderListView.MdiParent = this;
+            custVenderListView.Show();
 
         }
 
         private void vendorManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            custVendor.customerVendorMainFrame mainFrame = new custVendor.customerVendorMainFrame(1);
+            /*custVendor.customerVendorMainFrame mainFrame = new custVendor.customerVendorMainFrame(1);
             mainFrame.MdiParent = this;
-            mainFrame.Show();
+            mainFrame.Show();*/
+            custVendor.CustVenderListView custVenderListView = new custVendor.SalesBuyerCustomerListView(1);
+            custVenderListView.MdiParent = this;
+            custVenderListView.Show();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)

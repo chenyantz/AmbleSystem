@@ -1,4 +1,4 @@
-`offer``shenzhenerp`CREATE DATABASE shenzhenERP ;
+CREATE DATABASE shenzhenERP ;
 USE shenzhenERP ;
 
 CREATE TABLE account (
@@ -13,9 +13,46 @@ CREATE TABLE account (
 ) ;
 
 
+CREATE TABLE custVendorInfo (
+  cvId INT AUTO_INCREMENT PRIMARY KEY,
+  cvtype TINYINT NOT NULL,
+  /*0,customer, 1, vendor*/
+  cvname VARCHAR(255) NOT NULL,
+  country VARCHAR (255),
+  cvnumber VARCHAR(255),
+  rate TINYINT,
+  term VARCHAR (255),
+  contact1 VARCHAR (65535),
+  contact2 VARCHAR (65535),
+  phone1 VARCHAR (255),
+  phone2 VARCHAR (255),
+  cellphone VARCHAR (255),
+  fax VARCHAR (255),
+  email1 VARCHAR (255),
+  email2 VARCHAR (255),
+  ownerName SMALLINT NOT NULL,  
+  lastUpdateName SMALLINT,
+  lastUpdateDate DATETIME,
+  blacklisted TINYINT,
+  /*0: no, 1:yes*/
+  amount INT,
+  notes VARCHAR (65535),
+  /*for finance*/
+  paymentTerm VARCHAR(255),
+  shippingTerm VARCHAR(255),
+  billTo VARCHAR(65535)
+) ;
+
+CREATE TABLE custVendorInfoShipto(
+cvId INT NOT NULL REFERENCES custVendorInfo,
+shipTo VARCHAR(65535)`custvendorinfoshipto`
+);
 
 
-CREATE TABLE custVendor (
+
+
+
+CREATE TABLE custVendor_old (
   cvtype TINYINT,
   /*0,customer, 1, vendor*/
   cvname VARCHAR (255),

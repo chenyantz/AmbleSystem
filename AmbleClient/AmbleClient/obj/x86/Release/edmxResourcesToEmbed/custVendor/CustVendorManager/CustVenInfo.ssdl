@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CustVenInfoModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CustVenInfoModelStoreContainer">
+    <EntitySet Name="custvendorinfo" EntityType="CustVenInfoModel.Store.custvendorinfo" store:Type="Tables" Schema="shenzhenerp" />
+    <EntitySet Name="custvendorinfoshipto" EntityType="CustVenInfoModel.Store.custvendorinfoshipto" store:Type="Tables" Schema="shenzhenerp" />
+  </EntityContainer>
+  <EntityType Name="custvendorinfo">
+    <Key>
+      <PropertyRef Name="cvId" />
+    </Key>
+    <Property Name="cvId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cvtype" Type="tinyint" Nullable="false" />
+    <Property Name="cvname" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="country" Type="varchar" MaxLength="255" />
+    <Property Name="cvnumber" Type="varchar" MaxLength="255" />
+    <Property Name="rate" Type="tinyint" />
+    <Property Name="term" Type="varchar" MaxLength="255" />
+    <Property Name="contact1" Type="mediumtext" />
+    <Property Name="contact2" Type="mediumtext" />
+    <Property Name="phone1" Type="varchar" MaxLength="255" />
+    <Property Name="phone2" Type="varchar" MaxLength="255" />
+    <Property Name="cellphone" Type="varchar" MaxLength="255" />
+    <Property Name="fax" Type="varchar" MaxLength="255" />
+    <Property Name="email1" Type="varchar" MaxLength="255" />
+    <Property Name="email2" Type="varchar" MaxLength="255" />
+    <Property Name="ownerName" Type="smallint" Nullable="false" />
+    <Property Name="lastUpdateName" Type="smallint" />
+    <Property Name="lastUpdateDate" Type="datetime" />
+    <Property Name="blacklisted" Type="tinyint" />
+    <Property Name="amount" Type="int" />
+    <Property Name="notes" Type="mediumtext" />
+    <Property Name="paymentTerm" Type="varchar" MaxLength="255" />
+    <Property Name="shippingTerm" Type="varchar" MaxLength="255" />
+    <Property Name="billTo" Type="mediumtext" />
+  </EntityType>
+  <EntityType Name="custvendorinfoshipto">
+    <Key>
+      <PropertyRef Name="cvShipId" />
+    </Key>
+    <Property Name="cvShipId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cvId" Type="int" Nullable="false" />
+    <Property Name="shipTo" Type="mediumtext" />
+  </EntityType>
+</Schema>

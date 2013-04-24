@@ -51,7 +51,7 @@ namespace AmbleClient.OfferGui
                 }
             offerItems.Dock = System.Windows.Forms.DockStyle.Fill;
             offerItems.Location = new System.Drawing.Point(3, 3);
-            offerItems.Name = "OfferItems"+i;
+            offerItems.Name = "OfferItems"+(i+1).ToString();
             offerItems.Size = new System.Drawing.Size(906, 456);
             offerItems.TabIndex = 0;
             offerItems.FillTheTable(offerList[i]);
@@ -69,7 +69,7 @@ namespace AmbleClient.OfferGui
                tabPage.Padding = new System.Windows.Forms.Padding(3);
                tabPage.Size = new System.Drawing.Size(912, 462);
                tabPage.TabIndex = 0;
-               tabPage.Text = "Offer"+i;
+               tabPage.Text = "Offer"+(i+1).ToString();
                tabPage.UseVisualStyleBackColor = true;
                this.tabControl1.Controls.Add(tabPage);
             }

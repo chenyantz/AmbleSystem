@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CustVenInfoModelStoreContainer" CdmEntityContainer="CustVenInfoEntities">
+    <EntitySetMapping Name="custvendorinfo">
+      <EntityTypeMapping TypeName="CustVenInfoModel.custvendorinfo">
+        <MappingFragment StoreEntitySet="custvendorinfo">
+          <ScalarProperty Name="cvId" ColumnName="cvId" />
+          <ScalarProperty Name="cvtype" ColumnName="cvtype" />
+          <ScalarProperty Name="cvname" ColumnName="cvname" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="cvnumber" ColumnName="cvnumber" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="term" ColumnName="term" />
+          <ScalarProperty Name="contact1" ColumnName="contact1" />
+          <ScalarProperty Name="contact2" ColumnName="contact2" />
+          <ScalarProperty Name="phone1" ColumnName="phone1" />
+          <ScalarProperty Name="phone2" ColumnName="phone2" />
+          <ScalarProperty Name="cellphone" ColumnName="cellphone" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="email1" ColumnName="email1" />
+          <ScalarProperty Name="email2" ColumnName="email2" />
+          <ScalarProperty Name="ownerName" ColumnName="ownerName" />
+          <ScalarProperty Name="lastUpdateName" ColumnName="lastUpdateName" />
+          <ScalarProperty Name="lastUpdateDate" ColumnName="lastUpdateDate" />
+          <ScalarProperty Name="blacklisted" ColumnName="blacklisted" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="paymentTerm" ColumnName="paymentTerm" />
+          <ScalarProperty Name="shippingTerm" ColumnName="shippingTerm" />
+          <ScalarProperty Name="billTo" ColumnName="billTo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="custvendorinfoshipto">
+      <EntityTypeMapping TypeName="CustVenInfoModel.custvendorinfoshipto">
+        <MappingFragment StoreEntitySet="custvendorinfoshipto">
+          <ScalarProperty Name="cvShipId" ColumnName="cvShipId" />
+          <ScalarProperty Name="cvId" ColumnName="cvId" />
+          <ScalarProperty Name="shipTo" ColumnName="shipTo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -158,3 +158,8 @@ C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.SO.SoView.res
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.SO.SoViewControl.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\GenerateResource.read.1.tlog
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\GenerateResource.write.1.tlog
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.CustVenInfoControl.resources
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.CustVenInfoFinancialControl.resources
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.CustVenView.resources
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.CustVenderListView.resources
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.NewCustVen.resources

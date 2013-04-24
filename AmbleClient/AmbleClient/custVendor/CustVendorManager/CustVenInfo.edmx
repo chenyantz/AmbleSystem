@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CustVenInfoModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CustVenInfoModelStoreContainer">
+          <EntitySet Name="custvendorinfo" EntityType="CustVenInfoModel.Store.custvendorinfo" store:Type="Tables" Schema="shenzhenerp" />
+          <EntitySet Name="custvendorinfoshipto" EntityType="CustVenInfoModel.Store.custvendorinfoshipto" store:Type="Tables" Schema="shenzhenerp" />
+        </EntityContainer>
+        <EntityType Name="custvendorinfo">
+          <Key>
+            <PropertyRef Name="cvId" />
+          </Key>
+          <Property Name="cvId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cvtype" Type="tinyint" Nullable="false" />
+          <Property Name="cvname" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="country" Type="varchar" MaxLength="255" />
+          <Property Name="cvnumber" Type="varchar" MaxLength="255" />
+          <Property Name="rate" Type="tinyint" />
+          <Property Name="term" Type="varchar" MaxLength="255" />
+          <Property Name="contact1" Type="mediumtext" />
+          <Property Name="contact2" Type="mediumtext" />
+          <Property Name="phone1" Type="varchar" MaxLength="255" />
+          <Property Name="phone2" Type="varchar" MaxLength="255" />
+          <Property Name="cellphone" Type="varchar" MaxLength="255" />
+          <Property Name="fax" Type="varchar" MaxLength="255" />
+          <Property Name="email1" Type="varchar" MaxLength="255" />
+          <Property Name="email2" Type="varchar" MaxLength="255" />
+          <Property Name="ownerName" Type="smallint" Nullable="false" />
+          <Property Name="lastUpdateName" Type="smallint" />
+          <Property Name="lastUpdateDate" Type="datetime" />
+          <Property Name="blacklisted" Type="tinyint" />
+          <Property Name="amount" Type="int" />
+          <Property Name="notes" Type="mediumtext" />
+          <Property Name="paymentTerm" Type="varchar" MaxLength="255" />
+          <Property Name="shippingTerm" Type="varchar" MaxLength="255" />
+          <Property Name="billTo" Type="mediumtext" />
+        </EntityType>
+        <EntityType Name="custvendorinfoshipto">
+          <Key>
+            <PropertyRef Name="cvShipId" />
+          </Key>
+          <Property Name="cvShipId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cvId" Type="int" Nullable="false" />
+          <Property Name="shipTo" Type="mediumtext" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CustVenInfoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CustVenInfoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="custvendorinfo" EntityType="CustVenInfoModel.custvendorinfo" />
+          <EntitySet Name="custvendorinfoshipto" EntityType="CustVenInfoModel.custvendorinfoshipto" />
+        </EntityContainer>
+        <EntityType Name="custvendorinfo">
+          <Key>
+            <PropertyRef Name="cvId" />
+          </Key>
+          <Property Name="cvId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cvtype" Type="SByte" Nullable="false" />
+          <Property Name="cvname" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="country" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="cvnumber" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="rate" Type="SByte" />
+          <Property Name="term" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="contact1" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+          <Property Name="contact2" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+          <Property Name="phone1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="phone2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="cellphone" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="fax" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="email1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="email2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ownerName" Type="Int16" Nullable="false" />
+          <Property Name="lastUpdateName" Type="Int16" />
+          <Property Name="lastUpdateDate" Type="DateTime" />
+          <Property Name="blacklisted" Type="SByte" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="notes" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+          <Property Name="paymentTerm" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="shippingTerm" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="billTo" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="custvendorinfoshipto">
+          <Key>
+            <PropertyRef Name="cvShipId" />
+          </Key>
+          <Property Name="cvShipId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cvId" Type="Int32" Nullable="false" />
+          <Property Name="shipTo" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CustVenInfoModelStoreContainer" CdmEntityContainer="CustVenInfoEntities">
+          <EntitySetMapping Name="custvendorinfo"><EntityTypeMapping TypeName="CustVenInfoModel.custvendorinfo"><MappingFragment StoreEntitySet="custvendorinfo">
+            <ScalarProperty Name="cvId" ColumnName="cvId" />
+            <ScalarProperty Name="cvtype" ColumnName="cvtype" />
+            <ScalarProperty Name="cvname" ColumnName="cvname" />
+            <ScalarProperty Name="country" ColumnName="country" />
+            <ScalarProperty Name="cvnumber" ColumnName="cvnumber" />
+            <ScalarProperty Name="rate" ColumnName="rate" />
+            <ScalarProperty Name="term" ColumnName="term" />
+            <ScalarProperty Name="contact1" ColumnName="contact1" />
+            <ScalarProperty Name="contact2" ColumnName="contact2" />
+            <ScalarProperty Name="phone1" ColumnName="phone1" />
+            <ScalarProperty Name="phone2" ColumnName="phone2" />
+            <ScalarProperty Name="cellphone" ColumnName="cellphone" />
+            <ScalarProperty Name="fax" ColumnName="fax" />
+            <ScalarProperty Name="email1" ColumnName="email1" />
+            <ScalarProperty Name="email2" ColumnName="email2" />
+            <ScalarProperty Name="ownerName" ColumnName="ownerName" />
+            <ScalarProperty Name="lastUpdateName" ColumnName="lastUpdateName" />
+            <ScalarProperty Name="lastUpdateDate" ColumnName="lastUpdateDate" />
+            <ScalarProperty Name="blacklisted" ColumnName="blacklisted" />
+            <ScalarProperty Name="amount" ColumnName="amount" />
+            <ScalarProperty Name="notes" ColumnName="notes" />
+            <ScalarProperty Name="paymentTerm" ColumnName="paymentTerm" />
+            <ScalarProperty Name="shippingTerm" ColumnName="shippingTerm" />
+            <ScalarProperty Name="billTo" ColumnName="billTo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="custvendorinfoshipto"><EntityTypeMapping TypeName="CustVenInfoModel.custvendorinfoshipto"><MappingFragment StoreEntitySet="custvendorinfoshipto">
+            <ScalarProperty Name="cvShipId" ColumnName="cvShipId" />
+            <ScalarProperty Name="cvId" ColumnName="cvId" />
+            <ScalarProperty Name="shipTo" ColumnName="shipTo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CustVenInfo">
+        <EntityTypeShape EntityType="CustVenInfoModel.custvendorinfo" Width="1.5" PointX="0.75" PointY="0.75" Height="5.634013671875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CustVenInfoModel.custvendorinfoshipto" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

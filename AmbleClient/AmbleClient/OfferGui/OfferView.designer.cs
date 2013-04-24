@@ -57,7 +57,7 @@
             this.tsbUpdate.Image = ((System.Drawing.Image)(resources.GetObject("tsbUpdate.Image")));
             this.tsbUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUpdate.Name = "tsbUpdate";
-            this.tsbUpdate.Size = new System.Drawing.Size(54, 22);
+            this.tsbUpdate.Size = new System.Drawing.Size(49, 22);
             this.tsbUpdate.Text = "Update";
             this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
@@ -67,7 +67,7 @@
             this.tsbRoute.Image = ((System.Drawing.Image)(resources.GetObject("tsbRoute.Image")));
             this.tsbRoute.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRoute.Name = "tsbRoute";
-            this.tsbRoute.Size = new System.Drawing.Size(45, 22);
+            this.tsbRoute.Size = new System.Drawing.Size(42, 22);
             this.tsbRoute.Text = "Route";
             this.tsbRoute.Click += new System.EventHandler(this.tsbRoute_Click);
             // 
@@ -77,7 +77,7 @@
             this.tsbCloseOffer.Image = ((System.Drawing.Image)(resources.GetObject("tsbCloseOffer.Image")));
             this.tsbCloseOffer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCloseOffer.Name = "tsbCloseOffer";
-            this.tsbCloseOffer.Size = new System.Drawing.Size(99, 22);
+            this.tsbCloseOffer.Size = new System.Drawing.Size(90, 22);
             this.tsbCloseOffer.Text = "Close the Offer";
             this.tsbCloseOffer.Click += new System.EventHandler(this.tsbCloseOffer_Click);
             // 
@@ -87,7 +87,7 @@
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
             this.tsbClose.Text = "Close";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -97,15 +97,15 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(687, 496);
+            this.tabControl1.Size = new System.Drawing.Size(687, 539);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // OfferView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 521);
+            this.ClientSize = new System.Drawing.Size(687, 564);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.MinimizeBox = false;
