@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewPo));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.poViewControl1 = new AmbleClient.Order.PoView.PoViewControl();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -39,8 +38,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbSave,
-            this.tsbClose});
+            this.tsbSave});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(879, 25);
@@ -57,15 +55,6 @@
             this.tsbSave.Text = "Save PO&&Close";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(40, 22);
-            this.tsbClose.Text = "Close";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // poViewControl1
             // 
@@ -95,7 +84,6 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbSave;
-        private System.Windows.Forms.ToolStripButton tsbClose;
         private PoViewControl poViewControl1;
     }
 }

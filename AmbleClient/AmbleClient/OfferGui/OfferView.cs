@@ -84,6 +84,13 @@ namespace AmbleClient.OfferGui
                 this.tsbUpdate.Enabled = false;
                 this.tsbCloseOffer.Enabled = false;
             }
+                //not my offer or my sub's offer,can not modify the offer
+            else if (!AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(UserInfo.UserId, null).Contains(offerList[tabControl1.SelectedIndex].buyerId))
+            {
+                this.tsbRoute.Enabled = false;
+                this.tsbUpdate.Enabled = false;
+                this.tsbCloseOffer.Enabled = false;
+            }
             else
             {
                 if (offerList[tabControl1.SelectedIndex].offerStates == (int)OfferState.New)
@@ -123,6 +130,8 @@ namespace AmbleClient.OfferGui
                 Logger.Error(ex.StackTrace);
                 MessageBox.Show("Update offer error");
             }
+            this.DialogResult = DialogResult.Yes;
+
         }
 
         private void tsbRoute_Click(object sender, EventArgs e)
@@ -135,6 +144,7 @@ namespace AmbleClient.OfferGui
             bItem.UpdateOfferState((int)OfferState.Routed);
             this.tsbRoute.Enabled = false;
             }
+            this.DialogResult = DialogResult.Yes;
         }
 
         private void tsbCloseOffer_Click(object sender, EventArgs e)
@@ -146,11 +156,9 @@ namespace AmbleClient.OfferGui
                 BuyerOfferItems bItem = item as BuyerOfferItems;
                 bItem.UpdateOfferState((int)OfferState.Closed);
             }
+            this.DialogResult = DialogResult.Yes;
         }
 
-        private void tsbClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
     }
 }

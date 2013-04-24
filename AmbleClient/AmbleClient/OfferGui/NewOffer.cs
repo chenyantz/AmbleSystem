@@ -61,13 +61,6 @@ namespace AmbleClient.OfferGui
 
         }
 
-        private void tsbClose_Click(object sender, EventArgs e)
-        {
-
-            this.Close();
-
-        }
-
         private void NewOffer_Load(object sender, EventArgs e)
         {
             buyerOfferItems1.tbOfferDate.Enabled = false;

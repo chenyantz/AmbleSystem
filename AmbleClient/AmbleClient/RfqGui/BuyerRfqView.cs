@@ -50,10 +50,6 @@ namespace AmbleClient.RfqGui
             newOffer.ShowDialog();
         }
 
-        private void tsbClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void tsbViewOffer_Click(object sender, EventArgs e)
         {

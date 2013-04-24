@@ -25,7 +25,27 @@ namespace AmbleClient
      USD=0,CNY=1,EUR=2,HK=3,JP=4,ERROR=5
     
     }
-          
+
+    public static class AllAccountInfo
+    {
+        static Dictionary<int, string> idToName = AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(AmbleClient.Admin.AccountMgr.AccountMgr.GetAllIds());
+
+        public static string GetNameAccordingToId(int id)
+        {
+           if(idToName.Keys.Contains(id))
+           {
+            return idToName[id];
+           }
+           else
+           {
+               return "";
+           }
+        }
+
+    
+    
+    }
+
 
     public static class UserInfo
     {

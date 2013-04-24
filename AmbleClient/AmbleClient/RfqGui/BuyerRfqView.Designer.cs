@@ -31,9 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuyerRfqView));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbOffer = new System.Windows.Forms.ToolStripButton();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.buyerRfqItems1 = new AmbleClient.RfqGui.BuyerRfqItems();
             this.tsbViewOffer = new System.Windows.Forms.ToolStripButton();
+            this.buyerRfqItems1 = new AmbleClient.RfqGui.BuyerRfqItems();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,8 +40,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbOffer,
-            this.tsbViewOffer,
-            this.tsbClose});
+            this.tsbViewOffer});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(904, 25);
@@ -55,28 +53,9 @@
             this.tsbOffer.Image = ((System.Drawing.Image)(resources.GetObject("tsbOffer.Image")));
             this.tsbOffer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbOffer.Name = "tsbOffer";
-            this.tsbOffer.Size = new System.Drawing.Size(75, 22);
+            this.tsbOffer.Size = new System.Drawing.Size(68, 22);
             this.tsbOffer.Text = "Enter Offer";
             this.tsbOffer.Click += new System.EventHandler(this.tsbOffer_Click);
-            // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
-            this.tsbClose.Text = "Close";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
-            // 
-            // buyerRfqItems1
-            // 
-            this.buyerRfqItems1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.buyerRfqItems1.Location = new System.Drawing.Point(0, 28);
-            this.buyerRfqItems1.Name = "buyerRfqItems1";
-            this.buyerRfqItems1.Size = new System.Drawing.Size(904, 506);
-            this.buyerRfqItems1.TabIndex = 1;
             // 
             // tsbViewOffer
             // 
@@ -84,15 +63,24 @@
             this.tsbViewOffer.Image = ((System.Drawing.Image)(resources.GetObject("tsbViewOffer.Image")));
             this.tsbViewOffer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbViewOffer.Name = "tsbViewOffer";
-            this.tsbViewOffer.Size = new System.Drawing.Size(86, 22);
+            this.tsbViewOffer.Size = new System.Drawing.Size(79, 22);
             this.tsbViewOffer.Text = "View Offer(s)";
             this.tsbViewOffer.Click += new System.EventHandler(this.tsbViewOffer_Click);
             // 
+            // buyerRfqItems1
+            // 
+            this.buyerRfqItems1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.buyerRfqItems1.Location = new System.Drawing.Point(0, 30);
+            this.buyerRfqItems1.Name = "buyerRfqItems1";
+            this.buyerRfqItems1.Size = new System.Drawing.Size(904, 548);
+            this.buyerRfqItems1.TabIndex = 1;
+            // 
             // BuyerRfqView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 533);
+            this.ClientSize = new System.Drawing.Size(904, 577);
             this.Controls.Add(this.buyerRfqItems1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "BuyerRfqView";
@@ -110,7 +98,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private BuyerRfqItems buyerRfqItems1;
         private System.Windows.Forms.ToolStripButton tsbOffer;
-        private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.ToolStripButton tsbViewOffer;
     }
 }

@@ -17,11 +17,6 @@ namespace AmbleClient.custVendor
     {
         custvendorinfo info;
         
-        public CustVenView()
-        {
-            InitializeComponent();
-        }
-
         public CustVenView(custvendorinfo info)
         {
             this.info = info;
@@ -38,16 +33,29 @@ namespace AmbleClient.custVendor
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
+            //first get values from info control and then from financialControl
+            if (custVenInfoControl1.ValidateValues() == false)
+                return;
+            custvendorinfo cvinfo = custVenInfoControl1.GetValues();
+            cvinfo.cvId = info.cvId;
+            cvinfo.cvtype = info.cvtype;
+            cvinfo.ownerName = info.ownerName;
 
+            custvendorinfo cvinfo2 = custVenInfoFinancialControl1.GetValues();
+            cvinfo.paymentTerm = cvinfo2.paymentTerm;
+            cvinfo.shippingTerm = cvinfo2.shippingTerm;
+            cvinfo.billTo = cvinfo2.billTo;
+            cvinfo.cvnumber=cvinfo2.cvnumber;
+            CustVendorManager.CustVenInfoManager.UpateCvInfo(cvinfo);
 
-
+            if (UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss || UserInfo.Job == JobDescription.FinancialManager || UserInfo.Job == JobDescription.Financial)
+            {
+                CustVendorManager.CustVenInfoManager.UpdateCvShipInfo(info.cvId, custVenInfoFinancialControl1.getCurrentShipTo());
+            }
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
 
         }
-
-
-
-
-
 
     }
 }

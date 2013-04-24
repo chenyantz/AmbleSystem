@@ -23,6 +23,15 @@ namespace AmbleClient.custVendor
         private void NewCustVen_Load(object sender, EventArgs e)
         {
             tabControl1.TabPages.RemoveAt(1);
+            if (cvtype == 0)
+            {
+                this.Text = "Add a Customer";
+            }
+            if (cvtype == 1)
+            {
+                this.Text = "Add a Vendor";
+            }
+
         }
 
         private void tsbSave_Click(object sender, EventArgs e)
@@ -34,6 +43,7 @@ namespace AmbleClient.custVendor
             cvInfo.lastUpdateName = (short)UserInfo.UserId;
             cvInfo.ownerName = (short)UserInfo.UserId;
             CustVendorManager.CustVenInfoManager.AddCustVend(cvInfo);
+            this.DialogResult = DialogResult.Yes;
 
             this.Close();
         }

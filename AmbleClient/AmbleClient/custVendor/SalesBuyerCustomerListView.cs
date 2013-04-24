@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using AmbleClient.custVendor.CustVendorManager;
 
 namespace AmbleClient.custVendor
@@ -26,7 +27,7 @@ namespace AmbleClient.custVendor
                 tscbAllOrMine.Items.Add("My Vendor");
             }
             tscbAllOrMine.SelectedIndex = 0;
-
+            tscbAllOrMine.SelectedIndexChanged+=tscbAllOrMine_SelectedIndexChanged;
 
         }
 
@@ -128,7 +129,7 @@ namespace AmbleClient.custVendor
             { 
 
             dataGridView1.Rows.Add(cvInfo.cvId, cvInfo.cvname, cvInfo.contact1, cvInfo.phone1, cvInfo.cellphone, cvInfo.fax, cvInfo.email1,
-                AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(cvInfo.ownerName));
+                AllAccountInfo.GetNameAccordingToId(cvInfo.ownerName));
             
             }
 
@@ -140,11 +141,29 @@ namespace AmbleClient.custVendor
         protected override void NewCustVen()
         {
             NewCustVen newCustVen = new NewCustVen(cvtype);
-            newCustVen.ShowDialog();
+            if (DialogResult.Yes == newCustVen.ShowDialog())
+            {
+                this.dataGridView1.Rows.Clear();
+                FillTheDataGrid();
+            }
+            RestoreSelectedRow();
 
         }
 
+        protected override void DeleteCustVen()
+        {
+            if (DialogResult.Yes == MessageBox.Show("Delete the Item?", "", MessageBoxButtons.YesNo))
+            {
 
+                int cvid = custVenInfoList[selectedRow].cvId;
+                CustVendorManager.CustVenInfoManager.DeleteCV(cvid);
+                this.dataGridView1.Rows.Clear();
+                FillTheDataGrid();
+
+                RestoreSelectedRow();
+            }
+        }
+        
 
     }
 }

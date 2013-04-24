@@ -15,17 +15,49 @@ namespace AmbleClient.custVendor
         private List<custvendorinfoshipto> shipToList = new List<custvendorinfoshipto>();
         private List<string> newList = new List<string>();
 
-       
+        int cvType=-1;
         
         public CustVenInfoFinancialControl()
         {
             InitializeComponent();
+            //readonly for sales, sales Manager,buyer, buyerManager
+            if (UserInfo.Job != JobDescription.Admin && UserInfo.Job != JobDescription.Boss && UserInfo.Job != JobDescription.FinancialManager && UserInfo.Job != JobDescription.Financial)
+            {
+                tbCompnayNumber.ReadOnly = true;
+                tbPaymentTerm.ReadOnly = true;
+                tbShippingTerm.ReadOnly = true;
+                tbBillto.ReadOnly = true;
+                btAddShip.Enabled = false;
+                btDelete.Enabled = false;
+            }
+ 
+        }
+
+        public CustVenInfoFinancialControl(int cvType)
+        {
+            InitializeComponent();
+            //readonly for sales, sales Manager,buyer, buyerManager
+            if (UserInfo.Job != JobDescription.Admin && UserInfo.Job != JobDescription.Boss && UserInfo.Job != JobDescription.FinancialManager && UserInfo.Job != JobDescription.Financial)
+            {
+                tbCompnayNumber.ReadOnly = true;
+                tbPaymentTerm.ReadOnly = true;
+                tbShippingTerm.ReadOnly = true;
+                tbBillto.ReadOnly = true;
+                btAddShip.Enabled = false;
+                btDelete.Enabled = false;
+            }
+            if (cvType == 0)
+                label1.Text = "  Customer Name:";
+            if (cvType == 1)
+                label1.Text = "    Vendor Name:";
+
+
         }
 
         public void FillTheInfo(custvendorinfo cvInfo)
         {
             tbName.Text = cvInfo.cvname;
-            tbCountry.Text = cvInfo.country;
+            tbCompnayNumber.Text = cvInfo.cvnumber;
             tbPaymentTerm.Text = cvInfo.paymentTerm;
             tbShippingTerm.Text = cvInfo.shippingTerm;
             tbBillto.Text = cvInfo.billTo;
@@ -117,11 +149,12 @@ namespace AmbleClient.custVendor
 
         public custvendorinfo GetValues()
         {
-            custvendorinfo cvThreeInfo = new custvendorinfo();
-            cvThreeInfo.paymentTerm = tbPaymentTerm.Text.Trim();
-            cvThreeInfo.shippingTerm = tbShippingTerm.Text.Trim();
-            cvThreeInfo.billTo = tbBillto.Text.Trim();
-            return cvThreeInfo;
+            custvendorinfo cvFourInfo = new custvendorinfo();
+            cvFourInfo.cvnumber = tbCompnayNumber.Text.Trim();
+            cvFourInfo.paymentTerm = tbPaymentTerm.Text.Trim();
+            cvFourInfo.shippingTerm = tbShippingTerm.Text.Trim();
+            cvFourInfo.billTo = tbBillto.Text.Trim();
+            return cvFourInfo;
         }
 
 

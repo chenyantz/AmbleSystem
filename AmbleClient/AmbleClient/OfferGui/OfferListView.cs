@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AmbleClient.OfferGui.OfferMgr;
+using System.Windows.Forms;
 
 namespace AmbleClient.OfferGui
 {
@@ -11,12 +12,31 @@ namespace AmbleClient.OfferGui
 
         private List<Offer> offerList;
 
+        private bool isSaleView=false;
+        public OfferListView(bool isSaleView)
+        {
+            this.isSaleView = isSaleView;
+        
+        }
+
+        public OfferListView()
+        { 
+        
+        }
+
+
         protected override void ViewStart()
         {
             this.Text = "Offer List";
-            tscbList.Items.Add("List All Offer I Can See");
-            tscbList.Items.Add("List My Offer");
-          //  tscbFilterColumn.Items.Add("vendorName");
+            tscbList.Items.Add("All Offers");
+            if (isSaleView)
+            {
+                tscbList.Items.Add("My Related Offers");
+            }
+            else
+            {
+                tscbList.Items.Add("My Offers");
+            }
 
             //Add columns for datagridView1
             System.Windows.Forms.DataGridViewTextBoxColumn OfferId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,16 +76,24 @@ namespace AmbleClient.OfferGui
             VendorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             VendorName.HeaderText = "Vendor Name";
             VendorName.Name = "VendorName";
+            if (isSaleView)
+                VendorName.Visible = false;
+
 
             Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             Contact.HeaderText = "Contact";
             Contact.Name = "Contact";
+            if (isSaleView)
+                Contact.Visible = false;
 
 
 
             Phone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             Phone.HeaderText = "Phone";
             Phone.Name = "Phone";
+            if (isSaleView)
+                Phone.Visible = false;
+
 
             Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             Amount.HeaderText = "Payment Terms";
@@ -114,8 +142,11 @@ namespace AmbleClient.OfferGui
 
         protected override void FillTheFilterColumnDict()
         {
-            filterColumnDict.Add("Vendor Name", "vendorName");
-
+            filterColumnDict.Add("MPN", "mpn");
+            if (!isSaleView)
+            {
+                filterColumnDict.Add("Vendor Name", "vendorName");
+            }
         }
 
 
@@ -154,9 +185,14 @@ namespace AmbleClient.OfferGui
             {
                 includeSubs = true;
             }
-
-            offerList = new OfferMgr.OfferMgr().GetOfferAccordingToFilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
-
+            if (isSaleView)
+            {
+                offerList = new OfferMgr.OfferMgr().SalesGetOfferAccordingToFilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
+            }
+            else
+            {
+                offerList = new OfferMgr.OfferMgr().GetOfferAccordingToFilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
+            }
             foreach (Offer offer in offerList)
             {
                 dataGridView1.Rows.Add(offer.offerId,Tool.Get6DigitalNumberAccordingToId(offer.rfqNo), offer.mpn, offer.mfg, offer.vendorName, offer.contact, offer.phone, 
@@ -173,9 +209,12 @@ namespace AmbleClient.OfferGui
                 return;
             int offerId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["OfferId"].Value);
             OfferView offerView = new OfferView(offerId,0);
-            offerView.ShowDialog();
+            if (DialogResult.Yes == offerView.ShowDialog())
+            {
+                FillTheDataGrid();
+            }
         }
-
+        
 
 
 

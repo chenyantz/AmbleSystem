@@ -33,9 +33,9 @@
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.custVenInfoControl1 = new AmbleClient.custVendor.CustVenInfoControl();
+            this.custVenInfoControl1 = new AmbleClient.custVendor.CustVenInfoControl(info.cvtype);
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.custVenInfoFinancialControl1 = new AmbleClient.custVendor.CustVenInfoFinancialControl();
+            this.custVenInfoFinancialControl1 = new AmbleClient.custVendor.CustVenInfoFinancialControl(info.cvtype);
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();

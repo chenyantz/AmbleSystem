@@ -137,9 +137,15 @@ namespace AmbleClient
 
         private void assignCustomerVendorNumberToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*
             Finances.FinancesView financeView = new Finances.FinancesView();
             financeView.MdiParent = this;
-            financeView.Show();
+            financeView.Show();*/
+            custVendor.CustVenderListView custVendorListView = new custVendor.FinanceCustVendorListView();
+            custVendorListView.MdiParent = this;
+            custVendorListView.Show();
+
+
         }
 
         private void rFQViewNewSOToolStripMenuItem_Click(object sender, EventArgs e)
@@ -263,6 +269,15 @@ namespace AmbleClient
             AmbleClient.Order.FLPoListView flPoListView = new Order.FLPoListView();
             flPoListView.MdiParent = this;
             flPoListView.Show();
+
+
+        }
+
+        private void offerListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AmbleClient.OfferGui.OfferListView offerListView = new OfferGui.OfferListView(true);
+            offerListView.MdiParent = this;
+            offerListView.Show();
 
 
         }

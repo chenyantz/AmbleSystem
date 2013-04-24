@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustVenderListView));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tsbNew = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
@@ -52,7 +52,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
+            this.tsbNew,
             this.tsbDelete,
             this.toolStripSeparator1,
             this.toolStripLabel3,
@@ -72,15 +72,15 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // tsbNew
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(35, 22);
-            this.toolStripButton1.Text = "New";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.tsbNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbNew.Image = ((System.Drawing.Image)(resources.GetObject("tsbNew.Image")));
+            this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNew.Name = "tsbNew";
+            this.tsbNew.Size = new System.Drawing.Size(35, 22);
+            this.tsbNew.Text = "New";
+            this.tsbNew.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // tsbDelete
             // 
@@ -90,6 +90,7 @@
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(44, 22);
             this.tsbDelete.Text = "Delete";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // toolStripSeparator1
             // 
@@ -106,6 +107,7 @@
             // 
             this.tscbAllOrMine.Name = "tscbAllOrMine";
             this.tscbAllOrMine.Size = new System.Drawing.Size(121, 25);
+           // this.tscbAllOrMine.SelectedIndexChanged += new System.EventHandler(this.tscbAllOrMine_SelectedIndexChanged);
             // 
             // toolStripSeparator3
             // 
@@ -122,7 +124,6 @@
             // 
             this.tscbFilterBy.Name = "tscbFilterBy";
             this.tscbFilterBy.Size = new System.Drawing.Size(121, 25);
-            this.tscbFilterBy.SelectedIndexChanged += new System.EventHandler(this.tscbFilterBy_SelectedIndexChanged);
             // 
             // toolStripLabel2
             // 
@@ -143,6 +144,7 @@
             this.tsbApply.Name = "tsbApply";
             this.tsbApply.Size = new System.Drawing.Size(42, 22);
             this.tsbApply.Text = "Apply";
+            this.tsbApply.Click += new System.EventHandler(this.tsbApply_Click);
             // 
             // tsbClear
             // 
@@ -152,6 +154,7 @@
             this.tsbClear.Name = "tsbClear";
             this.tsbClear.Size = new System.Drawing.Size(38, 22);
             this.tsbClear.Text = "Clear";
+            this.tsbClear.Click += new System.EventHandler(this.tsbClear_Click);
             // 
             // toolStripSeparator2
             // 
@@ -180,6 +183,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(953, 481);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // CustVenderListView
@@ -203,7 +207,7 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        protected System.Windows.Forms.ToolStripButton tsbNew;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         protected System.Windows.Forms.ToolStripComboBox tscbFilterBy;
@@ -214,7 +218,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tsbRefresh;
         protected System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStripButton tsbDelete;
+        protected System.Windows.Forms.ToolStripButton tsbDelete;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         protected System.Windows.Forms.ToolStripComboBox tscbAllOrMine;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;

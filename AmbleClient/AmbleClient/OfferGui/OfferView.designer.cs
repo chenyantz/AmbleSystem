@@ -33,7 +33,6 @@
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
             this.tsbRoute = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseOffer = new System.Windows.Forms.ToolStripButton();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -43,8 +42,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbUpdate,
             this.tsbRoute,
-            this.tsbCloseOffer,
-            this.tsbClose});
+            this.tsbCloseOffer});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(687, 25);
@@ -81,16 +79,6 @@
             this.tsbCloseOffer.Text = "Close the Offer";
             this.tsbCloseOffer.Click += new System.EventHandler(this.tsbCloseOffer_Click);
             // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(40, 22);
-            this.tsbClose.Text = "Close";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
-            // 
             // tabControl1
             // 
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -123,7 +111,6 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         protected System.Windows.Forms.ToolStripButton tsbUpdate;
-        private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.TabControl tabControl1;
         protected System.Windows.Forms.ToolStripButton tsbRoute;
         protected System.Windows.Forms.ToolStripButton tsbCloseOffer;

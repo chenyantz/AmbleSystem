@@ -38,7 +38,6 @@
             this.tsbSo = new System.Windows.Forms.ToolStripButton();
             this.tsbViewSo = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseRfq = new System.Windows.Forms.ToolStripButton();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.rfqItems1 = new AmbleClient.RfqGui.SalesRfqItems();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,8 +52,7 @@
             this.tsbOfferView,
             this.tsbSo,
             this.tsbViewSo,
-            this.tsbCloseRfq,
-            this.tsbClose});
+            this.tsbCloseRfq});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(912, 25);
@@ -141,16 +139,6 @@
             this.tsbCloseRfq.Text = "Close RFQ";
             this.tsbCloseRfq.Click += new System.EventHandler(this.tsbCloseRfq_Click);
             // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(40, 22);
-            this.tsbClose.Text = "Close";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
-            // 
             // rfqItems1
             // 
             this.rfqItems1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -190,7 +178,6 @@
         private System.Windows.Forms.ToolStripButton tsbViewSo;
         private System.Windows.Forms.ToolStripButton tsbCloseRfq;
         private SalesRfqItems rfqItems1;
-        private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.ToolStripButton tsbOfferView;
     }
 }

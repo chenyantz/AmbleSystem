@@ -47,6 +47,92 @@ namespace AmbleClient.OfferGui.OfferMgr
        
        }
 
+       public List<Offer> SalesGetOfferAccordingToFilter(int userId, bool allOffer, string filterColumn, string filterString, List<int> intStateList)
+       {
+           List<Offer> offerList = new List<Offer>();
+           if (intStateList.Count == 0) return offerList;
+
+           StringBuilder sb = new StringBuilder();
+           if (allOffer)
+           {
+               sb.Append("select * from offer o where ( TRUE )");
+           }
+           else
+           {
+               sb.Append(string.Format("select o.* from offer o left join rfq r on o.rfqNo=r.rfqNo where( r.salesId={0} )", UserInfo.UserId));
+           }
+           //append the filter
+           if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+           {
+               sb.Append(string.Format(" and o.{0} like '%{1}%' ", filterColumn, filterString));
+           }
+
+           sb.Append(" and ( o.offerStates=" + intStateList[0]);
+           for (int i = 1; i < intStateList.Count; i++)
+           {
+               sb.Append(" or o.offerStates=" + intStateList[i]);
+
+           }
+           sb.Append(" )");
+
+           DataTable dt = db.GetDataTable(sb.ToString(), "offers");
+           foreach (DataRow dr in dt.Rows)
+           {
+               offerList.Add(GetOfferFromDataRow(dr));
+
+           }
+           return offerList;
+
+
+
+       }
+
+
+
+
+
+
+       public List<Offer> GetOfferAccordingToFilter(int userId, bool allOffer, string filterColumn, string filterString, List<int> intStateList)
+       {
+           List<Offer> offerList = new List<Offer>();
+           if (intStateList.Count == 0) return offerList;
+
+           StringBuilder sb = new StringBuilder();
+           if (allOffer)
+           {
+               sb.Append("select * from offer where ( TRUE )");
+           }
+           else
+           {
+               sb.Append(string.Format("select * from offer where ( buyerId={0} )", UserInfo.UserId));
+           }
+           //append the filter
+           if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+           {
+               sb.Append(string.Format(" and {0} like '%{1}%' ", filterColumn, filterString));
+           }
+
+           sb.Append(" and ( offerStates=" + intStateList[0]);
+           for (int i = 1; i < intStateList.Count; i++)
+           {
+               sb.Append(" or offerStates=" + intStateList[i]);
+
+           }
+           sb.Append(" )");
+
+           DataTable dt = db.GetDataTable(sb.ToString(), "offers");
+           foreach (DataRow dr in dt.Rows)
+           {
+               offerList.Add(GetOfferFromDataRow(dr));
+
+           }
+           return offerList;
+
+       }
+
+
+
+      /*
        public List<Offer> GetOfferAccordingToFilter(int userId, bool includeSubs,string filterColumn,string filterString, List<int> intStateList)
         {
             List<Offer> offerList = new List<Offer>();
@@ -92,7 +178,11 @@ namespace AmbleClient.OfferGui.OfferMgr
            }
            return offerList;
   
-      }
+      }*/
+
+
+
+
 
 
        public bool HasOfferByRfq(int rfqId)

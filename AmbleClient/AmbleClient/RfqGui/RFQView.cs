@@ -102,7 +102,7 @@ namespace AmbleClient.RfqGui
         private void tsbQuote_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show("Set The RFQ Status to Quoted?","", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            if (MessageBox.Show("Quote the RFQ?","", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
 
                 if (rfqMgr.ChangeRfqState(RfqStatesEnum.Quoted, rfqId))
@@ -124,7 +124,7 @@ namespace AmbleClient.RfqGui
         private void tsbRoute_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show("Set The RFQ Status to Routed?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            if (MessageBox.Show("Route the RFQ?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 if (rfqMgr.ChangeRfqState(RfqStatesEnum.Routed, rfqId))
                 {
@@ -197,10 +197,6 @@ namespace AmbleClient.RfqGui
             
         }
 
-        private void tsbClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void tsbOfferView_Click(object sender, EventArgs e)
         {

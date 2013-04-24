@@ -84,6 +84,7 @@
             // 
             // tabPage2
             // 
+            /*
             this.tabPage2.Controls.Add(this.custVenInfoFinancialControl1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -91,15 +92,16 @@
             this.tabPage2.Size = new System.Drawing.Size(842, 480);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "By Finances";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.UseVisualStyleBackColor = true;*/
             // 
             // custVenInfoFinancialControl1
-            // 
+            //
+            /*
             this.custVenInfoFinancialControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.custVenInfoFinancialControl1.Location = new System.Drawing.Point(3, 3);
             this.custVenInfoFinancialControl1.Name = "custVenInfoFinancialControl1";
             this.custVenInfoFinancialControl1.Size = new System.Drawing.Size(836, 474);
-            this.custVenInfoFinancialControl1.TabIndex = 0;
+            this.custVenInfoFinancialControl1.TabIndex = 0;*/
             // 
             // tsbSave
             // 

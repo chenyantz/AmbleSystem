@@ -23,7 +23,15 @@ namespace AmbleClient.custVendor
         public CustVenInfoControl(int cvtype)
         {
             this.cvtype = cvtype;
+
             InitializeComponent();
+            if (cvtype == 0)
+                label1.Text = " Customer Name:*";
+            if (cvtype == 1)
+                label1.Text = "   Vendor Name:*";
+
+
+
         }
 
         
@@ -81,7 +89,7 @@ namespace AmbleClient.custVendor
             tbLastUpdateDate.Text = cvinfo.lastUpdateDate.HasValue?cvinfo.lastUpdateDate.Value.ToShortDateString():"";
             tbAmount.Text = cvinfo.amount.ToString();
             tbNotes.Text = cvinfo.notes;
-            comboBox2.SelectedValue = cvinfo.blacklisted.ToString();
+            comboBox2.SelectedIndex = cvinfo.blacklisted.HasValue? cvinfo.blacklisted.Value : -1;
         }
 
         public custvendorinfo  GetValues()
