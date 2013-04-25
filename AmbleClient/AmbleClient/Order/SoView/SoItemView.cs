@@ -12,26 +12,28 @@ namespace AmbleClient.SO
 {
     public partial class SoItemView : Form
     {
+
+        private int rfqId;
         
-        
+
         public SoItemView()
         {
             InitializeComponent();
         }
 
-        public SoItemView(bool newItems)
+
+        public SoItemView(bool newItems,int rfqId)
         {
             InitializeComponent();
             if (newItems)
-            {
-                this.Text = "Add an SO Item";
-                tsbOp.Text = "Add&&Close";
-                this.soItemsControl1.NewCreateItems();
+            {   this.Text = "Add an SO Item";
+                tsbOp.Text = "Add";
+                this.soItemsControl1.NewCreateItems(rfqId);
             }
             else
             {
                 this.Text = "So Item View";
-                tsbOp.Text="Update&&Close";
+                tsbOp.Text="Update";
            
             }
         }

@@ -94,11 +94,11 @@
             // tbVendor
             // 
             this.tbVendor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbVendor.Location = new System.Drawing.Point(97, 15);
-            this.tbVendor.Multiline = true;
+            this.tbVendor.Location = new System.Drawing.Point(91, 26);
             this.tbVendor.Name = "tbVendor";
-            this.tbVendor.Size = new System.Drawing.Size(203, 38);
+            this.tbVendor.Size = new System.Drawing.Size(215, 21);
             this.tbVendor.TabIndex = 1;
+            this.tbVendor.Leave += new System.EventHandler(this.tbVendor_Leave);
             // 
             // label2
             // 
@@ -286,6 +286,7 @@
             this.tbShipTo.Name = "tbShipTo";
             this.tbShipTo.Size = new System.Drawing.Size(311, 65);
             this.tbShipTo.TabIndex = 24;
+            this.tbShipTo.Enter += new System.EventHandler(this.tbShipTo_Enter);
             // 
             // dataGridView1
             // 

@@ -122,11 +122,6 @@ C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.BomOffer.BomO
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.BomOffer.BomOfferList.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.BomOffer.BomOfferNew.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.BomOffer.BomOfferNewCustVen.resources
-C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.AddCustomerVendor.resources
-C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.customerVendorMainFrame.resources
-C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.customerVendorOperation.resources
-C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.ModifyCustomerVendor.resources
-C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.Finances.FinancesView.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.Help.About.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.Login.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.MainFrame.resources
@@ -163,3 +158,4 @@ C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.Cu
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.CustVenView.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.CustVenderListView.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.NewCustVen.resources
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.Order.ShipToSelect.resources

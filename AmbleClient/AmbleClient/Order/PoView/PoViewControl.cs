@@ -22,13 +22,90 @@ namespace AmbleClient.Order.PoView
         List<PoItemContentAndState> poItemsStateList = new List<PoItemContentAndState>();
         List<PoItemContentAndState> deletedList = new List<PoItemContentAndState>();
 
+        List<string> ShipToList = new List<string>();
 
-        public PoViewControl()
+        private int soId;
+
+
+        public PoViewControl(int soId)
         {
             InitializeComponent();
             FillThePACombo();
+            VendorAutoComplete();
+            this.soId = soId;
 
         }
+        private void SoViewControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VendorAutoComplete()
+        {
+            List<string> vendorNames = custVendor.CustVendorManager.CustVenInfoManager.GetAllCustomerVendorNameICanSee(1, UserInfo.UserId);
+            this.tbVendor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            tbVendor.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection autoSource = new AutoCompleteStringCollection();
+            autoSource.AddRange(vendorNames.ToArray());
+            tbVendor.AutoCompleteCustomSource = autoSource;
+        }
+
+
+        public void FillTheVendorInfo(custVendor.CustVendorManager.custvendorinfo custInfo)
+        {
+            this.tbVendorNumber.Text = custInfo.cvnumber;
+            this.tbPaymentTerms.Text = custInfo.paymentTerm;
+            this.tbBillTo.Text = custInfo.billTo;
+
+            if (custInfo.contact1 != null && custInfo.contact1.Trim().Length > 0)
+            {
+                this.tbContact.Text = custInfo.contact1;
+
+                if (custInfo.contact2 != null && custInfo.contact2.Trim().Length > 0)//两者都有值
+                {
+                    this.tbContact.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    this.tbContact.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    AutoCompleteStringCollection autoSource = new AutoCompleteStringCollection();
+                    autoSource.Add(custInfo.contact1);
+                    autoSource.Add(custInfo.contact2);
+                    tbContact.AutoCompleteCustomSource = autoSource;
+                }
+            }
+            else if (custInfo.contact2 != null && custInfo.contact2.Trim().Length > 0)
+            {
+                this.tbContact.Text = custInfo.contact2;
+
+            }
+            else
+            { 
+            
+            }
+
+                
+
+            List<custVendor.CustVendorManager.custvendorinfoshipto> shipToList = custVendor.CustVendorManager.CustVenInfoManager.GetShipTo(custInfo.cvId);
+            List<string> shipToListString = new List<string>();
+            foreach (custVendor.CustVendorManager.custvendorinfoshipto shipto in shipToList)
+            {
+                shipToListString.Add(shipto.shipTo);
+            }
+            SetShipToList(shipToListString);
+
+        }
+        public void SetShipToList(List<string> list)
+        {
+            if (list.Count == 1)
+            {
+                this.tbShipTo.Text = list[0];
+            }
+            else if (list.Count > 1)
+            {
+                ShipToList.AddRange(list);
+            }
+        }
+
+
+
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
@@ -230,7 +307,7 @@ namespace AmbleClient.Order.PoView
 
        private void btAdd_Click(object sender, EventArgs e)
        {
-           PoItemsView itemView = new PoItemsView(true);
+           PoItemsView itemView = new PoItemsView(true,this.soId);
            if (itemView.ShowDialog() == DialogResult.Yes)
            {
                poitems item = itemView.GetPoItem();
@@ -328,7 +405,7 @@ namespace AmbleClient.Order.PoView
            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
            {
 
-               PoItemsView itemView = new PoItemsView(false);
+               PoItemsView itemView = new PoItemsView(false,this.soId);
                itemView.FillTheTable(poItemsStateList[e.RowIndex].poItem);
 
                if (DialogResult.Yes == itemView.ShowDialog())
@@ -348,6 +425,38 @@ namespace AmbleClient.Order.PoView
                }
            }
 
+       }
+
+       private void tbVendor_Leave(object sender, EventArgs e)
+       {
+           if (tbVendor.Text.Trim().Length == 0) return;
+
+           custVendor.CustVendorManager.custvendorinfo cInfo = custVendor.CustVendorManager.CustVenInfoManager.GetUniqueCustVenInfo(1, this.tbVendor.Text.Trim(), UserInfo.UserId);
+           if (cInfo == null || cInfo.cvnumber == null || cInfo.cvnumber.Trim().Length == 0)
+           {
+               MessageBox.Show("The SO can not be Created/Update.The necessary Customer Info did not exist in DB. Please add the customer in the Customer Managerment menu Or ask finance for Customer Number.\n\r Note:the Customer Name copied, you can CTR+V.");
+
+               if (tbVendor.Text.Trim().Length > 0)
+               {
+                   Clipboard.SetText(tbVendor.Text.Trim());
+               }
+               this.tbVendor.Text = string.Empty;
+               this.tbVendor.Focus();
+               return;
+           }
+           FillTheVendorInfo(cInfo);
+       }
+
+       private void tbShipTo_Enter(object sender, EventArgs e)
+       {
+           if (ShipToList.Count >= 2)
+           {
+               ShipToSelect shipToSelect = new ShipToSelect(ShipToList);
+               if (DialogResult.Yes == shipToSelect.ShowDialog())
+               {
+                   tbShipTo.Text = shipToSelect.SelectionString;
+               }
+           }
        }
     }
 

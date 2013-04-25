@@ -163,12 +163,13 @@ namespace AmbleClient.RfqGui
         private void tsbSo_Click(object sender, EventArgs e)
         {
             SO.NewSo newSo = new SO.NewSo(rfqId);
-            newSo.FillCustomerAndContact(this.rfqItems1.tbCustomer.Text, this.rfqItems1.tbContact.Text);
-            newSo.ShowDialog();
 
+           newSo.FillContact(this.rfqItems1.tbContact.Text);
+           if(DialogResult.Yes==newSo.ShowDialog())
+           {
             Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
             GuiOpAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
-
+            }
         }
 
         private void tsbViewSo_Click(object sender, EventArgs e)

@@ -107,6 +107,9 @@ namespace AmbleClient.RfqGui.RfqManager
        {
            string strSql = string.Format("select * from rfq where rfqNo={0}", rfqId);
            DataTable dt = db.GetDataTable(strSql, "tempTable");
+
+           if (dt.Rows.Count == 0) return null;
+
            DataRow dr = dt.Rows[0];
            Rfq rfq = new Rfq();
 

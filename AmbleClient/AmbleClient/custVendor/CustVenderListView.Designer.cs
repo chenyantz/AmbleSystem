@@ -107,7 +107,6 @@
             // 
             this.tscbAllOrMine.Name = "tscbAllOrMine";
             this.tscbAllOrMine.Size = new System.Drawing.Size(121, 25);
-           // this.tscbAllOrMine.SelectedIndexChanged += new System.EventHandler(this.tscbAllOrMine_SelectedIndexChanged);
             // 
             // toolStripSeparator3
             // 

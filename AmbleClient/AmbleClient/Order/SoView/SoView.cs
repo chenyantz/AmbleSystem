@@ -37,6 +37,7 @@ namespace AmbleClient.SO
         public SoView(So so)
         {
             InitializeComponent();
+            this.rfqId = so.rfqId;
             soList = new List<So>();
             soList.Add(so);
             this.Text = "Info for SO:" + so.soId;
@@ -98,6 +99,7 @@ namespace AmbleClient.SO
              for (int i = 0; i < soList.Count; i++)
             {
                 SoViewControl soViewControlItem = new SoViewControl();
+                soViewControlItem.rfqId = this.rfqId;
                 soViewControlItem.Dock = System.Windows.Forms.DockStyle.Fill;
                 soViewControlItem.Location = new System.Drawing.Point(3, 3);
                 soViewControlItem.Name = "buyerOfferIems" + i;
@@ -105,6 +107,9 @@ namespace AmbleClient.SO
                 soViewControlItem.TabIndex = 0;
                 soViewControlItem.FillTheTable(soList[i]);
                 soViewControlList.Add(soViewControlItem);
+
+                
+
             }
 
             for (int i = 0; i < soViewControlList.Count; i++)

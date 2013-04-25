@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoItemView));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbOp = new System.Windows.Forms.ToolStripButton();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.soItemsControl1 = new AmbleClient.SO.SoItemsControl();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -39,8 +38,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbOp,
-            this.tsbClose});
+            this.tsbOp});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(694, 25);
@@ -56,15 +54,6 @@
             this.tsbOp.Size = new System.Drawing.Size(66, 22);
             this.tsbOp.Text = "Op&&Close";
             this.tsbOp.Click += new System.EventHandler(this.tsbOp_Click);
-            // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(40, 22);
-            this.tsbClose.Text = "Close";
             // 
             // soItemsControl1
             // 
@@ -97,7 +86,6 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbOp;
-        private System.Windows.Forms.ToolStripButton tsbClose;
         private SoItemsControl soItemsControl1;
 
     }

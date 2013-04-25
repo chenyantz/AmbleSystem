@@ -44,8 +44,9 @@ CREATE TABLE custVendorInfo (
 ) ;
 
 CREATE TABLE custVendorInfoShipto(
+cvShipId INT AUTO_INCREMENT PRIMARY KEY,
 cvId INT NOT NULL REFERENCES custVendorInfo,
-shipTo VARCHAR(65535)`custvendorinfoshipto`
+shipTo VARCHAR(65535)
 );
 
 
@@ -251,4 +252,5 @@ cpn VARCHAR(255),
 userID SMALLINT NOT NULL REFERENCES account,
 enerDay DATETIME
 );
+
 

@@ -76,16 +76,16 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(37, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 15);
+            this.label1.Size = new System.Drawing.Size(43, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Part#*:";
+            this.label1.Text = "MPN*:";
             // 
             // tbPartNo
             // 
             this.tbPartNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPartNo.Location = new System.Drawing.Point(106, 26);
+            this.tbPartNo.Location = new System.Drawing.Point(86, 26);
             this.tbPartNo.Name = "tbPartNo";
-            this.tbPartNo.Size = new System.Drawing.Size(187, 21);
+            this.tbPartNo.Size = new System.Drawing.Size(207, 21);
             this.tbPartNo.TabIndex = 1;
             // 
             // label3

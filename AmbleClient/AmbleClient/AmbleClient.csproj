@@ -122,22 +122,6 @@
       <DependentUpon>BomOfferNewCustVen.cs</DependentUpon>
     </Compile>
     <Compile Include="ComClass\OperatorFile.cs" />
-    <Compile Include="custVendor\bak\AddCustomerVendor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="custVendor\bak\customerVendorMainFrame.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="custVendor\bak\customerVendorMainFrame.Designer.cs">
-      <DependentUpon>customerVendorMainFrame.cs</DependentUpon>
-    </Compile>
-    <Compile Include="custVendor\bak\customerVendorOperation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="custVendor\bak\customerVendorOperation.Designer.cs">
-      <DependentUpon>customerVendorOperation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="custVendor\bak\CustomerVendorMgr.cs" />
     <Compile Include="custVendor\CustVenderListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,9 +134,6 @@
       <DependentUpon>CustVenInfo.edmx</DependentUpon>
     </Compile>
     <Compile Include="custVendor\CustVendorManager\CustVenInfoManager.cs" />
-    <Compile Include="custVendor\bak\ModifyCustomerVendor.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="custVendor\CustVenInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,13 +166,6 @@
     </Compile>
     <Compile Include="DataClass\DataClass.cs" />
     <Compile Include="ExcelHelper\ExcelHelper.cs" />
-    <Compile Include="Finances\CustomerVenderPrimaryKey.cs" />
-    <Compile Include="Finances\FinancesView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Finances\FinancesView.Designer.cs">
-      <DependentUpon>FinancesView.cs</DependentUpon>
-    </Compile>
     <Compile Include="global.cs" />
     <Compile Include="Help\About.cs">
       <SubType>Form</SubType>
@@ -288,6 +262,12 @@
     </Compile>
     <Compile Include="Order\PoView\PoView.Designer.cs">
       <DependentUpon>PoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\ShipToSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\ShipToSelect.Designer.cs">
+      <DependentUpon>ShipToSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="Order\SoOrderState.cs" />
     <Compile Include="Order\PoView\PoItemsControl.cs">
@@ -431,18 +411,6 @@
     <EmbeddedResource Include="BomOffer\BomOfferNewCustVen.resx">
       <DependentUpon>BomOfferNewCustVen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="custVendor\bak\AddCustomerVendor.resx">
-      <DependentUpon>AddCustomerVendor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="custVendor\bak\customerVendorMainFrame.resx">
-      <DependentUpon>customerVendorMainFrame.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="custVendor\bak\customerVendorOperation.resx">
-      <DependentUpon>customerVendorOperation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="custVendor\bak\ModifyCustomerVendor.resx">
-      <DependentUpon>ModifyCustomerVendor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="custVendor\CustVenderListView.resx">
       <DependentUpon>CustVenderListView.cs</DependentUpon>
     </EmbeddedResource>
@@ -457,9 +425,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="custVendor\NewCustVen.resx">
       <DependentUpon>NewCustVen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Finances\FinancesView.resx">
-      <DependentUpon>FinancesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Help\About.resx">
       <DependentUpon>About.cs</DependentUpon>
@@ -499,6 +464,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order\PoView\PoViewControl.resx">
       <DependentUpon>PoViewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\ShipToSelect.resx">
+      <DependentUpon>ShipToSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\BuyerManagerRfqListView.resx">
       <DependentUpon>BuyerManagerRfqListView.cs</DependentUpon>

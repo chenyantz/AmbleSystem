@@ -16,35 +16,29 @@ namespace AmbleClient.SO
 
         ILog logger = LogManager.GetLogger(typeof(NewSo));
 
-        public NewSo()
-        {
-            InitializeComponent();
-        }
-
-
         public NewSo(int rfqId)
         {
             InitializeComponent();
             this.rfqId = rfqId;
             this.Text = "New Create an SO for RFQ:" + rfqId;
+            this.soViewControl1.rfqId = rfqId;
         }
 
-        public void FillCustomerAndContact(string customer,string contact)
+        public void FillContact(string contact)
         {
-         this.soViewControl1.tbCustomer.Text=customer;
          this.soViewControl1.tbContact.Text=contact;
-        
-        
         }
+
+
 
 
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            this.soViewControl1.rfqId = this.rfqId;
             try
             {
-                this.soViewControl1.SoSave();
+                if (false == this.soViewControl1.SoSave())
+                    return;
             }
             catch (Exception ex)
             {
@@ -64,14 +58,10 @@ namespace AmbleClient.SO
               rfqMgr.AddRfqHistory(rfqId,UserInfo.UserId,"Created an SO for "+AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(soViewControl1.GetAssignedSaleID()));
             
             }
+            this.DialogResult = DialogResult.Yes;
             this.Close();
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-        }
 
         private void NewSo_Load(object sender, EventArgs e)
         {

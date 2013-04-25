@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using AmbleClient.RfqGui.RfqManager;
 using log4net;
+using AmbleClient.custVendor.CustVendorManager;
 
 namespace AmbleClient.RfqGui
 {
@@ -114,7 +115,7 @@ namespace AmbleClient.RfqGui
 
     private void CustomerAutoComplete()
     {
-        List<string> customerNames = new AmbleClient.custVendor.customerVendorMgr.CustomerVendorMgr().GetMyTheCustomerVendorNamesOrVendors(0, UserInfo.UserId);
+        List<string> customerNames = CustVenInfoManager.GetAllCustomerVendorNameICanSee(0, UserInfo.UserId);
         tbCustomer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         tbCustomer.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
@@ -139,7 +140,7 @@ namespace AmbleClient.RfqGui
     {
 
         //自动填充contact,phone,fax
-        Dictionary<string, string> contactInfo = new AmbleClient.custVendor.customerVendorMgr.CustomerVendorMgr().GetContactInfo(0, UserInfo.UserId, tbCustomer.Text.Trim());
+        Dictionary<string, string> contactInfo = CustVenInfoManager.GetContactInfo(0, UserInfo.UserId, tbCustomer.Text.Trim());
        //contact   
         AutoCompleteStringCollection contactSource=new AutoCompleteStringCollection();
         if (contactInfo.Keys.Contains("contact1"))
@@ -188,7 +189,7 @@ namespace AmbleClient.RfqGui
         AutoCompleteStringCollection emailSource=new AutoCompleteStringCollection();
         if(contactInfo.Keys.Contains("email1"))
            {
-            tbContact.Text=contactInfo["email1"];
+            tbEmail.Text=contactInfo["email1"];
             contactSource.Add(contactInfo["email1"]);
            }
         if(contactInfo.Keys.Contains("email2"))

@@ -24,16 +24,64 @@ namespace AmbleClient.SO
 
         public int rfqId;
         private int soId=int.MinValue;
+
+        List<string> ShipToList = new List<string>();
+
         
         public SoViewControl()
         {
             InitializeComponent();
+            CustomerAutoComplete();
         }
 
         private void SoViewControl_Load(object sender, EventArgs e)
         {
+          
+        }
+
+        private void CustomerAutoComplete()
+        {
+            List<string> customerNames = custVendor.CustVendorManager.CustVenInfoManager.GetAllCustomerVendorNameICanSee(0, UserInfo.UserId);
+            tbCustomer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            tbCustomer.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection autoSource = new AutoCompleteStringCollection();
+            autoSource.AddRange(customerNames.ToArray());
+            tbCustomer.AutoCompleteCustomSource = autoSource;
+        }
+
+        public void FillTheCustomerInfo(custVendor.CustVendorManager.custvendorinfo custInfo)
+        {
+            tbCustomerAccount.Text = custInfo.cvnumber;
+            tbFreightTerm.Text = custInfo.shippingTerm;
+            tbPaymentTerm.Text = custInfo.paymentTerm;
+            tbBillto.Text = custInfo.billTo;
+
+            List<custVendor.CustVendorManager.custvendorinfoshipto> shipToList = custVendor.CustVendorManager.CustVenInfoManager.GetShipTo(custInfo.cvId);
+            List<string> shipToListString = new List<string>();
+            foreach (custVendor.CustVendorManager.custvendorinfoshipto shipto in shipToList)
+            {
+                shipToListString.Add(shipto.shipTo);
+            }
+           SetShipToList(shipToListString);
 
         }
+
+
+        public void SetShipToList(List<string> list)
+        {
+            if (list.Count == 1)
+            {
+                this.tbShipTo.Text = list[0];
+            }
+            else if (list.Count > 1)
+            {
+                ShipToList.AddRange(list);
+            }
+
+        
+        }
+
+
 
         public List<SoItemsContentAndState> GetItemsStateList()
         {
@@ -196,15 +244,15 @@ namespace AmbleClient.SO
         }
 
 
-        public void SoSave()
+        public bool SoSave()
         {
             if (false == CheckValues())
-            { return; }
+            { return false; }
             So so=GetValues();
             if (!SoMgr.SaveSoMain(so))
             {
                 MessageBox.Show("Save Sale Order Error!");
-                return;
+                return false;
             }
             int soId = SoMgr.GetTheInsertId(so.salesId);
             //save an So number just for search
@@ -221,6 +269,7 @@ namespace AmbleClient.SO
                 new AmbleClient.RfqGui.RfqManager.RfqMgr().ChangeRfqState(RfqStatesEnum.HasSO, rfqId);
 
                 MessageBox.Show("Save Sale Order Successfully");
+                return true;
 
         }
 
@@ -296,7 +345,7 @@ namespace AmbleClient.SO
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
 
-                SoItemView itemView = new SoItemView(false);
+                SoItemView itemView = new SoItemView(false,this.rfqId);
                 itemView.FillTheTable(soItemsStateList[e.RowIndex].soitem);
 
                 if (DialogResult.Yes == itemView.ShowDialog())
@@ -321,7 +370,8 @@ namespace AmbleClient.SO
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            SoItemView soItemView = new SoItemView(true);
+            SoItemView soItemView = new SoItemView(true,this.rfqId);
+
             if (soItemView.ShowDialog() == DialogResult.Yes)
             {
                 SoItems item = soItemView.GetSoItems();
@@ -384,6 +434,38 @@ namespace AmbleClient.SO
                 ShowDataInDataGridView();
             }
 
+
+        }
+
+        private void tbShipTo_Enter(object sender, EventArgs e)
+        {
+            if (ShipToList.Count >= 2)
+            {
+                ShipToSelect shipToSelect = new ShipToSelect(ShipToList);
+                if (DialogResult.Yes == shipToSelect.ShowDialog())
+                {
+                    tbShipTo.Text = shipToSelect.SelectionString;
+                }
+            }
+        }
+
+        private void tbCustomer_Leave(object sender, EventArgs e)
+        {
+            if (tbCustomer.Text.Trim().Length == 0) return;
+            custVendor.CustVendorManager.custvendorinfo cInfo = custVendor.CustVendorManager.CustVenInfoManager.GetUniqueCustVenInfo(0, tbCustomer.Text.Trim(), UserInfo.UserId);
+            if (cInfo == null || cInfo.cvnumber == null || cInfo.cvnumber.Trim().Length == 0)
+            {
+                MessageBox.Show("The SO can not be Created/Update.The necessary Customer Info did not exist in DB. Please add the customer in the Customer Managerment menu Or ask finance for Customer Number.\n\r Note:the Customer Name copied, you can CTR+V.");
+
+                if (tbCustomer.Text.Trim().Length > 0)
+                {
+                    Clipboard.SetText(tbCustomer.Text.Trim());
+                }
+                this.tbCustomer.Text = string.Empty;
+                this.tbCustomer.Focus();
+                return;
+            }
+            FillTheCustomerInfo(cInfo);
 
         }
     }

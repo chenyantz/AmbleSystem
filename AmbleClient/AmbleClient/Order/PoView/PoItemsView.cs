@@ -13,15 +13,18 @@ namespace AmbleClient.Order.PoView
     public partial class PoItemsView : Form
     {
         bool isNewAdd;
+        private int soId;
 
-        public PoItemsView(bool isNewAdd)
+        public PoItemsView(bool isNewAdd,int soId)
         {
             InitializeComponent();
             this.isNewAdd = isNewAdd;
+            this.soId = soId;
             if (isNewAdd)
             {
                 tscbOp.Text = "Add";
                 this.Text = "Add a PO Item";
+                poItemsControl1.NewFill(this.soId);
 
             }
             else

@@ -36,6 +36,7 @@ namespace AmbleClient.Order.PoView
             InitializeComponent();
             poList = new List<po>();
             poList.Add(poMain);
+            this.soId = poMain.soId.Value;
             this.Text = "PO Info for PO:" + poMain.poId;
         }
 
@@ -81,7 +82,7 @@ namespace AmbleClient.Order.PoView
         {
             for (int i = 0; i < poList.Count; i++)
             {
-                PoViewControl poViewControlItem = new PoViewControl();
+                PoViewControl poViewControlItem = new PoViewControl(soId);
                 poViewControlItem.Dock = System.Windows.Forms.DockStyle.Fill;
                 poViewControlItem.Location = new System.Drawing.Point(3, 3);
                 poViewControlItem.Name = "poItem" + i;
@@ -110,11 +111,7 @@ namespace AmbleClient.Order.PoView
         }
 
 
-        private void tsbClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
 
-        }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {

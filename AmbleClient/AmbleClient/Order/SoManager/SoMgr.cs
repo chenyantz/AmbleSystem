@@ -423,6 +423,12 @@ namespace AmbleClient.Order.SoMgr
            db.ExecDataBySql(strSql);
        }
 
+       public static int GetRfqIdAccordingToSoId(int soId)
+       {
+           string strSql = "select rfqId from So where soId=" + soId;
+           return Convert.ToInt32(db.GetSingleObject(strSql));
+       }
+
 
        public static void UpdateSoItems(List<SoItemsContentAndState> soItemStateList)
        {

@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleClient.custVendor.customerVendorMgr;
 using AmbleClient.OfferGui.OfferMgr;
+using AmbleClient.custVendor.CustVendorManager;
 
 namespace AmbleClient.OfferGui
 {
    public class BuyerOfferItems:OfferItems
     {
-       CustomerVendorMgr customerVendorMgr;
        public BuyerOfferItems()
        {
-           customerVendorMgr = new CustomerVendorMgr();
        }
 
        public void AutoFill(string mpn, string mfg)
@@ -26,8 +24,8 @@ namespace AmbleClient.OfferGui
 
        private void VendorAutoComplete()
        {
-           List<string> vendorNames = customerVendorMgr.GetMyTheCustomerVendorNamesOrVendors(1, UserInfo.UserId);
-
+           List<string> vendorNames = CustVenInfoManager.GetAllCustomerVendorNameICanSee(1, UserInfo.UserId);
+               
            this.tbVendorName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
            tbVendorName.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
@@ -42,7 +40,7 @@ namespace AmbleClient.OfferGui
        private void tbVendorName_Leave(object sender, EventArgs e)
        {
            //自动填充contact,phone,fax
-           Dictionary<string, string> contactInfo = customerVendorMgr.GetContactInfo(0, UserInfo.UserId, tbVendorName.Text.Trim());
+           Dictionary<string, string> contactInfo = CustVenInfoManager.GetContactInfo(0, UserInfo.UserId, tbVendorName.Text.Trim());
            //contact   
            AutoCompleteStringCollection contactSource = new AutoCompleteStringCollection();
            if (contactInfo.Keys.Contains("contact1"))

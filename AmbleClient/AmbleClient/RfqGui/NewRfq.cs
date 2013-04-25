@@ -44,8 +44,9 @@ namespace AmbleClient.RfqGui
             {
                 MessageBox.Show("The RFQ saved successfully");
                 tsbSave.Enabled = false;
+                this.Close();
             }
-            this.Close();
+           
 
         }
 

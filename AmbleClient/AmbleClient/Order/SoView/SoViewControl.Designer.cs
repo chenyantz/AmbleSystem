@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btAdd = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.tbShipTo = new System.Windows.Forms.TextBox();
@@ -111,6 +111,7 @@
             this.tbShipTo.Name = "tbShipTo";
             this.tbShipTo.Size = new System.Drawing.Size(325, 45);
             this.tbShipTo.TabIndex = 53;
+            this.tbShipTo.Enter += new System.EventHandler(this.tbShipTo_Enter);
             // 
             // label12
             // 
@@ -174,9 +175,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(597, 137);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(109, 15);
+            this.label9.Size = new System.Drawing.Size(111, 15);
             this.label9.TabIndex = 46;
-            this.label9.Text = "Customer Account:";
+            this.label9.Text = "Customer Number:";
             // 
             // tbFreightTerm
             // 
@@ -192,9 +193,9 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(303, 137);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 15);
+            this.label8.Size = new System.Drawing.Size(91, 15);
             this.label8.TabIndex = 44;
-            this.label8.Text = "Freight Terms:";
+            this.label8.Text = "Shipping Term:";
             // 
             // tbPaymentTerm
             // 
@@ -300,11 +301,11 @@
             // tbCustomer
             // 
             this.tbCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCustomer.Location = new System.Drawing.Point(107, 25);
-            this.tbCustomer.Multiline = true;
+            this.tbCustomer.Location = new System.Drawing.Point(107, 38);
             this.tbCustomer.Name = "tbCustomer";
-            this.tbCustomer.Size = new System.Drawing.Size(174, 40);
+            this.tbCustomer.Size = new System.Drawing.Size(174, 21);
             this.tbCustomer.TabIndex = 28;
+            this.tbCustomer.Leave += new System.EventHandler(this.tbCustomer_Leave);
             // 
             // label1
             // 
@@ -406,8 +407,8 @@
             // PartNo
             // 
             this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.PartNo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.PartNo.DefaultCellStyle = dataGridViewCellStyle1;
             this.PartNo.HeaderText = "Part #";
             this.PartNo.Name = "PartNo";
             this.PartNo.ReadOnly = true;
@@ -606,17 +607,17 @@
 
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox tbShipTo;
+        public System.Windows.Forms.TextBox tbShipTo;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox tbBillto;
+        public System.Windows.Forms.TextBox tbBillto;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbSpecialInstructions;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbCustomerAccount;
+        public System.Windows.Forms.TextBox tbCustomerAccount;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbFreightTerm;
+        public System.Windows.Forms.TextBox tbFreightTerm;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbPaymentTerm;
+        public System.Windows.Forms.TextBox tbPaymentTerm;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbCustomerPo;
         private System.Windows.Forms.Label label6;

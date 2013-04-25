@@ -341,11 +341,6 @@ C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomOff
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomOfferList.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomOfferNew.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomOfferNewCustVen.resources
-C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.AddCustomerVendor.resources
-C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.customerVendorMainFrame.resources
-C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.customerVendorOperation.resources
-C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.ModifyCustomerVendor.resources
-C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Finances.FinancesView.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Help.About.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Login.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.MainFrame.resources
@@ -379,3 +374,9 @@ C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\GenerateResource.read.1.tlo
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.exe
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.pdb
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.CustVenderListView.resources
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.CustVenInfoControl.resources
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.CustVenInfoFinancialControl.resources
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.CustVenView.resources
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.NewCustVen.resources
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.ShipToSelect.resources

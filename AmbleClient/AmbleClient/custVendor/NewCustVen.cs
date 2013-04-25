@@ -39,6 +39,15 @@ namespace AmbleClient.custVendor
             if (false == custVenInfoControl1.ValidateValues())
                 return;
             custvendorinfo cvInfo = custVenInfoControl1.GetValues();
+            //to check the name if already exist
+
+            if (CustVendorManager.CustVenInfoManager.IsCvNameExist(cvInfo.cvtype, cvInfo.cvname, UserInfo.UserId))
+            {
+                MessageBox.Show(cvInfo.cvname + " alreasy Exist.");
+                return;
+            
+            }
+
             cvInfo.lastUpdateDate = DateTime.Now;
             cvInfo.lastUpdateName = (short)UserInfo.UserId;
             cvInfo.ownerName = (short)UserInfo.UserId;

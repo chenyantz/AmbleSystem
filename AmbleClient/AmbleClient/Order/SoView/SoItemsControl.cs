@@ -19,14 +19,25 @@ namespace AmbleClient.SO
             this.cbCurrency.Items.AddRange(
                 Enum.GetNames(typeof(Currency))
                 );
+            if (!UserCombine.GetUserCanBeFinance().Contains((int)UserInfo.Job) && !UserCombine.GetuserCanBeLogistics().Contains((int)UserInfo.Job))
+            {
+                tbTrackingNo.ReadOnly = true;
+                tbQtyShipped.ReadOnly = true;
+            }
         }
 
-        public void NewCreateItems()
+        public void NewCreateItems(int rfqId)
         {
             this.cbCurrency.SelectedIndex = 0;
             this.cbSaleType.SelectedIndex = 0;
-        
-        
+        //fill the necessary Info
+
+         RfqGui.RfqManager.Rfq rfq=new RfqGui.RfqManager.RfqMgr().GetRfqAccordingToRfqId(rfqId);
+         this.tbPartNo.Text = rfq.partNo;
+         this.tbDc.Text = rfq.dc;
+         this.tbMfg.Text = rfq.mfg;
+         this.cbRohs.Checked = rfq.rohs == 1 ? true : false;
+
         }
 
         public void FillItems(SoItems soItem)
