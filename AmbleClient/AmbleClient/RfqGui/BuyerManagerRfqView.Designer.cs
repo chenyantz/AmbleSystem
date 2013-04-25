@@ -57,8 +57,8 @@
             this.tsbAssign.Image = ((System.Drawing.Image)(resources.GetObject("tsbAssign.Image")));
             this.tsbAssign.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAssign.Name = "tsbAssign";
-            this.tsbAssign.Size = new System.Drawing.Size(146, 22);
-            this.tsbAssign.Text = "Assign P/A and Update";
+            this.tsbAssign.Size = new System.Drawing.Size(69, 22);
+            this.tsbAssign.Text = "Assign P/A";
             this.tsbAssign.Click += new System.EventHandler(this.tsbAssign_Click);
             // 
             // tsbEnterOffer
@@ -67,7 +67,7 @@
             this.tsbEnterOffer.Image = ((System.Drawing.Image)(resources.GetObject("tsbEnterOffer.Image")));
             this.tsbEnterOffer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEnterOffer.Name = "tsbEnterOffer";
-            this.tsbEnterOffer.Size = new System.Drawing.Size(75, 22);
+            this.tsbEnterOffer.Size = new System.Drawing.Size(68, 22);
             this.tsbEnterOffer.Text = "Enter Offer";
             this.tsbEnterOffer.Click += new System.EventHandler(this.tsbOffer_Click);
             // 
@@ -77,7 +77,7 @@
             this.tsbViewOffers.Image = ((System.Drawing.Image)(resources.GetObject("tsbViewOffers.Image")));
             this.tsbViewOffers.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbViewOffers.Name = "tsbViewOffers";
-            this.tsbViewOffers.Size = new System.Drawing.Size(86, 22);
+            this.tsbViewOffers.Size = new System.Drawing.Size(79, 22);
             this.tsbViewOffers.Text = "View Offer(s)";
             this.tsbViewOffers.Click += new System.EventHandler(this.tsbViewOffers_Click);
             // 
@@ -87,7 +87,7 @@
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
             this.tsbClose.Text = "Close";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -95,18 +95,20 @@
             // 
             this.buyerManagerRfqItems1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.buyerManagerRfqItems1.Location = new System.Drawing.Point(0, 28);
+            this.buyerManagerRfqItems1.Location = new System.Drawing.Point(0, 30);
             this.buyerManagerRfqItems1.Name = "buyerManagerRfqItems1";
-            this.buyerManagerRfqItems1.Size = new System.Drawing.Size(886, 515);
+            this.buyerManagerRfqItems1.Size = new System.Drawing.Size(886, 558);
             this.buyerManagerRfqItems1.TabIndex = 1;
             // 
             // BuyerManagerRfqView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 546);
+            this.ClientSize = new System.Drawing.Size(886, 592);
             this.Controls.Add(this.buyerManagerRfqItems1);
             this.Controls.Add(this.toolStrip1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BuyerManagerRfqView";
             this.Text = "BuyManagerRfqView";
             this.Load += new System.EventHandler(this.BuyerManagerRfqView_Load);

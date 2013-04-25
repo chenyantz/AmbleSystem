@@ -434,7 +434,7 @@ namespace AmbleClient.Order.PoView
            custVendor.CustVendorManager.custvendorinfo cInfo = custVendor.CustVendorManager.CustVenInfoManager.GetUniqueCustVenInfo(1, this.tbVendor.Text.Trim(), UserInfo.UserId);
            if (cInfo == null || cInfo.cvnumber == null || cInfo.cvnumber.Trim().Length == 0)
            {
-               MessageBox.Show("The SO can not be Created/Update.The necessary Customer Info did not exist in DB. Please add the customer in the Customer Managerment menu Or ask finance for Customer Number.\n\r Note:the Customer Name copied, you can CTR+V.");
+               MessageBox.Show("The PO can not be Created/Update.The necessary Vendor Info did not exist in DB. Please add the vendor in the Vendor Managerment menu Or ask finance for Vendor Number.\n\r Note:the Vendor Name copied, you can CTR+V.");
 
                if (tbVendor.Text.Trim().Length > 0)
                {

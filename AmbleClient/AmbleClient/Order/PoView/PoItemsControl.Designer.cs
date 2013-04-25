@@ -177,6 +177,7 @@
             this.tbQty.Name = "tbQty";
             this.tbQty.Size = new System.Drawing.Size(105, 21);
             this.tbQty.TabIndex = 11;
+            this.tbQty.TextChanged += new System.EventHandler(this.tbQty_TextChanged);
             // 
             // label7
             // 
@@ -323,6 +324,7 @@
             this.tbUnitPrice.Name = "tbUnitPrice";
             this.tbUnitPrice.Size = new System.Drawing.Size(129, 21);
             this.tbUnitPrice.TabIndex = 27;
+            this.tbUnitPrice.TextChanged += new System.EventHandler(this.tbUnitPrice_TextChanged);
             // 
             // label15
             // 

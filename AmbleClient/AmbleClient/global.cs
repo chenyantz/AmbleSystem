@@ -22,7 +22,7 @@ namespace AmbleClient
 
     public enum Currency
     {
-     USD=0,CNY=1,EUR=2,HK=3,JP=4,ERROR=5
+     USD=0,CNY=1,EUR=2,HK=3,JP=4,OTHER=5
     
     }
 

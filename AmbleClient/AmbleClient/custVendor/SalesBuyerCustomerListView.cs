@@ -20,11 +20,14 @@ namespace AmbleClient.custVendor
             {
                 tscbAllOrMine.Items.Add("All Customer");
                 tscbAllOrMine.Items.Add("My Customer");
+                this.Text = "Customer List";
+
             }
             if (cvtype == 1)
             {
                 tscbAllOrMine.Items.Add("All Vendor");
                 tscbAllOrMine.Items.Add("My Vendor");
+                this.Text = "Vendor List";
             }
             tscbAllOrMine.SelectedIndex = 0;
             tscbAllOrMine.SelectedIndexChanged+=tscbAllOrMine_SelectedIndexChanged;

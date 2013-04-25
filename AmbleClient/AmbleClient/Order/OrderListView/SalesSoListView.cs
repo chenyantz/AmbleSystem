@@ -14,8 +14,8 @@ namespace AmbleClient.Order
        protected override void ViewStart()
        {
            this.Text = "SO List for Sales";
-           tscbList.Items.Add("List All SO I Can See");
-           tscbList.Items.Add("List My SO");
+           tscbList.Items.Add("All SO");
+           tscbList.Items.Add("My SO");
 
            //Add columns for datagridView1
          System.Windows.Forms.DataGridViewTextBoxColumn No = new System.Windows.Forms.DataGridViewTextBoxColumn(); 

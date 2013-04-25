@@ -40,7 +40,7 @@ namespace AmbleClient.OfferGui
        private void tbVendorName_Leave(object sender, EventArgs e)
        {
            //自动填充contact,phone,fax
-           Dictionary<string, string> contactInfo = CustVenInfoManager.GetContactInfo(0, UserInfo.UserId, tbVendorName.Text.Trim());
+           Dictionary<string, string> contactInfo = CustVenInfoManager.GetContactInfo(1, UserInfo.UserId, tbVendorName.Text.Trim());
            //contact   
            AutoCompleteStringCollection contactSource = new AutoCompleteStringCollection();
            if (contactInfo.Keys.Contains("contact1"))
@@ -87,16 +87,16 @@ namespace AmbleClient.OfferGui
            AutoCompleteStringCollection emailSource = new AutoCompleteStringCollection();
            if (contactInfo.Keys.Contains("email1"))
            {
-               tbContact.Text = contactInfo["email1"];
-               contactSource.Add(contactInfo["email1"]);
+               tbEmail.Text = contactInfo["email1"];
+               emailSource.Add(contactInfo["email1"]);
            }
            if (contactInfo.Keys.Contains("email2"))
            {
-               contactSource.Add(contactInfo["email2"]);
+               emailSource.Add(contactInfo["email2"]);
            }
-           tbContact.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-           tbContact.AutoCompleteSource = AutoCompleteSource.CustomSource;
-           tbContact.AutoCompleteCustomSource = emailSource;
+           tbEmail.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+           tbEmail.AutoCompleteSource = AutoCompleteSource.CustomSource;
+           tbEmail.AutoCompleteCustomSource = emailSource;
 
 
 

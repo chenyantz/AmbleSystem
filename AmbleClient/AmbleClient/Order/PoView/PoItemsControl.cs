@@ -51,7 +51,7 @@ namespace AmbleClient.PO
             tbQcPending.Text = item.qcPending.ToString();
             cbCurrency.SelectedIndex =(int)item.currency;
             tbUnitPrice.Text = item.unitPrice.ToString();
-            tbTotal.Text = (item.qtyAccept * item.unitPrice).ToString();
+            tbTotal.Text = (item.qty * item.unitPrice).ToString();
             dateTimePicker1.Value = item.dueDate.Value;
 
             if (item.receiveDate == null)
@@ -227,6 +227,36 @@ namespace AmbleClient.PO
             }
 
             return true;
+        }
+
+        private void tbUnitPrice_TextChanged(object sender, EventArgs e)
+        {
+            if ((!string.IsNullOrWhiteSpace(tbUnitPrice.Text.Trim())) && ItemsCheck.CheckFloatNumber(tbUnitPrice))
+            {
+                if (ItemsCheck.CheckIntNumber(tbQty))
+                {
+                    tbTotal.Text = (Convert.ToInt32(tbQty.Text.Trim()) * Convert.ToSingle(tbUnitPrice.Text.Trim())).ToString();
+                }
+                else
+                {
+                    tbTotal.Text = "";
+                }
+            }
+        }
+
+        private void tbQty_TextChanged(object sender, EventArgs e)
+        {
+            if ((!string.IsNullOrWhiteSpace(tbQty.Text.Trim())) && ItemsCheck.CheckIntNumber(tbQty))
+            {
+                if (ItemsCheck.CheckFloatNumber(tbUnitPrice))
+                {
+                    tbTotal.Text = (Convert.ToInt32(tbQty.Text.Trim()) * Convert.ToSingle(tbUnitPrice.Text.Trim())).ToString();
+                }
+                else
+                {
+                    tbTotal.Text = "";
+                }
+            }
         }
 
 

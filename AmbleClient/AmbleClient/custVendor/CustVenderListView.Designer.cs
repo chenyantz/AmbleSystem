@@ -106,7 +106,7 @@
             // tscbAllOrMine
             // 
             this.tscbAllOrMine.Name = "tscbAllOrMine";
-            this.tscbAllOrMine.Size = new System.Drawing.Size(121, 25);
+            this.tscbAllOrMine.Size = new System.Drawing.Size(125, 25);
             // 
             // toolStripSeparator3
             // 
@@ -123,6 +123,7 @@
             // 
             this.tscbFilterBy.Name = "tscbFilterBy";
             this.tscbFilterBy.Size = new System.Drawing.Size(121, 25);
+            this.tscbFilterBy.SelectedIndexChanged += new System.EventHandler(this.tscbFilterBy_SelectedIndexChanged);
             // 
             // toolStripLabel2
             // 

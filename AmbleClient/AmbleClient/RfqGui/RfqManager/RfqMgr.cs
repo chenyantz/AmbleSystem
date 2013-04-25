@@ -55,13 +55,15 @@ namespace AmbleClient.RfqGui.RfqManager
 
        public bool UpdateRfq(Rfq rfq)
        {
-       string strSql=string.Format("update rfq set customerName='{0}',partNo='{1}',salesId={2},contact='{3}',project='{4}',rohs={5},phone='{6}',fax='{7}',email='{8}',rfqdate='{9}',priority={10},dockdate='{11}',mfg='{12}',dc='{13}',custPartNo='{14}',genPartNo='{15}',alt='{16}',qty={17},packaging='{18}',targetPrice={19},resale={20},firstPA={21},secondPA={22} where rfqNo={23}",
+       string strSql=string.Format("update rfq set customerName='{0}',partNo='{1}',salesId={2},contact='{3}',project='{4}',rohs={5},phone='{6}',fax='{7}',email='{8}',rfqdate='{9}',priority={10},dockdate='{11}',mfg='{12}',dc='{13}',custPartNo='{14}',genPartNo='{15}',alt='{16}',qty={17},packaging='{18}',targetPrice={19},resale={20},firstPA={21},secondPA={22},closeReason={23} where rfqNo={24}",
          rfq.customerName,rfq.partNo,rfq.salesId,rfq.contact,rfq.project,rfq.rohs,rfq.phone,rfq.fax,rfq.email,rfq.rfqdate.Date.ToShortDateString(),
          rfq.priority.HasValue?rfq.priority.Value.ToString():"null",rfq.dockdate.Date.ToShortDateString(),rfq.mfg,rfq.dc,rfq.custPartNo,rfq.genPartNo,rfq.alt,rfq.qty,rfq.packaging,
          rfq.targetPrice.HasValue?rfq.targetPrice.Value.ToString():"null",
          rfq.resale.HasValue?rfq.resale.Value.ToString():"null",
          rfq.firstPA.HasValue?rfq.firstPA.Value.ToString():"null",
-         rfq.secondPA.HasValue?rfq.secondPA.Value.ToString():"null",rfq.rfqNo);
+         rfq.secondPA.HasValue?rfq.secondPA.Value.ToString():"null",
+         rfq.closeReason.HasValue?rfq.closeReason.Value.ToString():"null",
+         rfq.rfqNo);
         
            int row=db.ExecDataBySql(strSql);
             if(row==1)
@@ -229,11 +231,6 @@ namespace AmbleClient.RfqGui.RfqManager
 
        
        }
-
-
-
-
-
 
        //for sale
         public int GetCountOfDataTablePerSale(int itemsPerPage,int salesId,string filterColumn,string filterString,List<RfqStatesEnum> selections)

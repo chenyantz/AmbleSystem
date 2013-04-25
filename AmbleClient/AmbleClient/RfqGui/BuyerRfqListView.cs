@@ -11,8 +11,8 @@ namespace AmbleClient.RfqGui
     {
         public BuyerRfqListView()
         {
+            base.Text = "RFQ List for Purchasers";
             base.tsbNewRfq.Enabled = false;
-
             base.tscbAllOrMine.Items.Add("All RFQs");
             base.tscbAllOrMine.Items.Add("My Related RFQs");
             tscbAllOrMine.SelectedIndexChanged -= tscbAllOrMine_SelectedIndexChanged;
@@ -53,6 +53,21 @@ namespace AmbleClient.RfqGui
         {
             BuyerRfqView rfqView = new BuyerRfqView(rfqId);
             rfqView.ShowDialog();
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // BuyerRfqListView
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(1140, 527);
+            this.Name = "BuyerRfqListView";
+            this.Text = "RFQ List for Purchaser";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
 

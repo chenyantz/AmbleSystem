@@ -16,6 +16,7 @@ namespace AmbleClient.custVendor
             tscbAllOrMine.SelectedIndex = 0;
             tsbNew.Enabled = false;
             tsbDelete.Enabled = false;
+            this.Text = "Customer/Vendor List";
 
         
         }

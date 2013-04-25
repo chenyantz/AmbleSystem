@@ -83,6 +83,8 @@
             this.ClientSize = new System.Drawing.Size(904, 577);
             this.Controls.Add(this.buyerRfqItems1);
             this.Controls.Add(this.toolStrip1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BuyerRfqView";
             this.Text = "BuyerRfqView";
             this.Load += new System.EventHandler(this.BuyerRfqView_Load);

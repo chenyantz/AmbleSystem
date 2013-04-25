@@ -37,8 +37,18 @@ namespace AmbleClient.custVendor.CustVendorManager
 
         public static custvendorinfo GetUniqueCustVenInfo(int cvtype, string cvName, int ownerId)
         {
+            List<int> subIds;
+            if (cvtype == 0)
+            {
+                subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(ownerId, UserCombine.GetUserCanBeSales());
+            }
+            else
+            {
+                subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(ownerId, UserCombine.GetUserCanBeBuyers());
+            }
+
             var cvs = from cv in custVenEntity.custvendorinfo
-                      where cv.cvtype == (sbyte)cvtype && cv.ownerName == (short)ownerId && cv.cvname==cvName
+                      where cv.cvtype == (sbyte)cvtype && subIds.Contains(cv.ownerName) && cv.cvname==cvName
                       select cv;
             if (cvs.Count() == 0) return null;
             return cvs.First();
@@ -182,9 +192,17 @@ namespace AmbleClient.custVendor.CustVendorManager
         }
 
 
-        public static List<string> GetAllCustomerVendorNameICanSee(int cvtype, int ownId)
+        public static List<string> GetAllCustomerVendorNameICanSee(int cvtype, int ownerId)
         {
-            List<int> subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(ownId, null);
+            List<int> subIds;
+            if (cvtype == 0)
+            {
+                subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(ownerId, UserCombine.GetUserCanBeSales());
+            }
+            else
+            {
+                subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(ownerId, UserCombine.GetUserCanBeBuyers());
+            }
 
             var cvs = from cv in custVenEntity.custvendorinfo
                       where cv.cvtype == (sbyte)cvtype && subIds.Contains(cv.ownerName)
@@ -197,9 +215,19 @@ namespace AmbleClient.custVendor.CustVendorManager
         public static Dictionary<string, string> GetContactInfo(int cvtype, int ownerId, string cvname)
         {
             Dictionary<string, string> contactInfo = new Dictionary<string, string>();
+            List<int> subIds;
+            if (cvtype == 0)
+            {
+                subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(ownerId, UserCombine.GetUserCanBeSales());
+            }
+            else
+            {
+                subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(ownerId, UserCombine.GetUserCanBeBuyers());
+            }
+
 
             var cvs = from cv in custVenEntity.custvendorinfo
-                      where cv.cvtype == (sbyte)cvtype && cv.ownerName == ownerId && cv.cvname == cvname
+                      where cv.cvtype == (sbyte)cvtype && subIds.Contains(cv.ownerName) && cv.cvname == cvname
                       select new
                       {
                           Contact1 = cv.contact1,
@@ -232,7 +260,7 @@ namespace AmbleClient.custVendor.CustVendorManager
             }
             if (cvContactInfo.CellPhone.Length != 0)
             {
-                contactInfo.Add("cellPhone", cvContactInfo.CellPhone);
+                contactInfo.Add("cellphone", cvContactInfo.CellPhone);
             }
             if (cvContactInfo.Fax.Length != 0)
             {

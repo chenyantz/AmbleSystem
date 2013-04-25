@@ -159,3 +159,4 @@ C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.Cu
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.CustVenderListView.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.custVendor.NewCustVen.resources
 C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.Order.ShipToSelect.resources
+C:\AmbleSystem\AmbleClient\AmbleClient\obj\x86\Release\AmbleClient.RfqGui.SalesRfqListView.resources

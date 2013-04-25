@@ -12,6 +12,7 @@ namespace AmbleClient.RfqGui
 
         public SalesRfqListView()
         {
+            base.Text = "RFQ List for Sales";
             base.tscbAllOrMine.Items.Add("All RFQs");
             base.tscbAllOrMine.Items.Add("My RFQs");
             tscbAllOrMine.SelectedIndexChanged -= tscbAllOrMine_SelectedIndexChanged;
@@ -68,6 +69,21 @@ namespace AmbleClient.RfqGui
         {
             RFQView rfqView = new RFQView(rfqId);
             rfqView.ShowDialog();
+
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // SalesRfqListView
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(1140, 527);
+            this.Name = "SalesRfqListView";
+            this.Text = "RFQ List for Sales";
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

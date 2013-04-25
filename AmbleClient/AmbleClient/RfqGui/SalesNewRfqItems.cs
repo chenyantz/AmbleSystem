@@ -190,15 +190,15 @@ namespace AmbleClient.RfqGui
         if(contactInfo.Keys.Contains("email1"))
            {
             tbEmail.Text=contactInfo["email1"];
-            contactSource.Add(contactInfo["email1"]);
+            emailSource.Add(contactInfo["email1"]);
            }
         if(contactInfo.Keys.Contains("email2"))
            {
-            contactSource.Add(contactInfo["email2"]);
+            emailSource.Add(contactInfo["email2"]);
            }
-        tbContact.AutoCompleteMode=AutoCompleteMode.SuggestAppend;
-        tbContact.AutoCompleteSource=AutoCompleteSource.CustomSource;
-        tbContact.AutoCompleteCustomSource=emailSource;
+        tbEmail.AutoCompleteMode=AutoCompleteMode.SuggestAppend;
+        tbEmail.AutoCompleteSource=AutoCompleteSource.CustomSource;
+        tbEmail.AutoCompleteCustomSource=emailSource;
 
        
     }

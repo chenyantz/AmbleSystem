@@ -11,8 +11,8 @@ namespace AmbleClient.RfqGui
     {
         public BuyerManagerRfqListView()
         {
-           
 
+            base.Text = "RFQ List for Purchaser Manager";
 
             base.tsbNewRfq.Enabled = false;
             base.tscbAllOrMine.Enabled = true;
@@ -67,6 +67,21 @@ namespace AmbleClient.RfqGui
       {
           BuyerManagerRfqView rfqView = new BuyerManagerRfqView(rfqId);
           rfqView.ShowDialog();
+      }
+
+      private void InitializeComponent()
+      {
+          this.SuspendLayout();
+          // 
+          // BuyerManagerRfqListView
+          // 
+          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+          this.ClientSize = new System.Drawing.Size(1140, 527);
+          this.Name = "BuyerManagerRfqListView";
+          this.Text = "RFQ List for Purchaser Manager";
+          this.ResumeLayout(false);
+          this.PerformLayout();
+
       }
 
 

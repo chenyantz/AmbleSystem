@@ -33,7 +33,6 @@
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
             this.tsbPoEnter = new System.Windows.Forms.ToolStripButton();
             this.tsbViewPo = new System.Windows.Forms.ToolStripButton();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tscbStateList = new System.Windows.Forms.ToolStripComboBox();
@@ -49,7 +48,6 @@
             this.tsbUpdate,
             this.tsbPoEnter,
             this.tsbViewPo,
-            this.tsbClose,
             this.toolStripSeparator1,
             this.toolStripLabel1,
             this.tscbStateList,
@@ -90,16 +88,6 @@
             this.tsbViewPo.Size = new System.Drawing.Size(55, 22);
             this.tsbViewPo.Text = "View PO";
             this.tsbViewPo.Click += new System.EventHandler(this.tsbViewPo_Click);
-            // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(40, 22);
-            this.tsbClose.Text = "Close";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // toolStripSeparator1
             // 
@@ -165,7 +153,6 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbUpdate;
-        private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;

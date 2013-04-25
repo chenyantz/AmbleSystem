@@ -569,7 +569,7 @@
             "L/T too long",
             "D/C too old",
             "Packing issue",
-            "Demand gone;",
+            "Demand gone",
             "Others"});
             this.cbCloseReason.Location = new System.Drawing.Point(661, 306);
             this.cbCloseReason.Name = "cbCloseReason";
