@@ -49,7 +49,7 @@ namespace AmbleClient.custVendor
 
         protected override void SetTheDataGridViewColumn()
         {
-            System.Windows.Forms.DataGridViewTextBoxColumn CvId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Contact1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Phone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,8 +59,8 @@ namespace AmbleClient.custVendor
             System.Windows.Forms.DataGridViewTextBoxColumn OwnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
 
-            CvId.Name = "No";
-            CvId.Visible = false;
+            No.Name = "No";
+            No.Visible = false;
 
             CompanyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             if (cvtype == 0)
@@ -98,7 +98,7 @@ namespace AmbleClient.custVendor
             OwnerName.Name = "Owner Name";
 
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            CvId,
+            No,
             CompanyName,
             Contact1,
             Phone1,
@@ -128,11 +128,13 @@ namespace AmbleClient.custVendor
             {
                 
             }
+            int i = 0;
             foreach (custvendorinfo cvInfo in custVenInfoList)
             { 
 
-            dataGridView1.Rows.Add(cvInfo.cvId, cvInfo.cvname, cvInfo.contact1, cvInfo.phone1, cvInfo.cellphone, cvInfo.fax, cvInfo.email1,
+            dataGridView1.Rows.Add(i, cvInfo.cvname, cvInfo.contact1, cvInfo.phone1, cvInfo.cellphone, cvInfo.fax, cvInfo.email1,
                 AllAccountInfo.GetNameAccordingToId(cvInfo.ownerName));
+            i++;
             
             }
 

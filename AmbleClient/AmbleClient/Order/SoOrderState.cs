@@ -20,7 +20,7 @@ namespace AmbleClient.Order
 
     
     public class Operation
-    {
+{
      public  List<JobDescription> jobs;
      public  string operationName;
      public  delegate void OperationMethod(int soId);
@@ -440,7 +440,7 @@ namespace AmbleClient.Order
 
         private void SetStateShipmentCompleteBeforePay(int soid)
         {
-            UpdateState(soid, new SoShipCompletedAfterPay().GetStateValue());
+            UpdateState(soid, new SoShipCompletedBeforePay().GetStateValue());
         }
 
 

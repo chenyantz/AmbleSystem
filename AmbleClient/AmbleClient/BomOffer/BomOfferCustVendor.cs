@@ -26,67 +26,152 @@ namespace AmbleClient.BomOffer
             {
                 this.Text = "Vendors For Offers";
                 this.toolStripButton1.Text = "New Vendor";
-                this.tscbDisplayBomOffer.Text = "List Offer for Selected Vendor";
-                this.tsbExportFromExcel.Text = "Import Offer from xls File";
-                this.tsbNewBomOff.Text = "New Offer for Selected Vendor";
-                this.tsbDelete.Text = "Delete the Selected Vendor";
+                this.tsbImportFromExcel.Text = "Import Offer";
+                this.tsbNewBomOff.Text = "New Offer";
+                this.tsbDelete.Text = "Delete";
+
+                this.tscbSearchBy.Items.Add("Vendor Name");
 
             }
             else
             {
                 this.Text = "Customer For BOMs";
                 this.toolStripButton1.Text = "New Customer";
-                this.tscbDisplayBomOffer.Text = "List BOM for Selected Customer";
-                this.tsbExportFromExcel.Text = "Import BOM from xls File";
-                this.tsbNewBomOff.Text = "New BOM for Selected Customer";
-                this.tsbDelete.Text="Delete the Selected Customer";
+                this.tsbImportFromExcel.Text = "Import BOM";
+                this.tsbNewBomOff.Text = "New BOM";
+                this.tsbDelete.Text="Delete";
+                this.tscbSearchBy.Items.Add("Customer Name");
             }
+
+            FillTheDataGridViewColumn();
 
 
         }
-        
-        private void BomOfferCustVendor_Load(object sender, EventArgs e)
-        {
 
-            using(BomOfferEntities entity=new BomOfferEntities())
+
+        private void FillTheDataGridViewColumn()
+        {
+            System.Windows.Forms.DataGridViewTextBoxColumn Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn Tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn User= new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn EnterDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
+            Id.Name = "Id";
+            Id.Visible = false;
+
+            Company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            if (isOffer)
+                Company.HeaderText = "Vendor";
+            else
+                Company.HeaderText = "Customer";
+            Company.Name = "Compnay";
+
+            Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Contact.HeaderText = "Contact";
+            Contact.Name = "Contact";
+
+            Tel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Tel.HeaderText = "Tel";
+            Tel.Name = "Tel";
+
+            Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Email.HeaderText = "Email";
+            Email.Name = "Email";
+
+            User.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            if (isOffer)
+                User.HeaderText = "Sales";
+            else
+                User.HeaderText = "PA";
+            User.Name = "User";
+
+            EnterDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            EnterDay.HeaderText = "Enter Day";
+            EnterDay.Name = "EnterDay";
+
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            Id,
+            Company,
+            Contact,
+            Tel,
+            Email,
+            User,
+            EnterDay
+         });
+
+            
+        }
+
+
+        private void FillTheDataGrid()
+        {
+            this.dataGridView1.Rows.Clear();
+            using (BomOfferEntities entity = new BomOfferEntities())
             {
-              
-                if(isOffer)
+                if (tscbSearchBy.SelectedIndex < 0 || tstbFilterString.Text.Trim().Length == 0)
                 {
-             var bomOfferList=from bomOffer in entity.publiccustven join myaccount in entity.account on bomOffer.userID equals myaccount.id
-                                      where bomOffer.custVendorType==1
-                                      select new
+
+                    var bomOfferList = from bomOffer in entity.publiccustven
+                                       join myaccount in entity.account on bomOffer.userID equals myaccount.id
+                                       where bomOffer.custVendorType == (isOffer ? 1 : 0)
+                                       select new
                                        {
-                                          Id=bomOffer.custVenId,
-                                          VendorName=bomOffer.custVenName,
-                                          Contact=bomOffer.contact,
-                                          Tel=bomOffer.tel,
-                                          Email=bomOffer.email,
-                                          PA=myaccount.accountName,
-                                          EnterDay=bomOffer.enterDay
+                                           Id = bomOffer.custVenId,
+                                           Name = bomOffer.custVenName,
+                                           Contact = bomOffer.contact,
+                                           Tel = bomOffer.tel,
+                                           Email = bomOffer.email,
+                                           User = myaccount.accountName,
+                                           EnterDay = bomOffer.enterDay
                                        };
-                  this.dataGridView1.DataSource=bomOfferList;
+                    foreach (var bomOffer in bomOfferList)
+                    {
+                        dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Name, bomOffer.Contact, bomOffer.Tel, bomOffer.Email, bomOffer.User, bomOffer.EnterDay);
+
+                    }
                 }
                 else
                 {
-                 var bomOfferList=from bomOffer in entity.publiccustven join myaccount in entity.account on bomOffer.userID equals myaccount.id
-                                      where bomOffer.custVendorType==0
-                                      select new
+
+                    var bomOfferList = from bomOffer in entity.publiccustven
+                                       join myaccount in entity.account on bomOffer.userID equals myaccount.id
+                                       where bomOffer.custVendorType == (isOffer ? 1 : 0) &&bomOffer.custVenName.Contains(tstbFilterString.Text.Trim())
+
+                                       select new
                                        {
-                                          Id=bomOffer.custVenId,
-                                          CustomerName=bomOffer.custVenName,
-                                          Contact=bomOffer.contact,
-                                          Tel=bomOffer.tel,
-                                          Email=bomOffer.email,
-                                          Sale=myaccount.accountName,
-                                          EnterDay=bomOffer.enterDay
+                                           Id = bomOffer.custVenId,
+                                           Name = bomOffer.custVenName,
+                                           Contact = bomOffer.contact,
+                                           Tel = bomOffer.tel,
+                                           Email = bomOffer.email,
+                                           User = myaccount.accountName,
+                                           EnterDay = bomOffer.enterDay
                                        };
-                 this.dataGridView1.DataSource = bomOfferList;
+                    foreach (var bomOffer in bomOfferList)
+                    {
+                        dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Name, bomOffer.Contact, bomOffer.Tel, bomOffer.Email, bomOffer.User, bomOffer.EnterDay);
+
+                    }
                 
                 }
-               
+
+
+
             }
-            }
+        
+        }
+
+
+
+        private void BomOfferCustVendor_Load(object sender, EventArgs e)
+        {
+            this.dataGridView1.Rows.Clear();
+            FillTheDataGrid();
+            
+        }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
           {
@@ -271,6 +356,24 @@ namespace AmbleClient.BomOffer
             }
 
 
+        }
+
+        private void tsbApply_Click(object sender, EventArgs e)
+        {
+            FillTheDataGrid();
+
+        }
+
+        private void tsbClear_Click(object sender, EventArgs e)
+        {
+            tscbSearchBy.SelectedIndex = -1;
+            tstbFilterString.Text = string.Empty;
+            FillTheDataGrid();
+        }
+
+        private void tsbRefresh_Click(object sender, EventArgs e)
+        {
+            FillTheDataGrid();
         }
     
     

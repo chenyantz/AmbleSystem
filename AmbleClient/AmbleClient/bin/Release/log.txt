@@ -239,3 +239,62 @@ Exception rethrown at [0]:
 2013-04-26 00:36:50,583 [10] INFO  Amble (null) - 5,2 logged in
 2013-04-26 00:37:11,357 [10] INFO  Amble (null) - 3,3 logged in
 2013-04-26 00:39:33,180 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-26 02:05:54,158 [10] ERROR Amble (null) - A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 192.168.1.234:1111
+2013-04-26 02:05:54,189 [10] ERROR Amble (null) - 
+Server stack trace: 
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
+   at System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   at System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   at System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   at System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   at System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   at System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at PasswordServer.DatabaseInfo.GetDbUser()
+   at AmbleClient.ServerInfo..cctor() in C:\AmbleSystem\AmbleClient\AmbleClient\global.cs:line 302
+2013-04-26 02:06:14,703 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-26 02:09:13,253 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 02:29:54,449 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 02:32:14,260 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 02:36:02,487 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 02:39:02,260 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 02:39:55,176 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 02:41:00,329 [10] INFO  Amble (null) - 8,9 logged in
+2013-04-26 02:44:50,633 [8] INFO  Amble (null) - 8,9 logged in
+2013-04-26 02:45:51,552 [8] INFO  Amble (null) - 8,9 logged in
+2013-04-26 02:46:03,267 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-26 02:47:27,465 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-26 02:49:53,832 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 03:02:36,922 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 09:45:34,961 [9] INFO  Amble (null) - 9,8 logged in
+2013-04-26 09:52:56,679 [9] INFO  Amble (null) - 9,8 logged in
+2013-04-26 09:54:18,705 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-26 09:58:07,576 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-26 09:59:33,201 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-26 10:04:07,920 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-26 10:05:26,324 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 10:13:10,051 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-26 10:17:18,110 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 10:21:45,647 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-26 10:26:10,950 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 10:58:56,199 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:13:34,685 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:14:26,951 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:27:49,042 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:31:11,977 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:38:14,515 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:40:08,473 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:42:18,577 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:44:06,291 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:48:57,007 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:49:43,094 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:51:10,364 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:52:24,801 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:54:53,484 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-26 11:56:08,884 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 12:01:30,782 [9] INFO  Amble (null) - 1,0 logged in

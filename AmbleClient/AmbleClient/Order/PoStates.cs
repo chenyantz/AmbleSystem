@@ -340,13 +340,9 @@ namespace AmbleClient.Order
 
       public void Balance(int poId)
       {
-          UpdateState(poId, new PoFullReceivedAfterPay().GetStateValue());
+          UpdateState(poId, new PoBalance().GetStateValue());
 
       }
-        
-        
-        
-        
         public override int GetStateValue()
         {
             return 6;

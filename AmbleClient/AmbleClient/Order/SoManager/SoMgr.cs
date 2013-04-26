@@ -41,17 +41,21 @@ namespace AmbleClient.Order.SoMgr
            if (filterColumn.Trim() == "mpn" && (!string.IsNullOrWhiteSpace(filterString)))
            {
               List<int> idsList=GetSoIdByMPN(filterString.Trim());
-               if(idsList.Count>=1)
-               {
-                 sb.Append(" and (soId="+idsList[0]);
+              if (idsList.Count >= 1)
+              {
+                  sb.Append(" and (soId=" + idsList[0]);
 
-                 for (int i = 1; i < idsList.Count; i++)
-                 {
-                     sb.Append(" or soId=" + idsList[i]);
-                 }
-                   sb.Append(" ) ");
-    
-               }
+                  for (int i = 1; i < idsList.Count; i++)
+                  {
+                      sb.Append(" or soId=" + idsList[i]);
+                  }
+                  sb.Append(" ) ");
+
+              }
+              else
+              {
+                  return soList;
+              }
                
           }
            else
@@ -123,13 +127,14 @@ namespace AmbleClient.Order.SoMgr
                    sb.Append(" ) ");
 
                }
+               else { return soList; }
            }
            else
            {
                //append the filter
                if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
                {
-                   sb.Append(string.Format(" and {0} like '%{1}%' ", filterColumn, filterString));
+                   sb.Append(string.Format(" and s.{0} like '%{1}%' ", filterColumn, filterString));
                }
            }
            sb.Append(" and (soStates=" + states[0]);

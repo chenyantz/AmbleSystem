@@ -19,6 +19,7 @@ namespace AmbleClient.BomOffer
         {
             InitializeComponent();
             this.isOffer = isOffer;
+            FillTheDataGridColumn();
         }
         public BomOfferList(bool isOffer, int custVenId)
             : this(isOffer)
@@ -26,6 +27,66 @@ namespace AmbleClient.BomOffer
             this.listbyCustVen = true;
             this.custVenId = custVenId;
         }
+
+        private void FillTheDataGridColumn()
+        {
+            System.Windows.Forms.DataGridViewTextBoxColumn Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
+
+            Id.Name = "Id";
+            Id.Visible = false;
+
+
+
+            System.Windows.Forms.DataGridViewTextBoxColumn Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn Mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn Mpn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn Cpn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
+            Company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            if (isOffer)
+                Company.HeaderText = "Vendor";
+            else
+                Company.HeaderText = "Customer";
+            Company.Name = "Compnay";
+
+            Mfg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Mfg.HeaderText = "MFG";
+            Mfg.Name = "Mfg";
+
+            Mpn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Mpn.HeaderText = "MPN";
+            Mpn.Name = "Mpn";
+            
+            Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Qty.HeaderText = "QTY";
+            Qty.Name = "Qty";
+
+
+            Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Price.HeaderText = "Price";
+            Price.Name = "Price";
+
+            Cpn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Cpn.HeaderText = "CPN";
+            Cpn.Name = "Cpn";
+
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            Id,
+            Company,
+            Mfg,
+            Mpn,
+            Qty,
+            Price,
+            Cpn
+         });
+
+        
+        }
+
+
 
 
         private void BomOfferList_Load(object sender, EventArgs e)
@@ -43,9 +104,13 @@ namespace AmbleClient.BomOffer
             else
             {
                 tscbFilterBy.Items.Add("MPN");
-                tscbFilterBy.Items.Add("Company Name");
+                if (isOffer)
+                    tscbFilterBy.Items.Add("Vendor Name");
+                else
+                    tscbFilterBy.Items.Add("Customer Name");
             }
 
+            this.dataGridView1.Rows.Clear();
             using (BomOfferEntities entity = new BomOfferEntities())
             {
                 if (listbyCustVen)
@@ -53,10 +118,9 @@ namespace AmbleClient.BomOffer
                     var bomOfferList = from bomOffer in entity.publicbomoffer
                                        join custVen in entity.publiccustven on bomOffer.BomCustVendId equals custVen.custVenId
                                        where custVen.custVendorType == (isOffer ? 1 : 0) && custVen.custVenId==this.custVenId
-                                       
                                        select new
                                        {
-                                          // Id = bomOffer.BomCustVendId,
+                                          Id = bomOffer.BomCustVendId,
                                            Company = custVen.custVenName,
                                            MFG = bomOffer.mfg,
                                            MPN = bomOffer.mpn,
@@ -65,7 +129,10 @@ namespace AmbleClient.BomOffer
                                            CPN = bomOffer.cpn
                                        };
 
-                    this.dataGridView1.DataSource = bomOfferList;
+                    foreach (var bomOffer in bomOfferList)
+                    {
+                        dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN);
+                    }
 
                 }
 
@@ -76,7 +143,7 @@ namespace AmbleClient.BomOffer
                                        where custVen.custVendorType == (isOffer ? 1 : 0)
                                        select new
                                        {
-                                         //  Id=bomOffer.BomCustVendId,
+                                           Id=bomOffer.BomCustVendId,
                                            Company = custVen.custVenName,
                                            MFG = bomOffer.mfg,
                                            MPN = bomOffer.mpn,
@@ -85,7 +152,10 @@ namespace AmbleClient.BomOffer
                                            CPN = bomOffer.cpn
                                        };
 
-                    this.dataGridView1.DataSource = bomOfferList;
+                    foreach (var bomOffer in bomOfferList)
+                    {
+                        dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN);
+                    }
                 }
 
             }
@@ -118,6 +188,9 @@ namespace AmbleClient.BomOffer
 
         private void tsbCancel_Click(object sender, EventArgs e)
         {
+            tscbFilterBy.SelectedIndex = -1;
+            tstbFilterString.Text = string.Empty;
+            
             BomOfferList_Load(this, null);
         }
 
@@ -126,7 +199,7 @@ namespace AmbleClient.BomOffer
             if ((tscbFilterBy.Text.Trim().Length == 0)|| (tstbFilterString.Text.Trim().Length == 0))
                 return;
 
-            if ((tscbFilterBy.Text.Trim() == "Company Name") && (tstbFilterString.Text.Trim().Length != 0))
+            if (((tscbFilterBy.Text.Trim() == "Vendor Name") || (tscbFilterBy.Text.Trim() == "Customer Name")) && (tstbFilterString.Text.Trim().Length != 0))
             {
                 if (listbyCustVen)
                 {
@@ -139,7 +212,7 @@ namespace AmbleClient.BomOffer
                                        where custVen.custVendorType == (isOffer ? 1 : 0) &&(custVen.custVenName.Contains(tstbFilterString.Text.Trim()))
                                        select new
                                        {
-                                          // Id = bomOffer.BomCustVendId,
+                                          Id = bomOffer.BomCustVendId,
                                            Company = custVen.custVenName,
                                            MFG = bomOffer.mfg,
                                            MPN = bomOffer.mpn,
@@ -148,7 +221,11 @@ namespace AmbleClient.BomOffer
                                            CPN = bomOffer.cpn
                                        };
 
-                    this.dataGridView1.DataSource = bomOfferList;
+                    this.dataGridView1.Rows.Clear();
+                    foreach (var bomOffer in bomOfferList)
+                    {
+                        dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN);
+                    }
 
                 }
             
@@ -166,7 +243,7 @@ namespace AmbleClient.BomOffer
                                            && (custVen.custVenId == this.custVenId))
                                            select new
                                            {
-                                               //  Id = bomOffer.BomCustVendId,
+                                               Id = bomOffer.BomCustVendId,
                                                Company = custVen.custVenName,
                                                MFG = bomOffer.mfg,
                                                MPN = bomOffer.mpn,
@@ -175,7 +252,11 @@ namespace AmbleClient.BomOffer
                                                CPN = bomOffer.cpn
                                            };
 
-                        this.dataGridView1.DataSource = bomOfferList;
+                        this.dataGridView1.Rows.Clear();
+                        foreach (var bomOffer in bomOfferList)
+                        {
+                            dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN);
+                        }
 
 
 
@@ -189,7 +270,7 @@ namespace AmbleClient.BomOffer
                                            where custVen.custVendorType == (isOffer ? 1 : 0) && (bomOffer.mpn.Contains(tstbFilterString.Text.Trim()))
                                            select new
                                            {
-                                               //  Id = bomOffer.BomCustVendId,
+                                               Id = bomOffer.BomCustVendId,
                                                Company = custVen.custVenName,
                                                MFG = bomOffer.mfg,
                                                MPN = bomOffer.mpn,
@@ -198,7 +279,11 @@ namespace AmbleClient.BomOffer
                                                CPN = bomOffer.cpn
                                            };
 
-                        this.dataGridView1.DataSource = bomOfferList;
+                        this.dataGridView1.Rows.Clear();
+                        foreach (var bomOffer in bomOfferList)
+                        {
+                            dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN);
+                        }
 
                     }
                 }
@@ -255,7 +340,7 @@ namespace AmbleClient.BomOffer
                 return table;
             }
             int columnCount = gv.Columns.Count;
-            for (int i = 0; i < columnCount; i++)
+            for (int i = 1; i < columnCount; i++)//omit the id column
             {
                 string text = gv.Columns[i].HeaderText;
                 table.Columns.Add(text);
@@ -265,7 +350,7 @@ namespace AmbleClient.BomOffer
             {
                     DataRow row = table.NewRow();
                     int j = 0;
-                    for (int i = 0; i < columnCount; i++)
+                    for (int i = 1; i < columnCount; i++) //i=1 means omit the id column
                     {
                         object cellValue=r.Cells[i].Value;
                        /*

@@ -14,6 +14,7 @@ using System.Data.EntityClient;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
+using MySql.Data.MySqlClient;
 
 [assembly: EdmSchemaAttribute()]
 
@@ -33,6 +34,7 @@ namespace AmbleClient.custVendor.CustVendorManager
         /// </summary>
         public CustVenInfoEntities() : base("name=CustVenInfoEntities", "CustVenInfoEntities")
         {
+            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
@@ -42,6 +44,7 @@ namespace AmbleClient.custVendor.CustVendorManager
         /// </summary>
         public CustVenInfoEntities(string connectionString) : base(connectionString, "CustVenInfoEntities")
         {
+            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
@@ -51,10 +54,23 @@ namespace AmbleClient.custVendor.CustVendorManager
         /// </summary>
         public CustVenInfoEntities(EntityConnection connection) : base(connection, "CustVenInfoEntities")
         {
+            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
+
+        private void ChangeString()
+        {
+            MySqlConnectionStringBuilder sb = new MySqlConnectionStringBuilder(((EntityConnection)Connection).StoreConnection.ConnectionString);
+            sb.UserID = ServerInfo.GetUserId();
+            sb.Password = ServerInfo.GetPassword();
+            sb.Server = ServerInfo.GetServerAddress();
+            sb.Database = "shenzhenerp";
+            ((EntityConnection)Connection).StoreConnection.ConnectionString = sb.ConnectionString;
+
+        }
     
+
         #endregion
     
         #region 分部方法

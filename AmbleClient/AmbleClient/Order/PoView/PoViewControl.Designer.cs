@@ -52,6 +52,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.tbShipTo = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btAdd = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.cbPa = new System.Windows.Forms.ComboBox();
+            this.btSplit = new System.Windows.Forms.Button();
+            this.cbFreight = new System.Windows.Forms.ComboBox();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,12 +78,6 @@
             this.RecvDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StepCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SalesAgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label13 = new System.Windows.Forms.Label();
-            this.btAdd = new System.Windows.Forms.Button();
-            this.btDelete = new System.Windows.Forms.Button();
-            this.cbPa = new System.Windows.Forms.ComboBox();
-            this.btSplit = new System.Windows.Forms.Button();
-            this.cbFreight = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -323,6 +323,69 @@
             this.dataGridView1.TabIndex = 29;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(35, 277);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(40, 15);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "Items:";
+            // 
+            // btAdd
+            // 
+            this.btAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAdd.Location = new System.Drawing.Point(97, 273);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(72, 23);
+            this.btAdd.TabIndex = 27;
+            this.btAdd.Text = "Add";
+            this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            // 
+            // btDelete
+            // 
+            this.btDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDelete.Location = new System.Drawing.Point(196, 273);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(67, 23);
+            this.btDelete.TabIndex = 28;
+            this.btDelete.Text = "Delete";
+            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // cbPa
+            // 
+            this.cbPa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPa.FormattingEnabled = true;
+            this.cbPa.Location = new System.Drawing.Point(656, 24);
+            this.cbPa.Name = "cbPa";
+            this.cbPa.Size = new System.Drawing.Size(153, 23);
+            this.cbPa.TabIndex = 5;
+            // 
+            // btSplit
+            // 
+            this.btSplit.Location = new System.Drawing.Point(293, 273);
+            this.btSplit.Name = "btSplit";
+            this.btSplit.Size = new System.Drawing.Size(67, 23);
+            this.btSplit.TabIndex = 30;
+            this.btSplit.Text = "Split";
+            this.btSplit.UseVisualStyleBackColor = true;
+            this.btSplit.Click += new System.EventHandler(this.btSplit_Click);
+            // 
+            // cbFreight
+            // 
+            this.cbFreight.FormattingEnabled = true;
+            this.cbFreight.Items.AddRange(new object[] {
+            "We Pay",
+            "Vendor Pay"});
+            this.cbFreight.Location = new System.Drawing.Point(712, 83);
+            this.cbFreight.Name = "cbFreight";
+            this.cbFreight.Size = new System.Drawing.Size(99, 21);
+            this.cbFreight.TabIndex = 31;
+            // 
             // No
             // 
             this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -336,10 +399,10 @@
             this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.PartNo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.PartNo.HeaderText = "Part #";
+            this.PartNo.HeaderText = "MPN";
             this.PartNo.Name = "PartNo";
             this.PartNo.ReadOnly = true;
-            this.PartNo.Width = 51;
+            this.PartNo.Width = 56;
             // 
             // Mfg
             // 
@@ -485,69 +548,6 @@
             this.SalesAgent.ReadOnly = true;
             this.SalesAgent.Width = 82;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(35, 277);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 15);
-            this.label13.TabIndex = 26;
-            this.label13.Text = "Items:";
-            // 
-            // btAdd
-            // 
-            this.btAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAdd.Location = new System.Drawing.Point(97, 273);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(72, 23);
-            this.btAdd.TabIndex = 27;
-            this.btAdd.Text = "Add";
-            this.btAdd.UseVisualStyleBackColor = true;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
-            // 
-            // btDelete
-            // 
-            this.btDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDelete.Location = new System.Drawing.Point(196, 273);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(67, 23);
-            this.btDelete.TabIndex = 28;
-            this.btDelete.Text = "Delete";
-            this.btDelete.UseVisualStyleBackColor = true;
-            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
-            // 
-            // cbPa
-            // 
-            this.cbPa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPa.FormattingEnabled = true;
-            this.cbPa.Location = new System.Drawing.Point(656, 24);
-            this.cbPa.Name = "cbPa";
-            this.cbPa.Size = new System.Drawing.Size(153, 23);
-            this.cbPa.TabIndex = 5;
-            // 
-            // btSplit
-            // 
-            this.btSplit.Location = new System.Drawing.Point(293, 273);
-            this.btSplit.Name = "btSplit";
-            this.btSplit.Size = new System.Drawing.Size(67, 23);
-            this.btSplit.TabIndex = 30;
-            this.btSplit.Text = "Split";
-            this.btSplit.UseVisualStyleBackColor = true;
-            this.btSplit.Click += new System.EventHandler(this.btSplit_Click);
-            // 
-            // cbFreight
-            // 
-            this.cbFreight.FormattingEnabled = true;
-            this.cbFreight.Items.AddRange(new object[] {
-            "We Pay",
-            "Vendor Pay"});
-            this.cbFreight.Location = new System.Drawing.Point(712, 83);
-            this.cbFreight.Name = "cbFreight";
-            this.cbFreight.Size = new System.Drawing.Size(99, 21);
-            this.cbFreight.TabIndex = 31;
-            // 
             // PoViewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -620,6 +620,7 @@
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.ComboBox cbPa;
         private System.Windows.Forms.Button btSplit;
+        private System.Windows.Forms.ComboBox cbFreight;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mfg;
@@ -640,6 +641,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RecvDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn StepCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalesAgent;
-        private System.Windows.Forms.ComboBox cbFreight;
     }
 }

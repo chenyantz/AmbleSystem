@@ -109,6 +109,9 @@ namespace AmbleClient.Order
         {
             this.filterColumn = string.Empty;
             this.filterString = string.Empty;
+            this.tscbFilterColumn.SelectedIndex = -1;
+            this.tstbFilterString.Text = string.Empty;
+           
             FillTheDataGrid();
         }
 

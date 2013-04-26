@@ -33,9 +33,9 @@
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.custVenInfoControl1 = new AmbleClient.custVendor.CustVenInfoControl(info.cvtype);
+            this.custVenInfoControl1 = new AmbleClient.custVendor.CustVenInfoControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.custVenInfoFinancialControl1 = new AmbleClient.custVendor.CustVenInfoFinancialControl(info.cvtype);
+            this.custVenInfoFinancialControl1 = new AmbleClient.custVendor.CustVenInfoFinancialControl();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -118,6 +118,8 @@
             this.ClientSize = new System.Drawing.Size(850, 531);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CustVenView";
             this.Text = "CustVenView";
             this.Load += new System.EventHandler(this.CustVenView_Load);

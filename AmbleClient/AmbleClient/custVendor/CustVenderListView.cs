@@ -101,7 +101,12 @@ namespace AmbleClient.custVendor
            {
               if(e.RowIndex>dataGridView1.ColumnCount-1)
                   return;
-              CustVenView cvv = new CustVenView(custVenInfoList[e.RowIndex]);
+
+               //get the real index.
+              int realIndex = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+
+
+              CustVenView cvv = new CustVenView(custVenInfoList[realIndex]);
               if (DialogResult.Yes == cvv.ShowDialog())
               {
                   tsbRefresh_Click(this, null);

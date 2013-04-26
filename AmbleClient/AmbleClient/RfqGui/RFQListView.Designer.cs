@@ -161,7 +161,7 @@
             this.tscbFilterColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tscbFilterColumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tscbFilterColumn.Items.AddRange(new object[] {
-            "Part No.",
+            "MPN",
             "Customer Name",
             "RFQ ID",
             "Date"});

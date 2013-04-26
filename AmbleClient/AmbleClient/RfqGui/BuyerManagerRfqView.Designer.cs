@@ -33,7 +33,6 @@
             this.tsbAssign = new System.Windows.Forms.ToolStripButton();
             this.tsbEnterOffer = new System.Windows.Forms.ToolStripButton();
             this.tsbViewOffers = new System.Windows.Forms.ToolStripButton();
-            this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.buyerManagerRfqItems1 = new AmbleClient.RfqGui.BuyerManagerRfqItems();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -43,8 +42,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAssign,
             this.tsbEnterOffer,
-            this.tsbViewOffers,
-            this.tsbClose});
+            this.tsbViewOffers});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(886, 25);
@@ -81,16 +79,6 @@
             this.tsbViewOffers.Text = "View Offer(s)";
             this.tsbViewOffers.Click += new System.EventHandler(this.tsbViewOffers_Click);
             // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(40, 22);
-            this.tsbClose.Text = "Close";
-            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
-            // 
             // buyerManagerRfqItems1
             // 
             this.buyerManagerRfqItems1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
@@ -124,7 +112,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbAssign;
         private System.Windows.Forms.ToolStripButton tsbEnterOffer;
-        private System.Windows.Forms.ToolStripButton tsbClose;
         private BuyerManagerRfqItems buyerManagerRfqItems1;
         private System.Windows.Forms.ToolStripButton tsbViewOffers;
     }

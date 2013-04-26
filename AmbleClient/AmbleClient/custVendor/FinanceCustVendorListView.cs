@@ -30,7 +30,7 @@ namespace AmbleClient.custVendor
 
         protected override void SetTheDataGridViewColumn()
         {
-            System.Windows.Forms.DataGridViewTextBoxColumn CvId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn CompanyType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,8 +38,8 @@ namespace AmbleClient.custVendor
             System.Windows.Forms.DataGridViewTextBoxColumn PaymentTerm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn ShippingTerm = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
-            CvId.Name = "No";
-            CvId.Visible = false;
+            No.Name = "No";
+            No.Visible = false;
 
             CompanyType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             CompanyType.HeaderText = "Type";
@@ -66,7 +66,7 @@ namespace AmbleClient.custVendor
             ShippingTerm.Name = "Shipping Term";
 
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            CvId,
+            No,
             CompanyType,
             CompanyName,
             Country,
@@ -82,9 +82,11 @@ namespace AmbleClient.custVendor
         {
             custVenInfoList.Clear();
             custVenInfoList.AddRange(CustVendorManager.CustVenInfoManager.GetAllCustomerAndVendors());
+            int i = 0;
             foreach(custvendorinfo info in custVenInfoList)
             {
-                dataGridView1.Rows.Add(info.cvId, info.cvtype == 0 ? "C" : "V", info.cvname, info.country, AllAccountInfo.GetNameAccordingToId(info.ownerName), info.paymentTerm, info.shippingTerm);
+                dataGridView1.Rows.Add(i, info.cvtype == 0 ? "C" : "V", info.cvname, info.country, AllAccountInfo.GetNameAccordingToId(info.ownerName), info.paymentTerm, info.shippingTerm);
+                i++;
             }
         
         }

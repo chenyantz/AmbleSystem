@@ -89,7 +89,7 @@ namespace AmbleClient.Order
         {
             filterColumnDict.Add("Vendor Name", "vendorName");
             filterColumnDict.Add("PO Number", "poNo");
-            filterColumnDict.Add("Part No", "mpn");
+            filterColumnDict.Add("MPN", "mpn");
 
         }
 

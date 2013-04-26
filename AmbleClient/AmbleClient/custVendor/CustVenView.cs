@@ -21,6 +21,12 @@ namespace AmbleClient.custVendor
         {
             this.info = info;
             InitializeComponent();
+            if (info.cvtype == 0)
+                this.Text = "Customer Info";
+            else
+                this.Text = "Vendor Info";
+
+
         }
 
         private void CustVenView_Load(object sender, EventArgs e)
