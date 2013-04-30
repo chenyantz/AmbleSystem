@@ -113,10 +113,10 @@ namespace AmbleClient.PO
 
             return new poitems
             {
-                partNo = tbPartNo.Text.Trim(),
-                mfg = tbMfg.Text.Trim(),
+                partNo = tbPartNo.Text.Trim().ToUpper(),
+                mfg = tbMfg.Text.Trim().ToUpper(),
                 dc = tbDc.Text.Trim(),
-                vendorIntPartNo = tbVendorIntPartNo.Text.Trim(),
+                vendorIntPartNo = tbVendorIntPartNo.Text.Trim().ToUpper(),
                 org = tbOrg.Text.Trim(),
                 qty = int.Parse(tbQty.Text.Trim()),
                 qtyRecd =qtyR,

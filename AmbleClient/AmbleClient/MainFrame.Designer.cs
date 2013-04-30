@@ -93,28 +93,28 @@
             // customerManagermentToolStripMenuItem
             // 
             this.customerManagermentToolStripMenuItem.Name = "customerManagermentToolStripMenuItem";
-            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.customerManagermentToolStripMenuItem.Text = "Customer Management";
+            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.customerManagermentToolStripMenuItem.Text = "Customer List";
             this.customerManagermentToolStripMenuItem.Click += new System.EventHandler(this.customerManagermentToolStripMenuItem_Click);
             // 
             // rFQViewNewSOToolStripMenuItem
             // 
             this.rFQViewNewSOToolStripMenuItem.Name = "rFQViewNewSOToolStripMenuItem";
-            this.rFQViewNewSOToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.rFQViewNewSOToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rFQViewNewSOToolStripMenuItem.Text = "RFQ List";
             this.rFQViewNewSOToolStripMenuItem.Click += new System.EventHandler(this.rFQViewNewSOToolStripMenuItem_Click);
             // 
             // offerListToolStripMenuItem
             // 
             this.offerListToolStripMenuItem.Name = "offerListToolStripMenuItem";
-            this.offerListToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.offerListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.offerListToolStripMenuItem.Text = "Offer List";
             this.offerListToolStripMenuItem.Click += new System.EventHandler(this.offerListToolStripMenuItem_Click);
             // 
             // sOViewToolStripMenuItem
             // 
             this.sOViewToolStripMenuItem.Name = "sOViewToolStripMenuItem";
-            this.sOViewToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.sOViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sOViewToolStripMenuItem.Text = "SO List";
             this.sOViewToolStripMenuItem.Click += new System.EventHandler(this.sOViewToolStripMenuItem_Click);
             // 
@@ -133,35 +133,35 @@
             // vendorManagementToolStripMenuItem
             // 
             this.vendorManagementToolStripMenuItem.Name = "vendorManagementToolStripMenuItem";
-            this.vendorManagementToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.vendorManagementToolStripMenuItem.Text = "Vendor Management";
+            this.vendorManagementToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vendorManagementToolStripMenuItem.Text = "Vendor List";
             this.vendorManagementToolStripMenuItem.Click += new System.EventHandler(this.vendorManagementToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem1.Text = "RFQ List";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // offerListViewToolStripMenuItem1
             // 
             this.offerListViewToolStripMenuItem1.Name = "offerListViewToolStripMenuItem1";
-            this.offerListViewToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.offerListViewToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.offerListViewToolStripMenuItem1.Text = "Offer List";
             this.offerListViewToolStripMenuItem1.Click += new System.EventHandler(this.offerListViewToolStripMenuItem1_Click);
             // 
             // pOToolStripMenuItem
             // 
             this.pOToolStripMenuItem.Name = "pOToolStripMenuItem";
-            this.pOToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.pOToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pOToolStripMenuItem.Text = "SO List";
             this.pOToolStripMenuItem.Click += new System.EventHandler(this.pOToolStripMenuItem_Click);
             // 
             // pOListViewToolStripMenuItem
             // 
             this.pOListViewToolStripMenuItem.Name = "pOListViewToolStripMenuItem";
-            this.pOListViewToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.pOListViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pOListViewToolStripMenuItem.Text = "PO List";
             this.pOListViewToolStripMenuItem.Click += new System.EventHandler(this.pOListViewToolStripMenuItem_Click);
             // 
@@ -208,14 +208,14 @@
             // sOListViewToolStripMenuItem1
             // 
             this.sOListViewToolStripMenuItem1.Name = "sOListViewToolStripMenuItem1";
-            this.sOListViewToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.sOListViewToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.sOListViewToolStripMenuItem1.Text = "SO List";
             this.sOListViewToolStripMenuItem1.Click += new System.EventHandler(this.sOListViewToolStripMenuItem1_Click);
             // 
             // pOListViewToolStripMenuItem2
             // 
             this.pOListViewToolStripMenuItem2.Name = "pOListViewToolStripMenuItem2";
-            this.pOListViewToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.pOListViewToolStripMenuItem2.Size = new System.Drawing.Size(111, 22);
             this.pOListViewToolStripMenuItem2.Text = "PO List";
             this.pOListViewToolStripMenuItem2.Click += new System.EventHandler(this.pOListViewToolStripMenuItem2_Click);
             // 
@@ -299,7 +299,7 @@
             // testsToolStripMenuItem
             // 
             this.testsToolStripMenuItem.Name = "testsToolStripMenuItem";
-            this.testsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.testsToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.testsToolStripMenuItem.Text = "About";
             this.testsToolStripMenuItem.Click += new System.EventHandler(this.testsToolStripMenuItem_Click);
             // 

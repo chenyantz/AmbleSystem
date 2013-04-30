@@ -472,10 +472,10 @@
             // IntPartNo
             // 
             this.IntPartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IntPartNo.HeaderText = "Int Part #";
+            this.IntPartNo.HeaderText = "CPN";
             this.IntPartNo.Name = "IntPartNo";
             this.IntPartNo.ReadOnly = true;
-            this.IntPartNo.Width = 76;
+            this.IntPartNo.Width = 54;
             // 
             // ShipFrom
             // 

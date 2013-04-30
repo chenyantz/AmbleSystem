@@ -298,3 +298,9 @@ Exception rethrown at [0]:
 2013-04-26 11:54:53,484 [8] INFO  Amble (null) - 1,0 logged in
 2013-04-26 11:56:08,884 [9] INFO  Amble (null) - 1,0 logged in
 2013-04-26 12:01:30,782 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 14:31:50,860 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-26 14:53:14,130 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 14:58:21,124 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-26 15:44:00,294 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-26 15:48:29,790 [8] INFO  Amble (null) - 1,0 logged in
+2013-04-26 15:52:31,336 [9] INFO  Amble (null) - 1,0 logged in

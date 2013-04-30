@@ -53,9 +53,9 @@ namespace AmbleClient.RfqGui
             rfq.rfqdate = DateTime.Now.Date;
             rfq.dockdate = dateTimePicker1.Value.Date;
             rfq.partNo = tbPartNo.Text.Trim().ToUpper();  //part No自动改成大写 
-            rfq.mfg = tbMfg.Text.Trim();
+            rfq.mfg = tbMfg.Text.Trim().ToUpper();
             rfq.dc = tbDc.Text.Trim();
-            rfq.custPartNo = tbCustPartNo.Text.Trim();
+            rfq.custPartNo = tbCustPartNo.Text.Trim().ToUpper();
             rfq.genPartNo = tbGenPartNo.Text.Trim();
             rfq.alt = tbAlt.Text.Trim();
             if (string.IsNullOrWhiteSpace(tbQuantity.Text.Trim()))

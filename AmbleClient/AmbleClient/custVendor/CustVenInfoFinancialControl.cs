@@ -171,8 +171,10 @@ namespace AmbleClient.custVendor
                 {
                     if (control is TextBox)
                     {
-                        newList.Add(control.Text.Trim());
-                    
+                        if (control.Text.Trim().Length != 0)
+                        {
+                            newList.Add(control.Text.Trim());
+                        }
                     }
                 }
             

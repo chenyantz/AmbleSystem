@@ -157,6 +157,10 @@ namespace AmbleClient.custVendor
 
         protected override void DeleteCustVen()
         {
+            if (dataGridView1.Rows.Count == 0)
+                return;
+
+
             if (DialogResult.Yes == MessageBox.Show("Delete the Item?", "", MessageBoxButtons.YesNo))
             {
 

@@ -96,8 +96,8 @@ namespace AmbleClient.OfferGui
 
 
             Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            Amount.HeaderText = "Payment Terms";
-            Amount.Name = "PaymentTerms";
+            Amount.HeaderText = "QTY";
+            Amount.Name = "QTY";
 
             Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             Price.HeaderText = "Price";

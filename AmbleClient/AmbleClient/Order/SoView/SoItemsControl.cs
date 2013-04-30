@@ -175,11 +175,11 @@ namespace AmbleClient.SO
             return new SoItems
             {
              saleType=cbSaleType.SelectedIndex,
-             partNo=tbPartNo.Text.Trim(),
-             mfg=tbMfg.Text.Trim(),
+             partNo=tbPartNo.Text.Trim().ToUpper(),
+             mfg=tbMfg.Text.Trim().ToUpper(),
              rohs=cbRohs.Checked?1:0,
              dc=tbDc.Text.Trim(),
-             intPartNo=tbIntPartNo.Text.Trim(),
+             intPartNo=tbIntPartNo.Text.Trim().ToUpper(),
              shipFrom=tbShipFrom.Text.Trim(),
              shipMethod=tbShipMethod.Text.Trim(),
              trackingNo=tbTrackingNo.Text.Trim(),

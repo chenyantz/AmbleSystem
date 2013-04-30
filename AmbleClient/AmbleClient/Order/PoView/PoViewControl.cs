@@ -272,7 +272,7 @@ namespace AmbleClient.Order.PoView
             {
                 dataGridView1.Rows.Add(i, cSitem.poItem.partNo, cSitem.poItem.mfg, cSitem.poItem.dc, cSitem.poItem.vendorIntPartNo, cSitem.poItem.org, cSitem.poItem.qty,
                                        cSitem.poItem.qtyRecd, cSitem.poItem.qtyCorrected, cSitem.poItem.qtyAccept, cSitem.poItem.qtyRejected, cSitem.poItem.qtyRTV, cSitem.poItem.qcPending,
-                                       Enum.GetName(typeof(AmbleClient.Currency), cSitem.poItem.currency), cSitem.poItem.unitPrice, cSitem.poItem.qty * cSitem.poItem.currency, cSitem.poItem.stepCode, "Unknown");
+                                       Enum.GetName(typeof(AmbleClient.Currency), cSitem.poItem.currency), cSitem.poItem.unitPrice, cSitem.poItem.qty * cSitem.poItem.unitPrice, cSitem.poItem.dueDate.HasValue?cSitem.poItem.dueDate.Value.ToShortDateString():"", cSitem.poItem.receiveDate.HasValue?cSitem.poItem.receiveDate.Value.ToShortDateString():"",cSitem.poItem.stepCode, "Unknown");
                 i++;
             }
         

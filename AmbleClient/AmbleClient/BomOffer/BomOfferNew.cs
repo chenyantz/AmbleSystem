@@ -76,11 +76,11 @@ namespace AmbleClient.BomOffer
             
             var publicBomOff = new publicbomoffer
             {
-                mfg = tbMfg.Text.Trim(),
+                mfg = tbMfg.Text.Trim().ToUpper(),
                 mpn = tbMpn.Text.Trim().ToUpper(), //upper
                 qty = int.Parse(tbQty.Text.Trim()),
                 price = float.Parse(tbPrice.Text.Trim()),
-                cpn = tbCpn.Text.Trim(),
+                cpn = tbCpn.Text.Trim().ToUpper(),
                 userID = (short)UserInfo.UserId,
                 BomCustVendId=this.custVenId,
                 enerDay = DateTime.Now

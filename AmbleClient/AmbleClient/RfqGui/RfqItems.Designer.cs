@@ -311,6 +311,7 @@
             // 
             // tbCustomer
             // 
+            this.tbCustomer.BackColor = System.Drawing.Color.White;
             this.tbCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCustomer.Location = new System.Drawing.Point(109, 31);
             this.tbCustomer.Name = "tbCustomer";

@@ -118,8 +118,8 @@ namespace AmbleClient.OfferGui
        public Offer GetValue()
        {
            Offer offer = new Offer();
-           offer.mpn = tbMpn.Text.Trim();
-           offer.mfg = tbMfg.Text.Trim();
+           offer.mpn = tbMpn.Text.Trim().ToUpper();
+           offer.mfg = tbMfg.Text.Trim().ToUpper();
            offer.vendorName = tbVendorName.Text.Trim();
            offer.contact = tbContact.Text.Trim();
            offer.phone = tbPhone.Text.Trim();

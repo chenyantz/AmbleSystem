@@ -423,10 +423,10 @@
             // VendorIntPartNo
             // 
             this.VendorIntPartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.VendorIntPartNo.HeaderText = "VendorIntPart #";
+            this.VendorIntPartNo.HeaderText = "VPN";
             this.VendorIntPartNo.Name = "VendorIntPartNo";
             this.VendorIntPartNo.ReadOnly = true;
-            this.VendorIntPartNo.Width = 98;
+            this.VendorIntPartNo.Width = 54;
             // 
             // Org
             // 
@@ -450,7 +450,7 @@
             this.QtyRecd.HeaderText = "Qty Recd";
             this.QtyRecd.Name = "QtyRecd";
             this.QtyRecd.ReadOnly = true;
-            this.QtyRecd.Width = 71;
+            this.QtyRecd.Width = 77;
             // 
             // QtyCorrected
             // 
@@ -458,7 +458,7 @@
             this.QtyCorrected.HeaderText = "Qty Corrected";
             this.QtyCorrected.Name = "QtyCorrected";
             this.QtyCorrected.ReadOnly = true;
-            this.QtyCorrected.Width = 89;
+            this.QtyCorrected.Width = 97;
             // 
             // QtyAccept
             // 
@@ -466,7 +466,7 @@
             this.QtyAccept.HeaderText = "Qty Accept";
             this.QtyAccept.Name = "QtyAccept";
             this.QtyAccept.ReadOnly = true;
-            this.QtyAccept.Width = 79;
+            this.QtyAccept.Width = 85;
             // 
             // QtyReject
             // 
@@ -474,7 +474,7 @@
             this.QtyReject.HeaderText = "Qty Reject";
             this.QtyReject.Name = "QtyReject";
             this.QtyReject.ReadOnly = true;
-            this.QtyReject.Width = 76;
+            this.QtyReject.Width = 82;
             // 
             // QtyRTV
             // 
@@ -482,7 +482,7 @@
             this.QtyRTV.HeaderText = "Qty RTV";
             this.QtyRTV.Name = "QtyRTV";
             this.QtyRTV.ReadOnly = true;
-            this.QtyRTV.Width = 68;
+            this.QtyRTV.Width = 73;
             // 
             // QcPending
             // 
@@ -506,7 +506,7 @@
             this.UnitPrice.HeaderText = "Unit Price";
             this.UnitPrice.Name = "UnitPrice";
             this.UnitPrice.ReadOnly = true;
-            this.UnitPrice.Width = 72;
+            this.UnitPrice.Width = 78;
             // 
             // Total
             // 
@@ -522,7 +522,7 @@
             this.DueDate.HeaderText = "Dock Date";
             this.DueDate.Name = "DueDate";
             this.DueDate.ReadOnly = true;
-            this.DueDate.Width = 78;
+            this.DueDate.Width = 84;
             // 
             // RecvDate
             // 
@@ -530,7 +530,7 @@
             this.RecvDate.HeaderText = "Recv Date";
             this.RecvDate.Name = "RecvDate";
             this.RecvDate.ReadOnly = true;
-            this.RecvDate.Width = 78;
+            this.RecvDate.Width = 84;
             // 
             // StepCode
             // 
@@ -538,7 +538,7 @@
             this.StepCode.HeaderText = "Step Code";
             this.StepCode.Name = "StepCode";
             this.StepCode.ReadOnly = true;
-            this.StepCode.Width = 76;
+            this.StepCode.Width = 82;
             // 
             // SalesAgent
             // 
@@ -546,7 +546,7 @@
             this.SalesAgent.HeaderText = "Sales Agent";
             this.SalesAgent.Name = "SalesAgent";
             this.SalesAgent.ReadOnly = true;
-            this.SalesAgent.Width = 82;
+            this.SalesAgent.Width = 89;
             // 
             // PoViewControl
             // 
