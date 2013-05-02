@@ -16,10 +16,10 @@ namespace AmbleClient.OfferGui.OfferMgr
      public string phone;
      public string fax;
      public string email;
-     public int? amount;
-     public int? deliverTime;
-     public int timeUnit; // 0 days:1week,2,month,3 year
-     public float? price;
+     public string packing;
+     public int quantity;
+     public string LT;
+     public float price;
      public int buyerId;
      public DateTime offerDate;
      public int offerStates;
@@ -33,15 +33,6 @@ namespace AmbleClient.OfferGui.OfferMgr
    Routed=1,
    Closed=2
   };
-
-  public enum TimeUnit
-  { 
-   Days=0,
-   Weeks=1,
-   Month=2,
-   Years=3
-  };
-
 
 
 }

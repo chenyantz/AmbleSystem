@@ -125,33 +125,11 @@ namespace AmbleClient.OfferGui
            offer.phone = tbPhone.Text.Trim();
            offer.fax = tbFax.Text.Trim();
            offer.email = tbEmail.Text.Trim();
-           if (string.IsNullOrWhiteSpace(tbQuantity.Text.Trim()))
-           {
-               offer.amount = null;
-           }
-           else
-           {
-               offer.amount = int.Parse(tbQuantity.Text.Trim());
-           }
+           offer.packing = tbPacking.Text.Trim();
+           offer.quantity = int.Parse(tbQuantity.Text.Trim());
+           offer.price = float.Parse(tbPrice.Text.Trim());
+            offer.LT = tbDeliverTime.Text.Trim();
 
-           if (string.IsNullOrWhiteSpace(tbPrice.Text.Trim()))
-           {
-               offer.price = null;
-           }
-           else
-           {
-               offer.price = float.Parse(tbPrice.Text.Trim());
-           }
-           if (string.IsNullOrWhiteSpace(tbDeliverTime.Text.Trim()))
-           {
-               offer.deliverTime = null;
-
-           }
-           else
-           {
-               offer.deliverTime = int.Parse(tbDeliverTime.Text.Trim());
-           }
-           offer.timeUnit = cbTimeUnit.SelectedIndex;
            offer.buyerId = UserInfo.UserId;
 
            offer.offerDate = DateTime.Now;

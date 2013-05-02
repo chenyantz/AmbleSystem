@@ -50,10 +50,12 @@ namespace AmbleClient.OfferGui
             System.Windows.Forms.DataGridViewTextBoxColumn VendorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            System.Windows.Forms.DataGridViewTextBoxColumn Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn Packing = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
+            System.Windows.Forms.DataGridViewTextBoxColumn Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
             System.Windows.Forms.DataGridViewTextBoxColumn Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            System.Windows.Forms.DataGridViewTextBoxColumn DeliverTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn LT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn PurchaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn OfferDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn OfferState = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,10 +96,14 @@ namespace AmbleClient.OfferGui
             if (isSaleView)
                 Phone.Visible = false;
 
+            Packing.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Packing.HeaderText = "Packing";
+            Packing.Name = "Packing";
 
-            Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            Amount.HeaderText = "QTY";
-            Amount.Name = "QTY";
+
+            Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Quantity.HeaderText = "QTY";
+            Quantity.Name = "QTY";
 
             Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             Price.HeaderText = "Price";
@@ -105,9 +111,9 @@ namespace AmbleClient.OfferGui
 
 
 
-            DeliverTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            DeliverTime.HeaderText = "Deliver Time";
-            DeliverTime.Name = "DeliverTime";
+            LT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            LT.HeaderText = "LT";
+            LT.Name = "LT";
 
             PurchaseName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             PurchaseName.HeaderText = "Purchaser Name";
@@ -129,9 +135,10 @@ namespace AmbleClient.OfferGui
             VendorName,
             Contact,
             Phone,
-            Amount,
+            Packing,
+            Quantity,
             Price,
-            DeliverTime,
+            LT,
             PurchaseName,
             OfferDate,
             OfferState
@@ -195,8 +202,8 @@ namespace AmbleClient.OfferGui
             }
             foreach (Offer offer in offerList)
             {
-                dataGridView1.Rows.Add(offer.offerId,Tool.Get6DigitalNumberAccordingToId(offer.rfqNo), offer.mpn, offer.mfg, offer.vendorName, offer.contact, offer.phone, 
-                    offer.amount, offer.price, offer.deliverTime +" "+Enum.GetName(typeof(TimeUnit), offer.timeUnit), idNameDict[offer.buyerId], offer.offerDate.ToShortDateString(),
+                dataGridView1.Rows.Add(offer.offerId,Tool.Get6DigitalNumberAccordingToId(offer.rfqNo), offer.mpn, offer.mfg, offer.vendorName, offer.contact, offer.phone, offer.packing,
+                    offer.quantity, offer.price, offer.LT, idNameDict[offer.buyerId], offer.offerDate.ToShortDateString(),
                     Enum.GetName(typeof(OfferState), offer.offerStates));
             }
 

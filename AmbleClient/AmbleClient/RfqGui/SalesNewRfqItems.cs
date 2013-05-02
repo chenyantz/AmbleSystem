@@ -84,7 +84,6 @@ namespace AmbleClient.RfqGui
             tbMfg.Clear();
             tbDc.Clear();
             tbCustPartNo.Clear();
-            tbGenPartNo.Clear();
             tbAlt.Clear();
             tbQuantity.Clear();
             tbPartNo.Clear();

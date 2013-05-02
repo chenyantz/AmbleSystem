@@ -17,9 +17,9 @@ namespace AmbleClient.OfferGui.OfferMgr
        
        public bool SaveOffer(Offer offer)
        {
-           string strSql = "insert into offer(rfqNo,mpn,mfg,vendorName,contact,phone,fax,email,amount,price,deliverTime,timeUnit,buyerId,offerDate,offerStates,notes) " +
-               string.Format(" values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',{8},{9},{10},{11},{12},'{13}',{14},'{15}')", offer.rfqNo, offer.mpn, offer.mfg, offer.vendorName, offer.contact,
-               offer.phone, offer.fax, offer.email, offer.amount.HasValue?offer.amount.Value.ToString():"null", offer.price.HasValue?offer.price.Value.ToString():"null", offer.deliverTime.HasValue? offer.deliverTime.Value.ToString():"null", offer.timeUnit, offer.buyerId, offer.offerDate.ToShortDateString(), offer.offerStates,offer.notes);
+           string strSql = "insert into offer(rfqNo,mpn,mfg,vendorName,contact,phone,fax,email,quantity,price,LT,buyerId,offerDate,offerStates,notes,packing) " +
+               string.Format(" values({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}',{8},{9},'{10}',{11},'{12}',{13},'{14}','{15}')", offer.rfqNo, offer.mpn, offer.mfg, offer.vendorName, offer.contact,
+               offer.phone, offer.fax, offer.email, offer.quantity, offer.price, offer.LT,offer.buyerId, offer.offerDate.ToShortDateString(), offer.offerStates,offer.notes,offer.packing);
 
            int row = db.ExecDataBySql(strSql);
            if (row == 1)
@@ -31,8 +31,8 @@ namespace AmbleClient.OfferGui.OfferMgr
 
        public void UpdateOffer(Offer offer)
        {
-           string strSql = string.Format("update offer set mpn='{0}',mfg='{1}',vendorName='{2}',contact='{3}',phone='{4}',fax='{5}',email='{6}',amount={7},price={8},deliverTime='{9}',timeUnit={10},buyerId={11},notes='{12}' where offerId={13} ",
-          offer.mpn, offer.mfg, offer.vendorName, offer.contact,offer.phone, offer.fax, offer.email, offer.amount.HasValue ? offer.amount.Value.ToString() : "null", offer.price.HasValue ? offer.price.ToString() : "null", offer.deliverTime.HasValue ? offer.deliverTime.Value.ToString() : "null", offer.timeUnit, offer.buyerId, offer.notes,offer.offerId);
+           string strSql = string.Format("update offer set mpn='{0}',mfg='{1}',vendorName='{2}',contact='{3}',phone='{4}',fax='{5}',email='{6}',quantity={7},price={8},LT='{9}',buyerId={10},notes='{11}',packing='{12}', where offerId={13} ",
+          offer.mpn, offer.mfg, offer.vendorName, offer.contact,offer.phone, offer.fax, offer.email, offer.quantity, offer.price, offer.LT,offer.buyerId, offer.notes,offer.packing,offer.offerId);
 
          db.ExecDataBySql(strSql);
 
@@ -180,11 +180,6 @@ namespace AmbleClient.OfferGui.OfferMgr
   
       }*/
 
-
-
-
-
-
        public bool HasOfferByRfq(int rfqId)
        {
            string strSql = "select count(*) from offer where rfqNo=" + rfqId.ToString();
@@ -221,8 +216,6 @@ namespace AmbleClient.OfferGui.OfferMgr
            DataTable dt = db.GetDataTable(strSql, "tempTable");
 
          return GetOfferFromDataRow(dt.Rows[0]);
-
-
        }
 
 
@@ -231,32 +224,6 @@ namespace AmbleClient.OfferGui.OfferMgr
 
        private Offer GetOfferFromDataRow(DataRow dr)
        {
-
-           int? tmpAmount = null; float? tmpPrice = null; int? tmpDeliverTime = null;
-           if (dr["amount"] == DBNull.Value)
-           {
-               tmpAmount = null;
-           }
-           else
-           {
-               tmpAmount = Convert.ToInt32(dr["amount"]);
-           }
-           if (dr["price"] == DBNull.Value)
-           {
-               tmpPrice = null;
-           }
-           else
-           {
-               tmpPrice = Convert.ToSingle(dr["price"]);
-           }
-           if (dr["deliverTime"] == DBNull.Value)
-           {
-               tmpDeliverTime = null;
-           }
-           else
-           {
-               tmpDeliverTime = Convert.ToInt32(dr["deliverTime"]);
-           }
 
            return new Offer
            {
@@ -269,11 +236,11 @@ namespace AmbleClient.OfferGui.OfferMgr
                phone=dr["phone"].ToString(),
                fax=dr["fax"].ToString(),
                email=dr["email"].ToString(),
-               amount=tmpAmount,
-               price=tmpPrice,
-               deliverTime=tmpDeliverTime,
+               packing=dr["packing"].ToString(),
+               quantity=Convert.ToInt32(dr["quantity"]),
+               price=Convert.ToSingle(dr["price"]),
+               LT=dr["LT"].ToString(),
                buyerId=Convert.ToInt32(dr["buyerId"]),
-               timeUnit=Convert.ToInt32(dr["timeUnit"]),
                offerDate=Convert.ToDateTime(dr["offerDate"]),
                offerStates=Convert.ToInt32(dr["offerStates"]),
                notes=dr["notes"].ToString()

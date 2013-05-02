@@ -28,10 +28,10 @@ namespace AmbleClient.OfferGui
             this.tbMpn.Text = offer.mpn;
             this.tbMfg.Text = offer.mfg;
 
-            this.tbQuantity.Text = offer.amount.ToString();
+            this.tbQuantity.Text = offer.quantity.ToString();
             this.tbPrice.Text = offer.price.ToString();
-            this.tbDeliverTime.Text = offer.deliverTime.ToString();
-            this.cbTimeUnit.SelectedIndex = offer.timeUnit;
+            this.tbDeliverTime.Text = offer.LT;
+            this.tbPacking.Text = offer.packing;
             this.tbOfferDate.Text = offer.offerDate.ToShortDateString();
             this.tbOfferState.Text = Enum.GetName(typeof(OfferState), (OfferState)offer.offerStates); //(offer.offerStates == 0 ? "New" : "Routed");
             this.tbNotes.Text = offer.notes;
@@ -97,14 +97,6 @@ namespace AmbleClient.OfferGui
                     tbPrice.Focus();
                     return false;
                 }
-            }
-
-            if (ItemsCheck.CheckTextBoxEmpty(tbDeliverTime) && !ItemsCheck.CheckIntNumber(tbDeliverTime))
-            {
-                MessageBox.Show("The Deliver Time should be an integer value.");
-                tbDeliverTime.Focus();
-                return false;
-           
             }
 
             return true;

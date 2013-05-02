@@ -56,7 +56,6 @@ namespace AmbleClient.RfqGui
             rfq.mfg = tbMfg.Text.Trim().ToUpper();
             rfq.dc = tbDc.Text.Trim();
             rfq.custPartNo = tbCustPartNo.Text.Trim().ToUpper();
-            rfq.genPartNo = tbGenPartNo.Text.Trim();
             rfq.alt = tbAlt.Text.Trim();
             if (string.IsNullOrWhiteSpace(tbQuantity.Text.Trim()))
             {
@@ -126,7 +125,6 @@ namespace AmbleClient.RfqGui
             tbMfg.Text = rfq.mfg;
             tbDc.Text = rfq.dc;
             tbCustPartNo.Text = rfq.custPartNo;
-            tbGenPartNo.Text = rfq.genPartNo;
             tbAlt.Text = rfq.alt;
             tbQuantity.Text = rfq.qty.ToString();
             tbPackaging.Text = rfq.packaging.ToString();
