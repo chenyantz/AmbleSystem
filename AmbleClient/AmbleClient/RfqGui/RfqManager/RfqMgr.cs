@@ -104,6 +104,25 @@ namespace AmbleClient.RfqGui.RfqManager
                return true;
            return false;
        }
+     
+       public DataTable GetRfqForSo(string customerName, int saleId,int currentRfqId)
+       {
+           List<int> subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(saleId, UserCombine.GetUserCanBeSales());
+
+           StringBuilder sb = new StringBuilder();
+           sb.Append(string.Format("select * from rfq where customerName ='{0}' and (salesId={1} ",customerName,saleId));
+            if (subIds.Count() > 1)
+            {
+                for (int i = 1; i < subIds.Count(); i++)
+                    sb.Append(" or salesId=" + subIds[i]);
+             }
+            sb.Append(" )  ");
+
+           sb.Append(string.Format("and rfqNo<>{0}",currentRfqId));
+
+           return db.GetDataTable(sb.ToString(), "temp");
+       }
+      
 
        public Rfq GetRfqAccordingToRfqId(int rfqId)
        {

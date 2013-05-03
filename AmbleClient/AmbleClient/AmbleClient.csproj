@@ -315,6 +315,12 @@
     <Compile Include="RfqGui\NewRfq.Designer.cs">
       <DependentUpon>NewRfq.cs</DependentUpon>
     </Compile>
+    <Compile Include="RfqGui\RfqItemPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\RfqItemPicker.Designer.cs">
+      <DependentUpon>RfqItemPicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="RfqGui\RfqItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -482,6 +488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\NewRfq.resx">
       <DependentUpon>NewRfq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\RfqItemPicker.resx">
+      <DependentUpon>RfqItemPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\RfqItems.resx">
       <DependentUpon>RfqItems.cs</DependentUpon>

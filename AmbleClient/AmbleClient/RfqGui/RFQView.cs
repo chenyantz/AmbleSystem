@@ -14,6 +14,7 @@ namespace AmbleClient.RfqGui
     {
         int rfqId;
         RfqMgr rfqMgr;
+        Rfq rfq;
         public RFQView(int rfqId)
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace AmbleClient.RfqGui
 
         private void RFQView_Load(object sender, EventArgs e)
         {
-            Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
+            rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
             rfqItems1.FillTheTable(rfq);
             GuiOpAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
         }
@@ -162,14 +163,24 @@ namespace AmbleClient.RfqGui
 
         private void tsbSo_Click(object sender, EventArgs e)
         {
-            SO.NewSo newSo = new SO.NewSo(rfqId);
+            //
+            RfqItemPicker picker = new RfqItemPicker(rfq.customerName, rfqId);
+            if (DialogResult.OK == picker.ShowDialog())
+            {
+                List<int> ids = picker.RfqIdsForSo;
+                SO.NewSo newSo = new SO.NewSo(rfqId);
+               
+            }
 
+
+
+           /*
            newSo.FillContact(this.rfqItems1.tbContact.Text);
            if(DialogResult.Yes==newSo.ShowDialog())
            {
             Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
             GuiOpAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
-            }
+            }*/
         }
 
         private void tsbViewSo_Click(object sender, EventArgs e)

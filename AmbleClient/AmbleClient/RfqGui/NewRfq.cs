@@ -13,6 +13,8 @@ namespace AmbleClient.RfqGui
     public partial class NewRfq : Form
     {
         bool copied = false;
+
+        int RFQSaved = 0;
                
         public NewRfq()
         {
@@ -40,28 +42,20 @@ namespace AmbleClient.RfqGui
 
         private void tsbSave_Click(object sender, EventArgs e)
         {
+
             if (rfqItems1.SaveInfo())
             {
-                MessageBox.Show("The RFQ saved successfully");
-                tsbSave.Enabled = false;
-                this.Close();
+                MessageBox.Show("The RFQ "+RFQSaved+" saved successfully");
+                rfqItems1.tbCustomer.ReadOnly = true;
+                rfqItems1.ClearInfoForNewRfqWithSameCustomer();
+                RFQSaved++;
+                tsbSave.Text = "Save " + (RFQSaved+1);
             }
            
 
         }
 
-        /*
-        private void tsbClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }*/
 
-        /*
-        private void tsbCreateAnother_Click(object sender, EventArgs e)
-        {
-            rfqItems1.NewRfqFill();
-            tsbSave.Enabled = true;
-        }*/
 
         private void tsbPaste_Click(object sender, EventArgs e)
         {

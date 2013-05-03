@@ -139,6 +139,28 @@ namespace AmbleClient.RfqGui
             tbRoutingHistory.Text = rfq.routingHistory;
         }
 
+
+        public void ClearInfoForNewRfqWithSameCustomer()
+        {
+            tbMfg.Clear();
+            tbPartNo.Clear();
+            tbDc.Clear();
+            tbCustPartNo.Clear();
+            tbAlt.Clear();
+            tbQuantity.Clear();
+            tbPackaging.Clear();
+            tbTargetPrice.Clear();
+            tbResale.Clear();
+
+        }
+
+
+
+
+
+
+
+
         public bool CheckItems()
         {
             if (tbCustomer.Text.Trim().Length == 0)

@@ -158,10 +158,10 @@ namespace AmbleClient
             }
         }
 
-        public static string GetIdAccordingTo6DigitalNumber(string DigitalId)
+        public static int GetIdAccordingTo6DigitalNumber(string DigitalId)
         {
          int number=Convert.ToInt32(DigitalId);
-         return number.ToString();
+         return number;
         }
 
     }

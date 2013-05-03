@@ -8,7 +8,6 @@ namespace AmbleClient.Order.SoMgr
    public class So
     {
         public int soId;
-        public int rfqId;
         public string customerName;
         public string contact;
         public int salesId;
@@ -23,7 +22,6 @@ namespace AmbleClient.Order.SoMgr
         public string specialInstructions;
         public string billTo;
         public string shipTo;
-        public int soStates;
     
     }
 
@@ -31,6 +29,7 @@ namespace AmbleClient.Order.SoMgr
     {
         public int soItemsId;
         public int soId;
+        public int rfqId;
         public int saleType;
         public string partNo;
         public string mfg;
@@ -48,6 +47,7 @@ namespace AmbleClient.Order.SoMgr
         public DateTime? shippedDate;
         public string shippingInstruction;
         public string packingInstruction;
+        public int soItemState;
 
 
 
@@ -56,15 +56,5 @@ namespace AmbleClient.Order.SoMgr
             return this.MemberwiseClone();
         }
     }
-
-
-    public enum SoStateEnum
-    { 
-      New=0,
-      Approved=1,
-      Rejected=2,
-      Closed=3
-    };
-
 
 }

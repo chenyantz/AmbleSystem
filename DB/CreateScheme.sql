@@ -143,7 +143,6 @@ notes MEDIUMTEXT
 
 CREATE TABLE So(
 soId INT PRIMARY KEY AUTO_INCREMENT,
-rfqId INT,
 customerName VARCHAR(255),
 contact VARCHAR(255),
 salesId SMALLINT,
@@ -158,12 +157,12 @@ customerAccount VARCHAR(255),
 specialInstructions VARCHAR(65525),
 billTo VARCHAR(65535),
 shipTo VARCHAR(65535),
-soStates TINYINT /*0 new,1:approved 2:rejected 3:closed*/
 );
 
 CREATE TABLE SoItems(
 soItemsId INT PRIMARY KEY AUTO_INCREMENT,
 soId INT,
+RfqId INT,
 saleType TINYINT,  /*OEM EXCESS; OWN STOCK; OTHERS   */
 partNo VARCHAR(255),
 mfg VARCHAR(20),
@@ -180,7 +179,8 @@ unitPrice FLOAT,
 dockDate DATE,
 shippedDate DATE,
 shippingInstruction VARCHAR(65535),
-packingInstruction VARCHAR(65535)
+packingInstruction VARCHAR(65535),
+soItemState TINYINT
 );
 
 
