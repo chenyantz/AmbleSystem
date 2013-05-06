@@ -156,7 +156,7 @@ namespace AmbleClient.Order
       public void SetPoStateWatingForShip(int poId)
       {
           UpdateState(poId, new PoWaitingForShip().GetStateValue());
-          SoMgr.SoMgr.UpdateSoState(PoMgr.PoMgr.GetSoIdAccordingToPoId(poId),UserInfo.UserId, new SoWaitingForShip().GetStateValue());
+          SoMgr.SoMgr.UpdateSoState(PoMgr.PoMgr.GetSoIdAccordingToPoId(poId),UserInfo.UserId, new SoItemWaitingForShip().GetStateValue());
 
 
 

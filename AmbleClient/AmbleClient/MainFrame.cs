@@ -181,9 +181,7 @@ namespace AmbleClient
 
         private void sOViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Order.SalesSoListView salesSoListView = new Order.SalesSoListView();
-            salesSoListView.MdiParent = this;
-            salesSoListView.Show();
+
 
 
         }
@@ -280,6 +278,20 @@ namespace AmbleClient
             offerListView.Show();
 
 
+        }
+
+        private void byCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Order.SalesSoListView salesSoListView = new Order.SalesSoListView();
+            salesSoListView.MdiParent = this;
+            salesSoListView.Show();
+        }
+
+        private void byMPNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Order.SalesSoMpnListView ssMpnListView = new Order.SalesSoMpnListView();
+            ssMpnListView.MdiParent = this;
+            ssMpnListView.Show();
         }
     }
 }

@@ -44,22 +44,22 @@ namespace AmbleClient.RfqGui
       {
           if (includeSubs)
           {
-              return rfqMgr.BMGetThePageCountOfDataTable(itemsPerPage, filterColumn, filterString, selections);
+              return RfqMgr.BMGetThePageCountOfDataTable(itemsPerPage, filterColumn, filterString, selections);
           }
           else
           {
-              return rfqMgr.BuyerGetThePageCountOfDataTable(UserInfo.UserId, itemsPerPage, filterColumn, filterString, selections);
+              return RfqMgr.BuyerGetThePageCountOfDataTable(UserInfo.UserId, itemsPerPage, filterColumn, filterString, selections);
           }
       }
       public override DataTable GetDataTableAccordingToPageNumber(int itemsPerPage, int currentPage, string filterColumn, string filterString, List<RfqStatesEnum> selections, bool includeSubs)
       {
           if (includeSubs)
           {
-              return rfqMgr.BMGetRfqDataTableAccordingToPageNumber(currentPage, itemsPerPage, filterColumn, filterString, selections);
+              return RfqMgr.BMGetRfqDataTableAccordingToPageNumber(currentPage, itemsPerPage, filterColumn, filterString, selections);
           }
           else
           {
-              return rfqMgr.BuyerGetRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString, selections);
+              return RfqMgr.BuyerGetRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString, selections);
           }
 
       }

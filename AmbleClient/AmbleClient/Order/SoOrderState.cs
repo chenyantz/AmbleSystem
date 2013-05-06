@@ -15,10 +15,6 @@ namespace AmbleClient.Order
      Modified
     };
 
-
-
-
-    
     public class Operation
 {
      public  List<JobDescription> jobs;
@@ -29,7 +25,7 @@ namespace AmbleClient.Order
     
     
     
-    public abstract class SoState
+    public abstract class SoItemState
     {
       protected List<Operation> operationList = new List<Operation>();
       public virtual int GetStateValue()
@@ -62,9 +58,9 @@ namespace AmbleClient.Order
     }
 
 
-  public class SoNew : SoState
+  public class SoItemNew : SoItemState
   {
-      public SoNew()
+      public SoItemNew()
       {
           var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.SalesManager);
@@ -114,17 +110,17 @@ namespace AmbleClient.Order
 
       public void RejectSo(int soId)
       {
-          UpdateState(soId,new SoRejected().GetStateValue());
+          UpdateState(soId,new SoItemRejected().GetStateValue());
       }
       public void ApproveSo(int soId)
       {
-          UpdateState(soId,new SoApprove().GetStateValue());
+          UpdateState(soId,new SoItemApprove().GetStateValue());
       }
 
   }
 
 
-  public class SoRejected : SoState
+  public class SoItemRejected : SoItemState
   {
       public override int GetStateValue()
       { 
@@ -138,9 +134,9 @@ namespace AmbleClient.Order
   
   }
 
-  public class SoApprove : SoState
+  public class SoItemApprove : SoItemState
   {
-      public SoApprove()
+      public SoItemApprove()
       {
           var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.SalesManager);
@@ -163,13 +159,13 @@ namespace AmbleClient.Order
       }
       public void CancelSo(int soId)
       {
-          UpdateState(soId, new SoCancelled().GetStateValue());
+          UpdateState(soId, new SoItemCancelled().GetStateValue());
       
       }
   }
 
 
-    public class SoCancelled:SoState
+ public class SoItemCancelled:SoItemState
     {
         public override int GetStateValue()
         {
@@ -183,9 +179,9 @@ namespace AmbleClient.Order
     
     }
 
-    public class SoWaitingForShip : SoState
+ public class SoItemWaitingForShip : SoItemState
     {
-        public SoWaitingForShip()
+        public SoItemWaitingForShip()
         {
         
         var opJobs1=new List<JobDescription>();
@@ -228,18 +224,18 @@ namespace AmbleClient.Order
 
         public void SetStatePaymentRecvBeforeShip(int soid)
         {
-            UpdateState(soid, new SoPayMentRecvBeforeShip().GetStateValue());
+            UpdateState(soid, new SoItemPayMentRecvBeforeShip().GetStateValue());
         
         }
 
         public void SetStateShipmentCompleteBeforePay(int soid)
         {
-            UpdateState(soid, new SoShipCompletedBeforePay().GetStateValue());
+            UpdateState(soid, new SoItemShipCompletedBeforePay().GetStateValue());
         }
 
         public void SetStatePartialShipmentBeforePay(int soid)
         {
-            UpdateState(soid, new SoPartialShipBeforePay().GetStateValue());
+            UpdateState(soid, new SoItemPartialShipBeforePay().GetStateValue());
         
         }
 
@@ -255,9 +251,9 @@ namespace AmbleClient.Order
     
     }
 
-    public class SoPayMentRecvBeforeShip : SoState
+    public class SoItemPayMentRecvBeforeShip : SoItemState
     {
-        public SoPayMentRecvBeforeShip()
+        public SoItemPayMentRecvBeforeShip()
         {
             var opJobs = new List<JobDescription>();
             opJobs.Add(JobDescription.Logistics);
@@ -284,12 +280,12 @@ namespace AmbleClient.Order
          
      private void SetStateShipmentCompleteAfterPay(int soid)
      {
-         UpdateState(soid, new SoShipCompletedAfterPay().GetStateValue());
+         UpdateState(soid, new SoItemShipCompletedAfterPay().GetStateValue());
       }
 
      private void SetStatePartialShipmentAfterPay(int soid)
      {
-         UpdateState(soid, new SoPartialShipAfterPay().GetStateValue());
+         UpdateState(soid, new SoItemPartialShipAfterPay().GetStateValue());
      }
 
      public override int GetStateValue()
@@ -303,9 +299,9 @@ namespace AmbleClient.Order
     
     }
 
-    public class SoShipCompletedAfterPay : SoState
+    public class SoItemShipCompletedAfterPay : SoItemState
     {
-        public SoShipCompletedAfterPay()
+        public SoItemShipCompletedAfterPay()
         {
             var opJobs = new List<JobDescription>();
             opJobs.Add(JobDescription.FinancialManager);
@@ -315,7 +311,7 @@ namespace AmbleClient.Order
             var operation1 = new Operation
             {
                 jobs = opJobs,
-                operationName = "Close SO",
+                operationName = "Close SO item",
                 operationMethod = this.CloseSo
 
             };
@@ -325,7 +321,7 @@ namespace AmbleClient.Order
 
         private void CloseSo(int soid)
         {
-            UpdateState(soid, new SoClose().GetStateValue());
+            UpdateState(soid, new SoItemClose().GetStateValue());
         
         }
 
@@ -340,9 +336,9 @@ namespace AmbleClient.Order
     
     }
 
-    public class SoPartialShipAfterPay : SoState
+    public class SoItemPartialShipAfterPay : SoItemState
     {
-        public SoPartialShipAfterPay()
+        public SoItemPartialShipAfterPay()
         {
             var opJobs = new List<JobDescription>();
             opJobs.Add(JobDescription.Logistics);
@@ -364,7 +360,7 @@ namespace AmbleClient.Order
 
         private void SetStateShipmentCompleteAfterPay(int soid)
         {
-            UpdateState(soid, new SoShipCompletedAfterPay().GetStateValue());
+            UpdateState(soid, new SoItemShipCompletedAfterPay().GetStateValue());
         }
 
         public override int GetStateValue()
@@ -377,9 +373,9 @@ namespace AmbleClient.Order
         }
     
     }
-    public class SoShipCompletedBeforePay : SoState
+    public class SoItemShipCompletedBeforePay : SoItemState
     {
-        public SoShipCompletedBeforePay()
+        public SoItemShipCompletedBeforePay()
         {
             var opJobs = new List<JobDescription>();
             opJobs.Add(JobDescription.Financial);
@@ -402,7 +398,7 @@ namespace AmbleClient.Order
 
         private void SetStatePaymentReceviedAfterShip(int soid)
         {
-            UpdateState(soid, new SoPayMentRecvAfterShip().GetStateValue());
+            UpdateState(soid, new SoItemPayMentRecvAfterShip().GetStateValue());
         }
 
         public override int GetStateValue()
@@ -416,9 +412,9 @@ namespace AmbleClient.Order
 
     }
 
-    public class SoPartialShipBeforePay : SoState
+    public class SoItemPartialShipBeforePay : SoItemState
     {
-        public SoPartialShipBeforePay()
+        public SoItemPartialShipBeforePay()
         {
             var opJobs = new List<JobDescription>();
             opJobs.Add(JobDescription.Logistics);
@@ -440,7 +436,7 @@ namespace AmbleClient.Order
 
         private void SetStateShipmentCompleteBeforePay(int soid)
         {
-            UpdateState(soid, new SoShipCompletedBeforePay().GetStateValue());
+            UpdateState(soid, new SoItemShipCompletedBeforePay().GetStateValue());
         }
 
 
@@ -457,9 +453,9 @@ namespace AmbleClient.Order
 
     }
 
-    public class SoPayMentRecvAfterShip : SoState
+    public class SoItemPayMentRecvAfterShip : SoItemState
     {
-        public SoPayMentRecvAfterShip()
+        public SoItemPayMentRecvAfterShip()
         {
             var opJobs = new List<JobDescription>();
             opJobs.Add(JobDescription.FinancialManager);
@@ -479,7 +475,7 @@ namespace AmbleClient.Order
 
         private void CloseSo(int soid)
         {
-            UpdateState(soid, new SoClose().GetStateValue());
+            UpdateState(soid, new SoItemClose().GetStateValue());
 
         }
 
@@ -494,7 +490,7 @@ namespace AmbleClient.Order
 
     }
 
-    public class SoClose : SoState
+    public class SoItemClose : SoItemState
     {
         public override int GetStateValue()
         {
@@ -509,37 +505,37 @@ namespace AmbleClient.Order
 
 
 
-  public  class SoOrderStateList
+  public  class SoItemOrderStateList
   {
-     List<SoState> soStateList=new List<SoState>();
+     List<SoItemState> soItemStateList=new List<SoItemState>();
 
-     public SoOrderStateList()
+     public SoItemOrderStateList()
       { 
 
-       soStateList.Add(new SoNew());
-       soStateList.Add(new SoRejected());
-       soStateList.Add(new SoApprove());
-       soStateList.Add(new SoCancelled());
-       soStateList.Add(new SoWaitingForShip());
-       soStateList.Add(new SoPayMentRecvBeforeShip());
-       soStateList.Add(new SoShipCompletedAfterPay());
-       soStateList.Add(new SoPartialShipAfterPay());
-       soStateList.Add(new SoShipCompletedBeforePay());
-       soStateList.Add(new SoPartialShipBeforePay());
-       soStateList.Add(new SoPayMentRecvAfterShip());
-       soStateList.Add(new SoClose());
+       soItemStateList.Add(new SoItemNew());
+       soItemStateList.Add(new SoItemRejected());
+       soItemStateList.Add(new SoItemApprove());
+       soItemStateList.Add(new SoItemCancelled());
+       soItemStateList.Add(new SoItemWaitingForShip());
+       soItemStateList.Add(new SoItemPayMentRecvBeforeShip());
+       soItemStateList.Add(new SoItemShipCompletedAfterPay());
+       soItemStateList.Add(new SoItemPartialShipAfterPay());
+       soItemStateList.Add(new SoItemShipCompletedBeforePay());
+       soItemStateList.Add(new SoItemPartialShipBeforePay());
+       soItemStateList.Add(new SoItemPayMentRecvAfterShip());
+       soItemStateList.Add(new SoItemClose());
      
       }
 
       
-      public List<SoState> GetWholeSoStateList()
+      public List<SoItemState> GetWholeSoStateList()
       {
-          return soStateList;     
+          return soItemStateList;     
       }
 
-      public SoState GetSoStateAccordingToValue(int dbValue)
+      public SoItemState GetSoStateAccordingToValue(int dbValue)
       {
-          foreach (SoState state in soStateList)
+          foreach (SoItemState state in soItemStateList)
           {
               if (state.GetStateValue() == dbValue)
               {
@@ -553,7 +549,7 @@ namespace AmbleClient.Order
 
       public string GetSoStateStringAccordingToValue(int dbValue)
       {
-          foreach (SoState state in soStateList)
+          foreach (SoItemState state in soItemStateList)
           {
               if (state.GetStateValue() == dbValue)
               {

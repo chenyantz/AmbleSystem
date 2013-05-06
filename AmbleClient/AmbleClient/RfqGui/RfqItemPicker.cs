@@ -25,7 +25,7 @@ namespace AmbleClient.RfqGui
 
         private void RfqItemPicker_Load(object sender, EventArgs e)
         {
-            DataTable dt = new AmbleClient.RfqGui.RfqManager.RfqMgr().GetRfqForSo(customerName, UserInfo.UserId, this.rfqId);
+            DataTable dt = AmbleClient.RfqGui.RfqManager.RfqMgr.GetRfqForSo(customerName, UserInfo.UserId, this.rfqId);
 
             foreach (DataRow dr in dt.Rows)
             {
@@ -45,7 +45,7 @@ namespace AmbleClient.RfqGui
         {
             foreach (DataGridViewRow dgvr in dataGridView1.Rows)
             {
-                if (dgvr.Cells[0].Selected == true)
+                if ((bool)(dgvr.Cells[0].Value))
                 {
                     RfqIdsForSo.Add(Tool.GetIdAccordingTo6DigitalNumber(dgvr.Cells["RfqId"].Value.ToString()));
                 

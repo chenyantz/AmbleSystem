@@ -22,8 +22,18 @@ namespace AmbleClient.Order.SoMgr
         public string specialInstructions;
         public string billTo;
         public string shipTo;
+        public int soStates;
     
     }
+
+   public enum SoStatesEnum
+   {
+    New=0,
+    Approved=1,
+    UnderProcess=2,
+    Closed=3
+   
+   };
 
     public class SoItems:ICloneable
     {
@@ -56,5 +66,24 @@ namespace AmbleClient.Order.SoMgr
             return this.MemberwiseClone();
         }
     }
+
+    public class SoCombine
+    {
+        public int soId;
+        public string customerName;
+        public int salesId;
+        public DateTime orderDate;
+        public string customerPo;
+
+        public int soItemsId;
+        public string partNo;
+        public string mfg;
+        public string dc;
+        public int qty;
+        public float unitPrice;
+        public int soItemState;
+
+    }
+
 
 }

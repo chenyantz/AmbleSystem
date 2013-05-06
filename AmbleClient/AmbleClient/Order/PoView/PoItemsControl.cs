@@ -25,7 +25,7 @@ namespace AmbleClient.PO
         { 
           //get the rfqId and get the MPN,CFG and DC info
             int rfqId = Order.SoMgr.SoMgr.GetRfqIdAccordingToSoId(soId);
-            RfqGui.RfqManager.Rfq rfq = new RfqGui.RfqManager.RfqMgr().GetRfqAccordingToRfqId(rfqId);
+            RfqGui.RfqManager.Rfq rfq = RfqGui.RfqManager.RfqMgr.GetRfqAccordingToRfqId(rfqId);
             tbDc.Text = rfq.dc;
             tbMfg.Text = rfq.mfg;
             tbPartNo.Text = rfq.partNo;

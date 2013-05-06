@@ -34,7 +34,7 @@ namespace AmbleClient.RfqGui
             bool suc;
             try
             {
-                suc = rfqMgr.SaveRfq(rfq);
+                suc = RfqMgr.SaveRfq(rfq);
 
                 if (UserInfo.UserId == rfq.salesId)
                     rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + "  Created the RFQ" + System.Environment.NewLine;
@@ -55,7 +55,7 @@ namespace AmbleClient.RfqGui
 
     public int GetSavedRfqId()
     {
-        return rfqMgr.GetSavedRfqId(mySubs[cbSales.SelectedIndex]);
+        return RfqMgr.GetSavedRfqId(mySubs[cbSales.SelectedIndex]);
    
     }
 

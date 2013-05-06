@@ -12,25 +12,28 @@ namespace AmbleClient.SO
 {
     public partial class NewSo : Form
     {
-        public int rfqId;
-
+        List<int> rfqIds = new List<int>();
         ILog logger = LogManager.GetLogger(typeof(NewSo));
 
         public NewSo(int rfqId)
         {
             InitializeComponent();
-            this.rfqId = rfqId;
             this.Text = "New Create an SO for RFQ:" + rfqId;
-            this.soViewControl1.rfqId = rfqId;
         }
 
-        public void FillContact(string contact)
+
+        public NewSo(List<int> ids)
         {
-         this.soViewControl1.tbContact.Text=contact;
+            InitializeComponent();
+            this.Text = "New Create an SO for RFQs:";
+            foreach (int id in ids)
+            {
+                this.Text += (Tool.Get6DigitalNumberAccordingToId(id)+",");
+            }
+            this.Text=this.Text.Remove(this.Text.Length - 2);
+            rfqIds.AddRange(ids);
+            soViewControl1.rfqList = rfqIds;
         }
-
-
-
 
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -48,14 +51,15 @@ namespace AmbleClient.SO
                 return;
             }
             
-            AmbleClient.RfqGui.RfqManager.RfqMgr rfqMgr = new RfqGui.RfqManager.RfqMgr();
             if (UserInfo.UserId == soViewControl1.GetAssignedSaleID())
             {
-                rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Created an SO");
+                foreach(int rfqId in rfqIds)
+               AmbleClient.RfqGui.RfqManager.RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Created an SO");
             }
             else
             { 
-              rfqMgr.AddRfqHistory(rfqId,UserInfo.UserId,"Created an SO for "+AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(soViewControl1.GetAssignedSaleID()));
+                foreach(int rfqId in rfqIds)
+                    AmbleClient.RfqGui.RfqManager.RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Created an SO for " + AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(soViewControl1.GetAssignedSaleID()));
             
             }
             this.DialogResult = DialogResult.Yes;
@@ -67,12 +71,6 @@ namespace AmbleClient.SO
         {
             this.soViewControl1.NewSOFill();
         }
-
-
-
-
-
-
 
     }
 }

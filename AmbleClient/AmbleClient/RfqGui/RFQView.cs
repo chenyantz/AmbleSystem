@@ -13,20 +13,18 @@ namespace AmbleClient.RfqGui
     public partial class RFQView : Form
     {
         int rfqId;
-        RfqMgr rfqMgr;
         Rfq rfq;
         public RFQView(int rfqId)
         {
             InitializeComponent();
             this.rfqId = rfqId;
-            rfqMgr = new RfqMgr();
             this.Text = "Info For RFQ:" + rfqId;
         
         }
 
         private void RFQView_Load(object sender, EventArgs e)
         {
-            rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
+            rfq = RfqMgr.GetRfqAccordingToRfqId(rfqId);
             rfqItems1.FillTheTable(rfq);
             GuiOpAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
         }
@@ -106,9 +104,9 @@ namespace AmbleClient.RfqGui
             if (MessageBox.Show("Quote the RFQ?","", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
 
-                if (rfqMgr.ChangeRfqState(RfqStatesEnum.Quoted, rfqId))
+                if (RfqMgr.ChangeRfqState(RfqStatesEnum.Quoted, rfqId))
                 {
-                    rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Quoted the RFQ");
+                    RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Quoted the RFQ");
                     GuiOpAccordingToRfqState(RfqStatesEnum.Quoted);
                 }
                 else
@@ -116,7 +114,7 @@ namespace AmbleClient.RfqGui
                     MessageBox.Show("Quote the RFQ Fail");
                 }
             }
-            Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
+            Rfq rfq = RfqMgr.GetRfqAccordingToRfqId(rfqId);
             GuiOpAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
 
 
@@ -127,9 +125,9 @@ namespace AmbleClient.RfqGui
 
             if (MessageBox.Show("Route the RFQ?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                if (rfqMgr.ChangeRfqState(RfqStatesEnum.Routed, rfqId))
+                if (RfqMgr.ChangeRfqState(RfqStatesEnum.Routed, rfqId))
                 {
-                    rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Routed the RFQ");
+                    RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Routed the RFQ");
                     GuiOpAccordingToRfqState(RfqStatesEnum.Routed);
 
                 }
@@ -145,7 +143,7 @@ namespace AmbleClient.RfqGui
         {
             if (rfqItems1.UpdateInfo(rfqId))
             {
-                rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId,"Updated the RFQ");
+                RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId,"Updated the RFQ");
                 MessageBox.Show("Update the RFQ successfully");
             }
             else
@@ -156,7 +154,7 @@ namespace AmbleClient.RfqGui
 
         private void tsbCopy_Click(object sender, EventArgs e)
         {
-            rfqMgr.CopyRfq(rfqId, UserInfo.UserId);
+            RfqMgr.CopyRfq(rfqId, UserInfo.UserId);
             NewRfq newRfq = new NewRfq(true);
             newRfq.ShowDialog();
         }
@@ -168,19 +166,19 @@ namespace AmbleClient.RfqGui
             if (DialogResult.OK == picker.ShowDialog())
             {
                 List<int> ids = picker.RfqIdsForSo;
-                SO.NewSo newSo = new SO.NewSo(rfqId);
-               
+                SO.NewSo newSo = new SO.NewSo(ids);
+                if (DialogResult.Yes == newSo.ShowDialog())
+                {
+                    Rfq rfq1 = RfqMgr.GetRfqAccordingToRfqId(rfqId);
+                    GuiOpAccordingToRfqState((RfqStatesEnum)rfq1.rfqStates);
+                }
             }
 
 
 
            /*
            newSo.FillContact(this.rfqItems1.tbContact.Text);
-           if(DialogResult.Yes==newSo.ShowDialog())
-           {
-            Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
-            GuiOpAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
-            }*/
+           */
         }
 
         private void tsbViewSo_Click(object sender, EventArgs e)
@@ -201,8 +199,8 @@ namespace AmbleClient.RfqGui
                 if (MessageBox.Show("Set The RFQ Status to Closed?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     rfqItems1.UpdateInfo(rfqId);
-                    rfqMgr.ChangeRfqState(RfqStatesEnum.Closed, rfqId);
-                    rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Closed the RFQ");
+                    RfqMgr.ChangeRfqState(RfqStatesEnum.Closed, rfqId);
+                    RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Closed the RFQ");
                     GuiOpAccordingToRfqState(RfqStatesEnum.Closed);
                 }
             }

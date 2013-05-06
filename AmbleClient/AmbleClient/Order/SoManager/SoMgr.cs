@@ -38,7 +38,7 @@ namespace AmbleClient.Order.SoMgr
            }
            sb.Append(" ) ");
 
-           if (filterColumn.Trim() == "mpn" && (!string.IsNullOrWhiteSpace(filterString)))
+           if (filterColumn.Trim() == "partNo" && (!string.IsNullOrWhiteSpace(filterString)))
            {
               List<int> idsList=GetSoIdByMPN(filterString.Trim());
               if (idsList.Count >= 1)
@@ -83,6 +83,74 @@ namespace AmbleClient.Order.SoMgr
            return soList;
 
        }
+
+       public static List<SoCombine> SalesGetSoCombineAccordingTofilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> states)
+       {
+
+
+           List<SoCombine> soCombineList = new List<SoCombine>();
+           if (states.Count == 0) return soCombineList;
+           List<int> salesIds = new List<int>();
+
+           if (includedSubs)
+           {
+
+               salesIds.AddRange(AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(userId, UserCombine.GetUserCanBeSales()));
+           }
+           else
+           {
+               salesIds.Add(userId);
+           }
+
+           StringBuilder sb = new StringBuilder();
+           sb.Append("select s.soId,customerName,salesId,orderDate,customerPo,soItemsId,partNo,mfg,dc,qty,unitPrice,soItemState from So s,SoItems si where(s.soId=si.soId) and  ( salesId=" + salesIds[0]);
+           for (int i = 1; i < salesIds.Count; i++)
+           {
+               sb.Append(" or salesId=" + salesIds[i]);
+           }
+           sb.Append(" ) ");
+               //append the filter
+          if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+           {
+                   sb.Append(string.Format(" and {0} like '%{1}%' ", filterColumn, filterString));
+            }
+     
+           sb.Append(" and (soItemState=" + states[0]);
+           for (int i = 1; i < states.Count; i++)
+           {
+               sb.Append(" or soItemState=" + states[i]);
+
+           }
+           sb.Append(" )");
+
+           DataTable dt = db.GetDataTable(sb.ToString(), "soId");
+
+           foreach (DataRow dr in dt.Rows)
+           {
+               soCombineList.Add(
+                   new SoCombine { 
+                    soId=Convert.ToInt32(dr["soId"]),
+                    customerName=dr["customerName"].ToString(),
+                    salesId=Convert.ToInt32(dr["salesId"]),
+                    orderDate=Convert.ToDateTime(dr["orderDate"]),
+                    customerPo=dr["customerPo"].ToString(),
+                    soItemsId=Convert.ToInt32(dr["soItemsId"]),
+                    partNo=dr["partNo"].ToString(),
+                    mfg=dr["mfg"].ToString(),
+                    dc=dr["dc"].ToString(),
+                    qty=Convert.ToInt32(dr["qty"]),
+                    unitPrice=Convert.ToSingle(dr["unitPrice"]),
+                    soItemState=Convert.ToInt32(dr["soItemState"])
+                   }
+                   );
+           }
+           return soCombineList;
+
+       }
+
+
+
+
 
        public static List<So> BuyerGetSoAccordingToFilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> states)
 
@@ -157,7 +225,7 @@ namespace AmbleClient.Order.SoMgr
 
        public static int GetSoNumberFromRfqId(int rfqId)
        {
-           string strSql = "select count(soId) from So where rfqId=" + rfqId;
+           string strSql = "select count(soId) from SoItems where rfqId=" + rfqId;
            return Convert.ToInt32(db.GetSingleObject(strSql));
 
        
@@ -205,7 +273,6 @@ namespace AmbleClient.Order.SoMgr
            return new So
            {
                soId = Convert.ToInt32(dr["soId"]),
-               rfqId = Convert.ToInt32(dr["rfqId"]),
                customerName = dr["customerName"].ToString(),
                contact = dr["contact"].ToString(),
                salesId = Convert.ToInt32(dr["salesId"]),
@@ -285,8 +352,8 @@ namespace AmbleClient.Order.SoMgr
        
        public static bool SaveSoMain(So so)
        {
-           string strSql = "insert into So(rfqId,customerName,contact,salesId,salesOrderNo,orderDate,customerPo,paymentTerm,freightTerm,customerAccount,specialInstructions,billTo,shipTo,soStates) " +
-               string.Format(" values({0},'{1}','{2}',{3},'{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}',0)", so.rfqId, so.customerName, so.contact, so.salesId, so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,
+           string strSql = "insert into So(customerName,contact,salesId,salesOrderNo,orderDate,customerPo,paymentTerm,freightTerm,customerAccount,specialInstructions,billTo,shipTo,soStates) " +
+               string.Format(" values('{0}','{1}',{2},'{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}',0)",so.customerName, so.contact, so.salesId, so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,
                so.paymentTerm, so.freightTerm, so.customerAccount, so.specialInstructions, so.billTo, so.shipTo);
 
            if (db.ExecDataBySql(strSql) == 1)
@@ -302,14 +369,16 @@ namespace AmbleClient.Order.SoMgr
            return Convert.ToInt32(db.GetSingleObject(strSql));
        }
 
+       
+       /*
        public static bool SaveSoItems(int soId, List<SoItems> soitems)
        {
            List<string> strSqls = new List<string>();
            foreach (SoItems soItem in soitems)
            {
 
-               string strsql = "insert into SoItems(soId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,packingInstruction) " +
-                   string.Format(" values({0},{1},'{2}','{3}',{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13},'{14}','{15}','{16}','{17}')", soId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
+               string strsql = "insert into SoItems(soId,rfqId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,packingInstruction) " +
+                   string.Format(" values({0},{1},{2},'{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}',{11},{12},{13},{14},'{15}','{16}','{17}','{18}')", soId, soItem.rfqId,soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
                    soItem.intPartNo, soItem.shipFrom,soItem.shipMethod,soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(),soItem.shippedDate.HasValue?soItem.shippedDate.Value.ToShortDateString():"null",
                    soItem.shippingInstruction, soItem.packingInstruction);
                strSqls.Add(strsql);
@@ -318,7 +387,7 @@ namespace AmbleClient.Order.SoMgr
 
            return db.ExecDataBySqls(strSqls);
 
-       }
+       }*/
 
        public static int GetSoStateAccordingToSoId(int soId)
        {
@@ -334,13 +403,13 @@ namespace AmbleClient.Order.SoMgr
        {
            string strSql;
 
-           if (state == new SoApprove().GetStateValue())
+           if (state == new SoItemApprove().GetStateValue())
            {
                strSql = string.Format("update so set soStates={0},approverId={1},approveDate='{2}' where soId={3}", state, userid, DateTime.Now.ToShortDateString(), soId);
            }
-           else if (state == new SoWaitingForShip().GetStateValue())
+           else if (state == new SoItemWaitingForShip().GetStateValue())
            {
-               if (GetSoStateAccordingToSoId(soId) == new SoApprove().GetStateValue())
+               if (GetSoStateAccordingToSoId(soId) == new SoItemApprove().GetStateValue())
                {
                    strSql = string.Format("update so set soStates={0} where soId={1}", state, soId);
 
@@ -407,18 +476,18 @@ namespace AmbleClient.Order.SoMgr
        public static string GetUpDateSoItemString(SoItems soItem)
        {
 
-          return string.Format("update SoItems set saleType={0},partNo='{1}',mfg='{2}',rohs={3},dc='{4}',intPartNo='{5}',shipFrom='{6}',shipMethod='{7}',trackingNo='{8}',qty={9},qtyShipped={10},currency={11},unitPrice={12},dockDate='{13}',shippedDate='{14}',shippingInstruction='{15}',packingInstruction='{16}' where soItemsId={17} ",
-       soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc, soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped.HasValue ? soItem.qtyshipped.Value.ToString() : "null", soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? soItem.shippedDate.Value.ToShortDateString() : "null",
+          return string.Format("update SoItems set saleType={0},partNo='{1}',mfg='{2}',rohs={3},dc='{4}',intPartNo='{5}',shipFrom='{6}',shipMethod='{7}',trackingNo='{8}',qty={9},qtyShipped={10},currency={11},unitPrice={12},dockDate='{13}',shippedDate={14},shippingInstruction='{15}',packingInstruction='{16}' where soItemsId={17} ",
+       soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc, soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped.HasValue ? soItem.qtyshipped.Value.ToString() : "null", soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? ("'" + soItem.shippedDate.Value.ToShortDateString() + "'") : "null",
     soItem.shippingInstruction, soItem.packingInstruction,soItem.soItemsId);
 
        }
 
        public static string GetSaveNewSoItemString(SoItems soItem)
        {
-           string strsql = "insert into SoItems(soId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,packingInstruction) " +
-        string.Format(" values({0},{1},'{2}','{3}',{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13},'{14}','{15}','{16}','{17}')", soItem.soId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
-        soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped.HasValue?soItem.qtyshipped.Value.ToString():"null", soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? soItem.shippedDate.Value.ToShortDateString() : "null",
-        soItem.shippingInstruction, soItem.packingInstruction);
+           string strsql = "insert into SoItems(soId,rfqId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,packingInstruction,soItemState) " +
+        string.Format(" values({0},{1},{2},'{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}',{11},{12},{13},{14},'{15}',{16},'{17}','{18}',{19})", soItem.soId,soItem.rfqId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
+        soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped.HasValue?soItem.qtyshipped.Value.ToString():"null", soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ?("'"+soItem.shippedDate.Value.ToShortDateString()+"'") : "null",
+        soItem.shippingInstruction, soItem.packingInstruction,0);
            return strsql;
        }
 

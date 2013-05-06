@@ -22,13 +22,13 @@ namespace AmbleClient.SO
         }
 
 
-        public SoItemView(bool newItems,int rfqId)
+        public SoItemView(bool newItems)
         {
             InitializeComponent();
             if (newItems)
             {   this.Text = "Add an SO Item";
                 tsbOp.Text = "Add";
-                this.soItemsControl1.NewCreateItems(rfqId);
+               //his.soItemsControl1.NewCreateItems(rfqId);
             }
             else
             {
@@ -59,9 +59,5 @@ namespace AmbleClient.SO
         
         }
 
-        public void FreeTheSoItems()
-        {
-            this.soItemsControl1.FreezeAllControls();
-        }
     }
 }

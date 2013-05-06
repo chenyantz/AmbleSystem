@@ -26,19 +26,20 @@ namespace AmbleClient.SO
             }
         }
 
+        /*
         public void NewCreateItems(int rfqId)
         {
             this.cbCurrency.SelectedIndex = 0;
             this.cbSaleType.SelectedIndex = 0;
         //fill the necessary Info
 
-         RfqGui.RfqManager.Rfq rfq=new RfqGui.RfqManager.RfqMgr().GetRfqAccordingToRfqId(rfqId);
+         RfqGui.RfqManager.Rfq rfq=RfqGui.RfqManager.RfqMgr.GetRfqAccordingToRfqId(rfqId);
          this.tbPartNo.Text = rfq.partNo;
          this.tbDc.Text = rfq.dc;
          this.tbMfg.Text = rfq.mfg;
          this.cbRohs.Checked = rfq.rohs == 1 ? true : false;
 
-        }
+        }*/
 
         public void FillItems(SoItems soItem)
         {
@@ -67,18 +68,6 @@ namespace AmbleClient.SO
             }
             tbShipInst.Text = soItem.shippingInstruction;
             tbPackingInst.Text = soItem.packingInstruction;
-        
-        }
-
-        public void FreezeAllControls()
-        {
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is Label)
-                    continue;
-                ctrl.Enabled = false;
-            
-            }
         
         }
 

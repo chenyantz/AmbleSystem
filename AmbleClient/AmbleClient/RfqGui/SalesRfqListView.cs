@@ -43,11 +43,11 @@ namespace AmbleClient.RfqGui
            
             if (includeSubs)
             {
-                return rfqMgr.GetThePageCountOfDataTable(itemsPerPage, UserInfo.UserId,filterColumn,filterString,selections);
+                return RfqMgr.GetThePageCountOfDataTable(itemsPerPage, UserInfo.UserId,filterColumn,filterString,selections);
             }
             else
             { 
-              return rfqMgr.GetThePageCountOfDataTablePerSale(itemsPerPage, UserInfo.UserId,filterColumn,filterString,selections);
+              return RfqMgr.GetThePageCountOfDataTablePerSale(itemsPerPage, UserInfo.UserId,filterColumn,filterString,selections);
             }
         }
 
@@ -55,11 +55,11 @@ namespace AmbleClient.RfqGui
         {   
             if (includeSubs)
             {
-                return  rfqMgr.GetICanSeeRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString,selections);
+                return  RfqMgr.GetICanSeeRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString,selections);
             }
             else 
             {
-                return rfqMgr.GetMyRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString,selections);
+                return RfqMgr.GetMyRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString,selections);
             }
 
         }

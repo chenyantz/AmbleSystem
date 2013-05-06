@@ -16,14 +16,15 @@ namespace AmbleClient.SO
 
     public partial class SoViewControl : UserControl
     {
-        bool needFreezeItemControl = false;
         List<SoItemsContentAndState> soItemsStateList = new List<SoItemsContentAndState>();
         List<SoItemsContentAndState> deletedList = new List<SoItemsContentAndState>();
 
         List<int> mySubs;
 
-        public int rfqId;
+        public List<int> rfqList;
         private int soId=int.MinValue;
+
+        int? selectedSoItemId = null;
 
         List<string> ShipToList = new List<string>();
 
@@ -36,7 +37,7 @@ namespace AmbleClient.SO
 
         private void SoViewControl_Load(object sender, EventArgs e)
         {
-          
+
         }
 
         private void CustomerAutoComplete()
@@ -91,9 +92,11 @@ namespace AmbleClient.SO
         private void ShowDataInDataGridView()
         {
             dataGridView1.Rows.Clear();
+            int indexForSelectedItemsId = -1;
 
           for(int i=0;i<soItemsStateList.Count;i++)
           {
+
               string strSaleType, strCurrency;
               switch (soItemsStateList[i].soitem.saleType)
                  
@@ -118,33 +121,34 @@ namespace AmbleClient.SO
               strCurrency = Enum.GetName(typeof(AmbleClient.Currency), soItemsStateList[i].soitem.currencyType);
 
 
+
               dataGridView1.Rows.Add(i + 1, strSaleType, soItemsStateList[i].soitem.partNo, soItemsStateList[i].soitem.mfg, soItemsStateList[i].soitem.rohs, soItemsStateList[i].soitem.dc,
                   soItemsStateList[i].soitem.intPartNo, soItemsStateList[i].soitem.shipFrom, soItemsStateList[i].soitem.shipMethod, soItemsStateList[i].soitem.trackingNo, soItemsStateList[i].soitem.qty,
                   soItemsStateList[i].soitem.qtyshipped, strCurrency, soItemsStateList[i].soitem.unitPrice, soItemsStateList[i].soitem.qtyshipped * soItemsStateList[i].soitem.unitPrice, soItemsStateList[i].soitem.dockDate.ToShortDateString(),
                   soItemsStateList[i].soitem.shippedDate.HasValue?soItemsStateList[i].soitem.shippedDate.Value.ToShortDateString():"");
+
+              if (this.selectedSoItemId != null && soItemsStateList[i].soitem.soItemsId == this.selectedSoItemId.Value)
+              {
+                  indexForSelectedItemsId = i;
+              }
+
+
+
+          }
+          if (indexForSelectedItemsId > -1)
+          { 
+            //turn red
+              foreach (DataGridViewCell dgvc in dataGridView1.Rows[indexForSelectedItemsId].Cells)
+              {
+                  dgvc.Style.BackColor = Color.Red;
+              
+              }
+          
+          
           }
 
-     
         }
 
-        public void FreezeAllControls()
-        {
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is Label)
-                    continue;
-                else if (ctrl is DataGridView)
-                {
-                    ((DataGridView)ctrl).ReadOnly = true;
-                }
-                else
-                {
-                    ctrl.Enabled = false;
-                }
-            }
-            needFreezeItemControl = true;
-        
-        }
 
         public int GetAssignedSaleID()
         {
@@ -156,6 +160,37 @@ namespace AmbleClient.SO
         {
             FillTheSalesComboBox();
             cbSp.SelectedIndex = 0;
+
+            foreach (int id in rfqList)
+            {
+                Rfq rfq = RfqGui.RfqManager.RfqMgr.GetRfqAccordingToRfqId(id);
+                SoItems soItem = new SoItems();
+                soItem.currencyType =(int) AmbleClient.Currency.USD;
+                soItem.unitPrice = rfq.targetPrice ?? 0;
+                soItem.mfg = rfq.mfg;
+                soItem.partNo = rfq.partNo;
+                soItem.rohs = rfq.rohs;
+                soItem.qty = rfq.qty ?? 0;
+                soItem.intPartNo = rfq.custPartNo;
+                soItem.dc = rfq.dc;
+                soItem.dockDate = rfq.dockdate;
+                soItem.rfqId = rfq.rfqNo;
+                
+               this.soItemsStateList.Add(
+               new SoItemsContentAndState
+               {
+                   soitem=soItem,
+                   state = OrderItemsState.New
+               }
+               );
+               ShowDataInDataGridView();
+            
+            
+            
+            }
+
+
+
         }
 
         private void FillTheSalesComboBox()
@@ -173,10 +208,13 @@ namespace AmbleClient.SO
         }
 
 
-        public void FillTheTable(So so)
+        public void FillTheTable(So so,int? selectedItem)
         {
 
             this.soId = so.soId;
+
+            this.selectedSoItemId = selectedItem;
+
 
             if (UserInfo.Job == JobDescription.Purchaser)
             {
@@ -266,7 +304,7 @@ namespace AmbleClient.SO
             }
              SoMgr.UpdateSoItems(soItemsStateList);
 
-                new AmbleClient.RfqGui.RfqManager.RfqMgr().ChangeRfqState(RfqStatesEnum.HasSO, rfqId);
+               // new AmbleClient.RfqGui.RfqManager.RfqMgr().ChangeRfqState(RfqStatesEnum.HasSO, rfqId);
 
                 MessageBox.Show("Save Sale Order Successfully");
                 return true;
@@ -295,9 +333,6 @@ namespace AmbleClient.SO
 
             MessageBox.Show("Update Sale Order Successfully");
         }
-
-
-
 
         private bool CheckValues()
         {
@@ -335,7 +370,6 @@ namespace AmbleClient.SO
             specialInstructions = tbSpecialInstructions.Text.Trim(),
             billTo=tbBillto.Text.Trim(),
             shipTo=tbShipTo.Text.Trim(),
-            rfqId = this.rfqId
            };
 
         }
@@ -345,7 +379,7 @@ namespace AmbleClient.SO
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
 
-                SoItemView itemView = new SoItemView(false,this.rfqId);
+                SoItemView itemView = new SoItemView(false);
                 itemView.FillTheTable(soItemsStateList[e.RowIndex].soitem);
 
                 if (DialogResult.Yes == itemView.ShowDialog())
@@ -370,7 +404,8 @@ namespace AmbleClient.SO
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            SoItemView soItemView = new SoItemView(true,this.rfqId);
+            /*
+            SoItemView soItemView = new SoItemView(true);
 
             if (soItemView.ShowDialog() == DialogResult.Yes)
             {
@@ -382,7 +417,7 @@ namespace AmbleClient.SO
                 soItemsStateList.Add(soItemContentAndState);
                 ShowDataInDataGridView();
 
-            }
+            }*/
 
         }
 
@@ -395,7 +430,11 @@ namespace AmbleClient.SO
             if (DialogResult.Yes == MessageBox.Show("Delete the selected SO item ?", "Warning", MessageBoxButtons.YesNo))
             {
                 int rowIndex = dataGridView1.SelectedRows[0].Index;
-                deletedList.Add(soItemsStateList[rowIndex]);
+
+                if (soItemsStateList[rowIndex].state != OrderItemsState.New)
+                {
+                    deletedList.Add(soItemsStateList[rowIndex]);
+                }
                 soItemsStateList.RemoveAt(rowIndex);
                 ShowDataInDataGridView();
             }
@@ -421,7 +460,10 @@ namespace AmbleClient.SO
                 int firstValue = itemSplit.GetFirstQty();
                 soItemsStateList[rowIndex].soitem.qty = firstValue;
                 soItemsStateList[rowIndex].soitem.dockDate = itemSplit.GetFirstDateTime();
-                soItemsStateList[rowIndex].state = OrderItemsState.Modified;
+                if (soItemsStateList[rowIndex].state != OrderItemsState.New)
+                {
+                    soItemsStateList[rowIndex].state = OrderItemsState.Modified;
+                }
             //set the second one
 
                 var soItemContentAndState = new SoItemsContentAndState();

@@ -26,7 +26,7 @@ namespace AmbleClient.RfqGui
 
            try
            {
-               suc = rfqMgr.UpdateRfq(rfq);
+               suc = RfqMgr.UpdateRfq(rfq);
            }
            catch (Exception ex)
            {

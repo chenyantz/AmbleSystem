@@ -8,13 +8,9 @@ namespace AmbleClient.RfqGui.RfqManager
 {
    public class RfqMgr
     {
-        DataClass.DataBase db = new DataClass.DataBase();
+       static  DataClass.DataBase db = new DataClass.DataBase();
 
-        public RfqMgr()
-        { }
-
-
-       public bool SaveRfq(Rfq rfq)
+       public static bool SaveRfq(Rfq rfq)
         {
         string strSql=string.Format("insert into rfq(customerName,partNo,salesId,contact,project,rohs,phone,fax,email,rfqdate,priority,dockdate,mfg,dc,custPartNo,genPartNo,alt,qty,packaging,targetPrice,resale,cost,firstPA,secondPA,rfqStates,infoToCustomer,infoToInternal,routingHistory) "
             +" values('{0}','{1}',{2},'{3}','{4}',{5},'{6}','{7}','{8}','{9}',{10},'{11}','{12}','{13}','{14}','{15}','{16}',{17},'{18}',{19},{20},{21},{22},{23},{24},'{25}','{26}','{27}')",
@@ -32,7 +28,7 @@ namespace AmbleClient.RfqGui.RfqManager
             return false;
         }
 
-       public bool AddRfqHistory(int rfqId,int who, string action)
+       public static bool AddRfqHistory(int rfqId,int who, string action)
        {
            string strSql = "select routingHistory from rfq where rfqNo=" + rfqId;
            string history = db.GetSingleObject(strSql).ToString();
@@ -46,14 +42,14 @@ namespace AmbleClient.RfqGui.RfqManager
        }
 
 
-       public int GetSavedRfqId(int salesId)
+       public static int GetSavedRfqId(int salesId)
        {
            string strSql = "select max(rfqNo) from rfq where salesId=" + salesId;
            return Convert.ToInt32(db.GetSingleObject(strSql));
        }
 
 
-       public bool UpdateRfq(Rfq rfq)
+       public static bool UpdateRfq(Rfq rfq)
        {
        string strSql=string.Format("update rfq set customerName='{0}',partNo='{1}',salesId={2},contact='{3}',project='{4}',rohs={5},phone='{6}',fax='{7}',email='{8}',rfqdate='{9}',priority={10},dockdate='{11}',mfg='{12}',dc='{13}',custPartNo='{14}',genPartNo='{15}',alt='{16}',qty={17},packaging='{18}',targetPrice={19},resale={20},firstPA={21},secondPA={22},closeReason={23} where rfqNo={24}",
          rfq.customerName,rfq.partNo,rfq.salesId,rfq.contact,rfq.project,rfq.rohs,rfq.phone,rfq.fax,rfq.email,rfq.rfqdate.Date.ToShortDateString(),
@@ -72,7 +68,7 @@ namespace AmbleClient.RfqGui.RfqManager
             return false;
        }
 
-       public bool AssignPAForRfq(int rfqId, int? firstPA, int? secondPA)
+       public static bool AssignPAForRfq(int rfqId, int? firstPA, int? secondPA)
        {
            string strSql;
            if (firstPA.HasValue&&secondPA.HasValue)
@@ -97,7 +93,7 @@ namespace AmbleClient.RfqGui.RfqManager
          
        }
 
-       public bool ChangeRfqState(RfqStatesEnum rfqState,int rfqId)
+       public static bool ChangeRfqState(RfqStatesEnum rfqState,int rfqId)
        {
            string strSql = string.Format("update rfq set rfqStates={0} where rfqNo={1}", rfqState.GetHashCode(), rfqId);
            if (db.ExecDataBySql(strSql) == 1)
@@ -105,7 +101,7 @@ namespace AmbleClient.RfqGui.RfqManager
            return false;
        }
      
-       public DataTable GetRfqForSo(string customerName, int saleId,int currentRfqId)
+       public static DataTable GetRfqForSo(string customerName, int saleId,int currentRfqId)
        {
            List<int> subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(saleId, UserCombine.GetUserCanBeSales());
 
@@ -124,7 +120,7 @@ namespace AmbleClient.RfqGui.RfqManager
        }
       
 
-       public Rfq GetRfqAccordingToRfqId(int rfqId)
+       public static Rfq GetRfqAccordingToRfqId(int rfqId)
        {
            string strSql = string.Format("select * from rfq where rfqNo={0}", rfqId);
            DataTable dt = db.GetDataTable(strSql, "tempTable");
@@ -203,7 +199,7 @@ namespace AmbleClient.RfqGui.RfqManager
        }
 
        //for sales manager
-       public int GetThePageCountOfDataTable(int itemsPerPage, int salesId, string filterColumn, string filterString, List<RfqStatesEnum> selections)
+       public static int GetThePageCountOfDataTable(int itemsPerPage, int salesId, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         { int count=0;
                      //get the subs IDs include himself
 
@@ -217,14 +213,14 @@ namespace AmbleClient.RfqGui.RfqManager
         
         }
 
-       public int GetThePageCountOfDataTablePerSale(int itemsPerPage, int salesId, string filterColumn, string filterString, List<RfqStatesEnum> selections)
+       public static int GetThePageCountOfDataTablePerSale(int itemsPerPage, int salesId, string filterColumn, string filterString, List<RfqStatesEnum> selections)
        {
          int count= GetCountOfDataTablePerSale(itemsPerPage, salesId, filterColumn, filterString, selections);
          return (int)(Math.Ceiling((double)count / (double)itemsPerPage));
        }
 
 
-       public string[] GetStartDateAndEndDate(string fromto)
+       public static string[] GetStartDateAndEndDate(string fromto)
        {
 
            string[] spliter={
@@ -252,7 +248,7 @@ namespace AmbleClient.RfqGui.RfqManager
        }
 
        //for sale
-        public int GetCountOfDataTablePerSale(int itemsPerPage,int salesId,string filterColumn,string filterString,List<RfqStatesEnum> selections)
+        public static int GetCountOfDataTablePerSale(int itemsPerPage,int salesId,string filterColumn,string filterString,List<RfqStatesEnum> selections)
         { 
           //Get the account of dataset  of rfq
             if (selections.Count == 0)
@@ -292,7 +288,7 @@ namespace AmbleClient.RfqGui.RfqManager
         }
 
        //for sales
-        public DataTable GetMyRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
+        public static DataTable GetMyRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         {
             if(selections.Count==0)
                 return null;
@@ -331,7 +327,7 @@ namespace AmbleClient.RfqGui.RfqManager
         }
 
        //for sale and salesManager
-        public DataTable GetICanSeeRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
+        public static DataTable GetICanSeeRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         {
             if (selections.Count == 0)
                 return null;
@@ -380,7 +376,7 @@ namespace AmbleClient.RfqGui.RfqManager
         }
 
        //for buyer Manager
-        public int BMGetThePageCountOfDataTable(int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
+        public static int BMGetThePageCountOfDataTable(int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         {
             //Get the account of dataset  of rfq
 
@@ -420,7 +416,7 @@ namespace AmbleClient.RfqGui.RfqManager
         
         }
 
-        public DataTable BMGetRfqDataTableAccordingToPageNumber(int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
+        public static DataTable BMGetRfqDataTableAccordingToPageNumber(int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         {
                if(selections.Count==0)
                 return null;
@@ -462,7 +458,7 @@ namespace AmbleClient.RfqGui.RfqManager
         }
 
       //For buyer
-        public int BuyerGetThePageCountOfDataTable(int buyerId,int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
+        public static int BuyerGetThePageCountOfDataTable(int buyerId,int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         {
             //Get the account of dataset  of rfq
             if (selections.Count == 0)
@@ -499,7 +495,8 @@ namespace AmbleClient.RfqGui.RfqManager
             int count = Convert.ToInt32(db.GetSingleObject(strSql.ToString()));
             return (int)(Math.Ceiling((double)count / (double)itemsPerPage));
         }
-        public DataTable BuyerGetRfqDataTableAccordingToPageNumber(int buyerId,int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
+
+        public static DataTable BuyerGetRfqDataTableAccordingToPageNumber(int buyerId,int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         {
             if (selections.Count == 0)
                 return null;
@@ -540,7 +537,7 @@ namespace AmbleClient.RfqGui.RfqManager
             return db.GetDataTable(strSql.ToString(), "Table" + pageNumber);
         }
        
-        public void CopyRfq(int rfqNo,int salesId)
+        public static void CopyRfq(int rfqNo,int salesId)
         {
         //delete all the previous record
             string strSql=string.Format("delete from rfqCopy where salesId={0}",salesId);
@@ -549,7 +546,7 @@ namespace AmbleClient.RfqGui.RfqManager
             db.ExecDataBySql(strSql);
         }
 
-        public bool hasCopiedRfq(int salesId)
+        public static bool hasCopiedRfq(int salesId)
         {
          string strSql=string.Format("select count(*) from rfqCopy where salesId={0}",salesId);
          if((int)db.GetSingleObject(strSql)==1)
@@ -562,7 +559,7 @@ namespace AmbleClient.RfqGui.RfqManager
          }
         }
 
-        public int GetRfqIdOfTheCopiedRecord(int salesId)
+        public static int GetRfqIdOfTheCopiedRecord(int salesId)
         {
             string strSql = string.Format("select rfqNo from rfqCopy where salesId={0}", salesId);
             return (int)db.GetSingleObject(strSql);

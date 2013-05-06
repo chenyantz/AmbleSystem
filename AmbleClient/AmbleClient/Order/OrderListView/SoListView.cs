@@ -11,22 +11,30 @@ namespace AmbleClient.Order
     {
        protected List<So> soList;
 
-       protected SoOrderStateList soStateList = new SoOrderStateList();
+       protected SoItemOrderStateList soStateList = new SoItemOrderStateList();
     
 
 
        protected override void FillTheStateCombox()
        {
            //fill the state List
-           foreach (SoState soState in soStateList.GetWholeSoStateList())
+           /*foreach (SoState soState in soStateList.GetWholeSoStateList())
            {
                tscbListState.Items.Add(soState.GetStateString());
+           }*/
+           foreach(SoStatesEnum state in Enum.GetValues(typeof(SoStatesEnum)))
+           {
+             tscbListState.Items.Add(Enum.GetName(typeof(SoStatesEnum),state));
+           
            }
+
+
 
        }
 
        protected override void GetTheStateList()
        {
+          /*
            foreach (SoState soState in soStateList.GetWholeSoStateList())
            {
                intStateList.Add(soState.GetStateValue());
@@ -34,9 +42,11 @@ namespace AmbleClient.Order
            intStateList.Remove(new SoRejected().GetStateValue());
            intStateList.Remove(new SoCancelled().GetStateValue());
            intStateList.Remove(new SoClose().GetStateValue());
+           */
 
-
-
+           intStateList.Add((int)SoStatesEnum.New);
+           intStateList.Add((int)SoStatesEnum.Approved);
+           intStateList.Add((int)SoStatesEnum.UnderProcess);
        }
 
 
@@ -45,7 +55,7 @@ namespace AmbleClient.Order
            filterColumnDict.Add("Customer", "customerName");
            filterColumnDict.Add("SO number", "salesOrderNo");
            filterColumnDict.Add("Customer PO No", "customerPo");
-           filterColumnDict.Add("MPN", "mpn");
+           filterColumnDict.Add("MPN", "partNo");
        }
 
        protected override void StateChanged(object sender, EventArgs e)
@@ -53,9 +63,6 @@ namespace AmbleClient.Order
            intStateList.Clear();
            intStateList.Add(tscbListState.SelectedIndex);
            FillTheDataGrid();
-
-
-
        }
 
 

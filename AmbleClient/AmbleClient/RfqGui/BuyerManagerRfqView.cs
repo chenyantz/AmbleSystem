@@ -13,18 +13,16 @@ namespace AmbleClient.RfqGui
     public partial class BuyerManagerRfqView : Form
     {
         int rfqId;
-        RfqMgr rfqMgr;
         public BuyerManagerRfqView(int rfqId)
         {
             this.rfqId = rfqId;
             InitializeComponent();
-            rfqMgr = new RfqMgr();
             this.Text = "Info for RFQ:" + rfqId;
         }
 
         private void BuyerManagerRfqView_Load(object sender, EventArgs e)
         {
-            Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
+            Rfq rfq = RfqMgr.GetRfqAccordingToRfqId(rfqId);
             buyerManagerRfqItems1.FillTheTable(rfq);
             SetMenuStateAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
         }
@@ -86,7 +84,7 @@ namespace AmbleClient.RfqGui
                 return;
             }
 
-            if (rfqMgr.AssignPAForRfq(rfqId, primaryPA, altPA))
+            if (RfqMgr.AssignPAForRfq(rfqId, primaryPA, altPA))
             {
                 MessageBox.Show("Assign the RFQ to Buyer(s) successfully");
             }
@@ -104,7 +102,7 @@ namespace AmbleClient.RfqGui
             AmbleClient.OfferGui.NewOffer newOffer = new OfferGui.NewOffer(rfqId);
             newOffer.NewOfferAutoFill(this.buyerManagerRfqItems1.tbPartNo.Text, this.buyerManagerRfqItems1.tbMfg.Text);
             newOffer.ShowDialog();
-            Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
+            Rfq rfq = RfqMgr.GetRfqAccordingToRfqId(rfqId);
             SetMenuStateAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
 
         }

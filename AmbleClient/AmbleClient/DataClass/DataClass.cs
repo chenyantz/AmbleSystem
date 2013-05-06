@@ -115,8 +115,10 @@ namespace AmbleClient.DataClass
                 sqlTran.Commit();
                 booIsSucceed = true;  //表示提交数据库成功
             }
-            catch
+            catch(Exception ex)
             {
+                Logger.Error(ex.Message);
+                Logger.Error(ex.StackTrace);
                 sqlTran.Rollback();
                 booIsSucceed = false;  //表示提交数据库失败！
             }

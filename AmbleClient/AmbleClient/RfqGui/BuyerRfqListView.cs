@@ -42,12 +42,12 @@ namespace AmbleClient.RfqGui
 
         public override int GetPageCount(int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections, bool includeSubs)
         {
-            return rfqMgr.BuyerGetThePageCountOfDataTable(UserInfo.UserId, itemsPerPage, filterColumn, filterString, selections);
+            return RfqMgr.BuyerGetThePageCountOfDataTable(UserInfo.UserId, itemsPerPage, filterColumn, filterString, selections);
 
         }
         public override DataTable GetDataTableAccordingToPageNumber(int itemsPerPage, int currentPage, string filterColumn, string filterString, List<RfqStatesEnum> selections, bool includeSubs)
         {
-            return rfqMgr.BuyerGetRfqDataTableAccordingToPageNumber(UserInfo.UserId,currentPage, itemsPerPage, filterColumn, filterString, selections);
+            return RfqMgr.BuyerGetRfqDataTableAccordingToPageNumber(UserInfo.UserId,currentPage, itemsPerPage, filterColumn, filterString, selections);
         }
         public override void CellDoubleClickShow(int rfqId)
         {

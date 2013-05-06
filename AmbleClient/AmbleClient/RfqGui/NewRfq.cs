@@ -59,10 +59,8 @@ namespace AmbleClient.RfqGui
 
         private void tsbPaste_Click(object sender, EventArgs e)
         {
-
-            RfqGui.RfqManager.RfqMgr rfqMgr = new RfqManager.RfqMgr();
-           int rfqId=rfqMgr.GetRfqIdOfTheCopiedRecord(UserInfo.UserId);
-           Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
+           int rfqId=RfqMgr.GetRfqIdOfTheCopiedRecord(UserInfo.UserId);
+           Rfq rfq = RfqMgr.GetRfqAccordingToRfqId(rfqId);
            rfqItems1.FillTheTable(rfq);
            rfqItems1.tbRoutingHistory.Clear();
            rfqItems1.tbCost.Clear();

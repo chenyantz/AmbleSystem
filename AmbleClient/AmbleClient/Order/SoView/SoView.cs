@@ -18,12 +18,12 @@ namespace AmbleClient.SO
         private int rfqId;
 
 
-        private SoOrderStateList soStateList = new SoOrderStateList();
+        private SoItemOrderStateList soStateList = new SoItemOrderStateList();
 
         private List<So> soList;
         List<SoViewControl> soViewControlList = new List<SoViewControl>();
-        
 
+        int? selectedSoItemId = null;
        
 
         public SoView(int rfqId)
@@ -36,12 +36,22 @@ namespace AmbleClient.SO
 
         public SoView(So so)
         {
+           
             InitializeComponent();
-            this.rfqId = so.rfqId;
             soList = new List<So>();
             soList.Add(so);
             this.Text = "Info for SO:" + so.soId;
         }
+
+        public SoView(int soId,int soItemId)
+        {
+            InitializeComponent();
+            soList = new List<So>();
+            soList.Add(SoMgr.GetSoAccordingToSoId(soId));
+            this.Text = "Info for SO:" + soId;
+            this.selectedSoItemId = soItemId;
+        }
+
 
         private void GenerateGui()
         {
@@ -49,7 +59,7 @@ namespace AmbleClient.SO
             
             So so = soList[tabControl1.SelectedIndex];
 
-           SoState soState=soStateList.GetSoStateAccordingToValue(so.soStates);
+           SoItemState soState=soStateList.GetSoStateAccordingToValue(so.soStates);
 
            if(soState.WhoCanUpdate().Contains(UserInfo.Job))
             {
@@ -60,18 +70,11 @@ namespace AmbleClient.SO
             tsbUpdate.Enabled=false;
             }
           //for list
-           tscbStateList.Items.Clear();
            List<Operation> opList = soState.GetOperationList();
-           foreach (Operation op in opList)
-           {
-               if (op.jobs.Contains(UserInfo.Job))
-               {
-                   tscbStateList.Items.Add(op.operationName);
-               }
-           }
+
         //for enter PO
            if ((UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss || UserInfo.Job == JobDescription.PurchasersManager || UserInfo.Job == JobDescription.Purchaser)
-               && (so.soStates == new SoApprove().GetStateValue()))
+               && (so.soStates == new SoItemApprove().GetStateValue()))
            {
                tsbPoEnter.Enabled = true;
 
@@ -99,13 +102,12 @@ namespace AmbleClient.SO
              for (int i = 0; i < soList.Count; i++)
             {
                 SoViewControl soViewControlItem = new SoViewControl();
-                soViewControlItem.rfqId = this.rfqId;
                 soViewControlItem.Dock = System.Windows.Forms.DockStyle.Fill;
                 soViewControlItem.Location = new System.Drawing.Point(3, 3);
                 soViewControlItem.Name = "buyerOfferIems" + i;
                 soViewControlItem.Size = new System.Drawing.Size(906, 456);
                 soViewControlItem.TabIndex = 0;
-                soViewControlItem.FillTheTable(soList[i]);
+                soViewControlItem.FillTheTable(soList[i],selectedSoItemId);
                 soViewControlList.Add(soViewControlItem);
 
                 
@@ -142,6 +144,7 @@ namespace AmbleClient.SO
             GenerateGui();
         }
 
+        /*
         private void tscbStateList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -163,7 +166,7 @@ namespace AmbleClient.SO
             }
             this.DialogResult = DialogResult.Yes;
 
-        }
+        }*/
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {

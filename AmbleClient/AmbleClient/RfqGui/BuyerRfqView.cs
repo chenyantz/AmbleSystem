@@ -22,7 +22,7 @@ namespace AmbleClient.RfqGui
 
         private void BuyerRfqView_Load(object sender, EventArgs e)
         {
-            Rfq rfq = new AmbleClient.RfqGui.RfqManager.RfqMgr().GetRfqAccordingToRfqId(rfqId);
+            Rfq rfq = AmbleClient.RfqGui.RfqManager.RfqMgr.GetRfqAccordingToRfqId(rfqId);
             buyerRfqItems1.FillTheTable(rfq);
             SetMenuStateAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
         }
