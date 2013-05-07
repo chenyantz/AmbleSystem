@@ -34,12 +34,12 @@
             this.tsbPoEnter = new System.Windows.Forms.ToolStripButton();
             this.tsbViewPo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbToExcel = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tsbApprove = new System.Windows.Forms.ToolStripButton();
             this.tsbReject = new System.Windows.Forms.ToolStripButton();
             this.tsbCancel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbToExcel = new System.Windows.Forms.ToolStripButton();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +96,36 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
+            // tsbApprove
+            // 
+            this.tsbApprove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbApprove.Image = ((System.Drawing.Image)(resources.GetObject("tsbApprove.Image")));
+            this.tsbApprove.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbApprove.Name = "tsbApprove";
+            this.tsbApprove.Size = new System.Drawing.Size(61, 22);
+            this.tsbApprove.Text = "Approve";
+            this.tsbApprove.Click += new System.EventHandler(this.tsbApprove_Click);
+            // 
+            // tsbReject
+            // 
+            this.tsbReject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbReject.Image = ((System.Drawing.Image)(resources.GetObject("tsbReject.Image")));
+            this.tsbReject.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbReject.Name = "tsbReject";
+            this.tsbReject.Size = new System.Drawing.Size(46, 22);
+            this.tsbReject.Text = "Reject";
+            this.tsbReject.Click += new System.EventHandler(this.tsbReject_Click);
+            // 
+            // tsbCancel
+            // 
+            this.tsbCancel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbCancel.Image = ((System.Drawing.Image)(resources.GetObject("tsbCancel.Image")));
+            this.tsbCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCancel.Name = "tsbCancel";
+            this.tsbCancel.Size = new System.Drawing.Size(49, 22);
+            this.tsbCancel.Text = "Cancel";
+            this.tsbCancel.Click += new System.EventHandler(this.tsbCancel_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -120,33 +150,6 @@
             this.tabControl1.Size = new System.Drawing.Size(959, 595);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            // 
-            // tsbApprove
-            // 
-            this.tsbApprove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbApprove.Image = ((System.Drawing.Image)(resources.GetObject("tsbApprove.Image")));
-            this.tsbApprove.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbApprove.Name = "tsbApprove";
-            this.tsbApprove.Size = new System.Drawing.Size(61, 22);
-            this.tsbApprove.Text = "Approve";
-            // 
-            // tsbReject
-            // 
-            this.tsbReject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbReject.Image = ((System.Drawing.Image)(resources.GetObject("tsbReject.Image")));
-            this.tsbReject.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbReject.Name = "tsbReject";
-            this.tsbReject.Size = new System.Drawing.Size(46, 22);
-            this.tsbReject.Text = "Reject";
-            // 
-            // tsbCancel
-            // 
-            this.tsbCancel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbCancel.Image = ((System.Drawing.Image)(resources.GetObject("tsbCancel.Image")));
-            this.tsbCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCancel.Name = "tsbCancel";
-            this.tsbCancel.Size = new System.Drawing.Size(49, 22);
-            this.tsbCancel.Text = "Cancel";
             // 
             // SoView
             // 

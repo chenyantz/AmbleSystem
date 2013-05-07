@@ -59,8 +59,7 @@ namespace AmbleClient.SO
             
             So so = soList[tabControl1.SelectedIndex];
 
-           SoItemState soState=soStateList.GetSoStateAccordingToValue(so.soStates);
-
+           /*
            if(soState.WhoCanUpdate().Contains(UserInfo.Job))
             {
              tsbUpdate.Enabled=true;
@@ -68,9 +67,8 @@ namespace AmbleClient.SO
             else
             {
             tsbUpdate.Enabled=false;
-            }
+            }*/
           //for list
-           List<Operation> opList = soState.GetOperationList();
 
         //for enter PO
            if ((UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss || UserInfo.Job == JobDescription.PurchasersManager || UserInfo.Job == JobDescription.Purchaser)
@@ -92,6 +90,30 @@ namespace AmbleClient.SO
            {
                tsbViewPo.Enabled = true;           
            }
+
+       //for approve and rejected.
+           if (so.soStates == (int)SoStatesEnum.New)
+           {
+               tsbApprove.Enabled = true;
+               tsbReject.Enabled = true;
+
+           }
+           else
+           {
+               tsbApprove.Enabled = false;
+               tsbReject.Enabled = false;
+           }
+         //for cancel
+
+           if (so.soStates == (int)SoStatesEnum.Approved)
+           {
+               tsbCancel.Enabled = true;
+           }
+           else
+           {
+               tsbCancel.Enabled = false;
+           }
+
 
 
 
@@ -218,6 +240,31 @@ namespace AmbleClient.SO
                 SoPoExcelHelper.SaveSOExcel(soList, soItemsListList);
 
 
+        }
+
+        private void tsbApprove_Click(object sender, EventArgs e)
+        {
+           So so = soList[tabControl1.SelectedIndex];
+           SoMgr.UpdateSoState(so.soId,UserInfo.UserId,SoStatesEnum.Approved);
+           this.DialogResult = DialogResult.Yes;
+           this.Close();
+        }
+
+        private void tsbReject_Click(object sender, EventArgs e)
+        {
+            So so = soList[tabControl1.SelectedIndex];
+            SoMgr.UpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Rejected);
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
+        }
+
+        private void tsbCancel_Click(object sender, EventArgs e)
+        {
+            So so = soList[tabControl1.SelectedIndex];
+            SoMgr.UpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Cancel);
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
+            
         }
     }
 }

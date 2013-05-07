@@ -35,19 +35,33 @@
             this.rFQViewNewSOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offerListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sOViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byMPNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buyersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendorManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.offerListViewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byCustomerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.byMPNToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pOListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byVendorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byMPNToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.financesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assignCustomerVendorNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sOListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byCustomerToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.byMPNToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.pOListViewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.byVendorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.byMPNToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.warehousesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sOListViewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.byCustomerToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.byMPNToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.pOListViewToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.byVendorToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.byMPNToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewEditAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,20 +73,6 @@
             this.offerListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.byCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.byMPNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.byCustomerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.byMPNToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.byVendorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.byMPNToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.byCustomerToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.byMPNToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.byVendorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.byMPNToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.byCustomerToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.byMPNToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.byVendorToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.byMPNToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,6 +135,20 @@
             this.sOViewToolStripMenuItem.Text = "SO List";
             this.sOViewToolStripMenuItem.Click += new System.EventHandler(this.sOViewToolStripMenuItem_Click);
             // 
+            // byCustomerToolStripMenuItem
+            // 
+            this.byCustomerToolStripMenuItem.Name = "byCustomerToolStripMenuItem";
+            this.byCustomerToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.byCustomerToolStripMenuItem.Text = "By Customer";
+            this.byCustomerToolStripMenuItem.Click += new System.EventHandler(this.byCustomerToolStripMenuItem_Click);
+            // 
+            // byMPNToolStripMenuItem
+            // 
+            this.byMPNToolStripMenuItem.Name = "byMPNToolStripMenuItem";
+            this.byMPNToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.byMPNToolStripMenuItem.Text = "By MPN";
+            this.byMPNToolStripMenuItem.Click += new System.EventHandler(this.byMPNToolStripMenuItem_Click);
+            // 
             // buyersToolStripMenuItem
             // 
             this.buyersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -178,6 +192,19 @@
             this.pOToolStripMenuItem.Text = "SO List";
             this.pOToolStripMenuItem.Click += new System.EventHandler(this.pOToolStripMenuItem_Click);
             // 
+            // byCustomerToolStripMenuItem1
+            // 
+            this.byCustomerToolStripMenuItem1.Name = "byCustomerToolStripMenuItem1";
+            this.byCustomerToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.byCustomerToolStripMenuItem1.Text = "By Customer";
+            // 
+            // byMPNToolStripMenuItem1
+            // 
+            this.byMPNToolStripMenuItem1.Name = "byMPNToolStripMenuItem1";
+            this.byMPNToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.byMPNToolStripMenuItem1.Text = "By MPN";
+            this.byMPNToolStripMenuItem1.Click += new System.EventHandler(this.byMPNToolStripMenuItem1_Click);
+            // 
             // pOListViewToolStripMenuItem
             // 
             this.pOListViewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -187,6 +214,18 @@
             this.pOListViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pOListViewToolStripMenuItem.Text = "PO List";
             this.pOListViewToolStripMenuItem.Click += new System.EventHandler(this.pOListViewToolStripMenuItem_Click);
+            // 
+            // byVendorToolStripMenuItem
+            // 
+            this.byVendorToolStripMenuItem.Name = "byVendorToolStripMenuItem";
+            this.byVendorToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.byVendorToolStripMenuItem.Text = "By Vendor";
+            // 
+            // byMPNToolStripMenuItem2
+            // 
+            this.byMPNToolStripMenuItem2.Name = "byMPNToolStripMenuItem2";
+            this.byMPNToolStripMenuItem2.Size = new System.Drawing.Size(135, 22);
+            this.byMPNToolStripMenuItem2.Text = "By MPN";
             // 
             // financesToolStripMenuItem
             // 
@@ -215,6 +254,19 @@
             this.sOListViewToolStripMenuItem.Text = "SO List";
             this.sOListViewToolStripMenuItem.Click += new System.EventHandler(this.sOListViewToolStripMenuItem_Click);
             // 
+            // byCustomerToolStripMenuItem2
+            // 
+            this.byCustomerToolStripMenuItem2.Name = "byCustomerToolStripMenuItem2";
+            this.byCustomerToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.byCustomerToolStripMenuItem2.Text = "By Customer";
+            // 
+            // byMPNToolStripMenuItem3
+            // 
+            this.byMPNToolStripMenuItem3.Name = "byMPNToolStripMenuItem3";
+            this.byMPNToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.byMPNToolStripMenuItem3.Text = "By MPN";
+            this.byMPNToolStripMenuItem3.Click += new System.EventHandler(this.byMPNToolStripMenuItem3_Click);
+            // 
             // pOListViewToolStripMenuItem1
             // 
             this.pOListViewToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -224,6 +276,18 @@
             this.pOListViewToolStripMenuItem1.Size = new System.Drawing.Size(245, 22);
             this.pOListViewToolStripMenuItem1.Text = "PO List ";
             this.pOListViewToolStripMenuItem1.Click += new System.EventHandler(this.pOListViewToolStripMenuItem1_Click);
+            // 
+            // byVendorToolStripMenuItem1
+            // 
+            this.byVendorToolStripMenuItem1.Name = "byVendorToolStripMenuItem1";
+            this.byVendorToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
+            this.byVendorToolStripMenuItem1.Text = "By Vendor";
+            // 
+            // byMPNToolStripMenuItem4
+            // 
+            this.byMPNToolStripMenuItem4.Name = "byMPNToolStripMenuItem4";
+            this.byMPNToolStripMenuItem4.Size = new System.Drawing.Size(135, 22);
+            this.byMPNToolStripMenuItem4.Text = "By MPN";
             // 
             // warehousesToolStripMenuItem
             // 
@@ -244,6 +308,19 @@
             this.sOListViewToolStripMenuItem1.Text = "SO List";
             this.sOListViewToolStripMenuItem1.Click += new System.EventHandler(this.sOListViewToolStripMenuItem1_Click);
             // 
+            // byCustomerToolStripMenuItem3
+            // 
+            this.byCustomerToolStripMenuItem3.Name = "byCustomerToolStripMenuItem3";
+            this.byCustomerToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.byCustomerToolStripMenuItem3.Text = "By Customer";
+            // 
+            // byMPNToolStripMenuItem5
+            // 
+            this.byMPNToolStripMenuItem5.Name = "byMPNToolStripMenuItem5";
+            this.byMPNToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.byMPNToolStripMenuItem5.Text = "By MPN";
+            this.byMPNToolStripMenuItem5.Click += new System.EventHandler(this.byMPNToolStripMenuItem5_Click);
+            // 
             // pOListViewToolStripMenuItem2
             // 
             this.pOListViewToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -253,6 +330,18 @@
             this.pOListViewToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.pOListViewToolStripMenuItem2.Text = "PO List";
             this.pOListViewToolStripMenuItem2.Click += new System.EventHandler(this.pOListViewToolStripMenuItem2_Click);
+            // 
+            // byVendorToolStripMenuItem2
+            // 
+            this.byVendorToolStripMenuItem2.Name = "byVendorToolStripMenuItem2";
+            this.byVendorToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.byVendorToolStripMenuItem2.Text = "By Vendor";
+            // 
+            // byMPNToolStripMenuItem6
+            // 
+            this.byMPNToolStripMenuItem6.Name = "byMPNToolStripMenuItem6";
+            this.byMPNToolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
+            this.byMPNToolStripMenuItem6.Text = "By MPN";
             // 
             // adminToolStripMenuItem
             // 
@@ -337,92 +426,6 @@
             this.testsToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.testsToolStripMenuItem.Text = "About";
             this.testsToolStripMenuItem.Click += new System.EventHandler(this.testsToolStripMenuItem_Click);
-            // 
-            // byCustomerToolStripMenuItem
-            // 
-            this.byCustomerToolStripMenuItem.Name = "byCustomerToolStripMenuItem";
-            this.byCustomerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.byCustomerToolStripMenuItem.Text = "By Customer";
-            this.byCustomerToolStripMenuItem.Click += new System.EventHandler(this.byCustomerToolStripMenuItem_Click);
-            // 
-            // byMPNToolStripMenuItem
-            // 
-            this.byMPNToolStripMenuItem.Name = "byMPNToolStripMenuItem";
-            this.byMPNToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.byMPNToolStripMenuItem.Text = "By MPN";
-            this.byMPNToolStripMenuItem.Click += new System.EventHandler(this.byMPNToolStripMenuItem_Click);
-            // 
-            // byCustomerToolStripMenuItem1
-            // 
-            this.byCustomerToolStripMenuItem1.Name = "byCustomerToolStripMenuItem1";
-            this.byCustomerToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.byCustomerToolStripMenuItem1.Text = "By Customer";
-            // 
-            // byMPNToolStripMenuItem1
-            // 
-            this.byMPNToolStripMenuItem1.Name = "byMPNToolStripMenuItem1";
-            this.byMPNToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.byMPNToolStripMenuItem1.Text = "By MPN";
-            // 
-            // byVendorToolStripMenuItem
-            // 
-            this.byVendorToolStripMenuItem.Name = "byVendorToolStripMenuItem";
-            this.byVendorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.byVendorToolStripMenuItem.Text = "By Vendor";
-            // 
-            // byMPNToolStripMenuItem2
-            // 
-            this.byMPNToolStripMenuItem2.Name = "byMPNToolStripMenuItem2";
-            this.byMPNToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.byMPNToolStripMenuItem2.Text = "By MPN";
-            // 
-            // byCustomerToolStripMenuItem2
-            // 
-            this.byCustomerToolStripMenuItem2.Name = "byCustomerToolStripMenuItem2";
-            this.byCustomerToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.byCustomerToolStripMenuItem2.Text = "By Customer";
-            // 
-            // byMPNToolStripMenuItem3
-            // 
-            this.byMPNToolStripMenuItem3.Name = "byMPNToolStripMenuItem3";
-            this.byMPNToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.byMPNToolStripMenuItem3.Text = "By MPN";
-            // 
-            // byVendorToolStripMenuItem1
-            // 
-            this.byVendorToolStripMenuItem1.Name = "byVendorToolStripMenuItem1";
-            this.byVendorToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.byVendorToolStripMenuItem1.Text = "By Vendor";
-            // 
-            // byMPNToolStripMenuItem4
-            // 
-            this.byMPNToolStripMenuItem4.Name = "byMPNToolStripMenuItem4";
-            this.byMPNToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.byMPNToolStripMenuItem4.Text = "By MPN";
-            // 
-            // byCustomerToolStripMenuItem3
-            // 
-            this.byCustomerToolStripMenuItem3.Name = "byCustomerToolStripMenuItem3";
-            this.byCustomerToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.byCustomerToolStripMenuItem3.Text = "By Customer";
-            // 
-            // byMPNToolStripMenuItem5
-            // 
-            this.byMPNToolStripMenuItem5.Name = "byMPNToolStripMenuItem5";
-            this.byMPNToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
-            this.byMPNToolStripMenuItem5.Text = "By MPN";
-            // 
-            // byVendorToolStripMenuItem2
-            // 
-            this.byVendorToolStripMenuItem2.Name = "byVendorToolStripMenuItem2";
-            this.byVendorToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.byVendorToolStripMenuItem2.Text = "By Vendor";
-            // 
-            // byMPNToolStripMenuItem6
-            // 
-            this.byMPNToolStripMenuItem6.Name = "byMPNToolStripMenuItem6";
-            this.byMPNToolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
-            this.byMPNToolStripMenuItem6.Text = "By MPN";
             // 
             // MainFrame
             // 

@@ -17,10 +17,6 @@ namespace AmbleClient.Order
 
        }
 
-
-
-
-
         protected override void FillTheDataGrid()
         {
             dataGridView1.Rows.Clear();

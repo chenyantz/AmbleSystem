@@ -45,9 +45,9 @@ namespace AmbleClient.Order
           listJobDes.Add(JobDescription.Admin);
           return listJobDes;
      }
-      public void UpdateState(int soId, int soState)
+      public void UpdateState(int soItemId, int soItemState)
       {
-          SoMgr.SoMgr.UpdateSoState(soId, UserInfo.UserId, soState);
+          SoMgr.SoMgr.UpdateSoItemState(soItemId,soItemState);
 
       }
       public List<Operation> GetOperationList()

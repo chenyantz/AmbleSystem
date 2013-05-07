@@ -148,10 +148,6 @@ namespace AmbleClient.Order.SoMgr
 
        }
 
-
-
-
-
        public static List<So> BuyerGetSoAccordingToFilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> states)
 
        {
@@ -174,23 +170,23 @@ namespace AmbleClient.Order.SoMgr
            }
 
            StringBuilder sb = new StringBuilder();
-           sb.Append(string .Format("select soId from So s,rfq r where(s.rfqId=r.rfqNo) and ( (r.firstPA={0} or r.secondPa={0})",buyersIds[0]));
+           sb.Append(string .Format("select s.soId from So s,SoItems si,rfq r where(si.rfqId=r.rfqNo and s.soId=si.soId) and ( (r.firstPA={0} or r.secondPa={0})",buyersIds[0]));
            for (int i = 1; i < buyersIds.Count; i++)
            {
                sb.Append(string.Format(" or (firstPA={0} or secondPA={0}) ",buyersIds[i]));
            }
            sb.Append(" ) ");
 
-           if (filterColumn.Trim() == "mpn" && (!string.IsNullOrWhiteSpace(filterString)))
+           if (filterColumn.Trim() == "partNo" && (!string.IsNullOrWhiteSpace(filterString)))
            {
                List<int> idsList = GetSoIdByMPN(filterString.Trim());
                if (idsList.Count >= 1)
                {
-                   sb.Append(" and (soId=" + idsList[0]);
+                   sb.Append(" and (s.soId=" + idsList[0]);
 
                    for (int i = 1; i < idsList.Count; i++)
                    {
-                       sb.Append(" or soId=" + idsList[i]);
+                       sb.Append(" or s.soId=" + idsList[i]);
                    }
                    sb.Append(" ) ");
 
@@ -221,6 +217,74 @@ namespace AmbleClient.Order.SoMgr
            }
            return soList; 
        }
+
+       public static List<SoCombine> BuyerGetSoCombineAccordingToFilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> states)
+       {
+
+
+           List<SoCombine> soCombineList = new List<SoCombine>();
+
+           if (states.Count == 0) return soCombineList;
+
+           List<int> buyersIds = new List<int>();
+
+           if (includedSubs)
+           {
+
+               buyersIds.AddRange(AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(userId, UserCombine.GetUserCanBeBuyers()));
+           }
+           else
+           {
+               buyersIds.Add(userId);
+           }
+
+           StringBuilder sb = new StringBuilder();
+           sb.Append(string.Format("select s.soId,s.customerName,s.salesId,orderDate,customerPo,soItemsId,si.partNo,si.mfg,si.dc,si.qty,si.unitPrice,soItemState from So s,SoItems si,Rfq r where(s.soId=si.soId and si.rfqId=r.rfqNo) and ( (r.firstPA={0} or r.secondPa={0})", buyersIds[0]));
+           for (int i = 1; i < buyersIds.Count; i++)
+           {
+               sb.Append(string.Format(" or (firstPA={0} or secondPA={0}) ", buyersIds[i]));
+           }
+           sb.Append(" ) ");
+
+               //append the filter
+               if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+               {
+                   sb.Append(string.Format(" and s.{0} like '%{1}%' ", filterColumn, filterString));
+               }
+
+               sb.Append(" and (soItemState=" + states[0]);
+               for (int i = 1; i < states.Count; i++)
+               {
+                   sb.Append(" or soItemState=" + states[i]);
+
+               }
+               sb.Append(" )");
+
+               DataTable dt = db.GetDataTable(sb.ToString(), "soId");
+
+               foreach (DataRow dr in dt.Rows)
+               {
+                   soCombineList.Add(
+                       new SoCombine
+                       {
+                           soId = Convert.ToInt32(dr["soId"]),
+                           customerName = dr["customerName"].ToString(),
+                           salesId = Convert.ToInt32(dr["salesId"]),
+                           orderDate = Convert.ToDateTime(dr["orderDate"]),
+                           customerPo = dr["customerPo"].ToString(),
+                           soItemsId = Convert.ToInt32(dr["soItemsId"]),
+                           partNo = dr["partNo"].ToString(),
+                           mfg = dr["mfg"].ToString(),
+                           dc = dr["dc"].ToString(),
+                           qty = Convert.ToInt32(dr["qty"]),
+                           unitPrice = Convert.ToSingle(dr["unitPrice"]),
+                           soItemState = Convert.ToInt32(dr["soItemState"])
+                       }
+                       );
+               }
+               return soCombineList;
+       }
+
 
 
        public static int GetSoNumberFromRfqId(int rfqId)
@@ -341,7 +405,8 @@ namespace AmbleClient.Order.SoMgr
                        dockDate = Convert.ToDateTime(dr["dockDate"]),
                        shippedDate =shippedDateLocal,
                        shippingInstruction = dr["shippingInstruction"].ToString(),
-                       packingInstruction = dr["packingInstruction"].ToString()
+                       packingInstruction = dr["packingInstruction"].ToString(),
+                       soItemState=Convert.ToInt32(dr["soItemState"])
 
                    });
           }
@@ -396,9 +461,39 @@ namespace AmbleClient.Order.SoMgr
       
        }
 
+       public static void UpdateSoState(int soId, int userid, SoStatesEnum state)
+       {
+           List<string> strSqls = new List<string>();
+           if (state ==SoStatesEnum.Approved)
+           {
+               strSqls.Add(string.Format("update so set soStates={0},approverId={1},approveDate='{2}' where soId={3}", (int)state, userid, DateTime.Now.ToShortDateString(), soId));
+               strSqls.Add(string.Format("update soItems set soItemState={0} where soId={1}",new SoItemApprove().GetStateValue(),soId));
+
+           }
+           else if (state == SoStatesEnum.Rejected || state == SoStatesEnum.Cancel)
+           {
+               strSqls.Add(string.Format("update so set soStates={0} where soId={1}", (int)state, soId));
+               strSqls.Add(string.Format("update soItems set soItemState={0} where soId={1}",state==SoStatesEnum.Rejected? new SoItemRejected().GetStateValue():new SoItemCancelled().GetStateValue(),soId));
+           }
+           else
+           { 
+              strSqls.Add(string.Format("update so set soStates={0} where soId={1}", (int)state, soId));
+           
+           }
+          db.ExecDataBySqls(strSqls);
+       }
 
 
+       public static void UpdateSoItemState(int soItemId, int state)
+       {
+           string strSql = string.Format("update soItems set soItemState={0} where soItemsId={1}", state, soItemId);
+           db.ExecDataBySql(strSql);
+       
+       }
 
+
+      /*
+       
        public static bool UpdateSoState(int soId,int userid, int state)
        {
            string strSql;
@@ -434,7 +529,7 @@ namespace AmbleClient.Order.SoMgr
                return false;
            }
        }
-
+       */
 
        public static bool UpdateSoMain(So so)
        {

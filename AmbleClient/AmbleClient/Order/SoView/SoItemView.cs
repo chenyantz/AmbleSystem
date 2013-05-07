@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using AmbleClient.Order.SoMgr;
+using AmbleClient.Order;
 
 namespace AmbleClient.SO
 {
@@ -14,6 +15,9 @@ namespace AmbleClient.SO
     {
 
         private int rfqId;
+        SoItems soItem;
+        private SoItemOrderStateList soItemOrderStateList = new SoItemOrderStateList();
+
         
 
         public SoItemView()
@@ -33,10 +37,30 @@ namespace AmbleClient.SO
             else
             {
                 this.Text = "So Item View";
-                tsbOp.Text="Update";
+                tsbOp.Text="Hold";
            
             }
         }
+
+
+        private void SetComboxItem()
+        {
+            SoItemState sis = soItemOrderStateList.GetSoStateAccordingToValue(soItem.soItemState);
+
+            List<Operation> opList = sis.GetOperationList();
+            foreach (Operation op in opList)
+            {
+                if (op.jobs.Contains(UserInfo.Job))
+                {
+                    tscbSoItemState.Items.Add(op.operationName);
+                }
+            
+            }
+        
+        
+        }
+
+
 
         public SoItems GetSoItems()
         {
@@ -55,8 +79,39 @@ namespace AmbleClient.SO
 
         public void FillTheTable(SoItems item)
         {
+            this.soItem = item;
             this.soItemsControl1.FillItems(item);
-        
+            SetComboxItem();
+        }
+
+        private void tscbSoItemState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (soItemsControl1.CheckValues() == false)
+            {
+                return;
+            }
+
+
+            if (MessageBox.Show("Change the state to " + (string)tscbSoItemState.SelectedItem + " and hold all the changes?", "warning", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
+            string selectedItemString = (string)tscbSoItemState.SelectedItem;
+
+            SoItemState soItemState = soItemOrderStateList.GetSoStateAccordingToValue(soItem.soItemState);
+            foreach (Operation op in soItemState.GetOperationList())
+            {
+                if (selectedItemString == op.operationName)
+                {
+                    op.operationMethod(soItem.soItemsId);
+
+                }
+
+            }
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
+
+
+
         }
 
     }

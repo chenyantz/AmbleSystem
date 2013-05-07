@@ -293,5 +293,26 @@ namespace AmbleClient
             ssMpnListView.MdiParent = this;
             ssMpnListView.Show();
         }
+
+        private void byMPNToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Order.BuyerSoMpnListView bsMpnListView = new Order.BuyerSoMpnListView();
+            bsMpnListView.MdiParent = this;
+            bsMpnListView.Show();
+        }
+
+        private void byMPNToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Order.FLSoMpnListView fsMpnListView = new Order.FLSoMpnListView();
+            fsMpnListView.MdiParent = this;
+            fsMpnListView.Show();
+        }
+
+        private void byMPNToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            Order.FLSoMpnListView fsMpnListView = new Order.FLSoMpnListView();
+            fsMpnListView.MdiParent = this;
+            fsMpnListView.Show();
+        }
     }
 }

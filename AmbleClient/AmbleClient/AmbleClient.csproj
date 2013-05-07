@@ -220,10 +220,16 @@
     <Compile Include="Order\ItemSplit.Designer.cs">
       <DependentUpon>ItemSplit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order\OrderListView\BuyerSoMpnListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Order\OrderListView\FLPoListView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Order\OrderListView\FLSoListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\OrderListView\FLSoMpnListView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Order\OrderListView\OrderListView.cs">

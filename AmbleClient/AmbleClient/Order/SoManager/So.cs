@@ -31,7 +31,9 @@ namespace AmbleClient.Order.SoMgr
     New=0,
     Approved=1,
     UnderProcess=2,
-    Closed=3
+    Closed=3,
+    Rejected=4,
+    Cancel=5
    
    };
 
