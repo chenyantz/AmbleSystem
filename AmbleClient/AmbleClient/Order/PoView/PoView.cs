@@ -17,7 +17,7 @@ namespace AmbleClient.Order.PoView
         private int soId;
 
 
-        private PoStateList poStateList = new PoStateList();
+        private PoItemStateList poStateList = new PoItemStateList();
 
         private List<po> poList;
         List<PoViewControl> poViewControlList = new List<PoViewControl>();
@@ -36,7 +36,6 @@ namespace AmbleClient.Order.PoView
             InitializeComponent();
             poList = new List<po>();
             poList.Add(poMain);
-            this.soId = poMain.soId.Value;
             this.Text = "PO Info for PO:" + poMain.poId;
         }
 
@@ -54,7 +53,7 @@ namespace AmbleClient.Order.PoView
         {
             po poMain = poList[tabControl1.SelectedIndex];
 
-            PoState poState = poStateList.GetPoStateAccordingToValue((int)poMain.poStates);
+            PoItemState poState = poStateList.GetPoStateAccordingToValue((int)poMain.poStates);
 
             if (poState.WhoCanUpdate().Contains(UserInfo.Job))
             {
@@ -65,6 +64,7 @@ namespace AmbleClient.Order.PoView
                 tsbUpdate.Enabled = false;
             }
             //for list
+            /*
             tscbStateList.Items.Clear();
             List<Operation> opList = poState.GetOperationList();
             foreach (Operation op in opList)
@@ -74,7 +74,7 @@ namespace AmbleClient.Order.PoView
                     tscbStateList.Items.Add(op.operationName);
                 }
             }
-
+            */
 
         }
 
@@ -118,28 +118,6 @@ namespace AmbleClient.Order.PoView
             GenerateGui();
         }
 
-        private void tscbStateList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (MessageBox.Show("Change the state to " + (string)tscbStateList.SelectedItem + "?", "warning", MessageBoxButtons.YesNo) == DialogResult.No)
-                return;
-
-            string selectedItemString = (string)tscbStateList.SelectedItem;
-            po poMain = poList[tabControl1.SelectedIndex];
-
-            PoState poState = poStateList.GetPoStateAccordingToValue((int)poMain.poStates);
-            foreach (Operation op in poState.GetOperationList())
-            {
-                if (selectedItemString == op.operationName)
-                {
-                    op.operationMethod(poMain.poId);
-
-                }
-
-            }
-            this.DialogResult = DialogResult.Yes;
-
-        }
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
@@ -173,6 +151,21 @@ namespace AmbleClient.Order.PoView
 
 
 
+
+        }
+
+        private void tsbApprove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbReject_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbCancel_Click(object sender, EventArgs e)
+        {
 
         }
     }

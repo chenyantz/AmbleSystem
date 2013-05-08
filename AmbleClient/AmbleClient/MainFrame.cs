@@ -188,9 +188,7 @@ namespace AmbleClient
 
         private void pOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Order.BuyerSoListView buyerSoListView = new Order.BuyerSoListView();
-            buyerSoListView.MdiParent = this;
-            buyerSoListView.Show();
+
         }
 
         private void bOMCustomerToolStripMenuItem_Click(object sender, EventArgs e)

@@ -289,6 +289,12 @@
       <DependentUpon>PoItemsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Order\SoPoExcelHelper.cs" />
+    <Compile Include="Order\SoView\SoItemPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\SoView\SoItemPicker.Designer.cs">
+      <DependentUpon>SoItemPicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="PO\PoManager\Po.cs" />
     <Compile Include="PO\PoManager\PoMgr.cs" />
     <Compile Include="Order\PoView\PoViewControl.cs">
@@ -486,6 +492,9 @@
     <EmbeddedResource Include="Order\ShipToSelect.resx">
       <DependentUpon>ShipToSelect.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Order\SoView\SoItemPicker.resx">
+      <DependentUpon>SoItemPicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\BuyerManagerRfqListView.resx">
       <DependentUpon>BuyerManagerRfqListView.cs</DependentUpon>
     </EmbeddedResource>
@@ -554,13 +563,13 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="Order\PoMgr\Po.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Po.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <EntityDeploy Include="custVendor\CustVendorManager\CustVenInfo.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CustVenInfo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Order\PoMgr\Po.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Po.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Properties\DataSources\AmbleAppServer.SoMgr.So.datasource" />
     <None Include="Properties\DataSources\AmbleClient.BomOffer.BomOfferEntities.datasource" />

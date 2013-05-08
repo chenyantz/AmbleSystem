@@ -194,11 +194,11 @@ namespace AmbleClient.OfferGui
             }
             if (isSaleView)
             {
-                offerList = new OfferMgr.OfferMgr().SalesGetOfferAccordingToFilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
+                offerList = OfferMgr.OfferMgr.SalesGetOfferAccordingToFilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
             }
             else
             {
-                offerList = new OfferMgr.OfferMgr().GetOfferAccordingToFilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
+                offerList = OfferMgr.OfferMgr.GetOfferAccordingToFilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
             }
             foreach (Offer offer in offerList)
             {

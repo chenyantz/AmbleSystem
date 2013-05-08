@@ -74,7 +74,7 @@ namespace AmbleClient.RfqGui
             if (tsbOfferView.Enabled)
             {
 
-                if (new AmbleClient.OfferGui.OfferMgr.OfferMgr().HasOfferByRfq(rfqId))
+                if (AmbleClient.OfferGui.OfferMgr.OfferMgr.HasOfferByRfq(rfqId))
                 {
                     tsbOfferView.Enabled = true;
                 }
@@ -162,7 +162,7 @@ namespace AmbleClient.RfqGui
         private void tsbSo_Click(object sender, EventArgs e)
         {
             //
-            RfqItemPicker picker = new RfqItemPicker(rfq.customerName, rfqId);
+            SoItemPicker picker = new SoItemPicker(rfq.customerName, rfqId);
             if (DialogResult.OK == picker.ShowDialog())
             {
                 List<int> ids = picker.RfqIdsForSo;

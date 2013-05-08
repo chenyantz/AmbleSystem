@@ -30,7 +30,7 @@ namespace AmbleClient.SO
             {
                 this.Text += (Tool.Get6DigitalNumberAccordingToId(id)+",");
             }
-            this.Text=this.Text.Remove(this.Text.Length - 2);
+            this.Text=this.Text.Remove(this.Text.Length - 1);
             rfqIds.AddRange(ids);
             soViewControl1.rfqList = rfqIds;
         }

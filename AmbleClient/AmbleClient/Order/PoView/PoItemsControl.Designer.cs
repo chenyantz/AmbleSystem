@@ -37,7 +37,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbVendorIntPartNo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbOrg = new System.Windows.Forms.TextBox();
+            this.tbCoo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbQty = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -151,17 +151,17 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(390, 61);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 15);
+            this.label5.Size = new System.Drawing.Size(36, 15);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Org:";
+            this.label5.Text = "COO:";
             // 
-            // tbOrg
+            // tbCoo
             // 
-            this.tbOrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbOrg.Location = new System.Drawing.Point(426, 58);
-            this.tbOrg.Name = "tbOrg";
-            this.tbOrg.Size = new System.Drawing.Size(116, 21);
-            this.tbOrg.TabIndex = 9;
+            this.tbCoo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCoo.Location = new System.Drawing.Point(426, 58);
+            this.tbCoo.Name = "tbCoo";
+            this.tbCoo.Size = new System.Drawing.Size(116, 21);
+            this.tbCoo.TabIndex = 9;
             // 
             // label6
             // 
@@ -477,7 +477,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbQty);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.tbOrg);
+            this.Controls.Add(this.tbCoo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbVendorIntPartNo);
             this.Controls.Add(this.label4);
@@ -505,7 +505,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbVendorIntPartNo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbOrg;
+        private System.Windows.Forms.TextBox tbCoo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbQty;
         private System.Windows.Forms.Label label7;

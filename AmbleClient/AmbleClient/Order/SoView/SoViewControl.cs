@@ -183,13 +183,10 @@ namespace AmbleClient.SO
                    state = OrderItemsState.New
                }
                );
-               ShowDataInDataGridView();
-            
-            
-            
+              
             }
 
-
+            ShowDataInDataGridView();
 
         }
 

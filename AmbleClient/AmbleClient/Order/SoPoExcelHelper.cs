@@ -198,15 +198,12 @@ namespace AmbleClient.Order
 
            sheet.GetRow(0).CreateCell(2).SetCellValue(po.vendorName);
            sheet.GetRow(0).CreateCell(9).SetCellValue(po.contact);
-           if (po.pa != null)
-           {
-               sheet.GetRow(0).CreateCell(14).SetCellValue(AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById((int)po.pa.Value));
-           }
+           sheet.GetRow(0).CreateCell(14).SetCellValue(AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById((int)po.pa));
            sheet.GetRow(1).CreateCell(2).SetCellValue(po.vendorNumber);
 
            if (po.poDate != null)
            {
-               sheet.GetRow(1).CreateCell(5).SetCellValue(po.poDate.Value.ToShortDateString());
+               sheet.GetRow(1).CreateCell(5).SetCellValue(po.poDate.ToShortDateString());
            }
            sheet.GetRow(1).CreateCell(9).SetCellValue(po.poNo);
            sheet.GetRow(1).CreateCell(14).SetCellValue(po.paymentTerms);
@@ -228,9 +225,9 @@ namespace AmbleClient.Order
                itemRow.CreateCell(2).SetCellValue(pcs.poItem.mfg);
                itemRow.CreateCell(3).SetCellValue(pcs.poItem.dc);
                itemRow.CreateCell(4).SetCellValue(pcs.poItem.vendorIntPartNo);
-               itemRow.CreateCell(5).SetCellValue(pcs.poItem.org);
-               itemRow.CreateCell(6).SetCellValue(pcs.poItem.qty.Value);
-               totalQty += pcs.poItem.qty.Value;
+               itemRow.CreateCell(5).SetCellValue(pcs.poItem.coo);
+               itemRow.CreateCell(6).SetCellValue(pcs.poItem.qty);
+               totalQty += pcs.poItem.qty;
 
                if (pcs.poItem.qtyRecd != null)
                {
@@ -254,13 +251,10 @@ namespace AmbleClient.Order
 
                itemRow.CreateCell(13).SetCellValue(Enum.GetName(typeof(AmbleClient.Currency), pcs.poItem.currency));
                itemRow.CreateCell(14).SetCellValue(pcs.poItem.unitPrice.Value);
-               itemRow.CreateCell(15).SetCellValue(pcs.poItem.qty.Value*pcs.poItem.unitPrice.Value);
-               totalTotal += pcs.poItem.qty.Value * pcs.poItem.unitPrice.Value;
+               itemRow.CreateCell(15).SetCellValue(pcs.poItem.qty*pcs.poItem.unitPrice.Value);
+               totalTotal += pcs.poItem.qty* pcs.poItem.unitPrice.Value;
 
-
-
-               if(pcs.poItem.dueDate!=null)
-               itemRow.CreateCell(16).SetCellValue(pcs.poItem.dueDate.Value.ToShortDateString());
+               itemRow.CreateCell(16).SetCellValue(pcs.poItem.dockDate.ToShortDateString());
 
                if(pcs.poItem.receiveDate!=null)
                itemRow.CreateCell(17).SetCellValue(pcs.poItem.receiveDate.Value.ToShortDateString());

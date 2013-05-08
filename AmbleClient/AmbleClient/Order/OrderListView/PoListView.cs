@@ -9,7 +9,7 @@ namespace AmbleClient.Order
 {
     public class PoListView:OrderListView
     {
-        protected PoStateList poStateList = new PoStateList();
+        protected PoItemStateList poStateList = new PoItemStateList();
 
         protected List<po> poList;
 
@@ -96,15 +96,15 @@ namespace AmbleClient.Order
 
         protected override void GetTheStateList()
         {
-            foreach (PoState soState in poStateList.GetWholeSoStateList())
+            foreach (PoItemState soState in poStateList.GetWholeSoStateList())
             {
                 intStateList.Add(soState.GetStateValue());
             }
 
             //remove rejected,cancelled,closed
-            intStateList.Remove(new PoRejected().GetStateValue());
-            intStateList.Remove(new PoCancelled().GetStateValue());
-            intStateList.Remove(new PoClosed().GetStateValue());
+            intStateList.Remove(new PoItemRejected().GetStateValue());
+            intStateList.Remove(new PoItemCancelled().GetStateValue());
+            intStateList.Remove(new PoItemClosed().GetStateValue());
         }
 
 
@@ -113,7 +113,7 @@ namespace AmbleClient.Order
         protected override void FillTheStateCombox()
         {
             //fill the state List
-            foreach (PoState poState in poStateList.GetWholeSoStateList())
+            foreach (PoItemState poState in poStateList.GetWholeSoStateList())
             {
                 tscbListState.Items.Add(poState.GetStateString());
             }
@@ -146,7 +146,7 @@ namespace AmbleClient.Order
             foreach (po poItem in poList)
             {
                dataGridView1.Rows.Add(poItem.poId,Tool.Get6DigitalNumberAccordingToId(poItem.poId),poItem.vendorName,poItem.contact,idNameDict[(int)poItem.pa],
-                   poItem.poDate.HasValue?poItem.poDate.Value.ToShortDateString():"",
+                   poItem.poDate.ToShortDateString(),
                    poItem.paymentTerms,
                    poItem.freight,poItem.vendorNumber,poStateList.GetPoStateStringAccordingToValue((int)poItem.poStates));
             }

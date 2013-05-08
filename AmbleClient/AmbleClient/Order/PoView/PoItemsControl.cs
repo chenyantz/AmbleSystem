@@ -16,7 +16,7 @@ namespace AmbleClient.PO
         {
             InitializeComponent();
             this.cbCurrency.Items.AddRange(
-                       Enum.GetNames(typeof(Currency))
+            Enum.GetNames(typeof(Currency))
               );
 
         }
@@ -41,7 +41,7 @@ namespace AmbleClient.PO
             tbMfg.Text = item.mfg;
             tbDc.Text = item.dc;
             tbVendorIntPartNo.Text = item.vendorIntPartNo;
-            tbOrg.Text = item.org;
+            tbCoo.Text = item.coo;
             tbQty.Text = item.qty.ToString();
             tbQtyRevd.Text=item.qtyRecd.ToString();
             tbQtyCorrected.Text=item.qtyCorrected.ToString();
@@ -52,7 +52,7 @@ namespace AmbleClient.PO
             cbCurrency.SelectedIndex =(int)item.currency;
             tbUnitPrice.Text = item.unitPrice.ToString();
             tbTotal.Text = (item.qty * item.unitPrice).ToString();
-            dateTimePicker1.Value = item.dueDate.Value;
+            dateTimePicker1.Value = item.dockDate;
 
             if (item.receiveDate == null)
             {
@@ -65,6 +65,13 @@ namespace AmbleClient.PO
             tbStepCode.Text = item.stepCode;
            // tbSalesAgent.Text=
             tbNoteToVendor.Text = item.noteToVendor;
+
+
+
+
+
+
+
         }
 
         public poitems GetPoItem()
@@ -117,7 +124,7 @@ namespace AmbleClient.PO
                 mfg = tbMfg.Text.Trim().ToUpper(),
                 dc = tbDc.Text.Trim(),
                 vendorIntPartNo = tbVendorIntPartNo.Text.Trim().ToUpper(),
-                org = tbOrg.Text.Trim(),
+                coo = tbCoo.Text.Trim(),
                 qty = int.Parse(tbQty.Text.Trim()),
                 qtyRecd =qtyR,
                 qtyCorrected = qtyC,
@@ -127,7 +134,7 @@ namespace AmbleClient.PO
                 qcPending = qcP,
                 currency = (sbyte)cbCurrency.SelectedIndex,
                 unitPrice = float.Parse(tbUnitPrice.Text.Trim()),
-                dueDate = dateTimePicker1.Value,
+                dockDate = dateTimePicker1.Value,
                 receiveDate = datetime,
                 stepCode = tbStepCode.Text.Trim(),
                 salesAgent = 0,

@@ -12,7 +12,6 @@ namespace AmbleClient.OfferGui
 {
     public partial class OfferView : Form
     {
-        OfferMgr.OfferMgr offerMgr = new OfferMgr.OfferMgr();
         List<Offer> offerList;
         List<OfferItems> offerItemsList = new List<OfferItems>();
 
@@ -20,7 +19,7 @@ namespace AmbleClient.OfferGui
         public OfferView(int rfqId)
         {
             InitializeComponent();
-            offerList = offerMgr.GetOffersByRfqId(rfqId);
+            offerList = OfferMgr.OfferMgr.GetOffersByRfqId(rfqId);
             this.Text = "Offer List For RFQ:" + rfqId.ToString();
 
 
@@ -30,7 +29,7 @@ namespace AmbleClient.OfferGui
         {
             InitializeComponent();
             offerList=new List<Offer>();
-            offerList.Add(offerMgr.GetOfferByOfferId(offerId));
+            offerList.Add(OfferMgr.OfferMgr.GetOfferByOfferId(offerId));
             this.Text = "Offer Info For Offer:" + offerId.ToString();
         }
 

@@ -8,7 +8,7 @@ using AmbleClient.Order;
 namespace AmbleClient.Order
 {
 
-    public abstract class PoState
+    public abstract class PoItemState
     {
         protected List<Operation> operationList = new List<Operation>();
         public virtual int GetStateValue()
@@ -28,9 +28,9 @@ namespace AmbleClient.Order
             listJobDes.Add(JobDescription.Admin);
             return listJobDes; ;
         }
-        public void UpdateState(int poId, int poState)
+        public void UpdateState(int poItemId, int poItemState)
         {
-            PoMgr.PoMgr.UpdatePoState(poId, poState);
+            PoMgr.PoMgr.UpdatePoItemState(poItemId, poItemState);
 
         }
         public List<Operation> GetOperationList()
@@ -40,9 +40,9 @@ namespace AmbleClient.Order
 
     }
 
-    public class PoNew : PoState
+    public class PoItemNew : PoItemState
     {
-      public PoNew()
+      public PoItemNew()
       {
           var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.Purchaser);
@@ -82,12 +82,12 @@ namespace AmbleClient.Order
 
       public void RejectPo(int poId)
       {
-          UpdateState(poId, new PoRejected().GetStateValue());
+          UpdateState(poId, new PoItemRejected().GetStateValue());
        
       }
       public void ApprovePo(int poId)
       {
-          UpdateState(poId, new PoApproved().GetStateValue());
+          UpdateState(poId, new PoItemApproved().GetStateValue());
        }
         
         
@@ -101,7 +101,7 @@ namespace AmbleClient.Order
         }    
     
     }
-    public class PoRejected : PoState
+    public class PoItemRejected : PoItemState
     {
         public override int GetStateValue()
         {
@@ -113,9 +113,9 @@ namespace AmbleClient.Order
         }    
     
     }
-    public class PoApproved : PoState
+    public class PoItemApproved : PoItemState
     {
-      public PoApproved()
+      public PoItemApproved()
       {
           var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.PurchasersManager);
@@ -150,12 +150,12 @@ namespace AmbleClient.Order
 
       public void CancelPo(int poId)
       {
-          UpdateState(poId, new PoCancelled().GetStateValue());
+          UpdateState(poId, new PoItemCancelled().GetStateValue());
 
       }
       public void SetPoStateWatingForShip(int poId)
       {
-          UpdateState(poId, new PoWaitingForShip().GetStateValue());
+          UpdateState(poId, new PoItemWaitingForShip().GetStateValue());
          // SoMgr.SoMgr.UpdateSoState(PoMgr.PoMgr.GetSoIdAccordingToPoId(poId),UserInfo.UserId, new SoItemWaitingForShip().GetStateValue());
 
 
@@ -172,7 +172,7 @@ namespace AmbleClient.Order
         }    
     
     }
-    public class PoCancelled : PoState
+    public class PoItemCancelled : PoItemState
     {
         public override int GetStateValue()
         {
@@ -184,10 +184,10 @@ namespace AmbleClient.Order
         }    
     
     }
-    public class PoWaitingForShip : PoState
+    public class PoItemWaitingForShip : PoItemState
     {
 
-        public PoWaitingForShip()
+        public PoItemWaitingForShip()
       {
           var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.FinancialManager);
@@ -239,22 +239,22 @@ namespace AmbleClient.Order
 
         public void SetStateFullPaymentBeforeRecv(int poId)
       {
-          UpdateState(poId, new PoFullPaymentBeforeReceived().GetStateValue());
+          UpdateState(poId, new PoItemFullPaymentBeforeReceived().GetStateValue());
 
       }
         public void SetStateDeposit(int poId)
       {
-          UpdateState(poId, new PoDeposit().GetStateValue());
+          UpdateState(poId, new PoItemDeposit().GetStateValue());
       }
 
         public void SetStateFullRecivedBeforePay(int poId)
         {
-            UpdateState(poId, new PoFullReceivedBeforePay().GetStateValue());
+            UpdateState(poId, new PoItemFullReceivedBeforePay().GetStateValue());
 
         }
         public void SetStatePartialRecivedBeforePay(int poId)
         {
-            UpdateState(poId, new PoPartialReceivedBeforePay().GetStateValue());
+            UpdateState(poId, new PoItemPartialReceivedBeforePay().GetStateValue());
         }
         
         
@@ -267,9 +267,9 @@ namespace AmbleClient.Order
             return "Waiting For Ship";
         }  
     }
-    public class PoFullPaymentBeforeReceived : PoState
+    public class PoItemFullPaymentBeforeReceived : PoItemState
     {
-       public PoFullPaymentBeforeReceived()
+       public PoItemFullPaymentBeforeReceived()
        {
         var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.LogisticsManager);
@@ -298,12 +298,12 @@ namespace AmbleClient.Order
 
        public void SetStateFullReceivedAfterPay(int poId)
       {
-          UpdateState(poId, new PoFullReceivedAfterPay().GetStateValue());
+          UpdateState(poId, new PoItemFullReceivedAfterPay().GetStateValue());
 
       }
        public void SetStatePartialReceivedAfterPay(int poId)
       {
-          UpdateState(poId, new PoPartialReceivedAfterPay().GetStateValue());
+          UpdateState(poId, new PoItemPartialReceivedAfterPay().GetStateValue());
       }
 
     
@@ -318,9 +318,9 @@ namespace AmbleClient.Order
         }  
     
     }
-    public class PoDeposit : PoState
+    public class PoItemDeposit : PoItemState
     {
-     public PoDeposit()
+     public PoItemDeposit()
        {
         var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.FinancialManager);
@@ -340,7 +340,7 @@ namespace AmbleClient.Order
 
       public void Balance(int poId)
       {
-          UpdateState(poId, new PoBalance().GetStateValue());
+          UpdateState(poId, new PoItemBalance().GetStateValue());
 
       }
         public override int GetStateValue()
@@ -352,9 +352,9 @@ namespace AmbleClient.Order
             return "Deposit";
         }  
     }
-    public class PoBalance : PoState
+    public class PoItemBalance : PoItemState
     {
-      public PoBalance()
+      public PoItemBalance()
        {
         var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.LogisticsManager);
@@ -383,12 +383,12 @@ namespace AmbleClient.Order
 
        public void SetStateFullReceivedAfterPay(int poId)
       {
-          UpdateState(poId, new PoFullReceivedAfterPay().GetStateValue());
+          UpdateState(poId, new PoItemFullReceivedAfterPay().GetStateValue());
 
       }
        public void SetStatePartialReceivedAfterPay(int poId)
       {
-          UpdateState(poId, new PoPartialReceivedAfterPay().GetStateValue());
+          UpdateState(poId, new PoItemPartialReceivedAfterPay().GetStateValue());
       }
 
 
@@ -403,10 +403,10 @@ namespace AmbleClient.Order
         }  
     
     }
-    public class PoFullReceivedAfterPay : PoState
+    public class PoItemFullReceivedAfterPay : PoItemState
     {
 
-      public PoFullReceivedAfterPay()
+      public PoItemFullReceivedAfterPay()
       {
           var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.LogisticsManager);
@@ -426,7 +426,7 @@ namespace AmbleClient.Order
 
       public void ClosePo(int poId)
       {
-          UpdateState(poId, new PoClosed().GetStateValue());
+          UpdateState(poId, new PoItemClosed().GetStateValue());
 
       }
 
@@ -442,9 +442,9 @@ namespace AmbleClient.Order
         }  
     
     }
-    public class PoPartialReceivedAfterPay : PoState
+    public class PoItemPartialReceivedAfterPay : PoItemState
     {
-        public PoPartialReceivedAfterPay()
+        public PoItemPartialReceivedAfterPay()
       {
           var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.LogisticsManager);
@@ -464,7 +464,7 @@ namespace AmbleClient.Order
 
         public void SetStateFullReceivedAfterPay(int poId)
       {
-          UpdateState(poId, new PoFullReceivedAfterPay().GetStateValue());
+          UpdateState(poId, new PoItemFullReceivedAfterPay().GetStateValue());
 
       }
         
@@ -478,9 +478,9 @@ namespace AmbleClient.Order
         }  
     
     }
-    public class PoFullReceivedBeforePay : PoState
+    public class PoItemFullReceivedBeforePay : PoItemState
     {
-      public PoFullReceivedBeforePay()
+      public PoItemFullReceivedBeforePay()
       {
           var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.FinancialManager);
@@ -500,7 +500,7 @@ namespace AmbleClient.Order
 
       public void SetStateFullPaymentAfterRecv(int poId)
       {
-          UpdateState(poId, new PoFullPaymentAfterReceived().GetStateValue());
+          UpdateState(poId, new PoItemFullPaymentAfterReceived().GetStateValue());
 
       }
         
@@ -515,9 +515,9 @@ namespace AmbleClient.Order
     
     
     }
-    public class PoPartialReceivedBeforePay : PoState
+    public class PoItemPartialReceivedBeforePay : PoItemState
     {
-        public PoPartialReceivedBeforePay()
+        public PoItemPartialReceivedBeforePay()
       {
           var opJobs1 = new List<JobDescription>();
           opJobs1.Add(JobDescription.LogisticsManager);
@@ -539,7 +539,7 @@ namespace AmbleClient.Order
 
         public void SetStateFullRecivedBeforePay(int poId)
         {
-            UpdateState(poId, new PoFullReceivedBeforePay().GetStateValue());
+            UpdateState(poId, new PoItemFullReceivedBeforePay().GetStateValue());
 
         }
 
@@ -554,10 +554,10 @@ namespace AmbleClient.Order
         }  
     
     }
-    public class PoFullPaymentAfterReceived : PoState
+    public class PoItemFullPaymentAfterReceived : PoItemState
     {
 
-      public PoFullPaymentAfterReceived()
+      public PoItemFullPaymentAfterReceived()
       {
           var opJobs=new List<JobDescription>();
           opJobs.Add(JobDescription.LogisticsManager);
@@ -577,7 +577,7 @@ namespace AmbleClient.Order
 
       public void ClosePo(int poId)
       {
-          UpdateState(poId, new PoClosed().GetStateValue());
+          UpdateState(poId, new PoItemClosed().GetStateValue());
 
       } 
         
@@ -590,7 +590,7 @@ namespace AmbleClient.Order
             return "Full Payment After Recv";
         }  
     }
-    public class PoClosed : PoState
+    public class PoItemClosed : PoItemState
     {
         public override int GetStateValue()
         {
@@ -604,37 +604,37 @@ namespace AmbleClient.Order
 
 
 
-    public class PoStateList
+    public class PoItemStateList
     {
-        List<PoState> poStateList = new List<PoState>();
+        List<PoItemState> poStateList = new List<PoItemState>();
 
-        public PoStateList()
+        public PoItemStateList()
         {
-            poStateList.Add(new PoNew());
-            poStateList.Add(new PoRejected());
-            poStateList.Add(new PoApproved());
-            poStateList.Add(new PoCancelled());
-            poStateList.Add(new PoWaitingForShip());
-            poStateList.Add(new PoFullPaymentBeforeReceived());
-            poStateList.Add(new PoDeposit());
-            poStateList.Add(new PoBalance());
-            poStateList.Add(new PoFullReceivedAfterPay());
-            poStateList.Add(new PoPartialReceivedAfterPay());
-            poStateList.Add(new PoFullReceivedBeforePay());
-            poStateList.Add(new PoPartialReceivedBeforePay());
-            poStateList.Add(new PoFullPaymentAfterReceived());
-            poStateList.Add(new PoClosed());
+            poStateList.Add(new PoItemNew());
+            poStateList.Add(new PoItemRejected());
+            poStateList.Add(new PoItemApproved());
+            poStateList.Add(new PoItemCancelled());
+            poStateList.Add(new PoItemWaitingForShip());
+            poStateList.Add(new PoItemFullPaymentBeforeReceived());
+            poStateList.Add(new PoItemDeposit());
+            poStateList.Add(new PoItemBalance());
+            poStateList.Add(new PoItemFullReceivedAfterPay());
+            poStateList.Add(new PoItemPartialReceivedAfterPay());
+            poStateList.Add(new PoItemFullReceivedBeforePay());
+            poStateList.Add(new PoItemPartialReceivedBeforePay());
+            poStateList.Add(new PoItemFullPaymentAfterReceived());
+            poStateList.Add(new PoItemClosed());
         }
 
 
-        public List<PoState> GetWholeSoStateList()
+        public List<PoItemState> GetWholeSoStateList()
         {
             return poStateList;
         }
 
-        public PoState GetPoStateAccordingToValue(int dbValue)
+        public PoItemState GetPoStateAccordingToValue(int dbValue)
         {
-            foreach (PoState state in poStateList)
+            foreach (PoItemState state in poStateList)
             {
                 if (state.GetStateValue() == dbValue)
                 {
@@ -646,7 +646,7 @@ namespace AmbleClient.Order
 
         public string GetPoStateStringAccordingToValue(int dbValue)
         {
-            foreach (PoState state in poStateList)
+            foreach (PoItemState state in poStateList)
             {
                 if (state.GetStateValue() == dbValue)
                 {

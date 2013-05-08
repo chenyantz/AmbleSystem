@@ -286,6 +286,47 @@ namespace AmbleClient.Order.SoMgr
        }
 
 
+       public static DataTable BuyerGetSoItemsWithSameVendor(int userId, int soItemId)
+       {
+           List<int> buyersIds = new List<int>();
+          buyersIds.AddRange(AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(userId, UserCombine.GetUserCanBeBuyers()));
+           //get vendorName
+          StringBuilder sb = new StringBuilder();
+          sb.Append(string.Format("select vendorName from soItems si, offer o where(si.rfqId=o.rfqNo) and si.soItemsId={0} and ( o.buyerId={1}", soItemId, buyersIds[0]));
+
+          for (int i = 1; i < buyersIds.Count; i++)
+          {
+              sb.Append(string.Format(" or o.buyerId={0} ", buyersIds[i]));
+          }
+          sb.Append(")");
+
+          DataTable dt = db.GetDataTable(sb.ToString(),"temp");
+          if (dt.Rows.Count < 1)
+              return null;
+          List<string> vendorNameList = new List<string>();
+          foreach (DataRow dr in dt.Rows)
+          {
+              vendorNameList.Add(dr["vendorName"].ToString());
+          }
+
+          sb.Clear();
+
+          sb.Append(string.Format("select soItemsId,o.mpn,o.mfg,si.dc,o.vendorName,si.qty from soItem si,offer o where(si.rfqId=o.rfqNo) and si.soItemState={0} and (o.buyerId={1}", new SoItemApprove().GetStateValue(), buyersIds[0]));
+          for (int i = 1; i < buyersIds.Count; i++)
+          {
+              sb.Append(string.Format(" or o.buyerId={0} ", buyersIds[i]));
+          }
+          sb.Append(string .Format(") and (vendorName='{0}'",vendorNameList[0]));
+          for (int i = 1; i < vendorNameList.Count; i++)
+          { 
+             sb.Append(string.Format("or vendorName='{0}'",vendorNameList[i]));
+          }
+          sb.Append(" )");
+         return db.GetDataTable(sb.ToString(), "temp");
+
+       }
+
+
 
        public static int GetSoNumberFromRfqId(int rfqId)
        {
@@ -355,6 +396,72 @@ namespace AmbleClient.Order.SoMgr
            };
 
        }
+
+       public static List<int> GetSoItemsIdsAccordingToSoId(int soId)
+       {
+           List<int> soItemsIdsList = new List<int>();
+                      string strSql = "select soItemsId from SoItems where soId="+soId;
+           DataTable dt = db.GetDataTable(strSql, "soitems");
+           foreach (DataRow dr in dt.Rows)
+           {
+               soItemsIdsList.Add(Convert.ToInt32(dr[0]));
+           }
+       return soItemsIdsList;
+       }
+
+
+       public static SoItems GetSoItemInfoAccordingToSoItemId(int soItemId)
+       { 
+           string strSql = "select * from SoItems where soItemsId="+soItemId;
+           DataRow dr = db.GetDataTable(strSql, "soitems").Rows[0];
+
+               int? qtyShippedLocal; DateTime? shippedDateLocal;
+               if (dr["qtyShipped"] == DBNull.Value)
+               {
+                   qtyShippedLocal = null;
+               }
+               else
+               {
+                   qtyShippedLocal = Convert.ToInt32(dr["qtyShipped"]);
+               }
+               if (dr["shippedDate"] == DBNull.Value)
+               {
+                   shippedDateLocal = null;
+               }
+               else
+               { 
+                 shippedDateLocal=Convert.ToDateTime(dr["shippedDate"]);
+               }
+
+               
+              return    new SoItems
+                   {
+                       soItemsId = Convert.ToInt32(dr["soItemsId"]),
+                       soId = Convert.ToInt32(dr["soId"]),
+                       saleType = Convert.ToInt32(dr["saleType"]),
+                       partNo = dr["partNo"].ToString(),
+                       mfg = dr["mfg"].ToString(),
+                       rohs = Convert.ToInt32(dr["rohs"]),
+                       dc = dr["dc"].ToString(),
+                       intPartNo = dr["intPartNo"].ToString(),
+                       shipFrom = dr["shipFrom"].ToString(),
+                       shipMethod=dr["shipMethod"].ToString(),
+                       trackingNo = dr["trackingNo"].ToString(),
+                       qty = Convert.ToInt32(dr["qty"]),
+                       qtyshipped = qtyShippedLocal,
+                       currencyType = Convert.ToInt32(dr["currency"]),
+                       unitPrice = Convert.ToSingle(dr["unitPrice"]),
+                      
+                       dockDate = Convert.ToDateTime(dr["dockDate"]),
+                       shippedDate =shippedDateLocal,
+                       shippingInstruction = dr["shippingInstruction"].ToString(),
+                       packingInstruction = dr["packingInstruction"].ToString(),
+                       soItemState=Convert.ToInt32(dr["soItemState"])
+                    };
+       
+       }
+
+
 
        public static List<SoItems> GetSoItemsAccordingToSoId(int soId)
        {

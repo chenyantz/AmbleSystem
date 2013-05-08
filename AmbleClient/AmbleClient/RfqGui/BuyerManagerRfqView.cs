@@ -43,7 +43,7 @@ namespace AmbleClient.RfqGui
                     break;
             }
             //在offered情况下，再查看一下，免得被删掉，还有像closed的情况下，无法判断offer的情况
-            if(new AmbleClient.OfferGui.OfferMgr.OfferMgr().HasOfferByRfq(rfqId))
+            if(AmbleClient.OfferGui.OfferMgr.OfferMgr.HasOfferByRfq(rfqId))
             {
              tsbViewOffers.Enabled=true;
                 

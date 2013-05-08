@@ -11,11 +11,11 @@ namespace AmbleClient.OfferGui.OfferMgr
     {
       
        
-       DataClass.DataBase db = new DataClass.DataBase();
+       static DataClass.DataBase db = new DataClass.DataBase();
 
 
        
-       public bool SaveOffer(Offer offer)
+       public static bool SaveOffer(Offer offer)
        {
            string strSql = "insert into offer(rfqNo,mpn,mfg,vendorName,contact,phone,fax,email,quantity,price,LT,buyerId,offerDate,offerStates,notes,packing) " +
                string.Format(" values({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}',{8},{9},'{10}',{11},'{12}',{13},'{14}','{15}')", offer.rfqNo, offer.mpn, offer.mfg, offer.vendorName, offer.contact,
@@ -29,7 +29,7 @@ namespace AmbleClient.OfferGui.OfferMgr
        }
 
 
-       public void UpdateOffer(Offer offer)
+       public static void UpdateOffer(Offer offer)
        {
            string strSql = string.Format("update offer set mpn='{0}',mfg='{1}',vendorName='{2}',contact='{3}',phone='{4}',fax='{5}',email='{6}',quantity={7},price={8},LT='{9}',buyerId={10},notes='{11}',packing='{12}', where offerId={13} ",
           offer.mpn, offer.mfg, offer.vendorName, offer.contact,offer.phone, offer.fax, offer.email, offer.quantity, offer.price, offer.LT,offer.buyerId, offer.notes,offer.packing,offer.offerId);
@@ -40,14 +40,14 @@ namespace AmbleClient.OfferGui.OfferMgr
 
 
 
-       public int GetNewSavedOfferId(int buyerId)
+       public static int GetNewSavedOfferId(int buyerId)
        {
            string strSql = "select max(offerId) from offer where buyerId=" + buyerId;
            return Convert.ToInt32(db.GetSingleObject(strSql));
        
        }
 
-       public List<Offer> SalesGetOfferAccordingToFilter(int userId, bool allOffer, string filterColumn, string filterString, List<int> intStateList)
+       public static List<Offer> SalesGetOfferAccordingToFilter(int userId, bool allOffer, string filterColumn, string filterString, List<int> intStateList)
        {
            List<Offer> offerList = new List<Offer>();
            if (intStateList.Count == 0) return offerList;
@@ -92,7 +92,7 @@ namespace AmbleClient.OfferGui.OfferMgr
 
 
 
-       public List<Offer> GetOfferAccordingToFilter(int userId, bool allOffer, string filterColumn, string filterString, List<int> intStateList)
+       public static List<Offer> GetOfferAccordingToFilter(int userId, bool allOffer, string filterColumn, string filterString, List<int> intStateList)
        {
            List<Offer> offerList = new List<Offer>();
            if (intStateList.Count == 0) return offerList;
@@ -180,7 +180,7 @@ namespace AmbleClient.OfferGui.OfferMgr
   
       }*/
 
-       public bool HasOfferByRfq(int rfqId)
+       public static bool HasOfferByRfq(int rfqId)
        {
            string strSql = "select count(*) from offer where rfqNo=" + rfqId.ToString();
            int offerNumber = Convert.ToInt32(db.GetSingleObject(strSql));
@@ -192,7 +192,7 @@ namespace AmbleClient.OfferGui.OfferMgr
 
 
 
-       public List<Offer> GetOffersByRfqId(int rfqId)
+       public static List<Offer> GetOffersByRfqId(int rfqId)
        {
            List<Offer> offerList = new List<Offer>();
 
@@ -208,7 +208,7 @@ namespace AmbleClient.OfferGui.OfferMgr
 
        }
 
-       public Offer GetOfferByOfferId(int offerId)
+       public static Offer GetOfferByOfferId(int offerId)
        {
 
            string strSql = "select * from offer where offerId=" + offerId.ToString();
@@ -222,7 +222,7 @@ namespace AmbleClient.OfferGui.OfferMgr
 
 
 
-       private Offer GetOfferFromDataRow(DataRow dr)
+       private static Offer GetOfferFromDataRow(DataRow dr)
        {
 
            return new Offer
@@ -249,7 +249,7 @@ namespace AmbleClient.OfferGui.OfferMgr
 
 
 
-       public bool ChangeOfferState(int offerState, int offerId)
+       public static bool ChangeOfferState(int offerState, int offerId)
        {
            string strSql = string.Format("update offer set offerStates={0} where offerId={1}", offerState,offerId);
            if (db.ExecDataBySql(strSql) == 1)
@@ -265,7 +265,7 @@ namespace AmbleClient.OfferGui.OfferMgr
            return false;
        }
 
-       public void FillTheRfqCost(int offerId)
+       public static void FillTheRfqCost(int offerId)
        {
            string strSql = "select rfqNo,price from offer where offerId=" + offerId;
            DataTable dt = db.GetDataTable(strSql, "offer");

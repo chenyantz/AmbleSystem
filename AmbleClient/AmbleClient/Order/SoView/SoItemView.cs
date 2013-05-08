@@ -114,5 +114,18 @@ namespace AmbleClient.SO
 
         }
 
+        private void tsbGeneratePo_Click(object sender, EventArgs e)
+        {
+            SoItemPicker soItemPicker = new SoItemPicker(soItem.soItemsId);
+            if (DialogResult.OK == soItemPicker.ShowDialog())
+            {
+                List<int> soItemList = soItemPicker.SoItemsIdsForPo;
+                AmbleClient.Order.PoView.NewPo newPo = new Order.PoView.NewPo(soItemList);
+                newPo.ShowDialog();
+            }
+
+
+        }
+
     }
 }

@@ -35,6 +35,8 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tscbSoItemState = new System.Windows.Forms.ToolStripComboBox();
             this.soItemsControl1 = new AmbleClient.SO.SoItemsControl();
+            this.tsbGeneratePo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +45,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbOp,
             this.toolStripSeparator1,
+            this.tsbGeneratePo,
+            this.toolStripSeparator2,
             this.toolStripLabel1,
             this.tscbSoItemState});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -86,6 +90,21 @@
             this.soItemsControl1.Size = new System.Drawing.Size(694, 477);
             this.soItemsControl1.TabIndex = 1;
             // 
+            // tsbGeneratePo
+            // 
+            this.tsbGeneratePo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbGeneratePo.Image = ((System.Drawing.Image)(resources.GetObject("tsbGeneratePo.Image")));
+            this.tsbGeneratePo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGeneratePo.Name = "tsbGeneratePo";
+            this.tsbGeneratePo.Size = new System.Drawing.Size(85, 22);
+            this.tsbGeneratePo.Text = "Generate PO";
+            this.tsbGeneratePo.Click += new System.EventHandler(this.tsbGeneratePo_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // SoItemView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -113,6 +132,8 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripComboBox tscbSoItemState;
+        private System.Windows.Forms.ToolStripButton tsbGeneratePo;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 
     }
 }

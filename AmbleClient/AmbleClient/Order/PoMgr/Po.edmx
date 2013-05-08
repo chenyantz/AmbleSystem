@@ -14,13 +14,11 @@
             <PropertyRef Name="poId" />
           </Key>
           <Property Name="poId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="soId" Type="int" />
-          <Property Name="vendorName" Type="varchar" MaxLength="255" />
-          <Property Name="contact" Type="varchar" MaxLength="255" />
-          <Property Name="pa" Type="smallint" />
-          <Property Name="paDate" Type="date" />
+          <Property Name="vendorName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="contact" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="pa" Type="smallint" Nullable="false" />
           <Property Name="vendorNumber" Type="varchar" MaxLength="50" />
-          <Property Name="poDate" Type="date" />
+          <Property Name="poDate" Type="date" Nullable="false" />
           <Property Name="poNo" Type="varchar" MaxLength="50" />
           <Property Name="paymentTerms" Type="varchar" MaxLength="255" />
           <Property Name="shipMethod" Type="varchar" MaxLength="50" />
@@ -32,16 +30,17 @@
         </EntityType>
         <EntityType Name="poitems">
           <Key>
-            <PropertyRef Name="PoItemsId" />
+            <PropertyRef Name="poItemsId" />
           </Key>
-          <Property Name="PoItemsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="poId" Type="int" />
-          <Property Name="partNo" Type="varchar" MaxLength="255" />
-          <Property Name="mfg" Type="varchar" MaxLength="20" />
-          <Property Name="dc" Type="varchar" MaxLength="20" />
+          <Property Name="poItemsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="poId" Type="int" Nullable="false" />
+          <Property Name="soItemId" Type="int" Nullable="false" />
+          <Property Name="partNo" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="mfg" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="dc" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="vendorIntPartNo" Type="varchar" MaxLength="255" />
-          <Property Name="org" Type="varchar" MaxLength="20" />
-          <Property Name="qty" Type="int" />
+          <Property Name="coo" Type="varchar" MaxLength="255" />
+          <Property Name="qty" Type="int" Nullable="false" />
           <Property Name="qtyRecd" Type="int" />
           <Property Name="qtyCorrected" Type="int" />
           <Property Name="qtyAccept" Type="int" />
@@ -50,11 +49,12 @@
           <Property Name="qcPending" Type="int" />
           <Property Name="currency" Type="tinyint" />
           <Property Name="unitPrice" Type="float" />
-          <Property Name="dueDate" Type="date" />
+          <Property Name="dockDate" Type="date" Nullable="false" />
           <Property Name="receiveDate" Type="date" />
           <Property Name="stepCode" Type="varchar" MaxLength="255" />
-          <Property Name="salesAgent" Type="tinyint" />
+          <Property Name="salesAgent" Type="tinyint" Nullable="false" />
           <Property Name="noteToVendor" Type="mediumtext" />
+          <Property Name="poItemState" Type="tinyint" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:StorageModels>
@@ -70,13 +70,11 @@
             <PropertyRef Name="poId" />
           </Key>
           <Property Name="poId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="soId" Type="Int32" />
-          <Property Name="vendorName" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="contact" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="pa" Type="Int16" />
-          <Property Name="paDate" Type="DateTime" />
+          <Property Name="vendorName" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="contact" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="pa" Type="Int16" Nullable="false" />
           <Property Name="vendorNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="poDate" Type="DateTime" />
+          <Property Name="poDate" Type="DateTime" Nullable="false" />
           <Property Name="poNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="paymentTerms" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
           <Property Name="shipMethod" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
@@ -88,16 +86,17 @@
         </EntityType>
         <EntityType Name="poitems">
           <Key>
-            <PropertyRef Name="PoItemsId" />
+            <PropertyRef Name="poItemsId" />
           </Key>
-          <Property Name="PoItemsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="poId" Type="Int32" />
-          <Property Name="partNo" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="mfg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="dc" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="poItemsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="poId" Type="Int32" Nullable="false" />
+          <Property Name="soItemId" Type="Int32" Nullable="false" />
+          <Property Name="partNo" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="mfg" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="dc" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="vendorIntPartNo" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="org" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="qty" Type="Int32" />
+          <Property Name="coo" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="qty" Type="Int32" Nullable="false" />
           <Property Name="qtyRecd" Type="Int32" />
           <Property Name="qtyCorrected" Type="Int32" />
           <Property Name="qtyAccept" Type="Int32" />
@@ -106,11 +105,12 @@
           <Property Name="qcPending" Type="Int32" />
           <Property Name="currency" Type="SByte" />
           <Property Name="unitPrice" Type="Single" />
-          <Property Name="dueDate" Type="DateTime" />
+          <Property Name="dockDate" Type="DateTime" Nullable="false" />
           <Property Name="receiveDate" Type="DateTime" />
           <Property Name="stepCode" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-          <Property Name="salesAgent" Type="SByte" />
+          <Property Name="salesAgent" Type="SByte" Nullable="false" />
           <Property Name="noteToVendor" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+          <Property Name="poItemState" Type="SByte" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -118,47 +118,55 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PoModelStoreContainer" CdmEntityContainer="PoEntities">
-          <EntitySetMapping Name="po"><EntityTypeMapping TypeName="PoModel.po"><MappingFragment StoreEntitySet="po">
-            <ScalarProperty Name="poId" ColumnName="poId" />
-            <ScalarProperty Name="soId" ColumnName="soId" />
-            <ScalarProperty Name="vendorName" ColumnName="vendorName" />
-            <ScalarProperty Name="contact" ColumnName="contact" />
-            <ScalarProperty Name="pa" ColumnName="pa" />
-            <ScalarProperty Name="paDate" ColumnName="paDate" />
-            <ScalarProperty Name="vendorNumber" ColumnName="vendorNumber" />
-            <ScalarProperty Name="poDate" ColumnName="poDate" />
-            <ScalarProperty Name="poNo" ColumnName="poNo" />
-            <ScalarProperty Name="paymentTerms" ColumnName="paymentTerms" />
-            <ScalarProperty Name="shipMethod" ColumnName="shipMethod" />
-            <ScalarProperty Name="freight" ColumnName="freight" />
-            <ScalarProperty Name="shipToLocation" ColumnName="shipToLocation" />
-            <ScalarProperty Name="billTo" ColumnName="billTo" />
-            <ScalarProperty Name="shipTo" ColumnName="shipTo" />
-            <ScalarProperty Name="poStates" ColumnName="poStates" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="poitems"><EntityTypeMapping TypeName="PoModel.poitems"><MappingFragment StoreEntitySet="poitems">
-            <ScalarProperty Name="PoItemsId" ColumnName="PoItemsId" />
-            <ScalarProperty Name="poId" ColumnName="poId" />
-            <ScalarProperty Name="partNo" ColumnName="partNo" />
-            <ScalarProperty Name="mfg" ColumnName="mfg" />
-            <ScalarProperty Name="dc" ColumnName="dc" />
-            <ScalarProperty Name="vendorIntPartNo" ColumnName="vendorIntPartNo" />
-            <ScalarProperty Name="org" ColumnName="org" />
-            <ScalarProperty Name="qty" ColumnName="qty" />
-            <ScalarProperty Name="qtyRecd" ColumnName="qtyRecd" />
-            <ScalarProperty Name="qtyCorrected" ColumnName="qtyCorrected" />
-            <ScalarProperty Name="qtyAccept" ColumnName="qtyAccept" />
-            <ScalarProperty Name="qtyRejected" ColumnName="qtyRejected" />
-            <ScalarProperty Name="qtyRTV" ColumnName="qtyRTV" />
-            <ScalarProperty Name="qcPending" ColumnName="qcPending" />
-            <ScalarProperty Name="currency" ColumnName="currency" />
-            <ScalarProperty Name="unitPrice" ColumnName="unitPrice" />
-            <ScalarProperty Name="dueDate" ColumnName="dueDate" />
-            <ScalarProperty Name="receiveDate" ColumnName="receiveDate" />
-            <ScalarProperty Name="stepCode" ColumnName="stepCode" />
-            <ScalarProperty Name="salesAgent" ColumnName="salesAgent" />
-            <ScalarProperty Name="noteToVendor" ColumnName="noteToVendor" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="po">
+            <EntityTypeMapping TypeName="PoModel.po">
+              <MappingFragment StoreEntitySet="po">
+                <ScalarProperty Name="poId" ColumnName="poId" />
+                <ScalarProperty Name="vendorName" ColumnName="vendorName" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="pa" ColumnName="pa" />
+                <ScalarProperty Name="vendorNumber" ColumnName="vendorNumber" />
+                <ScalarProperty Name="poDate" ColumnName="poDate" />
+                <ScalarProperty Name="poNo" ColumnName="poNo" />
+                <ScalarProperty Name="paymentTerms" ColumnName="paymentTerms" />
+                <ScalarProperty Name="shipMethod" ColumnName="shipMethod" />
+                <ScalarProperty Name="freight" ColumnName="freight" />
+                <ScalarProperty Name="shipToLocation" ColumnName="shipToLocation" />
+                <ScalarProperty Name="billTo" ColumnName="billTo" />
+                <ScalarProperty Name="shipTo" ColumnName="shipTo" />
+                <ScalarProperty Name="poStates" ColumnName="poStates" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="poitems">
+            <EntityTypeMapping TypeName="PoModel.poitems">
+              <MappingFragment StoreEntitySet="poitems">
+                <ScalarProperty Name="poItemsId" ColumnName="poItemsId" />
+                <ScalarProperty Name="poId" ColumnName="poId" />
+                <ScalarProperty Name="soItemId" ColumnName="soItemId" />
+                <ScalarProperty Name="partNo" ColumnName="partNo" />
+                <ScalarProperty Name="mfg" ColumnName="mfg" />
+                <ScalarProperty Name="dc" ColumnName="dc" />
+                <ScalarProperty Name="vendorIntPartNo" ColumnName="vendorIntPartNo" />
+                <ScalarProperty Name="coo" ColumnName="coo" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="qtyRecd" ColumnName="qtyRecd" />
+                <ScalarProperty Name="qtyCorrected" ColumnName="qtyCorrected" />
+                <ScalarProperty Name="qtyAccept" ColumnName="qtyAccept" />
+                <ScalarProperty Name="qtyRejected" ColumnName="qtyRejected" />
+                <ScalarProperty Name="qtyRTV" ColumnName="qtyRTV" />
+                <ScalarProperty Name="qcPending" ColumnName="qcPending" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+                <ScalarProperty Name="unitPrice" ColumnName="unitPrice" />
+                <ScalarProperty Name="dockDate" ColumnName="dockDate" />
+                <ScalarProperty Name="receiveDate" ColumnName="receiveDate" />
+                <ScalarProperty Name="stepCode" ColumnName="stepCode" />
+                <ScalarProperty Name="salesAgent" ColumnName="salesAgent" />
+                <ScalarProperty Name="noteToVendor" ColumnName="noteToVendor" />
+                <ScalarProperty Name="poItemState" ColumnName="poItemState" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -180,8 +188,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Po">
-        <EntityTypeShape EntityType="PoModel.po" Width="1.5" PointX="0.75" PointY="0.75" Height="4.0956022135416656" IsExpanded="true" />
-        <EntityTypeShape EntityType="PoModel.poitems" Width="1.5" PointX="2.75" PointY="0.75" Height="5.057109375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoModel.po" Width="1.5" PointX="0.75" PointY="0.75" Height="3.5833748372395826" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoModel.poitems" Width="1.5" PointX="2.75" PointY="0.75" Height="5.2465218098958317" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

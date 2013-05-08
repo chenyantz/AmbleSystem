@@ -80,11 +80,6 @@ namespace AmbleClient.Order.PoMgr
        }
 
 
-       public static int GetPoNumberAccordingToSoId(int soId)
-       {
-           return poEntity.po.Where(poMain => poMain.soId == soId).Count();
-       }
-
        public static void SetPoNumber(int poId)
        {
            po poItem = poEntity.po.Where(item => item.poId == poId).First();
@@ -93,15 +88,30 @@ namespace AmbleClient.Order.PoMgr
        
        }
 
+       public static int GetPoNumberAccordingToSoId(int soId)
+       {
+           List<int> soItems=SoMgr.SoMgr.GetSoItemsIdsAccordingToSoId(soId);
+           var poIdList = (from poItem in poEntity.poitems
+                           where soItems.Contains(poItem.soItemId)
+                           select poItem.poId).Distinct();
+          return poIdList.Count();
        
+       
+       }
+
+
        public static List<po> GetPoAccordingToSoId(int soId)
        {
+           //get all the soItemsId
+         List<int> soItems=SoMgr.SoMgr.GetSoItemsIdsAccordingToSoId(soId);
            List<po> poList = new List<po>();
-
-               var poListFromDb = poEntity.po.Where(poMain => poMain.soId == soId);
-               poList.AddRange(poListFromDb);
+           var poIds = (from poItem in poEntity.poitems
+                        where soItems.Contains(poItem.soItemId)
+                        select poItem.poId).Distinct();
+           var poListFromDb = poEntity.po.Where(poMain =>poIds.Contains(poMain.poId));
+           poList.AddRange(poListFromDb);
            return poList;
-       
+      
        }
 
 
@@ -174,20 +184,18 @@ namespace AmbleClient.Order.PoMgr
        }
 
 
-       public static int GetSoIdAccordingToPoId(int poId)
+       public static void UpdatePoItemState(int poItemId, int state)
        {
-
-           var soId = from poItem in poEntity.po
-                      where poItem.poId == poId
-                      select poItem.soId;
-
-             return (int)soId.First();
-
+           poitems poItem = poEntity.poitems.First(item => item.poItemsId == poItemId);
+           poItem.poItemState = (sbyte)state;
+           poEntity.SaveChanges();
+       
        }
+
 
        public static void DeletePoItembyPoItemId(int poItemId)
        {
-            var items=poEntity.poitems.Where(i => i.PoItemsId == poItemId);
+            var items=poEntity.poitems.Where(i => (i.poItemsId == poItemId));
            
            if (items.Count()==0)
            {
@@ -233,7 +241,7 @@ namespace AmbleClient.Order.PoMgr
                        break;
 
                    case OrderItemsState.Modified:
-                       poitems item = poEntity.poitems.Where(pitem =>(pitem.PoItemsId == pics.poItem.PoItemsId)).First();
+                       poitems item = poEntity.poitems.Where(pitem =>(pitem.poItemsId == pics.poItem.poItemsId)).First();
                        item = pics.poItem;
                        break;
                }

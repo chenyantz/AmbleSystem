@@ -15,7 +15,6 @@ using System.Data.Objects.DataClasses;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
-using MySql.Data.MySqlClient;
 
 [assembly: EdmSchemaAttribute()]
 namespace AmbleClient.Order.PoMgr
@@ -34,7 +33,6 @@ namespace AmbleClient.Order.PoMgr
         /// </summary>
         public PoEntities() : base("name=PoEntities", "PoEntities")
         {
-            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
@@ -44,7 +42,6 @@ namespace AmbleClient.Order.PoMgr
         /// </summary>
         public PoEntities(string connectionString) : base(connectionString, "PoEntities")
         {
-            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
@@ -54,20 +51,8 @@ namespace AmbleClient.Order.PoMgr
         /// </summary>
         public PoEntities(EntityConnection connection) : base(connection, "PoEntities")
         {
-            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
-        }
-
-        private void ChangeString()
-        {
-            MySqlConnectionStringBuilder sb = new MySqlConnectionStringBuilder(((EntityConnection)Connection).StoreConnection.ConnectionString);
-            sb.UserID = ServerInfo.GetUserId();
-            sb.Password = ServerInfo.GetPassword();
-            sb.Server = ServerInfo.GetServerAddress();
-            sb.Database = "shenzhenerp";
-            ((EntityConnection)Connection).StoreConnection.ConnectionString = sb.ConnectionString;
-
         }
     
         #endregion
@@ -154,10 +139,18 @@ namespace AmbleClient.Order.PoMgr
         /// 创建新的 po 对象。
         /// </summary>
         /// <param name="poId">poId 属性的初始值。</param>
-        public static po Createpo(global::System.Int32 poId)
+        /// <param name="vendorName">vendorName 属性的初始值。</param>
+        /// <param name="contact">contact 属性的初始值。</param>
+        /// <param name="pa">pa 属性的初始值。</param>
+        /// <param name="poDate">poDate 属性的初始值。</param>
+        public static po Createpo(global::System.Int32 poId, global::System.String vendorName, global::System.String contact, global::System.Int16 pa, global::System.DateTime poDate)
         {
             po po = new po();
             po.poId = poId;
+            po.vendorName = vendorName;
+            po.contact = contact;
+            po.pa = pa;
+            po.poDate = poDate;
             return po;
         }
 
@@ -195,31 +188,7 @@ namespace AmbleClient.Order.PoMgr
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> soId
-        {
-            get
-            {
-                return _soId;
-            }
-            set
-            {
-                OnsoIdChanging(value);
-                ReportPropertyChanging("soId");
-                _soId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("soId");
-                OnsoIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _soId;
-        partial void OnsoIdChanging(Nullable<global::System.Int32> value);
-        partial void OnsoIdChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String vendorName
         {
@@ -231,7 +200,7 @@ namespace AmbleClient.Order.PoMgr
             {
                 OnvendorNameChanging(value);
                 ReportPropertyChanging("vendorName");
-                _vendorName = StructuralObject.SetValidValue(value, true);
+                _vendorName = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("vendorName");
                 OnvendorNameChanged();
             }
@@ -243,7 +212,7 @@ namespace AmbleClient.Order.PoMgr
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String contact
         {
@@ -255,7 +224,7 @@ namespace AmbleClient.Order.PoMgr
             {
                 OncontactChanging(value);
                 ReportPropertyChanging("contact");
-                _contact = StructuralObject.SetValidValue(value, true);
+                _contact = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("contact");
                 OncontactChanged();
             }
@@ -267,9 +236,9 @@ namespace AmbleClient.Order.PoMgr
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int16> pa
+        public global::System.Int16 pa
         {
             get
             {
@@ -284,33 +253,9 @@ namespace AmbleClient.Order.PoMgr
                 OnpaChanged();
             }
         }
-        private Nullable<global::System.Int16> _pa;
-        partial void OnpaChanging(Nullable<global::System.Int16> value);
+        private global::System.Int16 _pa;
+        partial void OnpaChanging(global::System.Int16 value);
         partial void OnpaChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> paDate
-        {
-            get
-            {
-                return _paDate;
-            }
-            set
-            {
-                OnpaDateChanging(value);
-                ReportPropertyChanging("paDate");
-                _paDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("paDate");
-                OnpaDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _paDate;
-        partial void OnpaDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnpaDateChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -339,9 +284,9 @@ namespace AmbleClient.Order.PoMgr
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> poDate
+        public global::System.DateTime poDate
         {
             get
             {
@@ -356,8 +301,8 @@ namespace AmbleClient.Order.PoMgr
                 OnpoDateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _poDate;
-        partial void OnpoDateChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _poDate;
+        partial void OnpoDateChanging(global::System.DateTime value);
         partial void OnpoDateChanged();
     
         /// <summary>
@@ -570,11 +515,29 @@ namespace AmbleClient.Order.PoMgr
         /// <summary>
         /// 创建新的 poitems 对象。
         /// </summary>
-        /// <param name="poItemsId">PoItemsId 属性的初始值。</param>
-        public static poitems Createpoitems(global::System.Int32 poItemsId)
+        /// <param name="poItemsId">poItemsId 属性的初始值。</param>
+        /// <param name="poId">poId 属性的初始值。</param>
+        /// <param name="soItemId">soItemId 属性的初始值。</param>
+        /// <param name="partNo">partNo 属性的初始值。</param>
+        /// <param name="mfg">mfg 属性的初始值。</param>
+        /// <param name="dc">dc 属性的初始值。</param>
+        /// <param name="qty">qty 属性的初始值。</param>
+        /// <param name="dockDate">dockDate 属性的初始值。</param>
+        /// <param name="salesAgent">salesAgent 属性的初始值。</param>
+        /// <param name="poItemState">poItemState 属性的初始值。</param>
+        public static poitems Createpoitems(global::System.Int32 poItemsId, global::System.Int32 poId, global::System.Int32 soItemId, global::System.String partNo, global::System.String mfg, global::System.String dc, global::System.Int32 qty, global::System.DateTime dockDate, global::System.SByte salesAgent, global::System.SByte poItemState)
         {
             poitems poitems = new poitems();
-            poitems.PoItemsId = poItemsId;
+            poitems.poItemsId = poItemsId;
+            poitems.poId = poId;
+            poitems.soItemId = soItemId;
+            poitems.partNo = partNo;
+            poitems.mfg = mfg;
+            poitems.dc = dc;
+            poitems.qty = qty;
+            poitems.dockDate = dockDate;
+            poitems.salesAgent = salesAgent;
+            poitems.poItemState = poItemState;
             return poitems;
         }
 
@@ -587,34 +550,34 @@ namespace AmbleClient.Order.PoMgr
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 PoItemsId
+        public global::System.Int32 poItemsId
         {
             get
             {
-                return _PoItemsId;
+                return _poItemsId;
             }
             set
             {
-                if (_PoItemsId != value)
+                if (_poItemsId != value)
                 {
-                    OnPoItemsIdChanging(value);
-                    ReportPropertyChanging("PoItemsId");
-                    _PoItemsId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("PoItemsId");
-                    OnPoItemsIdChanged();
+                    OnpoItemsIdChanging(value);
+                    ReportPropertyChanging("poItemsId");
+                    _poItemsId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("poItemsId");
+                    OnpoItemsIdChanged();
                 }
             }
         }
-        private global::System.Int32 _PoItemsId;
-        partial void OnPoItemsIdChanging(global::System.Int32 value);
-        partial void OnPoItemsIdChanged();
+        private global::System.Int32 _poItemsId;
+        partial void OnpoItemsIdChanging(global::System.Int32 value);
+        partial void OnpoItemsIdChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> poId
+        public global::System.Int32 poId
         {
             get
             {
@@ -629,14 +592,38 @@ namespace AmbleClient.Order.PoMgr
                 OnpoIdChanged();
             }
         }
-        private Nullable<global::System.Int32> _poId;
-        partial void OnpoIdChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _poId;
+        partial void OnpoIdChanging(global::System.Int32 value);
         partial void OnpoIdChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 soItemId
+        {
+            get
+            {
+                return _soItemId;
+            }
+            set
+            {
+                OnsoItemIdChanging(value);
+                ReportPropertyChanging("soItemId");
+                _soItemId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("soItemId");
+                OnsoItemIdChanged();
+            }
+        }
+        private global::System.Int32 _soItemId;
+        partial void OnsoItemIdChanging(global::System.Int32 value);
+        partial void OnsoItemIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String partNo
         {
@@ -648,7 +635,7 @@ namespace AmbleClient.Order.PoMgr
             {
                 OnpartNoChanging(value);
                 ReportPropertyChanging("partNo");
-                _partNo = StructuralObject.SetValidValue(value, true);
+                _partNo = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("partNo");
                 OnpartNoChanged();
             }
@@ -660,7 +647,7 @@ namespace AmbleClient.Order.PoMgr
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String mfg
         {
@@ -672,7 +659,7 @@ namespace AmbleClient.Order.PoMgr
             {
                 OnmfgChanging(value);
                 ReportPropertyChanging("mfg");
-                _mfg = StructuralObject.SetValidValue(value, true);
+                _mfg = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("mfg");
                 OnmfgChanged();
             }
@@ -684,7 +671,7 @@ namespace AmbleClient.Order.PoMgr
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String dc
         {
@@ -696,7 +683,7 @@ namespace AmbleClient.Order.PoMgr
             {
                 OndcChanging(value);
                 ReportPropertyChanging("dc");
-                _dc = StructuralObject.SetValidValue(value, true);
+                _dc = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("dc");
                 OndcChanged();
             }
@@ -734,31 +721,31 @@ namespace AmbleClient.Order.PoMgr
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String org
+        public global::System.String coo
         {
             get
             {
-                return _org;
+                return _coo;
             }
             set
             {
-                OnorgChanging(value);
-                ReportPropertyChanging("org");
-                _org = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("org");
-                OnorgChanged();
+                OncooChanging(value);
+                ReportPropertyChanging("coo");
+                _coo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("coo");
+                OncooChanged();
             }
         }
-        private global::System.String _org;
-        partial void OnorgChanging(global::System.String value);
-        partial void OnorgChanged();
+        private global::System.String _coo;
+        partial void OncooChanging(global::System.String value);
+        partial void OncooChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> qty
+        public global::System.Int32 qty
         {
             get
             {
@@ -773,8 +760,8 @@ namespace AmbleClient.Order.PoMgr
                 OnqtyChanged();
             }
         }
-        private Nullable<global::System.Int32> _qty;
-        partial void OnqtyChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _qty;
+        partial void OnqtyChanging(global::System.Int32 value);
         partial void OnqtyChanged();
     
         /// <summary>
@@ -972,26 +959,26 @@ namespace AmbleClient.Order.PoMgr
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> dueDate
+        public global::System.DateTime dockDate
         {
             get
             {
-                return _dueDate;
+                return _dockDate;
             }
             set
             {
-                OndueDateChanging(value);
-                ReportPropertyChanging("dueDate");
-                _dueDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("dueDate");
-                OndueDateChanged();
+                OndockDateChanging(value);
+                ReportPropertyChanging("dockDate");
+                _dockDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dockDate");
+                OndockDateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _dueDate;
-        partial void OndueDateChanging(Nullable<global::System.DateTime> value);
-        partial void OndueDateChanged();
+        private global::System.DateTime _dockDate;
+        partial void OndockDateChanging(global::System.DateTime value);
+        partial void OndockDateChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -1044,9 +1031,9 @@ namespace AmbleClient.Order.PoMgr
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.SByte> salesAgent
+        public global::System.SByte salesAgent
         {
             get
             {
@@ -1061,8 +1048,8 @@ namespace AmbleClient.Order.PoMgr
                 OnsalesAgentChanged();
             }
         }
-        private Nullable<global::System.SByte> _salesAgent;
-        partial void OnsalesAgentChanging(Nullable<global::System.SByte> value);
+        private global::System.SByte _salesAgent;
+        partial void OnsalesAgentChanging(global::System.SByte value);
         partial void OnsalesAgentChanged();
     
         /// <summary>
@@ -1088,6 +1075,30 @@ namespace AmbleClient.Order.PoMgr
         private global::System.String _noteToVendor;
         partial void OnnoteToVendorChanging(global::System.String value);
         partial void OnnoteToVendorChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.SByte poItemState
+        {
+            get
+            {
+                return _poItemState;
+            }
+            set
+            {
+                OnpoItemStateChanging(value);
+                ReportPropertyChanging("poItemState");
+                _poItemState = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("poItemState");
+                OnpoItemStateChanged();
+            }
+        }
+        private global::System.SByte _poItemState;
+        partial void OnpoItemStateChanging(global::System.SByte value);
+        partial void OnpoItemStateChanged();
 
         #endregion
 

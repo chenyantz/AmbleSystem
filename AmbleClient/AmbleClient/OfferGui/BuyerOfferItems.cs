@@ -149,14 +149,14 @@ namespace AmbleClient.OfferGui
            }
            var offer = GetValue();
            offer.rfqNo = rfqId;
-           return offerMgr.SaveOffer(offer);
+           return OfferMgr.OfferMgr.SaveOffer(offer);
 
        }
 
        public int GetTheSavedOfferId()
        {
 
-           return offerMgr.GetNewSavedOfferId(UserInfo.UserId);
+           return OfferMgr.OfferMgr.GetNewSavedOfferId(UserInfo.UserId);
        
        }
 
@@ -168,14 +168,14 @@ namespace AmbleClient.OfferGui
            }
            var offer = GetValue();
            offer.offerId = offerId;
-           offerMgr.UpdateOffer(offer);
+           OfferMgr.OfferMgr.UpdateOffer(offer);
     
        }
 
 
        public void UpdateOfferState(int state)
        {
-           offerMgr.ChangeOfferState(state, offerId);
+           OfferMgr.OfferMgr.ChangeOfferState(state, offerId);
        
        }
 

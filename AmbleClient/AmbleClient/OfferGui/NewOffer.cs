@@ -56,7 +56,7 @@ namespace AmbleClient.OfferGui
         private void tsbRoute_Click(object sender, EventArgs e)
         {
             tsbRoute.Enabled = false;
-            offerMgr.ChangeOfferState(1, newOfferId.Value);
+            OfferMgr.OfferMgr.ChangeOfferState(1, newOfferId.Value);
             this.Close();
 
 

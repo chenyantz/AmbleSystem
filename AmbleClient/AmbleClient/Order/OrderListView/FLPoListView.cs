@@ -27,7 +27,7 @@ namespace AmbleClient.Order
             foreach (po poItem in poList)
             {
                 dataGridView1.Rows.Add(poItem.poId, poItem.poNo, poItem.vendorName, poItem.contact, idNameDict[(int)poItem.pa], 
-                    poItem.poDate.HasValue?poItem.poDate.Value.ToShortDateString():"",
+                    poItem.poDate.ToShortDateString(),
                     poItem.paymentTerms,
                     poItem.freight, poItem.vendorNumber, poStateList.GetPoStateStringAccordingToValue((int)poItem.poStates));
             }

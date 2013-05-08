@@ -15,6 +15,10 @@ namespace AmbleClient.Order.PoView
         bool isNewAdd;
         private int soId;
 
+        private Order.PoMgr.poitems poItems;
+
+        PoItemStateList poItemStateList = new PoItemStateList();
+
         public PoItemsView(bool isNewAdd,int soId)
         {
             InitializeComponent();
@@ -29,11 +33,14 @@ namespace AmbleClient.Order.PoView
             }
             else
             {
-                tscbOp.Text = "Update";
+                tscbOp.Text = "Hold";
                 this.Text = "PO Item View";
             }
 
         }
+
+
+
 
 
         private void tscbOp_Click(object sender, EventArgs e)
@@ -53,8 +60,32 @@ namespace AmbleClient.Order.PoView
 
         public void FillTheTable(poitems poItem)
         {
+            this.poItems = poItem;
+
             poItemsControl1.FillTheItems(poItem);
         
+        }
+
+        private void tscbPoState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+               
+            if (MessageBox.Show("Change the state to " + (string)tscbPoState.SelectedItem + "?", "warning", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
+            string selectedItemString = (string)tscbPoState.SelectedItem;
+
+            PoItemState poItemState = poItemStateList.GetPoStateAccordingToValue(poItems.poItemState);
+            foreach (Operation op in poItemState.GetOperationList())
+            {
+                if (selectedItemString == op.operationName)
+                {
+                    op.operationMethod(poItems.poItemsId);
+
+                }
+
+            }
+
+            this.DialogResult = DialogResult.Yes;
         }
 
 
