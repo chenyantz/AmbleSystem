@@ -38,6 +38,7 @@
             this.tsbApprove = new System.Windows.Forms.ToolStripButton();
             this.tsbReject = new System.Windows.Forms.ToolStripButton();
             this.tsbCancel = new System.Windows.Forms.ToolStripButton();
+            this.tsbForceClose = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             this.tsbApprove,
             this.tsbReject,
             this.tsbCancel,
+            this.tsbForceClose,
             this.toolStripSeparator2,
             this.tsbExportToExcel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -126,6 +128,16 @@
             this.tsbCancel.Text = "Cancel";
             this.tsbCancel.Click += new System.EventHandler(this.tsbCancel_Click);
             // 
+            // tsbForceClose
+            // 
+            this.tsbForceClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbForceClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbForceClose.Image")));
+            this.tsbForceClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbForceClose.Name = "tsbForceClose";
+            this.tsbForceClose.Size = new System.Drawing.Size(79, 22);
+            this.tsbForceClose.Text = "Force Close";
+            this.tsbForceClose.Click += new System.EventHandler(this.tsbForceClose_Click);
+            // 
             // PoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -155,6 +167,7 @@
         private System.Windows.Forms.ToolStripButton tsbApprove;
         private System.Windows.Forms.ToolStripButton tsbReject;
         private System.Windows.Forms.ToolStripButton tsbCancel;
+        private System.Windows.Forms.ToolStripButton tsbForceClose;
         // private System.Windows.Forms.TabPage tabPage1;
         //private System.Windows.Forms.TabPage tabPage2;
     }

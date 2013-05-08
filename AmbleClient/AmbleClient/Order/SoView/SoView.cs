@@ -67,11 +67,12 @@ namespace AmbleClient.SO
             else
             {
             tsbUpdate.Enabled=false;
-            }*/
+            }
           //for list
 
         //for enter PO
-           if ((UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss || UserInfo.Job == JobDescription.PurchasersManager || UserInfo.Job == JobDescription.Purchaser)
+          
+            if ((UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss || UserInfo.Job == JobDescription.PurchasersManager || UserInfo.Job == JobDescription.Purchaser)
                && (so.soStates == new SoItemApprove().GetStateValue()))
            {
                tsbPoEnter.Enabled = true;
@@ -80,7 +81,8 @@ namespace AmbleClient.SO
            else
            {
                tsbPoEnter.Enabled = false;
-           }
+           }*/
+
         //for view Po
            if (Order.PoMgr.PoMgr.GetPoNumberAccordingToSoId(soList[tabControl1.SelectedIndex].soId) <= 0)
            {
@@ -200,14 +202,6 @@ namespace AmbleClient.SO
 
         }
 
-        private void tsbPoEnter_Click(object sender, EventArgs e)
-        {
-            AmbleClient.Order.PoView.NewPo newPo = new Order.PoView.NewPo(soList[tabControl1.SelectedIndex].soId);
-            newPo.ShowDialog();
-            GenerateGui();
-
-
-        }
 
         private void tsbViewPo_Click(object sender, EventArgs e)
         {
@@ -265,6 +259,14 @@ namespace AmbleClient.SO
             this.DialogResult = DialogResult.Yes;
             this.Close();
             
+        }
+
+        private void tsbForceClose_Click(object sender, EventArgs e)
+        {
+            So so = soList[tabControl1.SelectedIndex];
+            SoMgr.UpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Closed);
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
         }
     }
 }

@@ -22,9 +22,7 @@ namespace AmbleClient.Order
      public  delegate void OperationMethod(int soId);
      public OperationMethod operationMethod;
     }
-    
-    
-    
+   
     public abstract class SoItemState
     {
       protected List<Operation> operationList = new List<Operation>();

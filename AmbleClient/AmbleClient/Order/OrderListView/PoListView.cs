@@ -9,8 +9,6 @@ namespace AmbleClient.Order
 {
     public class PoListView:OrderListView
     {
-        protected PoItemStateList poStateList = new PoItemStateList();
-
         protected List<po> poList;
 
         protected override void ViewStart()
@@ -96,15 +94,9 @@ namespace AmbleClient.Order
 
         protected override void GetTheStateList()
         {
-            foreach (PoItemState soState in poStateList.GetWholeSoStateList())
-            {
-                intStateList.Add(soState.GetStateValue());
-            }
-
-            //remove rejected,cancelled,closed
-            intStateList.Remove(new PoItemRejected().GetStateValue());
-            intStateList.Remove(new PoItemCancelled().GetStateValue());
-            intStateList.Remove(new PoItemClosed().GetStateValue());
+            intStateList.Add((int)PoStatesEnum.New);
+            intStateList.Add((int)PoStatesEnum.Approved);
+            intStateList.Add((int)PoStatesEnum.UnderProcess);
         }
 
 
@@ -113,9 +105,10 @@ namespace AmbleClient.Order
         protected override void FillTheStateCombox()
         {
             //fill the state List
-            foreach (PoItemState poState in poStateList.GetWholeSoStateList())
+            foreach (PoStatesEnum state in Enum.GetValues(typeof(PoStatesEnum)))
             {
-                tscbListState.Items.Add(poState.GetStateString());
+                tscbListState.Items.Add(Enum.GetName(typeof(PoStatesEnum), state));
+
             }
 
         }
@@ -148,7 +141,7 @@ namespace AmbleClient.Order
                dataGridView1.Rows.Add(poItem.poId,Tool.Get6DigitalNumberAccordingToId(poItem.poId),poItem.vendorName,poItem.contact,idNameDict[(int)poItem.pa],
                    poItem.poDate.ToShortDateString(),
                    poItem.paymentTerms,
-                   poItem.freight,poItem.vendorNumber,poStateList.GetPoStateStringAccordingToValue((int)poItem.poStates));
+                   poItem.freight,poItem.vendorNumber,Enum.GetName(typeof(PoStatesEnum),poItem.poStates));
             }
 
         }

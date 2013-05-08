@@ -229,6 +229,9 @@
     <Compile Include="Order\OrderListView\FLSoListView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Order\OrderListView\FLPoMpnListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Order\OrderListView\FLSoMpnListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +242,9 @@
       <DependentUpon>OrderListView.cs</DependentUpon>
     </Compile>
     <Compile Include="Order\OrderListView\PoListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\OrderListView\PoMpnListView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Order\OrderListView\SalesSoMpnListView.cs">

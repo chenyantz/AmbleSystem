@@ -577,10 +577,16 @@ namespace AmbleClient.Order.SoMgr
                strSqls.Add(string.Format("update soItems set soItemState={0} where soId={1}",new SoItemApprove().GetStateValue(),soId));
 
            }
-           else if (state == SoStatesEnum.Rejected || state == SoStatesEnum.Cancel)
+           else if (state == SoStatesEnum.Rejected || state == SoStatesEnum.Cancel||state==SoStatesEnum.Closed)
            {
                strSqls.Add(string.Format("update so set soStates={0} where soId={1}", (int)state, soId));
-               strSqls.Add(string.Format("update soItems set soItemState={0} where soId={1}",state==SoStatesEnum.Rejected? new SoItemRejected().GetStateValue():new SoItemCancelled().GetStateValue(),soId));
+               int value = 0;
+               if (state == SoStatesEnum.Rejected) value = new SoItemRejected().GetStateValue();
+               else if (state == SoStatesEnum.Cancel) value = new SoItemCancelled().GetStateValue();
+               else value = new SoItemClose().GetStateValue();
+
+
+               strSqls.Add(string.Format("update soItems set soItemState={0} where soId={1}",value,soId));
            }
            else
            { 

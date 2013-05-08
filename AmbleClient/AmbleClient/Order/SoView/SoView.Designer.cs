@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoView));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
-            this.tsbPoEnter = new System.Windows.Forms.ToolStripButton();
             this.tsbViewPo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbApprove = new System.Windows.Forms.ToolStripButton();
             this.tsbReject = new System.Windows.Forms.ToolStripButton();
             this.tsbCancel = new System.Windows.Forms.ToolStripButton();
+            this.tsbForceClose = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbToExcel = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -47,12 +47,12 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbUpdate,
-            this.tsbPoEnter,
             this.tsbViewPo,
             this.toolStripSeparator1,
             this.tsbApprove,
             this.tsbReject,
             this.tsbCancel,
+            this.tsbForceClose,
             this.toolStripSeparator2,
             this.tsbToExcel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -70,16 +70,6 @@
             this.tsbUpdate.Size = new System.Drawing.Size(54, 22);
             this.tsbUpdate.Text = "Update";
             this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
-            // 
-            // tsbPoEnter
-            // 
-            this.tsbPoEnter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbPoEnter.Image = ((System.Drawing.Image)(resources.GetObject("tsbPoEnter.Image")));
-            this.tsbPoEnter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPoEnter.Name = "tsbPoEnter";
-            this.tsbPoEnter.Size = new System.Drawing.Size(62, 22);
-            this.tsbPoEnter.Text = "Enter PO";
-            this.tsbPoEnter.Click += new System.EventHandler(this.tsbPoEnter_Click);
             // 
             // tsbViewPo
             // 
@@ -125,6 +115,16 @@
             this.tsbCancel.Size = new System.Drawing.Size(49, 22);
             this.tsbCancel.Text = "Cancel";
             this.tsbCancel.Click += new System.EventHandler(this.tsbCancel_Click);
+            // 
+            // tsbForceClose
+            // 
+            this.tsbForceClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbForceClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbForceClose.Image")));
+            this.tsbForceClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbForceClose.Name = "tsbForceClose";
+            this.tsbForceClose.Size = new System.Drawing.Size(79, 22);
+            this.tsbForceClose.Text = "Force Close";
+            this.tsbForceClose.Click += new System.EventHandler(this.tsbForceClose_Click);
             // 
             // toolStripSeparator2
             // 
@@ -175,13 +175,13 @@
         private System.Windows.Forms.ToolStripButton tsbUpdate;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton tsbPoEnter;
         private System.Windows.Forms.ToolStripButton tsbViewPo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tsbToExcel;
         private System.Windows.Forms.ToolStripButton tsbApprove;
         private System.Windows.Forms.ToolStripButton tsbReject;
         private System.Windows.Forms.ToolStripButton tsbCancel;
+        private System.Windows.Forms.ToolStripButton tsbForceClose;
        // private System.Windows.Forms.TabPage tabPage1;
        //private System.Windows.Forms.TabPage tabPage2;
     }

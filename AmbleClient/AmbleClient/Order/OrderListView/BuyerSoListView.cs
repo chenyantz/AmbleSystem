@@ -129,12 +129,12 @@ namespace AmbleClient.Order
                 if (UserInfo.Job == JobDescription.Purchaser)
                 {
                     dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), idNameDict[so.salesId], so.orderDate.ToShortDateString(), so.customerPo,
-                        so.paymentTerm, so.freightTerm, so.customerAccount, soStateList.GetSoStateStringAccordingToValue(so.soStates));
+                        so.paymentTerm, so.freightTerm, so.customerAccount, Enum.GetName(typeof(SoStatesEnum),so.soStates));
                 }
                 else
                 {
                     dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), so.customerName, idNameDict[so.salesId], so.orderDate.ToShortDateString(), so.customerPo,
-                          so.paymentTerm, so.freightTerm, so.customerAccount, soStateList.GetSoStateStringAccordingToValue(so.soStates));
+                          so.paymentTerm, so.freightTerm, so.customerAccount, Enum.GetName(typeof(SoStatesEnum), so.soStates));
                 
                 }
             }

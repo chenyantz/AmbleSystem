@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AmbleClient.Order.SoMgr;
-using AmbleClient.Order;
+
 
 namespace AmbleClient.Order
 {
@@ -661,7 +661,16 @@ namespace AmbleClient.Order
 
     }
 
+    public enum PoStatesEnum
+    {
+        New = 0,
+        Approved = 1,
+        UnderProcess = 2,
+        Closed = 3,
+        Rejected = 4,
+        Cancel = 5
 
+    };
 
 
 

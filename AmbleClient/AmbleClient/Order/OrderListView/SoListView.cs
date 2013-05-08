@@ -11,9 +11,6 @@ namespace AmbleClient.Order
     {
        protected List<So> soList;
 
-       protected SoItemOrderStateList soStateList = new SoItemOrderStateList();
-    
-
 
        protected override void FillTheStateCombox()
        {

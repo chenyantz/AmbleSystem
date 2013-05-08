@@ -29,7 +29,7 @@ namespace AmbleClient.Order
                 dataGridView1.Rows.Add(poItem.poId, poItem.poNo, poItem.vendorName, poItem.contact, idNameDict[(int)poItem.pa], 
                     poItem.poDate.ToShortDateString(),
                     poItem.paymentTerms,
-                    poItem.freight, poItem.vendorNumber, poStateList.GetPoStateStringAccordingToValue((int)poItem.poStates));
+                    poItem.freight, poItem.vendorNumber, Enum.GetName(typeof(PoStatesEnum),poItem.poStates));
             }
         }
 

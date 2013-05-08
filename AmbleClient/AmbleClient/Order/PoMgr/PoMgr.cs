@@ -6,6 +6,29 @@ using AmbleClient.Order.PoView;
 
 namespace AmbleClient.Order.PoMgr
 {
+    public class PoCombine
+    {
+        public int poId;
+        public string vendorName;
+        public int buyerId;
+
+        public int salesAgentId;
+        public DateTime poDate;
+        public int poItemsId;
+        public string partNo;
+        public string mfg;
+        public string dc;
+        public int qty;
+        public float unitPrice;
+        public int poItemState;
+    
+    
+    }
+
+
+
+
+
    public class PoMgr
     {
       static private PoEntities poEntity=new PoEntities();
@@ -78,6 +101,144 @@ namespace AmbleClient.Order.PoMgr
            return poList;
          
        }
+
+       public static List<PoCombine> GetPoCombineAccordingToFilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> stateList)
+       {
+           List<PoCombine> poCombineList = new List<PoCombine>();
+           if (stateList.Count == 0) return poCombineList;
+
+           List<int> userIds = new List<int>();
+
+           if (includedSubs)
+           {
+
+               userIds.AddRange(AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(userId, UserCombine.GetUserCanBeBuyers()));
+           }
+           else
+           {
+               userIds.Add(userId);
+           }
+
+           if (filterColumn.Trim().Length == 0 || filterString.Trim().Length == 0)
+           {
+               var poListFromDb = from pos in poEntity.po
+                                  join poItems in poEntity.poitems
+                                  on pos.poId equals poItems.poId
+                                  where (userIds.Contains((int)pos.pa)) && (stateList.Contains((int)poItems.poItemState))
+                                  select new PoCombine
+                                  {
+                                      poId = pos.poId,
+                                      vendorName = pos.vendorName,
+                                      buyerId = pos.pa,
+                                      salesAgentId = poItems.salesAgent,
+                                      poDate = pos.poDate,
+                                      poItemsId = poItems.poItemsId,
+                                      partNo = poItems.partNo,
+                                      mfg = poItems.mfg,
+                                      dc = poItems.dc,
+                                      qty = poItems.qty,
+                                      unitPrice = poItems.unitPrice.Value,
+                                      poItemState = poItems.poItemState
+
+
+                                  };
+
+               poCombineList.AddRange(poListFromDb);
+
+           }
+
+           else if (filterColumn.Trim() == "vendorName" && filterString.Trim().Length != 0)
+           {
+               var poListFromDb = from pos in poEntity.po
+                                  join poItems in poEntity.poitems
+                                  on pos.poId equals poItems.poId
+                                  where (userIds.Contains((int)pos.pa)) && (stateList.Contains((int)pos.poStates) &&
+                                  (pos.vendorName.Contains(filterString.Trim())))
+                                  select new PoCombine
+                                  {
+                                      poId = pos.poId,
+                                      vendorName = pos.vendorName,
+                                      buyerId = pos.pa,
+                                      salesAgentId = poItems.salesAgent,
+                                      poDate = pos.poDate,
+                                      poItemsId = poItems.poItemsId,
+                                      partNo = poItems.partNo,
+                                      mfg = poItems.mfg,
+                                      dc = poItems.dc,
+                                      qty = poItems.qty,
+                                      unitPrice = poItems.unitPrice.Value,
+                                      poItemState = poItems.poItemState
+
+
+                                  };
+
+               poCombineList.AddRange(poListFromDb);
+
+           }
+               
+           else if (filterColumn.Trim() == "poNo" && filterString.Trim().Length != 0)
+           {
+               var poListFromDb = from pos in poEntity.po
+                                  join poItems in poEntity.poitems
+                                  on pos.poId equals poItems.poId
+                                  where (userIds.Contains((int)pos.pa)) && (stateList.Contains((int)pos.poStates) &&
+                                   (pos.poNo.Contains(filterString.Trim())))
+                                  select new PoCombine
+                                  {
+                                      poId = pos.poId,
+                                      vendorName = pos.vendorName,
+                                      buyerId = pos.pa,
+                                      salesAgentId = poItems.salesAgent,
+                                      poDate = pos.poDate,
+                                      poItemsId = poItems.poItemsId,
+                                      partNo = poItems.partNo,
+                                      mfg = poItems.mfg,
+                                      dc = poItems.dc,
+                                      qty = poItems.qty,
+                                      unitPrice = poItems.unitPrice.Value,
+                                      poItemState = poItems.poItemState
+
+
+                                  };
+
+               poCombineList.AddRange(poListFromDb);
+
+           }
+           else if (filterColumn.Trim() == "mpn" && filterString.Trim().Length != 0)
+           {
+               var poListFromDb = from pos in poEntity.po
+                                  join poItems in poEntity.poitems
+                                  on pos.poId equals poItems.poId
+                                  where (userIds.Contains((int)pos.pa)) && (stateList.Contains((int)pos.poStates) &&
+                                   (poItems.partNo.Contains(filterString.Trim())))
+                                  select new PoCombine
+                                  {
+                                      poId = pos.poId,
+                                      vendorName = pos.vendorName,
+                                      buyerId = pos.pa,
+                                      salesAgentId = poItems.salesAgent,
+                                      poDate = pos.poDate,
+                                      poItemsId = poItems.poItemsId,
+                                      partNo = poItems.partNo,
+                                      mfg = poItems.mfg,
+                                      dc = poItems.dc,
+                                      qty = poItems.qty,
+                                      unitPrice = poItems.unitPrice.Value,
+                                      poItemState = poItems.poItemState
+
+
+                                  };
+               poCombineList.AddRange(poListFromDb);
+           }
+           else
+           {
+               Logger.Info(filterColumn + "," + filterString);
+           }
+
+           return poCombineList;
+       
+       }
+
 
 
        public static void SetPoNumber(int poId)
@@ -178,9 +339,30 @@ namespace AmbleClient.Order.PoMgr
 
        public static void UpdatePoState(int poId, int state)
        {
-               po poMain = (poEntity.po.First(item => item.poId == poId));
-               poMain.poStates = (sbyte)state;
-               poEntity.SaveChanges();
+           var poList = poEntity.po.Where(item => item.poId == poId);
+           foreach (po po in poList)
+           {
+               po.poStates = (sbyte)state;
+           }
+
+           if (state == (int)PoStatesEnum.Approved || state == (int)PoStatesEnum.Rejected || state == (int)PoStatesEnum.Cancel || state == (int)PoStatesEnum.Closed)
+           {
+
+               int value;
+               if (state == (int)PoStatesEnum.Approved) value = new PoItemApproved().GetStateValue();
+               else if (state == (int)PoStatesEnum.Rejected) value = new PoItemRejected().GetStateValue();
+               else if (state == (int)PoStatesEnum.Cancel) value = new PoItemCancelled().GetStateValue();
+               else value = new PoItemClosed().GetStateValue();
+
+               var poItemList = poEntity.poitems.Where(item => item.poId == poId);
+               foreach (poitems poItems in poItemList)
+               {
+                   poItems.poItemState = (sbyte)value;
+               }
+          
+           }
+           poEntity.SaveChanges();
+
        }
 
 

@@ -116,6 +116,7 @@ namespace AmbleClient.Order.PoView
             foreach(int soItemsId in soItemsIdList)
             {
              Order.SoMgr.SoItems item=SoMgr.SoMgr.GetSoItemInfoAccordingToSoItemId(soItemsId);
+             Order.SoMgr.So so = SoMgr.SoMgr.GetSoAccordingToSoId(item.soId);
                poitems poItem=new poitems();
                 poItem.partNo=item.partNo;
                 poItem.mfg=item.mfg;
@@ -125,8 +126,8 @@ namespace AmbleClient.Order.PoView
                 poItem.unitPrice = 0;
                 poItem.receiveDate = null;
                 poItem.currency = (sbyte)((int)AmbleClient.Currency.USD);
-               
-
+                poItem.soItemId = item.soItemsId;
+                poItem.salesAgent = (sbyte)so.salesId;
 
                 this.poItemsStateList.Add(
                     new PoItemContentAndState

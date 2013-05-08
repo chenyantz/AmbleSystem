@@ -156,16 +156,35 @@ namespace AmbleClient.Order.PoView
 
         private void tsbApprove_Click(object sender, EventArgs e)
         {
-
+            po po = poList[tabControl1.SelectedIndex];
+            PoMgr.PoMgr.UpdatePoState(po.poId, (int)PoStatesEnum.Approved);
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
         }
 
         private void tsbReject_Click(object sender, EventArgs e)
         {
+            po po = poList[tabControl1.SelectedIndex];
+            PoMgr.PoMgr.UpdatePoState(po.poId, (int)PoStatesEnum.Rejected);
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
 
         }
 
         private void tsbCancel_Click(object sender, EventArgs e)
         {
+            po po = poList[tabControl1.SelectedIndex];
+            PoMgr.PoMgr.UpdatePoState(po.poId, (int)PoStatesEnum.Cancel);
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
+        }
+
+        private void tsbForceClose_Click(object sender, EventArgs e)
+        {
+            po po = poList[tabControl1.SelectedIndex];
+            PoMgr.PoMgr.UpdatePoState(po.poId, (int)PoStatesEnum.Closed);
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
 
         }
     }

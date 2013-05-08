@@ -224,9 +224,6 @@ namespace AmbleClient
 
         private void pOListViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Order.PoListView poListView = new Order.PoListView();
-            poListView.MdiParent = this;
-            poListView.Show();
         }
 
         private void offerListViewToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -241,31 +238,20 @@ namespace AmbleClient
 
         private void sOListViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AmbleClient.Order.FLSoListView flSoListView = new Order.FLSoListView();
-            flSoListView.MdiParent = this;
-            flSoListView.Show();
+
         }
 
         private void pOListViewToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            AmbleClient.Order.FLPoListView flPoListView = new Order.FLPoListView();
-            flPoListView.MdiParent = this;
-            flPoListView.Show();
         }
 
         private void sOListViewToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            AmbleClient.Order.FLSoListView flSoListView = new Order.FLSoListView();
-            flSoListView.MdiParent = this;
-            flSoListView.Show();
+
         }
 
         private void pOListViewToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            AmbleClient.Order.FLPoListView flPoListView = new Order.FLPoListView();
-            flPoListView.MdiParent = this;
-            flPoListView.Show();
-
 
         }
 
@@ -311,6 +297,57 @@ namespace AmbleClient
             Order.FLSoMpnListView fsMpnListView = new Order.FLSoMpnListView();
             fsMpnListView.MdiParent = this;
             fsMpnListView.Show();
+        }
+
+        private void byMPNToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Order.PoMpnListView poListView = new Order.PoMpnListView();
+            poListView.MdiParent = this;
+            poListView.Show();
+        }
+
+        private void byMPNToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Order.FLPoMpnListView poListView = new Order.FLPoMpnListView();
+            poListView.MdiParent = this;
+            poListView.Show();
+
+        }
+
+        private void byVendorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Order.FLPoListView poListView = new Order.FLPoListView();
+            poListView.MdiParent = this;
+            poListView.Show();
+
+        }
+
+        private void byCustomerToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Order.FLSoListView soListView = new Order.FLSoListView();
+            soListView.MdiParent = this;
+            soListView.Show();
+        }
+
+        private void byCustomerToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            AmbleClient.Order.FLSoListView flSoListView = new Order.FLSoListView();
+            flSoListView.MdiParent = this;
+            flSoListView.Show();
+        }
+
+        private void byVendorToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            AmbleClient.Order.FLPoListView flPoListView = new Order.FLPoListView();
+            flPoListView.MdiParent = this;
+            flPoListView.Show();
+        }
+
+        private void byMPNToolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            Order.FLPoMpnListView poListView = new Order.FLPoMpnListView();
+            poListView.MdiParent = this;
+            poListView.Show();
         }
     }
 }
