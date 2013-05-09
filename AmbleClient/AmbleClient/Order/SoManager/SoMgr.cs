@@ -568,7 +568,7 @@ namespace AmbleClient.Order.SoMgr
       
        }
 
-       public static void UpdateSoState(int soId, int userid, SoStatesEnum state)
+       public static void WholeUpdateSoState(int soId, int userid, SoStatesEnum state)
        {
            List<string> strSqls = new List<string>();
            if (state ==SoStatesEnum.Approved)
@@ -604,45 +604,36 @@ namespace AmbleClient.Order.SoMgr
        
        }
 
-
-      /*
-       
-       public static bool UpdateSoState(int soId,int userid, int state)
+       public static int GetSoIdAccordingToSoItemId(int soItemId)
        {
-           string strSql;
-
-           if (state == new SoItemApprove().GetStateValue())
-           {
-               strSql = string.Format("update so set soStates={0},approverId={1},approveDate='{2}' where soId={3}", state, userid, DateTime.Now.ToShortDateString(), soId);
-           }
-           else if (state == new SoItemWaitingForShip().GetStateValue())
-           {
-               if (GetSoStateAccordingToSoId(soId) == new SoItemApprove().GetStateValue())
-               {
-                   strSql = string.Format("update so set soStates={0} where soId={1}", state, soId);
-
-               }
-               else
-               {
-                   return false;
-               }
-            
-           }
-           else
-           {
-               strSql = string.Format("update so set soStates={0} where soId={1}", state, soId);
-           }
-           
-           if (db.ExecDataBySql(strSql) == 1)
-           {
-               return true;
-           }
-           else
-           {
-               return false;
-           }
+           string strSql = string.Format("select soId from SoItems where soItemsId={0}", soItemId);
+           return Convert.ToInt32(db.GetSingleObject(strSql));
+       
        }
-       */
+       public static List<int> GetSoItemStateListAccordingToSoId(int soId)
+       {
+           List<int> stateList = new List<int>();
+           string strSql = string.Format("select distinct soItemState from SoItems where soId={0}", soId);
+           DataTable dt = db.GetDataTable(strSql,"tmp");
+           foreach (DataRow dr in dt.Rows)
+           {
+               stateList.Add(Convert.ToInt32(dr[0]));
+           
+           }
+           return stateList;
+       }
+
+
+       
+       public static void UpdateSoState(int soId, int state)
+       {
+           string  strSql = string.Format("update so set soStates={0} where soId={1}", state, soId);
+           
+           
+         db.ExecDataBySql(strSql);
+
+       }
+
 
        public static bool UpdateSoMain(So so)
        {
@@ -662,8 +653,6 @@ namespace AmbleClient.Order.SoMgr
        
        }
        
-
-
        public static List<int> GetSoIdByMPN(string mpn)
        { 
         List<int> ids=new List<int>();
@@ -678,10 +667,7 @@ namespace AmbleClient.Order.SoMgr
        
        }
 
-       
-
-
-       public static string GetUpDateSoItemString(SoItems soItem)
+       public static string GetUpdateSoItemString(SoItems soItem)
        {
 
           return string.Format("update SoItems set saleType={0},partNo='{1}',mfg='{2}',rohs={3},dc='{4}',intPartNo='{5}',shipFrom='{6}',shipMethod='{7}',trackingNo='{8}',qty={9},qtyShipped={10},currency={11},unitPrice={12},dockDate='{13}',shippedDate={14},shippingInstruction='{15}',packingInstruction='{16}' where soItemsId={17} ",
@@ -714,13 +700,10 @@ namespace AmbleClient.Order.SoMgr
 
        public static void UpdateSoItems(SoItems soItem)
        {
-           string strSql = GetUpDateSoItemString(soItem);
+           string strSql = GetUpdateSoItemString(soItem);
            db.ExecDataBySql(strSql);
      
        }
-
-
-
 
 
        public static void UpdateSoItems(List<SoItemsContentAndState> soItemStateList)
@@ -739,7 +722,7 @@ namespace AmbleClient.Order.SoMgr
                        break;
 
                    case OrderItemsState.Modified:
-                      strSqls.Add(GetUpDateSoItemString(sics.soitem));
+                      strSqls.Add(GetUpdateSoItemString(sics.soitem));
                        break;
 
                }

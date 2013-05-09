@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AmbleClient.Order.SoMgr;
-
+using System.Windows.Forms;
 
 namespace AmbleClient.Order
 {
@@ -42,35 +42,6 @@ namespace AmbleClient.Order
 
     public class PoItemNew : PoItemState
     {
-      public PoItemNew()
-      {
-          var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.Purchaser);
-          opJobs.Add(JobDescription.PurchasersManager);
-          opJobs.Add(JobDescription.Boss);
-          opJobs.Add(JobDescription.Admin);
-
-          var operation = new Operation
-          {
-            jobs=opJobs,
-            operationName="Reject PO",
-            operationMethod=this.RejectPo
-          };
-
-          var operation1 = new Operation
-          {
-              jobs = opJobs,
-              operationName = "Approve PO",
-              operationMethod = this.ApprovePo
-
-          };
-
-          operationList.Add(operation);
-          operationList.Add(operation1);
-      
-      }
-
-
       public override List<JobDescription> WhoCanUpdate()
       {
           var listJobDes = new List<JobDescription>();
@@ -79,17 +50,6 @@ namespace AmbleClient.Order
           listJobDes.Add(JobDescription.Admin);
           return listJobDes; ;
       }
-
-      public void RejectPo(int poId)
-      {
-          UpdateState(poId, new PoItemRejected().GetStateValue());
-       
-      }
-      public void ApprovePo(int poId)
-      {
-          UpdateState(poId, new PoItemApproved().GetStateValue());
-       }
-        
         
         public override int GetStateValue()
         {
@@ -148,18 +108,29 @@ namespace AmbleClient.Order
       
       }
 
-      public void CancelPo(int poId)
+      public void CancelPo(int poItemId)
       {
-          UpdateState(poId, new PoItemCancelled().GetStateValue());
+          UpdateState(poItemId, new PoItemCancelled().GetStateValue());
+
+        int poId=PoMgr.PoMgr.GetPoIdAccordingToPoItemId(poItemId);
+        List<sbyte> poStateList=PoMgr.PoMgr.GetPoItemStateListAccordingToPoId(poId);
+        if (poStateList.Count == 1 || poStateList[0] == new PoItemCancelled().GetStateValue())
+        {
+            MessageBox.Show("Please be noted that all states of PO Items are changed to state CANCEL.The state of PO:" + Tool.Get6DigitalNumberAccordingToId(poId) + " will be changed to CANCEL! ");
+            PoMgr.PoMgr.UpdatePoState(poId, (int)PoStatesEnum.Cancel);    
+        
+        }
+
+
+
 
       }
-      public void SetPoStateWatingForShip(int poId)
+      public void SetPoStateWatingForShip(int poItemId)
       {
-          UpdateState(poId, new PoItemWaitingForShip().GetStateValue());
-         // SoMgr.SoMgr.UpdateSoState(PoMgr.PoMgr.GetSoIdAccordingToPoId(poId),UserInfo.UserId, new SoItemWaitingForShip().GetStateValue());
-
-
-
+          UpdateState(poItemId, new PoItemWaitingForShip().GetStateValue());
+          int soItemId= PoMgr.PoMgr.GetSoItemIdAccordingToPoItemId(poItemId);
+          SoMgr.SoMgr.UpdateSoItemState(soItemId, new SoItemWaitingForShip().GetStateValue());
+          
       }
 
         public override int GetStateValue()
@@ -424,9 +395,18 @@ namespace AmbleClient.Order
       
       }
 
-      public void ClosePo(int poId)
+      public void ClosePo(int poItemId)
       {
-          UpdateState(poId, new PoItemClosed().GetStateValue());
+          UpdateState(poItemId, new PoItemClosed().GetStateValue());
+          int poId = PoMgr.PoMgr.GetPoIdAccordingToPoItemId(poItemId);
+          List<sbyte> poStateList = PoMgr.PoMgr.GetPoItemStateListAccordingToPoId(poId);
+          if (poStateList.Count == 1 || poStateList[0] == new PoItemClosed().GetStateValue())
+          {
+              MessageBox.Show("Please be noted that all states of PO Items are changed to state CLOSED.The state of PO:" + Tool.Get6DigitalNumberAccordingToId(poId) + " will be changed to CLOSED! ");
+              PoMgr.PoMgr.UpdatePoState(poId, (int)PoStatesEnum.Closed);
+
+          }
+
 
       }
 
@@ -567,7 +547,7 @@ namespace AmbleClient.Order
           var operation = new Operation
           {
             jobs=opJobs,
-            operationName="Close PO",
+            operationName="Close",
             operationMethod=this.ClosePo
           };
 
@@ -575,9 +555,18 @@ namespace AmbleClient.Order
       
       }
 
-      public void ClosePo(int poId)
+      public void ClosePo(int poItemId)
       {
-          UpdateState(poId, new PoItemClosed().GetStateValue());
+          UpdateState(poItemId, new PoItemClosed().GetStateValue());
+          int poId = PoMgr.PoMgr.GetPoIdAccordingToPoItemId(poItemId);
+          List<sbyte> poStateList = PoMgr.PoMgr.GetPoItemStateListAccordingToPoId(poId);
+          if (poStateList.Count == 1 || poStateList[0] == new PoItemClosed().GetStateValue())
+          {
+              MessageBox.Show("Please be noted that all states of PO Items are changed to state CLOSED.The state of PO:" + Tool.Get6DigitalNumberAccordingToId(poId) + " will be changed to CLOSED! ");
+              PoMgr.PoMgr.UpdatePoState(poId, (int)PoStatesEnum.Closed);
+
+          }
+
 
       } 
         

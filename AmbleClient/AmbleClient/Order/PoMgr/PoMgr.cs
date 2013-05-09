@@ -25,10 +25,6 @@ namespace AmbleClient.Order.PoMgr
     
     }
 
-
-
-
-
    public class PoMgr
     {
       static private PoEntities poEntity=new PoEntities();
@@ -337,7 +333,7 @@ namespace AmbleClient.Order.PoMgr
        }
 
 
-       public static void UpdatePoState(int poId, int state)
+       public static void WholeUpdatePoState(int poId, int state)
        {
            var poList = poEntity.po.Where(item => item.poId == poId);
            foreach (po po in poList)
@@ -364,6 +360,20 @@ namespace AmbleClient.Order.PoMgr
            poEntity.SaveChanges();
 
        }
+
+       public static void UpdatePoState(int poId, int state)
+       {
+           var po = (poEntity.po.Where(item => item.poId == poId)).First();
+           po.poStates = (sbyte)state;
+
+           poEntity.SaveChanges();
+       
+       }
+
+
+
+
+
 
 
 
@@ -461,6 +471,36 @@ namespace AmbleClient.Order.PoMgr
 
            poEntity.SaveChanges();
        }
+
+       public static int GetPoIdAccordingToPoItemId(int poItemId)
+       {
+           return (from pi in poEntity.poitems
+                   where pi.poItemsId == poItemId
+                   select pi.poId).First();
+       }
+
+       public static int GetSoItemIdAccordingToPoItemId(int poItemId)
+       {
+           return (from pi in poEntity.poitems
+                   where pi.poItemsId == poItemId
+                   select pi.soItemId).First();
+       
+       }
+
+
+       public static List<sbyte> GetPoItemStateListAccordingToPoId(int poId)
+       {
+
+           List<sbyte> poStatesList = new List<sbyte>();
+           var poStates = (from pi in poEntity.poitems
+                           where pi.poId == poId
+                           select pi.poItemState
+                             ).Distinct();
+
+           poStatesList.AddRange(poStates);
+           return poStatesList;
+       }
+
 
 
 

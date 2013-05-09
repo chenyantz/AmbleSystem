@@ -19,7 +19,7 @@ namespace AmbleClient.Order
 {
      public  List<JobDescription> jobs;
      public  string operationName;
-     public  delegate void OperationMethod(int soId);
+     public  delegate void OperationMethod(int soItemId);
      public OperationMethod operationMethod;
     }
    
@@ -58,44 +58,6 @@ namespace AmbleClient.Order
 
   public class SoItemNew : SoItemState
   {
-      public SoItemNew()
-      {
-          var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.SalesManager);
-          opJobs.Add(JobDescription.Boss);
-          opJobs.Add(JobDescription.Admin);
-
-          var operation = new Operation
-          {
-            jobs=opJobs,
-            operationName="Reject SO",
-            operationMethod=this.RejectSo
-          };
-
-          var operation1 = new Operation
-          {
-              jobs = opJobs,
-              operationName = "Approve SO",
-              operationMethod = this.ApproveSo
-
-          };
-
-          operationList.Add(operation);
-          operationList.Add(operation1);
-      
-      }
-
-      public override List<JobDescription> WhoCanUpdate()
-      {
-          var listJobDes = new List<JobDescription>();
-          listJobDes.Add(JobDescription.Sales);
-          listJobDes.Add(JobDescription.SalesManager);
-          listJobDes.Add(JobDescription.Boss);
-          listJobDes.Add(JobDescription.Admin);
-          return listJobDes;
-
-      }
-
       public override int GetStateValue()
       {
           return 0;
@@ -105,16 +67,6 @@ namespace AmbleClient.Order
       {
           return "New";
       }
-
-      public void RejectSo(int soId)
-      {
-          UpdateState(soId,new SoItemRejected().GetStateValue());
-      }
-      public void ApproveSo(int soId)
-      {
-          UpdateState(soId,new SoItemApprove().GetStateValue());
-      }
-
   }
 
 
@@ -143,7 +95,7 @@ namespace AmbleClient.Order
           var operation = new Operation
           {
             jobs=opJobs,
-            operationName="Cancel SO",
+            operationName="Cancel",
             operationMethod=this.CancelSo
           };
        }
@@ -155,10 +107,21 @@ namespace AmbleClient.Order
       {
           return "Approved";
       }
-      public void CancelSo(int soId)
+      public void CancelSo(int soItemId)
       {
-          UpdateState(soId, new SoItemCancelled().GetStateValue());
-      
+          UpdateState(soItemId, new SoItemCancelled().GetStateValue());
+          //if all the related are cancel, so cancel.
+          //get the all the state of the 
+
+          int soId = SoMgr.SoMgr.GetSoIdAccordingToSoItemId(soItemId);
+          List<int> soStateList = SoMgr.SoMgr.GetSoItemStateListAccordingToSoId(soId);
+          if (soStateList.Count == 1 || soStateList[0] == new SoItemCancelled().GetStateValue())
+          {
+              MessageBox.Show("Please be noted that all states of SO Items are changed to state CANCEL.The state of SO:" + Tool.Get6DigitalNumberAccordingToId(soId) + " will be changed to CANCEL! ");
+              SoMgr.SoMgr.UpdateSoState(soId, (int)SoStatesEnum.Cancel);
+
+          }
+    
       }
   }
 
@@ -177,7 +140,7 @@ namespace AmbleClient.Order
     
     }
 
- public class SoItemWaitingForShip : SoItemState
+public class SoItemWaitingForShip : SoItemState
     {
         public SoItemWaitingForShip()
         {
@@ -249,7 +212,7 @@ namespace AmbleClient.Order
     
     }
 
-    public class SoItemPayMentRecvBeforeShip : SoItemState
+public class SoItemPayMentRecvBeforeShip : SoItemState
     {
         public SoItemPayMentRecvBeforeShip()
         {
@@ -297,7 +260,7 @@ namespace AmbleClient.Order
     
     }
 
-    public class SoItemShipCompletedAfterPay : SoItemState
+public class SoItemShipCompletedAfterPay : SoItemState
     {
         public SoItemShipCompletedAfterPay()
         {
@@ -309,7 +272,7 @@ namespace AmbleClient.Order
             var operation1 = new Operation
             {
                 jobs = opJobs,
-                operationName = "Close SO item",
+                operationName = "Close",
                 operationMethod = this.CloseSo
 
             };
@@ -317,10 +280,17 @@ namespace AmbleClient.Order
 
         }
 
-        private void CloseSo(int soid)
+        private void CloseSo(int soItemId)
         {
-            UpdateState(soid, new SoItemClose().GetStateValue());
-        
+            UpdateState(soItemId, new SoItemClose().GetStateValue());
+            int soId = SoMgr.SoMgr.GetSoIdAccordingToSoItemId(soItemId);
+            List<int> soStateList = SoMgr.SoMgr.GetSoItemStateListAccordingToSoId(soId);
+            if (soStateList.Count == 1 || soStateList[0] == new SoItemClose().GetStateValue())
+            {
+                MessageBox.Show("Please be noted that all states of SO Items are changed to state CLOSE.The state of SO:" + Tool.Get6DigitalNumberAccordingToId(soId) + " will be changed to CLOSE! ");
+                SoMgr.SoMgr.UpdateSoState(soId, (int)SoStatesEnum.Closed);
+
+            }
         }
 
         public override int GetStateValue()
@@ -334,7 +304,7 @@ namespace AmbleClient.Order
     
     }
 
-    public class SoItemPartialShipAfterPay : SoItemState
+public class SoItemPartialShipAfterPay : SoItemState
     {
         public SoItemPartialShipAfterPay()
         {
@@ -463,7 +433,7 @@ namespace AmbleClient.Order
             var operation1 = new Operation
             {
                 jobs = opJobs,
-                operationName = "Close SO",
+                operationName = "Close",
                 operationMethod = this.CloseSo
 
             };
@@ -471,9 +441,20 @@ namespace AmbleClient.Order
 
         }
 
-        private void CloseSo(int soid)
+        private void CloseSo(int soItemId)
         {
-            UpdateState(soid, new SoItemClose().GetStateValue());
+            UpdateState(soItemId, new SoItemClose().GetStateValue());
+            int soId = SoMgr.SoMgr.GetSoIdAccordingToSoItemId(soItemId);
+            List<int> soStateList = SoMgr.SoMgr.GetSoItemStateListAccordingToSoId(soId);
+            if (soStateList.Count == 1 || soStateList[0] == new SoItemClose().GetStateValue())
+            {
+                MessageBox.Show("Please be noted that all states of SO Items are changed to state CLOSE.The state of SO:" + Tool.Get6DigitalNumberAccordingToId(soId) + " will be changed to CLOSE! ");
+                SoMgr.SoMgr.UpdateSoState(soId, (int)SoStatesEnum.Closed);
+
+            }
+    
+
+
 
         }
 

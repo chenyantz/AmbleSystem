@@ -239,7 +239,7 @@ namespace AmbleClient.SO
         private void tsbApprove_Click(object sender, EventArgs e)
         {
            So so = soList[tabControl1.SelectedIndex];
-           SoMgr.UpdateSoState(so.soId,UserInfo.UserId,SoStatesEnum.Approved);
+           SoMgr.WholeUpdateSoState(so.soId,UserInfo.UserId,SoStatesEnum.Approved);
            this.DialogResult = DialogResult.Yes;
            this.Close();
         }
@@ -247,7 +247,7 @@ namespace AmbleClient.SO
         private void tsbReject_Click(object sender, EventArgs e)
         {
             So so = soList[tabControl1.SelectedIndex];
-            SoMgr.UpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Rejected);
+            SoMgr.WholeUpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Rejected);
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }
@@ -255,7 +255,7 @@ namespace AmbleClient.SO
         private void tsbCancel_Click(object sender, EventArgs e)
         {
             So so = soList[tabControl1.SelectedIndex];
-            SoMgr.UpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Cancel);
+            SoMgr.WholeUpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Cancel);
             this.DialogResult = DialogResult.Yes;
             this.Close();
             
@@ -264,7 +264,7 @@ namespace AmbleClient.SO
         private void tsbForceClose_Click(object sender, EventArgs e)
         {
             So so = soList[tabControl1.SelectedIndex];
-            SoMgr.UpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Closed);
+            SoMgr.WholeUpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Closed);
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }
