@@ -195,13 +195,14 @@
             // byCustomerToolStripMenuItem1
             // 
             this.byCustomerToolStripMenuItem1.Name = "byCustomerToolStripMenuItem1";
-            this.byCustomerToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.byCustomerToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.byCustomerToolStripMenuItem1.Text = "By Customer";
+            this.byCustomerToolStripMenuItem1.Click += new System.EventHandler(this.byCustomerToolStripMenuItem1_Click);
             // 
             // byMPNToolStripMenuItem1
             // 
             this.byMPNToolStripMenuItem1.Name = "byMPNToolStripMenuItem1";
-            this.byMPNToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.byMPNToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.byMPNToolStripMenuItem1.Text = "By MPN";
             this.byMPNToolStripMenuItem1.Click += new System.EventHandler(this.byMPNToolStripMenuItem1_Click);
             // 
@@ -218,13 +219,13 @@
             // byVendorToolStripMenuItem
             // 
             this.byVendorToolStripMenuItem.Name = "byVendorToolStripMenuItem";
-            this.byVendorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.byVendorToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.byVendorToolStripMenuItem.Text = "By Vendor";
             // 
             // byMPNToolStripMenuItem2
             // 
             this.byMPNToolStripMenuItem2.Name = "byMPNToolStripMenuItem2";
-            this.byMPNToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.byMPNToolStripMenuItem2.Size = new System.Drawing.Size(135, 22);
             this.byMPNToolStripMenuItem2.Text = "By MPN";
             this.byMPNToolStripMenuItem2.Click += new System.EventHandler(this.byMPNToolStripMenuItem2_Click);
             // 
@@ -258,14 +259,14 @@
             // byCustomerToolStripMenuItem2
             // 
             this.byCustomerToolStripMenuItem2.Name = "byCustomerToolStripMenuItem2";
-            this.byCustomerToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.byCustomerToolStripMenuItem2.Size = new System.Drawing.Size(148, 22);
             this.byCustomerToolStripMenuItem2.Text = "By Customer";
             this.byCustomerToolStripMenuItem2.Click += new System.EventHandler(this.byCustomerToolStripMenuItem2_Click);
             // 
             // byMPNToolStripMenuItem3
             // 
             this.byMPNToolStripMenuItem3.Name = "byMPNToolStripMenuItem3";
-            this.byMPNToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.byMPNToolStripMenuItem3.Size = new System.Drawing.Size(148, 22);
             this.byMPNToolStripMenuItem3.Text = "By MPN";
             this.byMPNToolStripMenuItem3.Click += new System.EventHandler(this.byMPNToolStripMenuItem3_Click);
             // 
@@ -282,14 +283,14 @@
             // byVendorToolStripMenuItem1
             // 
             this.byVendorToolStripMenuItem1.Name = "byVendorToolStripMenuItem1";
-            this.byVendorToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.byVendorToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
             this.byVendorToolStripMenuItem1.Text = "By Vendor";
             this.byVendorToolStripMenuItem1.Click += new System.EventHandler(this.byVendorToolStripMenuItem1_Click);
             // 
             // byMPNToolStripMenuItem4
             // 
             this.byMPNToolStripMenuItem4.Name = "byMPNToolStripMenuItem4";
-            this.byMPNToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.byMPNToolStripMenuItem4.Size = new System.Drawing.Size(135, 22);
             this.byMPNToolStripMenuItem4.Text = "By MPN";
             this.byMPNToolStripMenuItem4.Click += new System.EventHandler(this.byMPNToolStripMenuItem4_Click);
             // 
@@ -308,21 +309,21 @@
             this.byCustomerToolStripMenuItem3,
             this.byMPNToolStripMenuItem5});
             this.sOListViewToolStripMenuItem1.Name = "sOListViewToolStripMenuItem1";
-            this.sOListViewToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.sOListViewToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.sOListViewToolStripMenuItem1.Text = "SO List";
             this.sOListViewToolStripMenuItem1.Click += new System.EventHandler(this.sOListViewToolStripMenuItem1_Click);
             // 
             // byCustomerToolStripMenuItem3
             // 
             this.byCustomerToolStripMenuItem3.Name = "byCustomerToolStripMenuItem3";
-            this.byCustomerToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.byCustomerToolStripMenuItem3.Size = new System.Drawing.Size(148, 22);
             this.byCustomerToolStripMenuItem3.Text = "By Customer";
             this.byCustomerToolStripMenuItem3.Click += new System.EventHandler(this.byCustomerToolStripMenuItem3_Click);
             // 
             // byMPNToolStripMenuItem5
             // 
             this.byMPNToolStripMenuItem5.Name = "byMPNToolStripMenuItem5";
-            this.byMPNToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.byMPNToolStripMenuItem5.Size = new System.Drawing.Size(148, 22);
             this.byMPNToolStripMenuItem5.Text = "By MPN";
             this.byMPNToolStripMenuItem5.Click += new System.EventHandler(this.byMPNToolStripMenuItem5_Click);
             // 
@@ -332,21 +333,21 @@
             this.byVendorToolStripMenuItem2,
             this.byMPNToolStripMenuItem6});
             this.pOListViewToolStripMenuItem2.Name = "pOListViewToolStripMenuItem2";
-            this.pOListViewToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.pOListViewToolStripMenuItem2.Size = new System.Drawing.Size(114, 22);
             this.pOListViewToolStripMenuItem2.Text = "PO List";
             this.pOListViewToolStripMenuItem2.Click += new System.EventHandler(this.pOListViewToolStripMenuItem2_Click);
             // 
             // byVendorToolStripMenuItem2
             // 
             this.byVendorToolStripMenuItem2.Name = "byVendorToolStripMenuItem2";
-            this.byVendorToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.byVendorToolStripMenuItem2.Size = new System.Drawing.Size(135, 22);
             this.byVendorToolStripMenuItem2.Text = "By Vendor";
             this.byVendorToolStripMenuItem2.Click += new System.EventHandler(this.byVendorToolStripMenuItem2_Click);
             // 
             // byMPNToolStripMenuItem6
             // 
             this.byMPNToolStripMenuItem6.Name = "byMPNToolStripMenuItem6";
-            this.byMPNToolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
+            this.byMPNToolStripMenuItem6.Size = new System.Drawing.Size(135, 22);
             this.byMPNToolStripMenuItem6.Text = "By MPN";
             this.byMPNToolStripMenuItem6.Click += new System.EventHandler(this.byMPNToolStripMenuItem6_Click);
             // 

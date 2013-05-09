@@ -37,7 +37,7 @@ namespace AmbleClient.Order
             PoId.Name = "PoId";
             PoId.Visible = false;
 
-            PoItemId.Name = "SoItemId";
+            PoItemId.Name = "PoItemId";
             PoItemId.Visible = false;
 
             // RfqNo6digitals
@@ -222,7 +222,8 @@ namespace AmbleClient.Order
             if (rowIndex >= poCombineList.Count)
                 return;
             int poId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["PoId"].Value);
-            AmbleClient.Order.PoView.PoView poView = new AmbleClient.Order.PoView.PoView(poId);
+            int poItemId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["PoItemId"].Value);
+            AmbleClient.Order.PoView.PoView poView = new AmbleClient.Order.PoView.PoView(poId,poItemId);
             if (DialogResult.Yes == poView.ShowDialog())
             {
                 FillTheDataGrid();

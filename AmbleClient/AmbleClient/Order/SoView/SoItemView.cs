@@ -14,32 +14,17 @@ namespace AmbleClient.SO
     public partial class SoItemView : Form
     {
 
-        private int rfqId;
         SoItems soItem;
         private SoItemOrderStateList soItemOrderStateList = new SoItemOrderStateList();
 
-        
+        private bool isNewCreateSo;        
 
-        public SoItemView()
+        public SoItemView(bool isNewCreateSo)
         {
             InitializeComponent();
-        }
+            this.Text = "So Item View";
+             this.isNewCreateSo = isNewCreateSo;
 
-
-        public SoItemView(bool newItems)
-        {
-            InitializeComponent();
-            if (newItems)
-            {   this.Text = "Add an SO Item";
-                tsbOp.Text = "Add";
-               //his.soItemsControl1.NewCreateItems(rfqId);
-            }
-            else
-            {
-                this.Text = "So Item View";
-                tsbOp.Text="Hold";
-           
-            }
         }
 
 
@@ -73,6 +58,17 @@ namespace AmbleClient.SO
             {
                 return;
             }
+            if (!isNewCreateSo)
+            {
+                SoItems soItemForUpdate = soItemsControl1.GetSoItem();
+                soItemForUpdate.soId = soItem.soId;
+                soItemForUpdate.soItemsId = soItem.soItemsId;
+                soItemForUpdate.rfqId = soItem.rfqId;
+                soItemForUpdate.soItemState = soItem.soItemState;
+                SoMgr.UpdateSoItems(soItemForUpdate);
+            
+            }
+            
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }

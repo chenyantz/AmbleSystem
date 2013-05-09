@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewPo));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
-            this.poViewControl1 = new AmbleClient.Order.PoView.PoViewControl(this.soId);
+            this.poViewControl1 = new AmbleClient.Order.PoView.PoViewControl();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 

@@ -21,21 +21,19 @@ namespace AmbleClient.Order.PoView
 
       public List<int> soItemsIdList;
 
+      int? selectedPoItemId = null;
+
+      private bool isNewCreatePo = false;
 
         List<PoItemContentAndState> poItemsStateList = new List<PoItemContentAndState>();
-        List<PoItemContentAndState> deletedList = new List<PoItemContentAndState>();
 
         List<string> ShipToList = new List<string>();
 
-        private int soId;
-
-
-        public PoViewControl(int soId)
+        public PoViewControl()
         {
             InitializeComponent();
             FillThePACombo();
             VendorAutoComplete();
-            this.soId = soId;
 
         }
         private void SoViewControl_Load(object sender, EventArgs e)
@@ -110,20 +108,31 @@ namespace AmbleClient.Order.PoView
 
         public void NewPoFill()
         {
+            this.isNewCreatePo = true;
             FillThePACombo();
             cbPa.SelectedIndex = 0;
 
             foreach(int soItemsId in soItemsIdList)
             {
-             Order.SoMgr.SoItems item=SoMgr.SoMgr.GetSoItemInfoAccordingToSoItemId(soItemsId);
-             Order.SoMgr.So so = SoMgr.SoMgr.GetSoAccordingToSoId(item.soId);
-               poitems poItem=new poitems();
-                poItem.partNo=item.partNo;
-                poItem.mfg=item.mfg;
-                poItem.dc=item.dc;
-                poItem.qty=item.qty;
-                poItem.dockDate=item.dockDate;
-                poItem.unitPrice = 0;
+                Order.SoMgr.SoItems item = SoMgr.SoMgr.GetSoItemInfoAccordingToSoItemId(soItemsId);
+                Order.SoMgr.So so = SoMgr.SoMgr.GetSoAccordingToSoId(item.soId);
+                float miniPrice = float.MaxValue;
+                List<OfferGui.OfferMgr.Offer> offerList = OfferGui.OfferMgr.OfferMgr.GetOffersByRfqId(item.rfqId);
+        
+                    foreach (OfferGui.OfferMgr.Offer o in offerList)
+                    {
+                        if (o.price < miniPrice)
+                            miniPrice = o.price;
+
+                    }
+                
+                poitems poItem = new poitems();
+                poItem.partNo = item.partNo;
+                poItem.mfg = item.mfg;
+                poItem.dc = item.dc;
+                poItem.qty = item.qty;
+                poItem.dockDate = item.dockDate;
+                poItem.unitPrice = miniPrice;
                 poItem.receiveDate = null;
                 poItem.currency = (sbyte)((int)AmbleClient.Currency.USD);
                 poItem.soItemId = item.soItemsId;
@@ -132,8 +141,8 @@ namespace AmbleClient.Order.PoView
                 this.poItemsStateList.Add(
                     new PoItemContentAndState
                     {
-                      poItem=poItem,
-                      state=OrderItemsState.New
+                        poItem = poItem,
+                        state = OrderItemsState.New
                     }
                     );
             }
@@ -220,16 +229,7 @@ namespace AmbleClient.Order.PoView
             }
             po poMain = GetValues();
             PoMgr.PoMgr.UpdatePo(poMain);
-
-            PoMgr.PoMgr.UpDatePoItems(poItemsStateList);
-
-            foreach (PoItemContentAndState pics in deletedList)
-            {
-               // PoMgr.PoMgr.DeletePoItembyPoItemId(pics.poItem.PoItemsId);
-            }
-
-
-            MessageBox.Show("Update Purchase Order Successfully");
+           MessageBox.Show("Update Purchase Order Successfully");
         }
 
         public bool CheckValues()
@@ -250,9 +250,11 @@ namespace AmbleClient.Order.PoView
   
 
 
-        public void FillTheTable(po poMain)
+        public void FillTheTable(po poMain,int? selectedItem)
         {
             this.poId = poMain.poId;
+
+            this.selectedPoItemId = selectedItem;
 
             if (UserInfo.Job == JobDescription.Sales || UserInfo.Job == JobDescription.SalesManager)
             {
@@ -283,8 +285,20 @@ namespace AmbleClient.Order.PoView
             tbShipToLocation.Text = poMain.shipToLocation;
             tbBillTo.Text = poMain.billTo;
             tbShipTo.Text = poMain.shipTo;
+         
 
-            foreach (poitems itemDb in PoMgr.PoMgr.GetPoItemsAccordingToPoId(poMain.poId))
+            GetPoItemsList();
+            FillTheDataGridPoItems();
+
+
+        }
+
+
+        public void GetPoItemsList()
+        {
+            poItemsStateList.Clear();
+
+            foreach (poitems itemDb in PoMgr.PoMgr.GetPoItemsAccordingToPoId(this.poId))
             {
                 poItemsStateList.Add(new PoItemContentAndState
                 {
@@ -293,24 +307,39 @@ namespace AmbleClient.Order.PoView
 
                 }
                 );
-            
+
             }
-
-            FillTheDataGridPoItems();
-
-
+        
         }
+
 
         public void FillTheDataGridPoItems()
         {
             dataGridView1.Rows.Clear();
+            int indexForSelectedItemsId = -1;
             int i = 0;
             foreach (PoItemContentAndState cSitem in poItemsStateList)
             {
                 dataGridView1.Rows.Add(i, cSitem.poItem.partNo, cSitem.poItem.mfg, cSitem.poItem.dc, cSitem.poItem.vendorIntPartNo, cSitem.poItem.coo, cSitem.poItem.qty,
                                      cSitem.poItem.qtyRecd, cSitem.poItem.qtyCorrected, cSitem.poItem.qtyAccept, cSitem.poItem.qtyRejected, cSitem.poItem.qtyRTV, cSitem.poItem.qcPending,
                                       Enum.GetName(typeof(AmbleClient.Currency), cSitem.poItem.currency), cSitem.poItem.unitPrice, cSitem.poItem.qty * cSitem.poItem.unitPrice, cSitem.poItem.dockDate.ToShortDateString(), cSitem.poItem.receiveDate.HasValue?cSitem.poItem.receiveDate.Value.ToShortDateString():"",cSitem.poItem.stepCode, "Unknown");
+              
+                if (this.selectedPoItemId != null && poItemsStateList[i].poItem.poItemsId == this.selectedPoItemId.Value)
+                {
+                    indexForSelectedItemsId = i;
+                }
                 i++;
+            }
+            if (indexForSelectedItemsId > -1)
+            {
+                //turn red
+                foreach (DataGridViewCell dgvc in dataGridView1.Rows[indexForSelectedItemsId].Cells)
+                {
+                    dgvc.Style.BackColor = Color.Red;
+
+                }
+
+
             }
         
         
@@ -336,27 +365,9 @@ namespace AmbleClient.Order.PoView
             };
         }
 
-
-       private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
        private void btAdd_Click(object sender, EventArgs e)
        {
-           PoItemsView itemView = new PoItemsView(true,this.soId);
-           if (itemView.ShowDialog() == DialogResult.Yes)
-           {
-               poitems item = itemView.GetPoItem();
-               var poItemContentAndState = new PoItemContentAndState();
-               poItemContentAndState.poItem = item;
-               poItemContentAndState.poItem.poId = this.poId;
-               poItemContentAndState.state = OrderItemsState.New;
-               poItemsStateList.Add(poItemContentAndState);
 
-               FillTheDataGridPoItems();
-
-           }
        }
 
        private void btDelete_Click(object sender, EventArgs e)
@@ -369,9 +380,15 @@ namespace AmbleClient.Order.PoView
           {
               int rowIndex=dataGridView1.SelectedRows[0].Index;
 
-              deletedList.Add(poItemsStateList[rowIndex]);
-              poItemsStateList.RemoveAt(rowIndex);
-              
+              if (!isNewCreatePo)
+              {
+                  PoMgr.PoMgr.DeletePoItembyPoItemId(poItemsStateList[rowIndex].poItem.poItemsId);
+                  GetPoItemsList();
+              }
+              else
+              {
+                  poItemsStateList.Remove(poItemsStateList[rowIndex]);
+              }
               FillTheDataGridPoItems();
             
           }
@@ -426,15 +443,20 @@ namespace AmbleClient.Order.PoView
                poItemContentAndState.poItem.vendorIntPartNo = poItemsStateList[rowIndex].poItem.vendorIntPartNo;
                              
                poItemContentAndState.poItem.poId = this.poId;
+               poItemContentAndState.poItem.poItemState = poItemsStateList[rowIndex].poItem.poItemState;
                poItemContentAndState.poItem.qty = qty - firstValue;
                poItemContentAndState.state = OrderItemsState.New;
+
                poItemsStateList.Insert(rowIndex + 1, poItemContentAndState);
+
+               if (!isNewCreatePo)
+               {
+                   PoMgr.PoMgr.UpDatePoItems(poItemsStateList);
+                   GetPoItemsList();
+
+               }
                FillTheDataGridPoItems();
            }
-
-
-
-
        }
 
        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -442,21 +464,23 @@ namespace AmbleClient.Order.PoView
            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
            {
 
-               PoItemsView itemView = new PoItemsView(false,this.soId);
+               PoItemsView itemView = new PoItemsView(isNewCreatePo);
                itemView.FillTheTable(poItemsStateList[e.RowIndex].poItem);
 
                if (DialogResult.Yes == itemView.ShowDialog())
                {
-                   int poId = poItemsStateList[e.RowIndex].poItem.poId;
-                   int poItemId = poItemsStateList[e.RowIndex].poItem.poItemsId;
-
-                   poItemsStateList[e.RowIndex].poItem = itemView.GetPoItem();
-                   poItemsStateList[e.RowIndex].poItem.poId = poId;
-                   poItemsStateList[e.RowIndex].poItem.poItemsId = poItemId;
-
-                   if (poItemsStateList[e.RowIndex].state != OrderItemsState.New)
+                   if (isNewCreatePo)
                    {
-                       poItemsStateList[e.RowIndex].state = OrderItemsState.Modified;
+                       sbyte poItemState = poItemsStateList[e.RowIndex].poItem.poItemState;
+                       int soItemId = poItemsStateList[e.RowIndex].poItem.soItemId;
+                       poItemsStateList[e.RowIndex].poItem = itemView.GetPoItem();
+                       poItemsStateList[e.RowIndex].poItem.poItemState = poItemState;
+                       poItemsStateList[e.RowIndex].poItem.soItemId = soItemId;
+
+                   }
+                   else
+                   {
+                    GetPoItemsList();
                    }
                    FillTheDataGridPoItems();
                }

@@ -17,8 +17,6 @@ namespace AmbleClient.SO
     public partial class SoViewControl : UserControl
     {
         List<SoItemsContentAndState> soItemsStateList = new List<SoItemsContentAndState>();
-        List<SoItemsContentAndState> deletedList = new List<SoItemsContentAndState>();
-
         List<int> mySubs;
 
         public List<int> rfqList;
@@ -28,6 +26,7 @@ namespace AmbleClient.SO
 
         List<string> ShipToList = new List<string>();
 
+        bool isNewCreateSo=false;
         
         public SoViewControl()
         {
@@ -82,11 +81,25 @@ namespace AmbleClient.SO
         
         }
 
-
-
         public List<SoItemsContentAndState> GetItemsStateList()
         {
             return soItemsStateList;
+        }
+
+        private void GetSoItems()
+        {
+            this.soItemsStateList.Clear();
+            foreach (SoItems item in SoMgr.GetSoItemsAccordingToSoId(this.soId))
+            {
+                this.soItemsStateList.Add(
+                new SoItemsContentAndState
+                {
+                    soitem = item,
+                    state = OrderItemsState.Normal
+                }
+                );
+            }
+        
         }
 
         private void ShowDataInDataGridView()
@@ -174,7 +187,7 @@ namespace AmbleClient.SO
                 soItem.intPartNo = rfq.custPartNo;
                 soItem.dc = rfq.dc;
                 soItem.dockDate = rfq.dockdate;
-                soItem.rfqId = rfq.rfqNo;
+                soItem.rfqId = id;
                 
                this.soItemsStateList.Add(
                new SoItemsContentAndState
@@ -263,17 +276,8 @@ namespace AmbleClient.SO
             }
 
 
+            GetSoItems();
 
-            foreach (SoItems item in SoMgr.GetSoItemsAccordingToSoId(so.soId))
-            {
-                this.soItemsStateList.Add(
-                new SoItemsContentAndState
-                {
-                    soitem = item,
-                    state = OrderItemsState.Normal
-                }
-                );
-            }
             ShowDataInDataGridView();
 
         }
@@ -319,14 +323,6 @@ namespace AmbleClient.SO
                 MessageBox.Show("Update Sale Order Error!");
                 return;
             }
-
-            SoMgr.UpdateSoItems(soItemsStateList);
-
-            foreach (SoItemsContentAndState sics in deletedList)
-            {
-                SoMgr.DeleteSoItembySoItemId(sics.soitem.soItemsId);
-            }
-
 
             MessageBox.Show("Update Sale Order Successfully");
         }
@@ -381,15 +377,17 @@ namespace AmbleClient.SO
 
                 if (DialogResult.Yes == itemView.ShowDialog())
                 {
-                    int soId = soItemsStateList[e.RowIndex].soitem.soId;
-                    int soItemId = soItemsStateList[e.RowIndex].soitem.soItemsId;
-                    soItemsStateList[e.RowIndex].soitem = itemView.GetSoItems();
-                    soItemsStateList[e.RowIndex].soitem.soId = soId;
-                    soItemsStateList[e.RowIndex].soitem.soItemsId = soItemId;
-
-                    if (soItemsStateList[e.RowIndex].state != OrderItemsState.New)
+                    if (isNewCreateSo)
                     {
-                        soItemsStateList[e.RowIndex].state = OrderItemsState.Modified;
+                        int rfqId = soItemsStateList[e.RowIndex].soitem.rfqId;
+                        int soItemState = soItemsStateList[e.RowIndex].soitem.soItemState;
+                        soItemsStateList[e.RowIndex].soitem = itemView.GetSoItems();
+                        soItemsStateList[e.RowIndex].soitem.rfqId = rfqId;
+                        soItemsStateList[e.RowIndex].soitem.soItemState = soItemState;
+                    }
+                    else
+                    {
+                        GetSoItems();
                     }
                     ShowDataInDataGridView();
                 }
@@ -401,20 +399,6 @@ namespace AmbleClient.SO
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            /*
-            SoItemView soItemView = new SoItemView(true);
-
-            if (soItemView.ShowDialog() == DialogResult.Yes)
-            {
-                SoItems item = soItemView.GetSoItems();
-                var soItemContentAndState = new SoItemsContentAndState();
-                soItemContentAndState.soitem = item;
-                soItemContentAndState.soitem.soId = this.soId;
-                soItemContentAndState.state = OrderItemsState.New;
-                soItemsStateList.Add(soItemContentAndState);
-                ShowDataInDataGridView();
-
-            }*/
 
         }
 
@@ -427,12 +411,15 @@ namespace AmbleClient.SO
             if (DialogResult.Yes == MessageBox.Show("Delete the selected SO item ?", "Warning", MessageBoxButtons.YesNo))
             {
                 int rowIndex = dataGridView1.SelectedRows[0].Index;
-
-                if (soItemsStateList[rowIndex].state != OrderItemsState.New)
+                if (isNewCreateSo)
                 {
-                    deletedList.Add(soItemsStateList[rowIndex]);
+                    soItemsStateList.RemoveAt(rowIndex);
                 }
-                soItemsStateList.RemoveAt(rowIndex);
+                else
+                {
+                    SoMgr.DeleteSoItembySoItemId(soItemsStateList[rowIndex].soitem.soItemsId);
+                    GetSoItems();
+                }
                 ShowDataInDataGridView();
             }
 
@@ -470,6 +457,13 @@ namespace AmbleClient.SO
                 soItemContentAndState.soitem.dockDate = itemSplit.GetSecondDateTime();
                 soItemContentAndState.state = OrderItemsState.New;
                 soItemsStateList.Insert(rowIndex + 1, soItemContentAndState);
+
+                if (!isNewCreateSo)
+                {
+                    SoMgr.UpdateSoItems(soItemsStateList);
+                    GetSoItems();
+                }
+
                 ShowDataInDataGridView();
             }
 

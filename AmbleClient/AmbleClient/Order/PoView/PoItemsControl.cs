@@ -53,6 +53,7 @@ namespace AmbleClient.PO
             tbUnitPrice.Text = item.unitPrice.ToString();
             tbTotal.Text = (item.qty * item.unitPrice).ToString();
             dateTimePicker1.Value = item.dockDate;
+            tbSalesAgent.Text = AllAccountInfo.GetNameAccordingToId(item.salesAgent);
 
             if (item.receiveDate == null)
             {

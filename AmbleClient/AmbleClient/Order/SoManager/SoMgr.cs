@@ -712,6 +712,17 @@ namespace AmbleClient.Order.SoMgr
        }
 
 
+       public static void UpdateSoItems(SoItems soItem)
+       {
+           string strSql = GetUpDateSoItemString(soItem);
+           db.ExecDataBySql(strSql);
+     
+       }
+
+
+
+
+
        public static void UpdateSoItems(List<SoItemsContentAndState> soItemStateList)
        {
            List<string> strSqls = new List<string>();

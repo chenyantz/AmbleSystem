@@ -366,6 +366,9 @@ namespace AmbleClient.Order.PoMgr
        }
 
 
+
+
+
        public static void UpdatePoItemState(int poItemId, int state)
        {
            poitems poItem = poEntity.poitems.First(item => item.poItemsId == poItemId);
@@ -409,6 +412,34 @@ namespace AmbleClient.Order.PoMgr
            poEntity.SaveChanges();
        }
 
+
+       public static void UpdatePoItem(poitems poItem)
+       {
+           poitems item = poEntity.poitems.Where(pitem => (pitem.poItemsId == poItem.poItemsId)).First();
+           item.partNo = poItem.partNo;
+           item.mfg = poItem.mfg;
+           item.dc = poItem.dc;
+           item.vendorIntPartNo = poItem.vendorIntPartNo;
+           item.coo = poItem.coo;
+           item.qty = poItem.qty;
+           item.qtyRecd = poItem.qtyRecd;
+           item.qtyCorrected = poItem.qtyCorrected;
+           item.qtyAccept = poItem.qtyAccept;
+           item.qtyRejected = poItem.qtyRejected;
+           item.qtyRTV = poItem.qtyRTV;
+           item.qcPending = poItem.qcPending;
+           item.currency = poItem.currency;
+           item.unitPrice = poItem.unitPrice;
+           item.dockDate = poItem.dockDate;
+           item.receiveDate = poItem.receiveDate;
+           item.stepCode = poItem.stepCode;
+           item.noteToVendor = poItem.noteToVendor;
+
+           poEntity.SaveChanges();
+       }
+
+
+
        public static void UpDatePoItems(List<PoItemContentAndState> poItemStateList)
        {
            foreach (PoItemContentAndState pics in poItemStateList)
@@ -423,8 +454,7 @@ namespace AmbleClient.Order.PoMgr
                        break;
 
                    case OrderItemsState.Modified:
-                       poitems item = poEntity.poitems.Where(pitem =>(pitem.poItemsId == pics.poItem.poItemsId)).First();
-                       item = pics.poItem;
+                       UpdatePoItem(pics.poItem);
                        break;
                }
            }

@@ -12,42 +12,44 @@ namespace AmbleClient.Order.PoView
 {
     public partial class PoItemsView : Form
     {
-        bool isNewAdd;
-        private int soId;
 
         private Order.PoMgr.poitems poItems;
 
+        private bool isNewCreatePo;
+
+
         PoItemStateList poItemStateList = new PoItemStateList();
 
-        public PoItemsView(bool isNewAdd,int soId)
+        public PoItemsView(bool isNewCreatePo)
         {
-            InitializeComponent();
-            this.isNewAdd = isNewAdd;
-            this.soId = soId;
-            if (isNewAdd)
-            {
-                tscbOp.Text = "Add";
-                this.Text = "Add a PO Item";
-                poItemsControl1.NewFill(this.soId);
+            InitializeComponent(); 
+            this.Text = "PO Item View";
+                if (isNewCreatePo)
+                {
+                    this.tscbPoState.Enabled = false;
+                
+                }
 
-            }
-            else
-            {
-                tscbOp.Text = "Hold";
-                this.Text = "PO Item View";
-            }
+                this.isNewCreatePo = isNewCreatePo;
 
         }
-
-
-
-
 
         private void tscbOp_Click(object sender, EventArgs e)
         {
             if (!poItemsControl1.CheckValues())
             {
                 return;
+            }
+
+            if (!isNewCreatePo)
+            {
+                poitems poItemForUpdate = poItemsControl1.GetPoItem();
+                poItemForUpdate.poId = poItems.poId;
+                poItemForUpdate.poItemsId = poItems.poItemsId;
+                poItemForUpdate.poItemState = poItems.poItemState;
+                poItemForUpdate.soItemId = poItems.soItemId;
+                PoMgr.PoMgr.UpdatePoItem(poItemForUpdate);
+            
             }
             this.DialogResult = DialogResult.Yes;
             this.Close();
@@ -63,8 +65,29 @@ namespace AmbleClient.Order.PoView
             this.poItems = poItem;
 
             poItemsControl1.FillTheItems(poItem);
+            SetComboxItem();
         
         }
+
+        private void SetComboxItem()
+        {
+            PoItemState pis = poItemStateList.GetPoStateAccordingToValue(poItems.poItemState);
+
+            List<Operation> opList = pis.GetOperationList();
+            foreach (Operation op in opList)
+            {
+                if (op.jobs.Contains(UserInfo.Job))
+                {
+                   tscbPoState.Items.Add(op.operationName);
+                }
+
+            }
+
+
+        }
+
+
+
 
         private void tscbPoState_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -84,11 +107,9 @@ namespace AmbleClient.Order.PoView
                 }
 
             }
-
             this.DialogResult = DialogResult.Yes;
+            this.Close();
         }
-
-
 
     }
 }

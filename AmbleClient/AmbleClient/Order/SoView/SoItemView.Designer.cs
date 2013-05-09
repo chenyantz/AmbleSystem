@@ -32,11 +32,11 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbOp = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbGeneratePo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tscbSoItemState = new System.Windows.Forms.ToolStripComboBox();
             this.soItemsControl1 = new AmbleClient.SO.SoItemsControl();
-            this.tsbGeneratePo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,14 +61,29 @@
             this.tsbOp.Image = ((System.Drawing.Image)(resources.GetObject("tsbOp.Image")));
             this.tsbOp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbOp.Name = "tsbOp";
-            this.tsbOp.Size = new System.Drawing.Size(71, 22);
-            this.tsbOp.Text = "Op&&Close";
+            this.tsbOp.Size = new System.Drawing.Size(54, 22);
+            this.tsbOp.Text = "Update";
             this.tsbOp.Click += new System.EventHandler(this.tsbOp_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsbGeneratePo
+            // 
+            this.tsbGeneratePo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbGeneratePo.Image = ((System.Drawing.Image)(resources.GetObject("tsbGeneratePo.Image")));
+            this.tsbGeneratePo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbGeneratePo.Name = "tsbGeneratePo";
+            this.tsbGeneratePo.Size = new System.Drawing.Size(85, 22);
+            this.tsbGeneratePo.Text = "Generate PO";
+            this.tsbGeneratePo.Click += new System.EventHandler(this.tsbGeneratePo_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripLabel1
             // 
@@ -89,21 +104,6 @@
             this.soItemsControl1.Name = "soItemsControl1";
             this.soItemsControl1.Size = new System.Drawing.Size(694, 477);
             this.soItemsControl1.TabIndex = 1;
-            // 
-            // tsbGeneratePo
-            // 
-            this.tsbGeneratePo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbGeneratePo.Image = ((System.Drawing.Image)(resources.GetObject("tsbGeneratePo.Image")));
-            this.tsbGeneratePo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbGeneratePo.Name = "tsbGeneratePo";
-            this.tsbGeneratePo.Size = new System.Drawing.Size(85, 22);
-            this.tsbGeneratePo.Text = "Generate PO";
-            this.tsbGeneratePo.Click += new System.EventHandler(this.tsbGeneratePo_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // SoItemView
             // 

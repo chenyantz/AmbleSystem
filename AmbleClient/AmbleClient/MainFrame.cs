@@ -349,5 +349,12 @@ namespace AmbleClient
             poListView.MdiParent = this;
             poListView.Show();
         }
+
+        private void byCustomerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Order.BuyerSoListView buySoListView = new Order.BuyerSoListView();
+            buySoListView.MdiParent = this;
+            buySoListView.Show();
+        }
     }
 }

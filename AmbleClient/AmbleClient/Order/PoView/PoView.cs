@@ -22,14 +22,9 @@ namespace AmbleClient.Order.PoView
         private List<po> poList;
         List<PoViewControl> poViewControlList = new List<PoViewControl>();
 
+        int? selectedPoItemId = null;
 
-        public PoView(int soId,int nosense)
-        {
-            InitializeComponent();
-            this.soId = soId;
-            poList = PoMgr.PoMgr.GetPoAccordingToSoId(soId);
-            this.Text = "List All PO Info for SO" + soId;
-        }
+
 
         public PoView(po poMain)
         {
@@ -39,13 +34,13 @@ namespace AmbleClient.Order.PoView
             this.Text = "PO Info for PO:" + poMain.poId;
         }
 
-        public PoView(int poId)
+        public PoView(int poId,int? poItemId)
         {
             InitializeComponent();
             poList = new List<po>();
             poList.Add(PoMgr.PoMgr.GetPoAccordingToPoId(poId));
             this.Text = "PO Info for PO:" + poId;
-        
+            this.selectedPoItemId = poItemId;
         }
 
 
@@ -82,13 +77,13 @@ namespace AmbleClient.Order.PoView
         {
             for (int i = 0; i < poList.Count; i++)
             {
-                PoViewControl poViewControlItem = new PoViewControl(soId);
+                PoViewControl poViewControlItem = new PoViewControl();
                 poViewControlItem.Dock = System.Windows.Forms.DockStyle.Fill;
                 poViewControlItem.Location = new System.Drawing.Point(3, 3);
                 poViewControlItem.Name = "poItem" + i;
                 poViewControlItem.Size = new System.Drawing.Size(906, 456);
                 poViewControlItem.TabIndex = 0;
-                poViewControlItem.FillTheTable(poList[i]);
+                poViewControlItem.FillTheTable(poList[i],selectedPoItemId);
                 poViewControlList.Add(poViewControlItem);
             }
 

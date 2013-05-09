@@ -151,7 +151,7 @@ namespace AmbleClient.Order
             if (rowIndex >= poList.Count)
                 return;
             int poId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["PoId"].Value);
-            AmbleClient.Order.PoView.PoView poView = new AmbleClient.Order.PoView.PoView(poId);
+            AmbleClient.Order.PoView.PoView poView = new AmbleClient.Order.PoView.PoView(poId,null);
            if(DialogResult.Yes==poView.ShowDialog())
            {
             FillTheDataGrid();

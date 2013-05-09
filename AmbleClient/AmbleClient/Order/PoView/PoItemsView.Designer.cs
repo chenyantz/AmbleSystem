@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PoItemsView));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tscbOp = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tscbPoState = new System.Windows.Forms.ToolStripComboBox();
             this.poItemsControl1 = new AmbleClient.PO.PoItemsControl();
             this.toolStrip1.SuspendLayout();
@@ -57,20 +57,20 @@
             this.tscbOp.Image = ((System.Drawing.Image)(resources.GetObject("tscbOp.Image")));
             this.tscbOp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscbOp.Name = "tscbOp";
-            this.tscbOp.Size = new System.Drawing.Size(71, 22);
-            this.tscbOp.Text = "Op&&Close";
+            this.tscbOp.Size = new System.Drawing.Size(54, 22);
+            this.tscbOp.Text = "Update";
             this.tscbOp.Click += new System.EventHandler(this.tscbOp_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(106, 22);
             this.toolStripLabel1.Text = "Change State To:";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // tscbPoState
             // 
