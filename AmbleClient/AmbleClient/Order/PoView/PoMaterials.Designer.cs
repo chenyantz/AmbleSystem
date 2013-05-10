@@ -32,15 +32,12 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbUpload = new System.Windows.Forms.ToolStripButton();
             this.tsbDownload = new System.Windows.Forms.ToolStripButton();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.chFileName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chFileSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chUploadDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chFileType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.tscbViewType = new System.Windows.Forms.ToolStripComboBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,13 +46,10 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbUpload,
             this.tsbDownload,
-            this.tsbDelete,
-            this.toolStripSeparator1,
-            this.toolStripLabel1,
-            this.tscbViewType});
+            this.tsbDelete});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(464, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(494, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -79,22 +73,6 @@
             this.tsbDownload.Text = "Download";
             this.tsbDownload.Click += new System.EventHandler(this.tsbDownload_Click);
             // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chFileName,
-            this.chFileSize,
-            this.chUploadDate,
-            this.chFileType});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Location = new System.Drawing.Point(0, 25);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(464, 313);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
             // tsbDelete
             // 
             this.tsbDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -105,10 +83,29 @@
             this.tsbDelete.Text = "Delete";
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chFileName,
+            this.chFileSize,
+            this.chUploadDate,
+            this.chFileType});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.Location = new System.Drawing.Point(0, 25);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(494, 331);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
+            // 
             // chFileName
             // 
             this.chFileName.Text = "File Name";
-            this.chFileName.Width = 85;
+            this.chFileName.Width = 150;
             // 
             // chFileSize
             // 
@@ -124,31 +121,11 @@
             // 
             this.chFileType.Text = "Type";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(37, 22);
-            this.toolStripLabel1.Text = "View:";
-            // 
-            // tscbViewType
-            // 
-            this.tscbViewType.Items.AddRange(new object[] {
-            "Large Icon",
-            "Small Icon",
-            "Details"});
-            this.tscbViewType.Name = "tscbViewType";
-            this.tscbViewType.Size = new System.Drawing.Size(121, 25);
-            // 
             // PoMaterials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 338);
+            this.ClientSize = new System.Drawing.Size(494, 356);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "PoMaterials";
@@ -172,8 +149,5 @@
         private System.Windows.Forms.ColumnHeader chFileSize;
         private System.Windows.Forms.ColumnHeader chUploadDate;
         private System.Windows.Forms.ColumnHeader chFileType;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripComboBox tscbViewType;
     }
 }

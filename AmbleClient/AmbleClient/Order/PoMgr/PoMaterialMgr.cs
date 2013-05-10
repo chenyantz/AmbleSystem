@@ -35,7 +35,7 @@ namespace AmbleClient.Order.PoMgr
                 {
                     MySql.Data.MySqlClient.MySqlCommand command = new MySql.Data.MySqlClient.MySqlCommand();
                     command.CommandType = CommandType.Text;
-                    command.CommandText = string.Format("insert into PoMaterials(poItemId,fileName,fileType,size,uploadDate,fileContent)values({0},'{1}','{2}',{3},'{4}',@fileContet)",
+                    command.CommandText = string.Format("insert into PoMaterials(poItemId,fileName,fileType,size,uploadDate,fileContent)values({0},'{1}','{2}',{3},'{4}',@fileContent)",
                         fileInfo.poItemId, fileInfo.fileName, fileInfo.fileType, fileInfo.size, fileInfo.uploadDate.ToShortDateString());
                     MySqlParameter pars = new MySqlParameter("@fileContent", MySqlDbType.MediumBlob);
                     pars.Value = fileInfo.fileContent;
@@ -56,6 +56,7 @@ namespace AmbleClient.Order.PoMgr
             
               file=(byte[]) dr[0];
             }
+            dr.Close();
             return file;
         
         }

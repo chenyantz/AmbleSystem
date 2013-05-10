@@ -150,7 +150,13 @@ namespace AmbleClient.DataClass
 
                 foreach (MySqlCommand cmd in commands)
                 {
-                    m_Cmd=Cmd;
+                    m_Cmd.CommandText = cmd.CommandText;
+                    m_Cmd.CommandType = cmd.CommandType;
+                    foreach (MySqlParameter par in cmd.Parameters)
+                    {
+                        m_Cmd.Parameters.Add(par);
+                    }
+
                     m_Cmd.ExecuteNonQuery();
                   //  m_Cmd.Connection = m_Conn;
                 }
@@ -169,6 +175,7 @@ namespace AmbleClient.DataClass
             {
                 m_Conn.Close();
                 commands.Clear();
+                m_Cmd.Parameters.Clear();
             }
 
             return booIsSucceed;
