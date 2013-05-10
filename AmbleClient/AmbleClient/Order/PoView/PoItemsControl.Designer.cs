@@ -68,6 +68,7 @@
             this.tbSalesAgent = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.tbNoteToVendor = new System.Windows.Forms.TextBox();
+            this.btFiles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -214,9 +215,9 @@
             // tbQtyCorrected
             // 
             this.tbQtyCorrected.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbQtyCorrected.Location = new System.Drawing.Point(535, 102);
+            this.tbQtyCorrected.Location = new System.Drawing.Point(531, 102);
             this.tbQtyCorrected.Name = "tbQtyCorrected";
-            this.tbQtyCorrected.Size = new System.Drawing.Size(125, 21);
+            this.tbQtyCorrected.Size = new System.Drawing.Size(129, 21);
             this.tbQtyCorrected.TabIndex = 15;
             // 
             // label9
@@ -443,10 +444,22 @@
             this.tbNoteToVendor.Size = new System.Drawing.Size(527, 83);
             this.tbNoteToVendor.TabIndex = 39;
             // 
+            // btFiles
+            // 
+            this.btFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btFiles.Location = new System.Drawing.Point(517, 257);
+            this.btFiles.Name = "btFiles";
+            this.btFiles.Size = new System.Drawing.Size(143, 33);
+            this.btFiles.TabIndex = 40;
+            this.btFiles.Text = "Related Files";
+            this.btFiles.UseVisualStyleBackColor = true;
+            this.btFiles.Click += new System.EventHandler(this.btFiles_Click);
+            // 
             // PoItemsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btFiles);
             this.Controls.Add(this.tbNoteToVendor);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.tbSalesAgent);
@@ -536,5 +549,6 @@
         private System.Windows.Forms.TextBox tbSalesAgent;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox tbNoteToVendor;
+        private System.Windows.Forms.Button btFiles;
     }
 }

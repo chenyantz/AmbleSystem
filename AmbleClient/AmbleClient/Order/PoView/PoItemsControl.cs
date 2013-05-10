@@ -12,6 +12,8 @@ namespace AmbleClient.PO
 {
     public partial class PoItemsControl : UserControl
     {
+        int poItemId;
+
         public PoItemsControl()
         {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace AmbleClient.PO
 
         public void FillTheItems(poitems item)
         {
+            this.poItemId = item.poItemsId;
             tbPartNo.Text = item.partNo;
             tbMfg.Text = item.mfg;
             tbDc.Text = item.dc;
@@ -265,6 +268,12 @@ namespace AmbleClient.PO
                     tbTotal.Text = "";
                 }
             }
+        }
+
+        private void btFiles_Click(object sender, EventArgs e)
+        {
+            Order.PoView.PoMaterials pm = new Order.PoView.PoMaterials(this.poItemId);
+            pm.ShowDialog();
         }
 
 

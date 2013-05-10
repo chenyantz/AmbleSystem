@@ -261,6 +261,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Po.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Order\PoMgr\PoMaterialMgr.cs" />
     <Compile Include="Order\PoMgr\PoMgr.cs" />
     <Compile Include="Order\PoStates.cs" />
     <Compile Include="Order\PoView\NewPo.cs">
@@ -274,6 +275,12 @@
     </Compile>
     <Compile Include="Order\PoView\PoItemsView.Designer.cs">
       <DependentUpon>PoItemsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\PoView\PoMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\PoView\PoMaterials.Designer.cs">
+      <DependentUpon>PoMaterials.cs</DependentUpon>
     </Compile>
     <Compile Include="Order\PoView\PoView.cs">
       <SubType>Form</SubType>
@@ -488,6 +495,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order\PoView\PoItemsView.resx">
       <DependentUpon>PoItemsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\PoView\PoMaterials.resx">
+      <DependentUpon>PoMaterials.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order\PoView\PoView.resx">
       <DependentUpon>PoView.cs</DependentUpon>

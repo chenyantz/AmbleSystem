@@ -623,8 +623,6 @@ namespace AmbleClient.Order.SoMgr
            return stateList;
        }
 
-
-       
        public static void UpdateSoState(int soId, int state)
        {
            string  strSql = string.Format("update so set soStates={0} where soId={1}", state, soId);

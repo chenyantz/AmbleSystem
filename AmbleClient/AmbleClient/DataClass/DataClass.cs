@@ -131,6 +131,55 @@ namespace AmbleClient.DataClass
             return booIsSucceed;
         }
 
+
+
+        public bool ExecDataBySqls(List<MySqlCommand> commands)
+        {
+            bool booIsSucceed;
+
+            if (m_Conn.State == ConnectionState.Closed)
+            {
+                m_Conn.Open();
+            }
+
+            MySqlTransaction sqlTran = m_Conn.BeginTransaction();
+
+            try
+            {
+                m_Cmd.Transaction = sqlTran;
+
+                foreach (MySqlCommand cmd in commands)
+                {
+                    m_Cmd=Cmd;
+                    m_Cmd.ExecuteNonQuery();
+                  //  m_Cmd.Connection = m_Conn;
+                }
+
+                sqlTran.Commit();
+                booIsSucceed = true;  //表示提交数据库成功
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message);
+                Logger.Error(ex.StackTrace);
+                sqlTran.Rollback();
+                booIsSucceed = false;  //表示提交数据库失败！
+            }
+            finally
+            {
+                m_Conn.Close();
+                commands.Clear();
+            }
+
+            return booIsSucceed;
+        }
+
+
+
+
+
+
+
         /// <summary>
         /// 通过Transact-SQL语句得到DataSet实例
         /// </summary>
