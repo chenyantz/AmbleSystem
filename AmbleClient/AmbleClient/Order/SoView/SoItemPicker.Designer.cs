@@ -34,6 +34,7 @@
             this.tsbCancel = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Selecte = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.SoItemsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MPN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MFG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DC = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,6 +83,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Selecte,
+            this.SoItemsId,
             this.MPN,
             this.MFG,
             this.DC,
@@ -101,6 +103,12 @@
             this.Selecte.HeaderText = "Select";
             this.Selecte.Name = "Selecte";
             this.Selecte.Width = 40;
+            // 
+            // SoItemsId
+            // 
+            this.SoItemsId.HeaderText = "SoItemsId";
+            this.SoItemsId.Name = "SoItemsId";
+            this.SoItemsId.Visible = false;
             // 
             // MPN
             // 
@@ -171,6 +179,7 @@
         private System.Windows.Forms.ToolStripButton tsbCancel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Selecte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoItemsId;
         private System.Windows.Forms.DataGridViewTextBoxColumn MPN;
         private System.Windows.Forms.DataGridViewTextBoxColumn MFG;
         private System.Windows.Forms.DataGridViewTextBoxColumn DC;

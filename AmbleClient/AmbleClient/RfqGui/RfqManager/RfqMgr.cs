@@ -114,7 +114,8 @@ namespace AmbleClient.RfqGui.RfqManager
              }
             sb.Append(" )  ");
 
-           sb.Append(string.Format("and rfqNo<>{0}",currentRfqId));
+           sb.Append(string.Format(" and rfqNo<>{0}",currentRfqId));
+           sb.Append(string.Format(" and rfqStates={0}", (int)RfqStatesEnum.Quoted));
 
            return db.GetDataTable(sb.ToString(), "temp");
        }

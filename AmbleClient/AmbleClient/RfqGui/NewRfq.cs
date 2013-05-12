@@ -14,7 +14,7 @@ namespace AmbleClient.RfqGui
     {
         bool copied = false;
 
-        int RFQSaved = 0;
+        int RFQSaved = 1;
                
         public NewRfq()
         {
@@ -49,7 +49,7 @@ namespace AmbleClient.RfqGui
                 rfqItems1.tbCustomer.ReadOnly = true;
                 rfqItems1.ClearInfoForNewRfqWithSameCustomer();
                 RFQSaved++;
-                tsbSave.Text = "Save " + (RFQSaved+1);
+                tsbSave.Text = "Save " + (RFQSaved);
             }
            
 

@@ -38,7 +38,8 @@ namespace AmbleClient.SO
 
         private void SoViewControl_Load(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < this.dataGridView1.Columns.Count; i++)
+                this.dataGridView1.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
         private void CustomerAutoComplete()
@@ -53,6 +54,21 @@ namespace AmbleClient.SO
 
         public void FillTheCustomerInfo(custVendor.CustVendorManager.custvendorinfo custInfo)
         {
+            AutoCompleteStringCollection contactSource = new AutoCompleteStringCollection();
+            if (custInfo.contact1.Length!=0)
+            {
+                tbContact.Text = custInfo.contact1;
+                contactSource.Add(custInfo.contact1);
+            }
+            if (custInfo.contact2.Length!=0)
+            {
+                contactSource.Add(custInfo.contact2);
+            }
+            tbContact.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            tbContact.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            tbContact.AutoCompleteCustomSource = contactSource;
+
+            
             tbCustomerAccount.Text = custInfo.cvnumber;
             tbFreightTerm.Text = custInfo.shippingTerm;
             tbPaymentTerm.Text = custInfo.paymentTerm;
@@ -175,6 +191,7 @@ namespace AmbleClient.SO
         {
             FillTheSalesComboBox();
             cbSp.SelectedIndex = 0;
+            this.isNewCreateSo = true;
 
             foreach (int id in rfqList)
             {
@@ -230,6 +247,7 @@ namespace AmbleClient.SO
             this.soId = so.soId;
 
             this.selectedSoItemId = selectedItem;
+            this.isNewCreateSo = false;
 
 
             if (UserInfo.Job == JobDescription.Purchaser)

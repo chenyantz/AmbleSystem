@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.tbVendor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,12 +52,18 @@
             this.label12 = new System.Windows.Forms.Label();
             this.tbShipTo = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btAdd = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.cbPa = new System.Windows.Forms.ComboBox();
+            this.btSplit = new System.Windows.Forms.Button();
+            this.cbFreight = new System.Windows.Forms.ComboBox();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VendorIntPartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Org = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Coo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QtyRecd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QtyCorrected = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,12 +78,6 @@
             this.RecvDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StepCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SalesAgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label13 = new System.Windows.Forms.Label();
-            this.btAdd = new System.Windows.Forms.Button();
-            this.btDelete = new System.Windows.Forms.Button();
-            this.cbPa = new System.Windows.Forms.ComboBox();
-            this.btSplit = new System.Windows.Forms.Button();
-            this.cbFreight = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -301,7 +301,7 @@
             this.Mfg,
             this.Dc,
             this.VendorIntPartNo,
-            this.Org,
+            this.Coo,
             this.Qty,
             this.QtyRecd,
             this.QtyCorrected,
@@ -324,168 +324,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(778, 160);
             this.dataGridView1.TabIndex = 29;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // No
-            // 
-            this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.No.HeaderText = "No";
-            this.No.Name = "No";
-            this.No.ReadOnly = true;
-            this.No.Width = 42;
-            // 
-            // PartNo
-            // 
-            this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.PartNo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.PartNo.HeaderText = "MPN";
-            this.PartNo.Name = "PartNo";
-            this.PartNo.ReadOnly = true;
-            this.PartNo.Width = 48;
-            // 
-            // Mfg
-            // 
-            this.Mfg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Mfg.HeaderText = "Mfg";
-            this.Mfg.Name = "Mfg";
-            this.Mfg.ReadOnly = true;
-            this.Mfg.Width = 48;
-            // 
-            // Dc
-            // 
-            this.Dc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Dc.HeaderText = "D/C";
-            this.Dc.Name = "Dc";
-            this.Dc.ReadOnly = true;
-            this.Dc.Width = 48;
-            // 
-            // VendorIntPartNo
-            // 
-            this.VendorIntPartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.VendorIntPartNo.HeaderText = "VPN";
-            this.VendorIntPartNo.Name = "VendorIntPartNo";
-            this.VendorIntPartNo.ReadOnly = true;
-            this.VendorIntPartNo.Width = 48;
-            // 
-            // Org
-            // 
-            this.Org.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Org.HeaderText = "Org";
-            this.Org.Name = "Org";
-            this.Org.ReadOnly = true;
-            this.Org.Width = 48;
-            // 
-            // Qty
-            // 
-            this.Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Qty.HeaderText = "Qty";
-            this.Qty.Name = "Qty";
-            this.Qty.ReadOnly = true;
-            this.Qty.Width = 48;
-            // 
-            // QtyRecd
-            // 
-            this.QtyRecd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.QtyRecd.HeaderText = "Qty Recd";
-            this.QtyRecd.Name = "QtyRecd";
-            this.QtyRecd.ReadOnly = true;
-            this.QtyRecd.Width = 72;
-            // 
-            // QtyCorrected
-            // 
-            this.QtyCorrected.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.QtyCorrected.HeaderText = "Qty Corrected";
-            this.QtyCorrected.Name = "QtyCorrected";
-            this.QtyCorrected.ReadOnly = true;
-            this.QtyCorrected.Width = 99;
-            // 
-            // QtyAccept
-            // 
-            this.QtyAccept.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.QtyAccept.HeaderText = "Qty Accept";
-            this.QtyAccept.Name = "QtyAccept";
-            this.QtyAccept.ReadOnly = true;
-            this.QtyAccept.Width = 83;
-            // 
-            // QtyReject
-            // 
-            this.QtyReject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.QtyReject.HeaderText = "Qty Reject";
-            this.QtyReject.Name = "QtyReject";
-            this.QtyReject.ReadOnly = true;
-            this.QtyReject.Width = 83;
-            // 
-            // QtyRTV
-            // 
-            this.QtyRTV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.QtyRTV.HeaderText = "Qty RTV";
-            this.QtyRTV.Name = "QtyRTV";
-            this.QtyRTV.ReadOnly = true;
-            this.QtyRTV.Width = 51;
-            // 
-            // QcPending
-            // 
-            this.QcPending.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.QcPending.HeaderText = "QC/Pending";
-            this.QcPending.Name = "QcPending";
-            this.QcPending.ReadOnly = true;
-            this.QcPending.Width = 90;
-            // 
-            // Currency
-            // 
-            this.Currency.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Currency.HeaderText = "Currency";
-            this.Currency.Name = "Currency";
-            this.Currency.ReadOnly = true;
-            this.Currency.Width = 78;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UnitPrice.HeaderText = "Unit Price";
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.ReadOnly = true;
-            this.UnitPrice.Width = 83;
-            // 
-            // Total
-            // 
-            this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 60;
-            // 
-            // DueDate
-            // 
-            this.DueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.DueDate.HeaderText = "Dock Date";
-            this.DueDate.Name = "DueDate";
-            this.DueDate.ReadOnly = true;
-            this.DueDate.Width = 56;
-            // 
-            // RecvDate
-            // 
-            this.RecvDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.RecvDate.HeaderText = "Recv Date";
-            this.RecvDate.Name = "RecvDate";
-            this.RecvDate.ReadOnly = true;
-            this.RecvDate.Width = 56;
-            // 
-            // StepCode
-            // 
-            this.StepCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.StepCode.HeaderText = "Step Code";
-            this.StepCode.Name = "StepCode";
-            this.StepCode.ReadOnly = true;
-            this.StepCode.Width = 56;
-            // 
-            // SalesAgent
-            // 
-            this.SalesAgent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.SalesAgent.HeaderText = "Sales Agent";
-            this.SalesAgent.Name = "SalesAgent";
-            this.SalesAgent.ReadOnly = true;
-            this.SalesAgent.Width = 61;
             // 
             // label13
             // 
@@ -550,6 +388,174 @@
             this.cbFreight.Size = new System.Drawing.Size(99, 20);
             this.cbFreight.TabIndex = 31;
             // 
+            // No
+            // 
+            this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            this.No.Width = 42;
+            // 
+            // PartNo
+            // 
+            this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.PartNo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PartNo.HeaderText = "MPN";
+            this.PartNo.Name = "PartNo";
+            this.PartNo.ReadOnly = true;
+            this.PartNo.Width = 48;
+            // 
+            // Mfg
+            // 
+            this.Mfg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Mfg.HeaderText = "Mfg";
+            this.Mfg.Name = "Mfg";
+            this.Mfg.ReadOnly = true;
+            this.Mfg.Width = 48;
+            // 
+            // Dc
+            // 
+            this.Dc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Dc.HeaderText = "D/C";
+            this.Dc.Name = "Dc";
+            this.Dc.ReadOnly = true;
+            this.Dc.Width = 48;
+            // 
+            // VendorIntPartNo
+            // 
+            this.VendorIntPartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.VendorIntPartNo.HeaderText = "VPN";
+            this.VendorIntPartNo.Name = "VendorIntPartNo";
+            this.VendorIntPartNo.ReadOnly = true;
+            this.VendorIntPartNo.Width = 48;
+            // 
+            // Coo
+            // 
+            this.Coo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Coo.HeaderText = "COO";
+            this.Coo.Name = "Coo";
+            this.Coo.ReadOnly = true;
+            this.Coo.Width = 48;
+            // 
+            // Qty
+            // 
+            this.Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            this.Qty.Width = 48;
+            // 
+            // QtyRecd
+            // 
+            this.QtyRecd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.QtyRecd.HeaderText = "Qty Recd";
+            this.QtyRecd.MinimumWidth = 50;
+            this.QtyRecd.Name = "QtyRecd";
+            this.QtyRecd.ReadOnly = true;
+            this.QtyRecd.Width = 50;
+            // 
+            // QtyCorrected
+            // 
+            this.QtyCorrected.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.QtyCorrected.HeaderText = "Qty Corrected";
+            this.QtyCorrected.MinimumWidth = 50;
+            this.QtyCorrected.Name = "QtyCorrected";
+            this.QtyCorrected.ReadOnly = true;
+            this.QtyCorrected.Width = 50;
+            // 
+            // QtyAccept
+            // 
+            this.QtyAccept.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.QtyAccept.HeaderText = "Qty Accept";
+            this.QtyAccept.MinimumWidth = 50;
+            this.QtyAccept.Name = "QtyAccept";
+            this.QtyAccept.ReadOnly = true;
+            this.QtyAccept.Width = 50;
+            // 
+            // QtyReject
+            // 
+            this.QtyReject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.QtyReject.HeaderText = "Qty Reject";
+            this.QtyReject.MinimumWidth = 50;
+            this.QtyReject.Name = "QtyReject";
+            this.QtyReject.ReadOnly = true;
+            this.QtyReject.Width = 50;
+            // 
+            // QtyRTV
+            // 
+            this.QtyRTV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.QtyRTV.HeaderText = "Qty RTV";
+            this.QtyRTV.MinimumWidth = 35;
+            this.QtyRTV.Name = "QtyRTV";
+            this.QtyRTV.ReadOnly = true;
+            this.QtyRTV.Width = 35;
+            // 
+            // QcPending
+            // 
+            this.QcPending.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.QcPending.HeaderText = "QC/ Pending";
+            this.QcPending.MinimumWidth = 50;
+            this.QcPending.Name = "QcPending";
+            this.QcPending.ReadOnly = true;
+            this.QcPending.Width = 50;
+            // 
+            // Currency
+            // 
+            this.Currency.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Currency.HeaderText = "Currency";
+            this.Currency.Name = "Currency";
+            this.Currency.ReadOnly = true;
+            this.Currency.Width = 78;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UnitPrice.HeaderText = "Unit Price";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
+            this.UnitPrice.Width = 83;
+            // 
+            // Total
+            // 
+            this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 60;
+            // 
+            // DueDate
+            // 
+            this.DueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DueDate.HeaderText = "Dock Date";
+            this.DueDate.Name = "DueDate";
+            this.DueDate.ReadOnly = true;
+            this.DueDate.Width = 56;
+            // 
+            // RecvDate
+            // 
+            this.RecvDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.RecvDate.HeaderText = "Recv Date";
+            this.RecvDate.Name = "RecvDate";
+            this.RecvDate.ReadOnly = true;
+            this.RecvDate.Width = 56;
+            // 
+            // StepCode
+            // 
+            this.StepCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.StepCode.HeaderText = "Step Code";
+            this.StepCode.Name = "StepCode";
+            this.StepCode.ReadOnly = true;
+            this.StepCode.Width = 56;
+            // 
+            // SalesAgent
+            // 
+            this.SalesAgent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.SalesAgent.HeaderText = "Sales Agent";
+            this.SalesAgent.Name = "SalesAgent";
+            this.SalesAgent.ReadOnly = true;
+            this.SalesAgent.Width = 61;
+            // 
             // PoViewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -584,7 +590,7 @@
             this.Controls.Add(this.tbVendor);
             this.Controls.Add(this.label1);
             this.Name = "PoViewControl";
-            this.Size = new System.Drawing.Size(880, 469);
+            this.Size = new System.Drawing.Size(861, 485);
             this.Load += new System.EventHandler(this.PoViewControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -628,7 +634,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Mfg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dc;
         private System.Windows.Forms.DataGridViewTextBoxColumn VendorIntPartNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Org;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Coo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn QtyRecd;
         private System.Windows.Forms.DataGridViewTextBoxColumn QtyCorrected;

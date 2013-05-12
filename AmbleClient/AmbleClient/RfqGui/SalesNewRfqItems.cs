@@ -34,13 +34,14 @@ namespace AmbleClient.RfqGui
             bool suc;
             try
             {
-                suc = RfqMgr.SaveRfq(rfq);
-
                 if (UserInfo.UserId == rfq.salesId)
                     rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + "  Created the RFQ" + System.Environment.NewLine;
                 else
                     rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + " Created the RFQ for " + AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(rfq.salesId) + System.Environment.NewLine;
-            }
+            
+                suc = RfqMgr.SaveRfq(rfq);
+
+               }
             catch (Exception ex)
             {
                 suc = false;

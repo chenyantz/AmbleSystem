@@ -66,7 +66,7 @@ namespace AmbleClient.SO
                 foreach (DataRow dr in dt.Rows)
                 {
                     dataGridView1.Rows.Add(true,
-                      Convert.ToInt32(dr["soItemId"]),
+                      Convert.ToInt32(dr["soItemsId"]),
                       dr["mpn"].ToString(),
                       dr["mfg"].ToString(),
                       dr["dc"].ToString(),
@@ -87,7 +87,7 @@ namespace AmbleClient.SO
             {
                 if ((bool)(dgvr.Cells[0].Value))
                 {
-                    SoItemsIdsForPo.Add(Convert.ToInt32(dgvr.Cells["SoItemId"].Value.ToString()));
+                    SoItemsIdsForPo.Add(Convert.ToInt32(dgvr.Cells["SoItemsId"].Value.ToString()));
                 
                 }
             }

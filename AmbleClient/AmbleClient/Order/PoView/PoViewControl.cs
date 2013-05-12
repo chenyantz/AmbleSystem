@@ -170,7 +170,9 @@ namespace AmbleClient.Order.PoView
 
         private void PoViewControl_Load(object sender, EventArgs e)
         {
-          
+
+            for (int i = 0; i < this.dataGridView1.Columns.Count; i++)
+                this.dataGridView1.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
 
@@ -320,9 +322,9 @@ namespace AmbleClient.Order.PoView
             int i = 0;
             foreach (PoItemContentAndState cSitem in poItemsStateList)
             {
-                dataGridView1.Rows.Add(i, cSitem.poItem.partNo, cSitem.poItem.mfg, cSitem.poItem.dc, cSitem.poItem.vendorIntPartNo, cSitem.poItem.coo, cSitem.poItem.qty,
+                dataGridView1.Rows.Add(i+1, cSitem.poItem.partNo, cSitem.poItem.mfg, cSitem.poItem.dc, cSitem.poItem.vendorIntPartNo, cSitem.poItem.coo, cSitem.poItem.qty,
                                      cSitem.poItem.qtyRecd, cSitem.poItem.qtyCorrected, cSitem.poItem.qtyAccept, cSitem.poItem.qtyRejected, cSitem.poItem.qtyRTV, cSitem.poItem.qcPending,
-                                      Enum.GetName(typeof(AmbleClient.Currency), cSitem.poItem.currency), cSitem.poItem.unitPrice, cSitem.poItem.qty * cSitem.poItem.unitPrice, cSitem.poItem.dockDate.ToShortDateString(), cSitem.poItem.receiveDate.HasValue?cSitem.poItem.receiveDate.Value.ToShortDateString():"",cSitem.poItem.stepCode, "Unknown");
+                                      Enum.GetName(typeof(AmbleClient.Currency), cSitem.poItem.currency), cSitem.poItem.unitPrice, cSitem.poItem.qty * cSitem.poItem.unitPrice, cSitem.poItem.dockDate.ToShortDateString(), cSitem.poItem.receiveDate.HasValue?cSitem.poItem.receiveDate.Value.ToShortDateString():"",cSitem.poItem.stepCode,AllAccountInfo.GetNameAccordingToId(cSitem.poItem.salesAgent));
               
                 if (this.selectedPoItemId != null && poItemsStateList[i].poItem.poItemsId == this.selectedPoItemId.Value)
                 {

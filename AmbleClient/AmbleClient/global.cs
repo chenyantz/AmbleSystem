@@ -87,6 +87,27 @@ namespace AmbleClient
            return canBeBuyers;
        }
 
+       public static List<int> GetUserCanBeSalesManager()
+       {
+           List<int> canBeSalesMgr = new List<int>();
+           canBeSalesMgr.Add((int)JobDescription.Admin);
+           canBeSalesMgr.Add((int)JobDescription.Boss);
+           canBeSalesMgr.Add((int)JobDescription.SalesManager);
+           return canBeSalesMgr;
+       }
+
+       public static List<int> GetUserCanBeBuyerMananger()
+       {
+           List<int> canBeBuyersMgr = new List<int>();
+           canBeBuyersMgr.Add((int)JobDescription.Admin);
+           canBeBuyersMgr.Add((int)JobDescription.Boss);
+           canBeBuyersMgr.Add((int)JobDescription.PurchasersManager);
+           return canBeBuyersMgr;
+       
+       }
+
+
+
        public static List<int> GetuserCanBeLogistics()
        {
            List<int> canBeBuyers = new List<int>();

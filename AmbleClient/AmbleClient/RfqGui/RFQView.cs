@@ -202,6 +202,7 @@ namespace AmbleClient.RfqGui
                     RfqMgr.ChangeRfqState(RfqStatesEnum.Closed, rfqId);
                     RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Closed the RFQ");
                     GuiOpAccordingToRfqState(RfqStatesEnum.Closed);
+                    this.Close();
                 }
             }
             

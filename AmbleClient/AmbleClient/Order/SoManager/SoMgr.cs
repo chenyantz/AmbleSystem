@@ -317,7 +317,7 @@ namespace AmbleClient.Order.SoMgr
 
           sb.Clear();
 
-          sb.Append(string.Format("select soItemsId,o.mpn,o.mfg,si.dc,o.vendorName,si.qty,o.price from soItem si,offer o where(si.rfqId=o.rfqNo) and si.soItemState={0} and (o.buyerId={1}", new SoItemApprove().GetStateValue(), buyersIds[0]));
+          sb.Append(string.Format("select soItemsId,o.mpn,o.mfg,si.dc,o.vendorName,si.qty,o.price from soItems si,offer o where(si.rfqId=o.rfqNo) and si.soItemState={0} and (o.buyerId={1}", new SoItemApprove().GetStateValue(), buyersIds[0]));
           for (int i = 1; i < buyersIds.Count; i++)
           {
               sb.Append(string.Format(" or o.buyerId={0} ", buyersIds[i]));
@@ -345,7 +345,7 @@ namespace AmbleClient.Order.SoMgr
        public static List<So> GetSoAccordingToRfqId(int rfqId)
        {
            List<So> soList = new List<So>();
-         string strSql="select soId from So where rfqId="+rfqId;
+         string strSql="select s.soId from So s,SoItems si where s.soId=si.soId and si.rfqId="+rfqId;
 
          DataTable dt = db.GetDataTable(strSql,"soId");
          foreach (DataRow dr in dt.Rows)
@@ -442,6 +442,7 @@ namespace AmbleClient.Order.SoMgr
                    {
                        soItemsId = Convert.ToInt32(dr["soItemsId"]),
                        soId = Convert.ToInt32(dr["soId"]),
+                       rfqId=Convert.ToInt32(dr["RfqId"]),
                        saleType = Convert.ToInt32(dr["saleType"]),
                        partNo = dr["partNo"].ToString(),
                        mfg = dr["mfg"].ToString(),

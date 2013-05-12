@@ -106,10 +106,10 @@
             // tbShipTo
             // 
             this.tbShipTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbShipTo.Location = new System.Drawing.Point(525, 238);
+            this.tbShipTo.Location = new System.Drawing.Point(525, 233);
             this.tbShipTo.Multiline = true;
             this.tbShipTo.Name = "tbShipTo";
-            this.tbShipTo.Size = new System.Drawing.Size(325, 42);
+            this.tbShipTo.Size = new System.Drawing.Size(324, 52);
             this.tbShipTo.TabIndex = 53;
             this.tbShipTo.Enter += new System.EventHandler(this.tbShipTo_Enter);
             // 
@@ -117,7 +117,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(454, 238);
+            this.label12.Location = new System.Drawing.Point(454, 233);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 15);
             this.label12.TabIndex = 52;
@@ -126,17 +126,17 @@
             // tbBillto
             // 
             this.tbBillto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbBillto.Location = new System.Drawing.Point(107, 238);
+            this.tbBillto.Location = new System.Drawing.Point(107, 233);
             this.tbBillto.Multiline = true;
             this.tbBillto.Name = "tbBillto";
-            this.tbBillto.Size = new System.Drawing.Size(315, 42);
+            this.tbBillto.Size = new System.Drawing.Size(324, 52);
             this.tbBillto.TabIndex = 51;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(34, 238);
+            this.label11.Location = new System.Drawing.Point(34, 233);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 15);
             this.label11.TabIndex = 50;
@@ -345,7 +345,7 @@
             this.tbApprover.Location = new System.Drawing.Point(749, 30);
             this.tbApprover.Name = "tbApprover";
             this.tbApprover.ReadOnly = true;
-            this.tbApprover.Size = new System.Drawing.Size(101, 21);
+            this.tbApprover.Size = new System.Drawing.Size(100, 21);
             this.tbApprover.TabIndex = 34;
             // 
             // tbApproveDate
@@ -597,7 +597,7 @@
             this.Controls.Add(this.tbCustomer);
             this.Controls.Add(this.label1);
             this.Name = "SoViewControl";
-            this.Size = new System.Drawing.Size(918, 527);
+            this.Size = new System.Drawing.Size(913, 539);
             this.Load += new System.EventHandler(this.SoViewControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
