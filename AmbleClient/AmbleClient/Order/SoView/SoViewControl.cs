@@ -16,6 +16,8 @@ namespace AmbleClient.SO
 
     public partial class SoViewControl : UserControl
     {
+
+        public bool HasItemChange = false;
         List<SoItemsContentAndState> soItemsStateList = new List<SoItemsContentAndState>();
         List<int> mySubs;
 
@@ -202,6 +204,10 @@ namespace AmbleClient.SO
             ShowDataInDataGridView();
 
         }
+
+
+
+
 
         private void FillTheSalesComboBox()
         {
@@ -390,6 +396,7 @@ namespace AmbleClient.SO
                         GetSoItems();
                     }
                     ShowDataInDataGridView();
+                    this.HasItemChange = true;
                 }
 
             }
@@ -399,6 +406,48 @@ namespace AmbleClient.SO
 
         private void btAdd_Click(object sender, EventArgs e)
         {
+            NewAddItem nai=new NewAddItem(true);
+
+            if (DialogResult.Yes == nai.ShowDialog())
+            {
+
+                Rfq rfq = RfqGui.RfqManager.RfqMgr.GetRfqAccordingToRfqId(nai.rfqId);
+                
+                SoItems soItem = new SoItems();
+                soItem.currencyType = (int)AmbleClient.Currency.USD;
+                soItem.unitPrice = rfq.targetPrice ?? 0;
+                soItem.mfg = rfq.mfg;
+                soItem.partNo = rfq.partNo;
+                soItem.rohs = rfq.rohs;
+                soItem.qty = rfq.qty ?? 0;
+                soItem.intPartNo = rfq.custPartNo;
+                soItem.dc = rfq.dc;
+                soItem.dockDate = rfq.dockdate;
+                soItem.rfqId = nai.rfqId;
+
+
+                if (isNewCreateSo)
+                {
+                    soItemsStateList.Add(new SoItemsContentAndState
+                    {
+                        soitem = soItem,
+                        state = OrderItemsState.New
+                    }
+                   );
+                }
+                else
+                {
+                    SoMgr.SaveSoItems(this.soId, soItem);
+                    GetSoItems();
+                
+
+                }
+                ShowDataInDataGridView();
+                this.HasItemChange = true;
+            
+            }
+
+
 
         }
 
@@ -421,6 +470,7 @@ namespace AmbleClient.SO
                     GetSoItems();
                 }
                 ShowDataInDataGridView();
+                this.HasItemChange = true;
             }
 
 
@@ -465,6 +515,7 @@ namespace AmbleClient.SO
                 }
 
                 ShowDataInDataGridView();
+                this.HasItemChange = true;
             }
 
 

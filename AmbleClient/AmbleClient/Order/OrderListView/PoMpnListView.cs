@@ -223,7 +223,7 @@ namespace AmbleClient.Order
                 return;
             int poId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["PoId"].Value);
             int poItemId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["PoItemId"].Value);
-            AmbleClient.Order.PoView.PoView poView = new AmbleClient.Order.PoView.PoView(poId,poItemId);
+            AmbleClient.Order.PoView.PoView poView = new AmbleClient.Order.PoView.PoView(poId, poItemId);
             if (DialogResult.Yes == poView.ShowDialog())
             {
                 FillTheDataGrid();

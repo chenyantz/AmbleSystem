@@ -15,8 +15,6 @@ namespace AmbleClient.SO
 
     public partial class SoView : Form
     {
-        private int rfqId;
-
 
         private SoItemOrderStateList soStateList = new SoItemOrderStateList();
 
@@ -24,26 +22,25 @@ namespace AmbleClient.SO
         List<SoViewControl> soViewControlList = new List<SoViewControl>();
 
         int? selectedSoItemId = null;
-       
+
 
         public SoView(int rfqId)
         {
             InitializeComponent();
-            this.rfqId = rfqId;
             soList = SoMgr.GetSoAccordingToRfqId(rfqId);
             this.Text = "List All SO info for RFQ:" + rfqId;
         }
 
         public SoView(So so)
         {
-           
+
             InitializeComponent();
             soList = new List<So>();
             soList.Add(so);
             this.Text = "Info for SO:" + so.soId;
         }
 
-        public SoView(int soId,int soItemId)
+        public SoView(int soId, int soItemId)
         {
             InitializeComponent();
             soList = new List<So>();
@@ -55,75 +52,72 @@ namespace AmbleClient.SO
 
         private void GenerateGui()
         {
-            
-            
+
+
             So so = soList[tabControl1.SelectedIndex];
 
-           /*
-           if(soState.WhoCanUpdate().Contains(UserInfo.Job))
+
+            if (so.soStates != (int)SoStatesEnum.New && UserCombine.GetUserCanBeSalesManager().Contains((int)UserInfo.Job))
             {
-             tsbUpdate.Enabled=true;
+                tsbUpdate.Enabled = true;
+            }
+            else if (so.soStates == (int)SoStatesEnum.New && UserCombine.GetUserCanBeSales().Contains((int)UserInfo.Job))
+            {
+                tsbUpdate.Enabled = true;
             }
             else
             {
-            tsbUpdate.Enabled=false;
+                tsbUpdate.Enabled = false;
             }
-          //for list
+            //for list
 
-        //for enter PO
-          
-            if ((UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss || UserInfo.Job == JobDescription.PurchasersManager || UserInfo.Job == JobDescription.Purchaser)
-               && (so.soStates == new SoItemApprove().GetStateValue()))
-           {
-               tsbPoEnter.Enabled = true;
+            //for view Po
+            if (Order.PoMgr.PoMgr.GetPoNumberAccordingToSoId(soList[tabControl1.SelectedIndex].soId) <= 0)
+            {
+                tsbViewPo.Enabled = false;
+            }
+            else
+            {
+                tsbViewPo.Enabled = true;
+            }
 
-           }
-           else
-           {
-               tsbPoEnter.Enabled = false;
-           }*/
+            //for approve and rejected.
+            if (so.soStates == (int)SoStatesEnum.New)
+            {
+                tsbApprove.Enabled = true;
+                tsbReject.Enabled = true;
 
-        //for view Po
-           if (Order.PoMgr.PoMgr.GetPoNumberAccordingToSoId(soList[tabControl1.SelectedIndex].soId) <= 0)
-           {
-               tsbViewPo.Enabled = false;
-           }
-           else
-           {
-               tsbViewPo.Enabled = true;           
-           }
+            }
+            else
+            {
+                tsbApprove.Enabled = false;
+                tsbReject.Enabled = false;
+            }
+            //for cancel
 
-       //for approve and rejected.
-           if (so.soStates == (int)SoStatesEnum.New)
-           {
-               tsbApprove.Enabled = true;
-               tsbReject.Enabled = true;
+            if (so.soStates == (int)SoStatesEnum.Approved)
+            {
+                tsbCancel.Enabled = true;
+            }
+            else
+            {
+                tsbCancel.Enabled = false;
+            }
 
-           }
-           else
-           {
-               tsbApprove.Enabled = false;
-               tsbReject.Enabled = false;
-           }
-         //for cancel
+            if (UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss)
+            {
+                tsbForceClose.Enabled = true;
+            }
+            else
+            {
+                tsbForceClose.Enabled = false;
+            }
 
-           if (so.soStates == (int)SoStatesEnum.Approved)
-           {
-               tsbCancel.Enabled = true;
-           }
-           else
-           {
-               tsbCancel.Enabled = false;
-           }
-
-
-
-
-       }
+        }
 
         private void SoView_Load(object sender, EventArgs e)
         {
-             for (int i = 0; i < soList.Count; i++)
+            for (int i = 0; i < soList.Count; i++)
             {
                 SoViewControl soViewControlItem = new SoViewControl();
                 soViewControlItem.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -131,10 +125,10 @@ namespace AmbleClient.SO
                 soViewControlItem.Name = "buyerOfferIems" + i;
                 soViewControlItem.Size = new System.Drawing.Size(906, 456);
                 soViewControlItem.TabIndex = 0;
-                soViewControlItem.FillTheTable(soList[i],selectedSoItemId);
+                soViewControlItem.FillTheTable(soList[i], selectedSoItemId);
                 soViewControlList.Add(soViewControlItem);
 
-                
+
 
             }
 
@@ -168,36 +162,10 @@ namespace AmbleClient.SO
             GenerateGui();
         }
 
-        /*
-        private void tscbStateList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (MessageBox.Show("Change the state to "+(string)tscbStateList.SelectedItem + "?", "warning", MessageBoxButtons.YesNo) == DialogResult.No)
-                return;
-
-            string selectedItemString = (string)tscbStateList.SelectedItem;
-            So so = soList[tabControl1.SelectedIndex];
-
-            SoState soState = soStateList.GetSoStateAccordingToValue(so.soStates);
-            foreach (Operation op in soState.GetOperationList())
-            {
-                if (selectedItemString == op.operationName)
-                {
-                    op.operationMethod(so.soId);
-                
-                }
-            
-            }
-            this.DialogResult = DialogResult.Yes;
-
-        }*/
-
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
-            
+
             soViewControlList[tabControl1.SelectedIndex].SoUpdate();
-            
-            
             this.DialogResult = DialogResult.Yes;
 
         }
@@ -207,9 +175,6 @@ namespace AmbleClient.SO
         {
             Order.PoView.PoView poview = new Order.PoView.PoView(soList[tabControl1.SelectedIndex].soId, 0);
             poview.ShowDialog();
-
-
-
         }
 
         private void tsbToExcel_Click(object sender, EventArgs e)
@@ -231,17 +196,17 @@ namespace AmbleClient.SO
                     }
                 }
             }
-                SoPoExcelHelper.SaveSOExcel(soList, soItemsListList);
+            SoPoExcelHelper.SaveSOExcel(soList, soItemsListList);
 
 
         }
 
         private void tsbApprove_Click(object sender, EventArgs e)
         {
-           So so = soList[tabControl1.SelectedIndex];
-           SoMgr.WholeUpdateSoState(so.soId,UserInfo.UserId,SoStatesEnum.Approved);
-           this.DialogResult = DialogResult.Yes;
-           this.Close();
+            So so = soList[tabControl1.SelectedIndex];
+            SoMgr.WholeUpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Approved);
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
         }
 
         private void tsbReject_Click(object sender, EventArgs e)
@@ -258,7 +223,7 @@ namespace AmbleClient.SO
             SoMgr.WholeUpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Cancel);
             this.DialogResult = DialogResult.Yes;
             this.Close();
-            
+
         }
 
         private void tsbForceClose_Click(object sender, EventArgs e)
@@ -268,5 +233,25 @@ namespace AmbleClient.SO
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }
+
+        private void SoView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+
+                foreach (SoViewControl control in soViewControlList)
+                {
+                    if (control.HasItemChange == true)
+                    {
+                        this.DialogResult = DialogResult.Yes;
+                        return;
+                    }
+
+                }
+
+
+            }
+        }
     }
 }
+

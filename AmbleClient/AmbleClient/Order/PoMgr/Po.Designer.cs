@@ -499,7 +499,9 @@ namespace AmbleClient.Order.PoMgr
 
         #endregion
 
-    
+
+
+        public int soStates { get; set; }
     }
     
     /// <summary>

@@ -158,6 +158,7 @@ namespace AmbleClient.DataClass
                     }
 
                     m_Cmd.ExecuteNonQuery();
+                    m_Cmd.Parameters.Clear();
                   //  m_Cmd.Connection = m_Conn;
                 }
 

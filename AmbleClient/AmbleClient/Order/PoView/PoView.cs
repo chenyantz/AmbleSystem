@@ -14,9 +14,6 @@ namespace AmbleClient.Order.PoView
 
     public partial class PoView : Form
     {
-        private int soId;
-
-
         private PoItemStateList poStateList = new PoItemStateList();
 
         private List<po> poList;
@@ -48,9 +45,11 @@ namespace AmbleClient.Order.PoView
         {
             po poMain = poList[tabControl1.SelectedIndex];
 
-            PoItemState poState = poStateList.GetPoStateAccordingToValue((int)poMain.poStates);
-
-            if (poState.WhoCanUpdate().Contains(UserInfo.Job))
+            if (poMain.poStates != (int)PoStatesEnum.New && UserCombine.GetUserCanBeBuyerMananger().Contains((int)UserInfo.Job))
+            {
+                tsbUpdate.Enabled = true;
+            }
+            else if (poMain.poStates == (int)PoStatesEnum.New && UserCombine.GetUserCanBeBuyers().Contains((int)UserInfo.Job))
             {
                 tsbUpdate.Enabled = true;
             }
@@ -58,18 +57,39 @@ namespace AmbleClient.Order.PoView
             {
                 tsbUpdate.Enabled = false;
             }
-            //for list
-            /*
-            tscbStateList.Items.Clear();
-            List<Operation> opList = poState.GetOperationList();
-            foreach (Operation op in opList)
+
+
+            //for approve and rejected.
+            if (poMain.poStates == (int)PoStatesEnum.New)
             {
-                if (op.jobs.Contains(UserInfo.Job))
-                {
-                    tscbStateList.Items.Add(op.operationName);
-                }
+                tsbApprove.Enabled = true;
+                tsbReject.Enabled = true;
+
             }
-            */
+            else
+            {
+                tsbApprove.Enabled = false;
+                tsbReject.Enabled = false;
+            }
+            //for cancel
+
+            if (poMain.poStates == (int)PoStatesEnum.Approved)
+            {
+                tsbCancel.Enabled = true;
+            }
+            else
+            {
+                tsbCancel.Enabled = false;
+            }
+
+            if (UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss)
+            {
+                tsbForceClose.Enabled = true;
+            }
+            else
+            {
+                tsbForceClose.Enabled = false;
+            }
 
         }
 
@@ -181,6 +201,22 @@ namespace AmbleClient.Order.PoView
             this.DialogResult = DialogResult.Yes;
             this.Close();
 
+        }
+
+        private void PoView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                foreach (PoViewControl control in poViewControlList)
+                {
+                    if (control.HasItemChange == true)
+                    {
+                        this.DialogResult = DialogResult.Yes;
+                        return;
+                    
+                    }
+                }
+            }
         }
     }
 }

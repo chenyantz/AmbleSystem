@@ -14,7 +14,7 @@ namespace AmbleClient.Order.PoView
 
     public partial class PoViewControl : UserControl
     {
-
+      public bool HasItemChange=false;
       private  List<int> mysubs;
       private  Dictionary<int, string> buyerIdsAndNames;
       private int poId = int.MinValue;
@@ -25,9 +25,9 @@ namespace AmbleClient.Order.PoView
 
       private bool isNewCreatePo = false;
 
-        List<PoItemContentAndState> poItemsStateList = new List<PoItemContentAndState>();
+     List<PoItemContentAndState> poItemsStateList = new List<PoItemContentAndState>();
 
-        List<string> ShipToList = new List<string>();
+     List<string> ShipToList = new List<string>();
 
         public PoViewControl()
         {
@@ -367,6 +367,70 @@ namespace AmbleClient.Order.PoView
 
        private void btAdd_Click(object sender, EventArgs e)
        {
+            NewAddItem nai=new NewAddItem(false);
+
+            if (DialogResult.Yes == nai.ShowDialog())
+            {
+                SO.SoItemPicker sip = new SO.SoItemPicker(nai.soItemsList);
+                if (DialogResult.Yes == sip.ShowDialog())
+                {
+                    List<int> soItemList = sip.SoItemsIdsForPo;
+                    List<poitems> poItems = new List<poitems>();
+
+                    foreach (int soItemsId in soItemsIdList)
+                    {
+                        Order.SoMgr.SoItems item = SoMgr.SoMgr.GetSoItemInfoAccordingToSoItemId(soItemsId);
+                        Order.SoMgr.So so = SoMgr.SoMgr.GetSoAccordingToSoId(item.soId);
+                        float miniPrice = float.MaxValue;
+                        List<OfferGui.OfferMgr.Offer> offerList = OfferGui.OfferMgr.OfferMgr.GetOffersByRfqId(item.rfqId);
+
+                        foreach (OfferGui.OfferMgr.Offer o in offerList)
+                        {
+                            if (o.price < miniPrice)
+                                miniPrice = o.price;
+
+                        }
+
+                        poitems poItem = new poitems();
+                        poItem.partNo = item.partNo;
+                        poItem.mfg = item.mfg;
+                        poItem.dc = item.dc;
+                        poItem.qty = item.qty;
+                        poItem.dockDate = item.dockDate;
+                        poItem.unitPrice = miniPrice;
+                        poItem.receiveDate = null;
+                        poItem.currency = (sbyte)((int)AmbleClient.Currency.USD);
+                        poItem.soItemId = item.soItemsId;
+                        poItem.salesAgent = (sbyte)so.salesId;
+
+
+                        if (isNewCreatePo)
+                        {
+                            this.poItemsStateList.Add(
+                                new PoItemContentAndState
+                                {
+                                    poItem = poItem,
+                                    state = OrderItemsState.New
+                                }
+                                );
+                        }
+                        else
+                        {
+                            poItems.Add(poItem);
+                        
+                        }
+                    }
+
+                    if (!isNewCreatePo)
+                    {
+                        PoMgr.PoMgr.SavePoItems(this.poId, poItems);
+                        GetPoItemsList();
+                    }
+                    FillTheDataGridPoItems();
+                    this.HasItemChange = true;
+                }
+
+            }
 
        }
 
@@ -390,7 +454,8 @@ namespace AmbleClient.Order.PoView
                   poItemsStateList.Remove(poItemsStateList[rowIndex]);
               }
               FillTheDataGridPoItems();
-            
+              HasItemChange = true;
+              
           }
 
 
@@ -456,6 +521,7 @@ namespace AmbleClient.Order.PoView
 
                }
                FillTheDataGridPoItems();
+               this.HasItemChange = true;
            }
        }
 
@@ -483,6 +549,7 @@ namespace AmbleClient.Order.PoView
                     GetPoItemsList();
                    }
                    FillTheDataGridPoItems();
+                   HasItemChange = true;
                }
            }
 

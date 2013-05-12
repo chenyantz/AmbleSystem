@@ -130,7 +130,12 @@ namespace AmbleClient.Order
           UpdateState(poItemId, new PoItemWaitingForShip().GetStateValue());
           int soItemId= PoMgr.PoMgr.GetSoItemIdAccordingToPoItemId(poItemId);
           SoMgr.SoMgr.UpdateSoItemState(soItemId, new SoItemWaitingForShip().GetStateValue());
-          
+          //change the so, po state to under process
+          int poId = PoMgr.PoMgr.GetPoIdAccordingToPoItemId(poItemId);
+          int soId = SoMgr.SoMgr.GetSoIdAccordingToSoItemId(soItemId);
+          PoMgr.PoMgr.UpdatePoState(poId, (int)PoStatesEnum.UnderProcess);
+          SoMgr.SoMgr.UpdateSoState(soId, (int)SoStatesEnum.UnderProcess);
+
       }
 
         public override int GetStateValue()

@@ -193,8 +193,6 @@ namespace AmbleClient.Order.PoMgr
                                       qty = poItems.qty,
                                       unitPrice = poItems.unitPrice.Value,
                                       poItemState = poItems.poItemState
-
-
                                   };
 
                poCombineList.AddRange(poListFromDb);
@@ -326,6 +324,7 @@ namespace AmbleClient.Order.PoMgr
        {
                foreach (poitems poitem in poitemsList)
                {
+                   poitem.poId = poId;
                    poEntity.poitems.AddObject(poitem);
                }
                poEntity.SaveChanges();

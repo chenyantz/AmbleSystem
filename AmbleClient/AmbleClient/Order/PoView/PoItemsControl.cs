@@ -23,22 +23,12 @@ namespace AmbleClient.PO
 
         }
 
-        public void NewFill(int soId)
-        { 
-          //get the rfqId and get the MPN,CFG and DC info
-            int rfqId = Order.SoMgr.SoMgr.GetRfqIdAccordingToSoId(soId);
-            RfqGui.RfqManager.Rfq rfq = RfqGui.RfqManager.RfqMgr.GetRfqAccordingToRfqId(rfqId);
-            tbDc.Text = rfq.dc;
-            tbMfg.Text = rfq.mfg;
-            tbPartNo.Text = rfq.partNo;
-
-        
-        }
-
-
-
-        public void FillTheItems(poitems item)
+        public void FillTheItems(poitems item,bool isNewCreatePo)
         {
+            if (isNewCreatePo)
+            {
+                this.btFiles.Enabled = false;
+            }
             this.poItemId = item.poItemsId;
             tbPartNo.Text = item.partNo;
             tbMfg.Text = item.mfg;

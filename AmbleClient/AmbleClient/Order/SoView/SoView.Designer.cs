@@ -161,6 +161,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SoView";
             this.Text = "SoView";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SoView_FormClosed);
             this.Load += new System.EventHandler(this.SoView_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

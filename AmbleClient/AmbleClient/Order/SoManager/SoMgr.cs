@@ -247,11 +247,17 @@ namespace AmbleClient.Order.SoMgr
            sb.Append(" ) ");
 
                //append the filter
-               if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+           if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+           {
+               if (filterColumn.Trim() == "partNo" && (!string.IsNullOrWhiteSpace(filterString)))
                {
-                   sb.Append(string.Format(" and s.{0} like '%{1}%' ", filterColumn, filterString));
+                   sb.Append(string.Format(" and si.{0} like '%{1}%' ", filterColumn, filterString));
                }
-
+               else
+               {
+                  sb.Append(string.Format(" and s.{0} like '%{1}%' ", filterColumn, filterString));
+               }
+           }
                sb.Append(" and (soItemState=" + states[0]);
                for (int i = 1; i < states.Count; i++)
                {
@@ -311,7 +317,7 @@ namespace AmbleClient.Order.SoMgr
 
           sb.Clear();
 
-          sb.Append(string.Format("select soItemsId,o.mpn,o.mfg,si.dc,o.vendorName,si.qty from soItem si,offer o where(si.rfqId=o.rfqNo) and si.soItemState={0} and (o.buyerId={1}", new SoItemApprove().GetStateValue(), buyersIds[0]));
+          sb.Append(string.Format("select soItemsId,o.mpn,o.mfg,si.dc,o.vendorName,si.qty,o.price from soItem si,offer o where(si.rfqId=o.rfqNo) and si.soItemState={0} and (o.buyerId={1}", new SoItemApprove().GetStateValue(), buyersIds[0]));
           for (int i = 1; i < buyersIds.Count; i++)
           {
               sb.Append(string.Format(" or o.buyerId={0} ", buyersIds[i]));
@@ -325,8 +331,6 @@ namespace AmbleClient.Order.SoMgr
          return db.GetDataTable(sb.ToString(), "temp");
 
        }
-
-
 
        public static int GetSoNumberFromRfqId(int rfqId)
        {
@@ -542,29 +546,26 @@ namespace AmbleClient.Order.SoMgr
        }
 
        
-       /*
-       public static bool SaveSoItems(int soId, List<SoItems> soitems)
+     
+       public static void SaveSoItems(int soId, SoItems soItem)
        {
-           List<string> strSqls = new List<string>();
-           foreach (SoItems soItem in soitems)
-           {
 
-               string strsql = "insert into SoItems(soId,rfqId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,packingInstruction) " +
-                   string.Format(" values({0},{1},{2},'{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}',{11},{12},{13},{14},'{15}','{16}','{17}','{18}')", soId, soItem.rfqId,soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
-                   soItem.intPartNo, soItem.shipFrom,soItem.shipMethod,soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(),soItem.shippedDate.HasValue?soItem.shippedDate.Value.ToShortDateString():"null",
-                   soItem.shippingInstruction, soItem.packingInstruction);
-               strSqls.Add(strsql);
-           
-           }
+           string strsql = "insert into SoItems(soId,rfqId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,packingInstruction,soItemState) " +
+        string.Format(" values({0},{1},{2},'{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}',{11},{12},{13},{14},'{15}',{16},'{17}','{18}',{19})", soId, soItem.rfqId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
+        soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped.HasValue ? soItem.qtyshipped.Value.ToString() : "null", soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? ("'" + soItem.shippedDate.Value.ToShortDateString() + "'") : "null",
+        soItem.shippingInstruction, soItem.packingInstruction, 0);
+          
+            db.ExecDataBySql(strsql);
 
-           return db.ExecDataBySqls(strSqls);
+       }
 
-       }*/
-
-       public static int GetSoStateAccordingToSoId(int soId)
+       public static int? GetSoStateAccordingToSoId(int soId)
        {
+           object o;
            string strSql = " select soStates from so where soId=" + soId.ToString();
-           return Convert.ToInt32(db.GetSingleObject(strSql));
+           if ((o=db.GetSingleObject(strSql)) == null)
+               return null;
+           return Convert.ToInt32(o);
       
        }
 

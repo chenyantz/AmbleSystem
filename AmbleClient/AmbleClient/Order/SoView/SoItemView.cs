@@ -78,6 +78,22 @@ namespace AmbleClient.SO
             this.soItem = item;
             this.soItemsControl1.FillItems(item);
             SetComboxItem();
+
+            if (!isNewCreateSo)
+            {
+                if (soItemOrderStateList.GetSoStateAccordingToValue(item.soItemState).WhoCanUpdate().Contains(UserInfo.Job))
+                {
+                    this.tsbOp.Enabled = true;
+                }
+                else
+                {
+                    this.tsbOp.Enabled = false;
+                }
+            
+            }
+
+
+
         }
 
         private void tscbSoItemState_SelectedIndexChanged(object sender, EventArgs e)

@@ -64,8 +64,24 @@ namespace AmbleClient.Order.PoView
         {
             this.poItems = poItem;
 
-            poItemsControl1.FillTheItems(poItem);
+            poItemsControl1.FillTheItems(poItem,isNewCreatePo);
             SetComboxItem();
+
+            if (!isNewCreatePo)
+            {
+                if (poItemStateList.GetPoStateAccordingToValue(poItem.poItemState).WhoCanUpdate().Contains(UserInfo.Job))
+                {
+                    this.tscbOp.Enabled = true;
+                }
+                else
+                {
+                    this.tscbOp.Enabled = false;
+                }
+            
+            
+            }
+
+
         
         }
 

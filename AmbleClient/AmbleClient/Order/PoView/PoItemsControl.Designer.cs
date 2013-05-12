@@ -429,7 +429,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(35, 308);
+            this.label20.Location = new System.Drawing.Point(35, 319);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(95, 15);
             this.label20.TabIndex = 38;
@@ -438,7 +438,7 @@
             // tbNoteToVendor
             // 
             this.tbNoteToVendor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNoteToVendor.Location = new System.Drawing.Point(133, 308);
+            this.tbNoteToVendor.Location = new System.Drawing.Point(133, 319);
             this.tbNoteToVendor.Multiline = true;
             this.tbNoteToVendor.Name = "tbNoteToVendor";
             this.tbNoteToVendor.Size = new System.Drawing.Size(527, 83);
@@ -449,7 +449,7 @@
             this.btFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btFiles.Location = new System.Drawing.Point(517, 257);
             this.btFiles.Name = "btFiles";
-            this.btFiles.Size = new System.Drawing.Size(143, 33);
+            this.btFiles.Size = new System.Drawing.Size(143, 41);
             this.btFiles.TabIndex = 40;
             this.btFiles.Text = "Related Files";
             this.btFiles.UseVisualStyleBackColor = true;
@@ -501,7 +501,7 @@
             this.Controls.Add(this.tbPartNo);
             this.Controls.Add(this.label1);
             this.Name = "PoItemsControl";
-            this.Size = new System.Drawing.Size(721, 439);
+            this.Size = new System.Drawing.Size(716, 461);
             this.ResumeLayout(false);
             this.PerformLayout();
 

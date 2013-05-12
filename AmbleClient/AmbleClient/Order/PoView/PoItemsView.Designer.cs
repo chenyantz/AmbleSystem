@@ -47,7 +47,7 @@
             this.tscbPoState});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(699, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(706, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -83,14 +83,14 @@
             this.poItemsControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.poItemsControl1.Location = new System.Drawing.Point(0, 25);
             this.poItemsControl1.Name = "poItemsControl1";
-            this.poItemsControl1.Size = new System.Drawing.Size(699, 425);
+            this.poItemsControl1.Size = new System.Drawing.Size(706, 439);
             this.poItemsControl1.TabIndex = 1;
             // 
             // PoItemsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 450);
+            this.ClientSize = new System.Drawing.Size(706, 464);
             this.Controls.Add(this.poItemsControl1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -34,12 +34,12 @@
             this.tsbCancel = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Selecte = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SoItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MPN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MFG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VendorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VendorPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -82,17 +82,18 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Selecte,
-            this.SoItemId,
             this.MPN,
             this.MFG,
             this.DC,
             this.VendorName,
-            this.Qty});
+            this.Qty,
+            this.VendorPrice});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(800, 312);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Selecte
             // 
@@ -100,13 +101,6 @@
             this.Selecte.HeaderText = "Select";
             this.Selecte.Name = "Selecte";
             this.Selecte.Width = 40;
-            // 
-            // SoItemId
-            // 
-            this.SoItemId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.SoItemId.HeaderText = "SoItem ID";
-            this.SoItemId.Name = "SoItemId";
-            this.SoItemId.Width = 84;
             // 
             // MPN
             // 
@@ -131,13 +125,24 @@
             // 
             // VendorName
             // 
+            this.VendorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.VendorName.HeaderText = "Vendor Name";
             this.VendorName.Name = "VendorName";
+            this.VendorName.Width = 96;
             // 
             // Qty
             // 
+            this.Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Qty.HeaderText = "QTY";
             this.Qty.Name = "Qty";
+            this.Qty.Width = 48;
+            // 
+            // VendorPrice
+            // 
+            this.VendorPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.VendorPrice.HeaderText = "Vendor Price";
+            this.VendorPrice.Name = "VendorPrice";
+            this.VendorPrice.Width = 67;
             // 
             // SoItemPicker
             // 
@@ -166,11 +171,11 @@
         private System.Windows.Forms.ToolStripButton tsbCancel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Selecte;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoItemId;
         private System.Windows.Forms.DataGridViewTextBoxColumn MPN;
         private System.Windows.Forms.DataGridViewTextBoxColumn MFG;
         private System.Windows.Forms.DataGridViewTextBoxColumn DC;
         private System.Windows.Forms.DataGridViewTextBoxColumn VendorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VendorPrice;
     }
 }
