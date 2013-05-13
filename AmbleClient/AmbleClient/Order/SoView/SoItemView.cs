@@ -104,7 +104,7 @@ namespace AmbleClient.SO
             }
 
 
-            if (MessageBox.Show("Change the state to " + (string)tscbSoItemState.SelectedItem + " and hold all the changes?", "warning", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("Change the state to " + (string)tscbSoItemState.SelectedItem + " ?", "warning", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
 
             string selectedItemString = (string)tscbSoItemState.SelectedItem;

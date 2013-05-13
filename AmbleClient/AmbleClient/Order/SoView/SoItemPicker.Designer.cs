@@ -136,7 +136,7 @@
             this.VendorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.VendorName.HeaderText = "Vendor Name";
             this.VendorName.Name = "VendorName";
-            this.VendorName.Width = 96;
+            this.VendorName.Width = 67;
             // 
             // Qty
             // 
@@ -162,7 +162,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SoItemPicker";
-            this.Text = "RfqItemPicker";
+            this.Text = "SO Items for PO";
             this.Load += new System.EventHandler(this.RfqItemPicker_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

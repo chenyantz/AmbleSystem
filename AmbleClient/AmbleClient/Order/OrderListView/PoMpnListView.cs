@@ -211,8 +211,8 @@ namespace AmbleClient.Order
 
             foreach (PoCombine poItem in poCombineList)
             {
-                dataGridView1.Rows.Add(poItem.poId,poItem.poItemsId,Tool.Get6DigitalNumberAccordingToId(poItem.poId),poItem.partNo,poItem.mfg,poItem.dc,poItem.qty,poItem.unitPrice,poItem.vendorName,idNameDict[(int)poItem.buyerId],
-                    poItem.poDate.ToShortDateString(),idNameDict[(int)poItem.salesAgentId],poItemStateList.GetPoStateStringAccordingToValue(poItem.poItemState));
+                dataGridView1.Rows.Add(poItem.poId,poItem.poItemsId,Tool.Get6DigitalNumberAccordingToId(poItem.poId),poItem.partNo,poItem.mfg,poItem.dc,poItem.qty,poItem.unitPrice,poItem.vendorName,AllAccountInfo.GetNameAccordingToId(poItem.buyerId),
+                    poItem.poDate.ToShortDateString(),AllAccountInfo.GetNameAccordingToId(poItem.salesAgentId),poItemStateList.GetPoStateStringAccordingToValue(poItem.poItemState));
             }
 
         }

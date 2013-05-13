@@ -326,13 +326,11 @@ namespace AmbleClient.SO
             foreach(SoItemsContentAndState sics in soItemsStateList)
             {
               sics.soitem.soId=soId;
+              AmbleClient.RfqGui.RfqManager.RfqMgr.ChangeRfqState(RfqStatesEnum.HasSO, sics.soitem.rfqId);
             }
              SoMgr.UpdateSoItems(soItemsStateList);
-
-               // new AmbleClient.RfqGui.RfqManager.RfqMgr().ChangeRfqState(RfqStatesEnum.HasSO, rfqId);
-
-                MessageBox.Show("Save Sale Order Successfully");
-                return true;
+             MessageBox.Show("Save Sale Order Successfully");
+             return true;
 
         }
 

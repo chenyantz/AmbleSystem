@@ -25,19 +25,40 @@ namespace AmbleClient.RfqGui
 
         private void RfqItemPicker_Load(object sender, EventArgs e)
         {
-            DataTable dt = AmbleClient.RfqGui.RfqManager.RfqMgr.GetRfqForSo(customerName, UserInfo.UserId, this.rfqId);
+            DataTable dt = AmbleClient.RfqGui.RfqManager.RfqMgr.GetRfqForSo(customerName, UserInfo.UserId);
 
+            
             foreach (DataRow dr in dt.Rows)
             {
-                dataGridView1.Rows.Add(true,
-                  Tool.Get6DigitalNumberAccordingToId(Convert.ToInt32(dr["rfqNo"])),
-                  dr["partNo"].ToString(),
-                  dr["mfg"].ToString(),
-                  dr["dc"].ToString(),
-                  dr["targetPrice"].ToString(),
-                  dr["resale"].ToString(),
-                  dr["cost"].ToString());
+                if (Convert.ToInt32(dr["rfqNo"]) == this.rfqId)
+                {
+                    dataGridView1.Rows.Insert(0,
+                        true,
+                    Tool.Get6DigitalNumberAccordingToId(Convert.ToInt32(dr["rfqNo"])),
+                    dr["partNo"].ToString(),
+                    dr["mfg"].ToString(),
+                    dr["dc"].ToString(),
+                    dr["targetPrice"].ToString(),
+                    dr["resale"].ToString(),
+                    dr["cost"].ToString());
+
+
+
+                }
+                else
+                {
+                    dataGridView1.Rows.Add(true,
+                      Tool.Get6DigitalNumberAccordingToId(Convert.ToInt32(dr["rfqNo"])),
+                      dr["partNo"].ToString(),
+                      dr["mfg"].ToString(),
+                      dr["dc"].ToString(),
+                      dr["targetPrice"].ToString(),
+                      dr["resale"].ToString(),
+                      dr["cost"].ToString());
+                }
+
             }
+            dataGridView1.Rows[0].Cells[0].ReadOnly = true;
 
         }
 
@@ -52,7 +73,6 @@ namespace AmbleClient.RfqGui
                 }
             }
 
-            RfqIdsForSo.Insert(0, rfqId);
             this.DialogResult = DialogResult.OK;
             this.Close();
 

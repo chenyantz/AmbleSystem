@@ -46,9 +46,6 @@ namespace AmbleClient.Order.PoView
             soItemsId.AddRange(soItemId);
             poViewControl1.soItemsIdList = soItemsId;
             poViewControl1.NewPoFill();
-
-
-        
         }
 
 

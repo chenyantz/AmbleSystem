@@ -46,13 +46,24 @@ namespace AmbleClient.RfqGui
             if(AmbleClient.OfferGui.OfferMgr.OfferMgr.HasOfferByRfq(rfqId))
             {
              tsbViewOffers.Enabled=true;
-                
             }
             else
             {
              tsbViewOffers.Enabled=false;
             }
+            Rfq rfq = RfqMgr.GetRfqAccordingToRfqId(rfqId);
+            if ((!rfq.firstPA.HasValue) && (!rfq.secondPA.HasValue))
+            {
+                tsbEnterOffer.Enabled = false;
+            }
+            else
+            {
+                tsbEnterOffer.Enabled = true;
+            }
        
+
+
+
         }
 
         

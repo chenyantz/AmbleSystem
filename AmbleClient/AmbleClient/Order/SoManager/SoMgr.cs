@@ -170,7 +170,7 @@ namespace AmbleClient.Order.SoMgr
            }
 
            StringBuilder sb = new StringBuilder();
-           sb.Append(string .Format("select s.soId from So s,SoItems si,rfq r where(si.rfqId=r.rfqNo and s.soId=si.soId) and ( (r.firstPA={0} or r.secondPa={0})",buyersIds[0]));
+           sb.Append(string .Format("select distinct s.soId from So s,SoItems si,rfq r where(si.rfqId=r.rfqNo and s.soId=si.soId) and ( (r.firstPA={0} or r.secondPa={0})",buyersIds[0]));
            for (int i = 1; i < buyersIds.Count; i++)
            {
                sb.Append(string.Format(" or (firstPA={0} or secondPA={0}) ",buyersIds[i]));

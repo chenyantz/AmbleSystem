@@ -65,6 +65,22 @@ namespace AmbleClient.SO
 
                 foreach (DataRow dr in dt.Rows)
                 {
+                    if(Convert.ToInt32(dr["soItemsId"])==this.soItemId)
+                    {
+                     dataGridView1.Rows.Insert(0,
+                        true,
+                      Convert.ToInt32(dr["soItemsId"]),
+                      dr["mpn"].ToString(),
+                      dr["mfg"].ToString(),
+                      dr["dc"].ToString(),
+                      dr["vendorName"].ToString(),
+                      dr["qty"].ToString(),
+                      dr["price"].ToString());
+                    
+                    }
+                    else
+                    {
+                   
                     dataGridView1.Rows.Add(true,
                       Convert.ToInt32(dr["soItemsId"]),
                       dr["mpn"].ToString(),
@@ -73,8 +89,9 @@ namespace AmbleClient.SO
                       dr["vendorName"].ToString(),
                       dr["qty"].ToString(),
                       dr["price"].ToString());
-                      
+                    } 
                 }
+               dataGridView1.Rows[0].Cells[0].ReadOnly = true;
 
             }
 
@@ -91,8 +108,6 @@ namespace AmbleClient.SO
                 
                 }
             }
-
-            SoItemsIdsForPo.Insert(0, soItemId);
             this.DialogResult = DialogResult.OK;
             this.Close();
 

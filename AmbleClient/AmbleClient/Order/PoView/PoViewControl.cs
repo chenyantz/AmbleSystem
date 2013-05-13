@@ -109,7 +109,6 @@ namespace AmbleClient.Order.PoView
         public void NewPoFill()
         {
             this.isNewCreatePo = true;
-            FillThePACombo();
             cbPa.SelectedIndex = 0;
 
             foreach(int soItemsId in soItemsIdList)

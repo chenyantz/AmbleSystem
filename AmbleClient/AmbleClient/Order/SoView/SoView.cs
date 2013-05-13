@@ -173,7 +173,7 @@ namespace AmbleClient.SO
 
         private void tsbViewPo_Click(object sender, EventArgs e)
         {
-            Order.PoView.PoView poview = new Order.PoView.PoView(soList[tabControl1.SelectedIndex].soId, 0);
+            Order.PoView.PoView poview = new Order.PoView.PoView(soList[tabControl1.SelectedIndex].soId);
             poview.ShowDialog();
         }
 
@@ -203,37 +203,49 @@ namespace AmbleClient.SO
 
         private void tsbApprove_Click(object sender, EventArgs e)
         {
+           if(DialogResult.Yes==MessageBox.Show("Approve SO?","",MessageBoxButtons.YesNo))
+           {
+
             So so = soList[tabControl1.SelectedIndex];
             SoMgr.WholeUpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Approved);
             this.DialogResult = DialogResult.Yes;
             this.Close();
+           }
         }
 
         private void tsbReject_Click(object sender, EventArgs e)
         {
+          if(DialogResult.Yes==MessageBox.Show("Reject SO?","",MessageBoxButtons.YesNo))
+           {
             So so = soList[tabControl1.SelectedIndex];
             SoMgr.WholeUpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Rejected);
             this.DialogResult = DialogResult.Yes;
             this.Close();
+          }
         }
 
         private void tsbCancel_Click(object sender, EventArgs e)
         {
+         if(DialogResult.Yes==MessageBox.Show("Cancel SO?","",MessageBoxButtons.YesNo))
+         {
             So so = soList[tabControl1.SelectedIndex];
             SoMgr.WholeUpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Cancel);
             this.DialogResult = DialogResult.Yes;
             this.Close();
-
+         }
         }
 
         private void tsbForceClose_Click(object sender, EventArgs e)
         {
+
+         if(DialogResult.Yes==MessageBox.Show("Close SO and its all Items?","",MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2))
+         {
             So so = soList[tabControl1.SelectedIndex];
             SoMgr.WholeUpdateSoState(so.soId, UserInfo.UserId, SoStatesEnum.Closed);
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }
-
+        }
         private void SoView_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)

@@ -94,7 +94,7 @@
             // tscbSoItemState
             // 
             this.tscbSoItemState.Name = "tscbSoItemState";
-            this.tscbSoItemState.Size = new System.Drawing.Size(160, 25);
+            this.tscbSoItemState.Size = new System.Drawing.Size(190, 25);
             this.tscbSoItemState.SelectedIndexChanged += new System.EventHandler(this.tscbSoItemState_SelectedIndexChanged);
             // 
             // soItemsControl1

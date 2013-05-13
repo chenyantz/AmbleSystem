@@ -62,7 +62,7 @@
             this.tsbOK.Image = ((System.Drawing.Image)(resources.GetObject("tsbOK.Image")));
             this.tsbOK.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbOK.Name = "tsbOK";
-            this.tsbOK.Size = new System.Drawing.Size(27, 22);
+            this.tsbOK.Size = new System.Drawing.Size(29, 22);
             this.tsbOK.Text = "OK";
             this.tsbOK.Click += new System.EventHandler(this.tsbOK_Click);
             // 
@@ -72,7 +72,7 @@
             this.tsbCancel.Image = ((System.Drawing.Image)(resources.GetObject("tsbCancel.Image")));
             this.tsbCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCancel.Name = "tsbCancel";
-            this.tsbCancel.Size = new System.Drawing.Size(47, 22);
+            this.tsbCancel.Size = new System.Drawing.Size(49, 22);
             this.tsbCancel.Text = "Cancel";
             this.tsbCancel.Click += new System.EventHandler(this.tsbCancel_Click);
             // 
@@ -93,7 +93,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(800, 340);
+            this.dataGridView1.Size = new System.Drawing.Size(800, 312);
             this.dataGridView1.TabIndex = 1;
             // 
             // Selecte
@@ -108,61 +108,61 @@
             this.RfqId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.RfqId.HeaderText = "RFQ ID";
             this.RfqId.Name = "RfqId";
-            this.RfqId.Width = 68;
+            this.RfqId.Width = 51;
             // 
             // MPN
             // 
             this.MPN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.MPN.HeaderText = "MPN";
             this.MPN.Name = "MPN";
-            this.MPN.Width = 56;
+            this.MPN.Width = 48;
             // 
             // MFG
             // 
             this.MFG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.MFG.HeaderText = "MFG";
             this.MFG.Name = "MFG";
-            this.MFG.Width = 55;
+            this.MFG.Width = 48;
             // 
             // DC
             // 
             this.DC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.DC.HeaderText = "D/C";
             this.DC.Name = "DC";
-            this.DC.Width = 52;
+            this.DC.Width = 48;
             // 
             // TargetPrice
             // 
             this.TargetPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TargetPrice.HeaderText = "Target Price";
             this.TargetPrice.Name = "TargetPrice";
-            this.TargetPrice.Width = 90;
+            this.TargetPrice.Width = 67;
             // 
             // Resale
             // 
             this.Resale.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Resale.HeaderText = "Resale";
             this.Resale.Name = "Resale";
-            this.Resale.Width = 65;
+            this.Resale.Width = 66;
             // 
             // Cost
             // 
             this.Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Cost.HeaderText = "Cost";
             this.Cost.Name = "Cost";
-            this.Cost.Width = 53;
+            this.Cost.Width = 54;
             // 
-            // RfqItemPicker
+            // SoItemPicker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 365);
+            this.ClientSize = new System.Drawing.Size(800, 337);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "RfqItemPicker";
-            this.Text = "RfqItemPicker";
+            this.Name = "SoItemPicker";
+            this.Text = "RFQs for SO";
             this.Load += new System.EventHandler(this.RfqItemPicker_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

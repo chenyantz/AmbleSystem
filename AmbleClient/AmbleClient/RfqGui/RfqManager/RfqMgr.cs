@@ -33,7 +33,7 @@ namespace AmbleClient.RfqGui.RfqManager
            string strSql = "select routingHistory from rfq where rfqNo=" + rfqId;
            string history = db.GetSingleObject(strSql).ToString();
            history = DateTime.Now.ToString() + ": " + AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(who) + " " + action + System.Environment.NewLine + history;
-           strSql = string.Format("update rfq set routingHistory='{0}'", history);
+           strSql = string.Format("update rfq set routingHistory='{0}' where rfqNo={1}", history,rfqId);
            int row = db.ExecDataBySql(strSql);
            if (row == 1)
                return true;
@@ -101,7 +101,7 @@ namespace AmbleClient.RfqGui.RfqManager
            return false;
        }
      
-       public static DataTable GetRfqForSo(string customerName, int saleId,int currentRfqId)
+       public static DataTable GetRfqForSo(string customerName, int saleId)
        {
            List<int> subIds = AmbleClient.Admin.AccountMgr.AccountMgr.GetAllSubsId(saleId, UserCombine.GetUserCanBeSales());
 
@@ -113,8 +113,6 @@ namespace AmbleClient.RfqGui.RfqManager
                     sb.Append(" or salesId=" + subIds[i]);
              }
             sb.Append(" )  ");
-
-           sb.Append(string.Format(" and rfqNo<>{0}",currentRfqId));
            sb.Append(string.Format(" and rfqStates={0}", (int)RfqStatesEnum.Quoted));
 
            return db.GetDataTable(sb.ToString(), "temp");

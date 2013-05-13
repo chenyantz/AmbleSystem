@@ -50,17 +50,20 @@ namespace AmbleClient.SO
                 MessageBox.Show("Save So Error");
                 return;
             }
-            
+
             if (UserInfo.UserId == soViewControl1.GetAssignedSaleID())
             {
-                foreach(int rfqId in rfqIds)
-               AmbleClient.RfqGui.RfqManager.RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Created an SO");
+                foreach (int rfqId in rfqIds)
+                {
+                    AmbleClient.RfqGui.RfqManager.RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Created an SO");
+                }
             }
             else
-            { 
-                foreach(int rfqId in rfqIds)
+            {
+                foreach (int rfqId in rfqIds)
+                {
                     AmbleClient.RfqGui.RfqManager.RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Created an SO for " + AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(soViewControl1.GetAssignedSaleID()));
-            
+                }
             }
             this.DialogResult = DialogResult.Yes;
             this.Close();

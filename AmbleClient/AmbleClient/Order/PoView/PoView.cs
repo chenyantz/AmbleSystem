@@ -22,6 +22,17 @@ namespace AmbleClient.Order.PoView
         int? selectedPoItemId = null;
 
 
+        public PoView(int soId)
+        {
+            InitializeComponent();
+          poList=PoMgr.PoMgr.GetPoAccordingToSoId(soId);
+          this.Text = "PO List for SO：" + soId;
+
+        
+        }
+
+
+
 
         public PoView(po poMain)
         {
@@ -171,36 +182,45 @@ namespace AmbleClient.Order.PoView
 
         private void tsbApprove_Click(object sender, EventArgs e)
         {
-            po po = poList[tabControl1.SelectedIndex];
-            PoMgr.PoMgr.WholeUpdatePoState(po.poId, (int)PoStatesEnum.Approved);
-            this.DialogResult = DialogResult.Yes;
-            this.Close();
+            if (DialogResult.Yes == MessageBox.Show("Approve PO?", "", MessageBoxButtons.YesNo))
+            {
+                po po = poList[tabControl1.SelectedIndex];
+                PoMgr.PoMgr.WholeUpdatePoState(po.poId, (int)PoStatesEnum.Approved);
+                this.DialogResult = DialogResult.Yes;
+                this.Close();
+            }
         }
-
         private void tsbReject_Click(object sender, EventArgs e)
         {
-            po po = poList[tabControl1.SelectedIndex];
-            PoMgr.PoMgr.WholeUpdatePoState(po.poId, (int)PoStatesEnum.Rejected);
-            this.DialogResult = DialogResult.Yes;
-            this.Close();
-
+            if (DialogResult.Yes == MessageBox.Show("Reject PO?", "", MessageBoxButtons.YesNo))
+            {
+                po po = poList[tabControl1.SelectedIndex];
+                PoMgr.PoMgr.WholeUpdatePoState(po.poId, (int)PoStatesEnum.Rejected);
+                this.DialogResult = DialogResult.Yes;
+                this.Close();
+            }
         }
 
         private void tsbCancel_Click(object sender, EventArgs e)
         {
-            po po = poList[tabControl1.SelectedIndex];
-            PoMgr.PoMgr.WholeUpdatePoState(po.poId, (int)PoStatesEnum.Cancel);
-            this.DialogResult = DialogResult.Yes;
-            this.Close();
-        }
+            if (DialogResult.Yes == MessageBox.Show("Cancel PO?", "", MessageBoxButtons.YesNo))
+            {
 
+                po po = poList[tabControl1.SelectedIndex];
+                PoMgr.PoMgr.WholeUpdatePoState(po.poId, (int)PoStatesEnum.Cancel);
+                this.DialogResult = DialogResult.Yes;
+                this.Close();
+            }
+        }
         private void tsbForceClose_Click(object sender, EventArgs e)
         {
-            po po = poList[tabControl1.SelectedIndex];
-            PoMgr.PoMgr.WholeUpdatePoState(po.poId, (int)PoStatesEnum.Closed);
-            this.DialogResult = DialogResult.Yes;
-            this.Close();
-
+            if (DialogResult.Yes == MessageBox.Show("Close PO and all its Items?", "", MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2))
+            {
+                po po = poList[tabControl1.SelectedIndex];
+                PoMgr.PoMgr.WholeUpdatePoState(po.poId, (int)PoStatesEnum.Closed);
+                this.DialogResult = DialogResult.Yes;
+                this.Close();
+            }
         }
 
         private void PoView_FormClosed(object sender, FormClosedEventArgs e)
