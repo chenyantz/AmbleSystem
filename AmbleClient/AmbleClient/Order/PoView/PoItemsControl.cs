@@ -35,6 +35,16 @@ namespace AmbleClient.PO
             tbDc.Text = item.dc;
             tbVendorIntPartNo.Text = item.vendorIntPartNo;
             tbCoo.Text = item.coo;
+            if (UserInfo.Job == JobDescription.LogisticsManager || UserInfo.Job == JobDescription.Boss || UserInfo.Job == JobDescription.Admin)
+            {
+                tbCoo.ReadOnly = false;
+
+            }
+            else
+            {
+                tbCoo.ReadOnly = true;
+            }
+
             tbQty.Text = item.qty.ToString();
             tbQtyRevd.Text=item.qtyRecd.ToString();
             tbQtyCorrected.Text=item.qtyCorrected.ToString();
@@ -57,7 +67,7 @@ namespace AmbleClient.PO
                 dateTimePicker2.Value = item.receiveDate.Value;
             }
             tbStepCode.Text = item.stepCode;
-           // tbSalesAgent.Text=
+            tbSalesAgent.Text = AllAccountInfo.GetNameAccordingToId(item.salesAgent);
             tbNoteToVendor.Text = item.noteToVendor;
 
 
@@ -265,14 +275,6 @@ namespace AmbleClient.PO
             Order.PoView.PoMaterials pm = new Order.PoView.PoMaterials(this.poItemId);
             pm.ShowDialog();
         }
-
-
-
-
-
-
-    
-    
     
     }
 }

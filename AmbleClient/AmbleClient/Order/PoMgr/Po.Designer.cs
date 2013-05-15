@@ -15,6 +15,7 @@ using System.Data.Objects.DataClasses;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+using MySql.Data.MySqlClient;
 
 [assembly: EdmSchemaAttribute()]
 namespace AmbleClient.Order.PoMgr
@@ -33,6 +34,7 @@ namespace AmbleClient.Order.PoMgr
         /// </summary>
         public PoEntities() : base("name=PoEntities", "PoEntities")
         {
+            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
@@ -42,6 +44,7 @@ namespace AmbleClient.Order.PoMgr
         /// </summary>
         public PoEntities(string connectionString) : base(connectionString, "PoEntities")
         {
+            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
@@ -51,10 +54,21 @@ namespace AmbleClient.Order.PoMgr
         /// </summary>
         public PoEntities(EntityConnection connection) : base(connection, "PoEntities")
         {
+            ChangeString();
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-    
+        private void ChangeString()
+        {
+            MySqlConnectionStringBuilder sb = new MySqlConnectionStringBuilder(((EntityConnection)Connection).StoreConnection.ConnectionString);
+            sb.UserID = ServerInfo.GetUserId();
+            sb.Password = ServerInfo.GetPassword();
+            sb.Server = ServerInfo.GetServerAddress();
+            sb.Database = "shenzhenerp";
+            ((EntityConnection)Connection).StoreConnection.ConnectionString = sb.ConnectionString;
+
+        }
+
         #endregion
     
         #region 分部方法

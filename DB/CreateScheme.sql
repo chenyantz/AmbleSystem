@@ -143,9 +143,9 @@ notes MEDIUMTEXT
 
 CREATE TABLE So(
 soId INT PRIMARY KEY AUTO_INCREMENT,
-customerName VARCHAR(255),
-contact VARCHAR(255),
-salesId SMALLINT,
+customerName VARCHAR(255) NOT NULL,
+contact VARCHAR(255) NOT NULL,
+salesId SMALLINT NOT NULL,
 approverId SMALLINT,
 approveDate DATE,
 salesOrderNo VARCHAR(255),
@@ -157,12 +157,13 @@ customerAccount VARCHAR(255),
 specialInstructions VARCHAR(65525),
 billTo VARCHAR(65535),
 shipTo VARCHAR(65535),
+soStates TINYINT   NOT NULL/*0 new 1approve 2 under process 3 closed*/
 );
 
 CREATE TABLE SoItems(
 soItemsId INT PRIMARY KEY AUTO_INCREMENT,
 soId INT,
-RfqId INT,
+RfqId INT NOT NULL,
 saleType TINYINT,  /*OEM EXCESS; OWN STOCK; OTHERS   */
 partNo VARCHAR(255),
 mfg VARCHAR(20),
@@ -180,20 +181,18 @@ dockDate DATE,
 shippedDate DATE,
 shippingInstruction VARCHAR(65535),
 packingInstruction VARCHAR(65535),
-soItemState TINYINT
+soItemState TINYINT NOT NULL
 );
 
 
 CREATE TABLE Po(
 
 poId INT PRIMARY KEY AUTO_INCREMENT,
-soId INT,
-vendorName VARCHAR(255),
-contact VARCHAR(255),
-pa SMALLINT,
-paDate DATE,
+vendorName VARCHAR(255) NOT NULL,
+contact VARCHAR(255) NOT NULL,
+pa SMALLINT NOT NULL,
 vendorNumber VARCHAR(50),
-poDate DATE,
+poDate DATE NOT NULL,
 poNo VARCHAR(50),
 paymentTerms VARCHAR(255),
 shipMethod VARCHAR(50),
@@ -207,13 +206,14 @@ poStates TINYINT /* 0 new. 1:approved 2:rejected 3:closed */
 CREATE TABLE PoItems(
 
 poItemsId INT PRIMARY KEY AUTO_INCREMENT,
-poId INT,
-partNo VARCHAR(255),
-mfg VARCHAR(20),
-dc VARCHAR(20),
+poId INT NOT NULL,
+soItemId INT NOT NULL,
+partNo VARCHAR(255) NOT NULL,
+mfg VARCHAR(20) NOT NULL,
+dc VARCHAR(20) NOT NULL,
 vendorIntPartNo VARCHAR(255),
-org VARCHAR(20),
-qty INT,
+coo VARCHAR(255),
+qty INT NOT NULL,
 qtyRecd INT,
 qtyCorrected INT,
 qtyAccept INT,
@@ -222,11 +222,12 @@ qtyRTV INT,
 qcPending INT,
 currency TINYINT,
 unitPrice FLOAT,
-dueDate DATE,
+dockDate DATE NOT NULL,
 receiveDate DATE,
 stepCode VARCHAR(255),
-salesAgent TINYINT,
-noteToVendor VARCHAR(65535)
+salesAgent TINYINT NOT NULL,
+noteToVendor VARCHAR(65535),`poitems``po``poitems`
+poItemState TINYINT NOT NULL
 );
 
 
@@ -252,5 +253,14 @@ cpn VARCHAR(255),
 userID SMALLINT NOT NULL REFERENCES account,
 enerDay DATETIME
 );
-
+`soitems`
+CREATE TABLE PoMaterials(
+fileId INT PRIMARY KEY AUTO_INCREMENT,
+poItemId INT NOT NULL,
+fileName VARCHAR(255) NOT NULL,
+fileType VARCHAR(20) NOT NULL,
+size INT NOT NULL,
+uploadDate DATE NOT NULL,
+fileContent MEDIUMBLOB NOT NULL
+);
 

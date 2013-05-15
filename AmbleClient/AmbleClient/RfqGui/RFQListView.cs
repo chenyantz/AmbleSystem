@@ -121,6 +121,7 @@ namespace AmbleClient.RfqGui
                 return;
 
             int i = 0;
+            
             foreach(DataRow dr in tableCurrentPage.Rows)
             {
                 //Get the RFQ Number ,it is rfq id with 6 digitals
