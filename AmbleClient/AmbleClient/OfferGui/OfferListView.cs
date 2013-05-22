@@ -203,7 +203,7 @@ namespace AmbleClient.OfferGui
             foreach (Offer offer in offerList)
             {
                 dataGridView1.Rows.Add(offer.offerId,Tool.Get6DigitalNumberAccordingToId(offer.rfqNo), offer.mpn, offer.mfg, offer.vendorName, offer.contact, offer.phone, offer.packing,
-                    offer.quantity, offer.price, offer.LT, idNameDict[offer.buyerId], offer.offerDate.ToShortDateString(),
+                    offer.quantity, offer.price, offer.LT, AllAccountInfo.GetNameAccordingToId(offer.buyerId), offer.offerDate.ToShortDateString(),
                     Enum.GetName(typeof(OfferState), offer.offerStates));
             }
 

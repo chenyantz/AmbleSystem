@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using AmbleClient.RfqGui.RfqManager;
 
 namespace AmbleClient.RfqGui
 {
@@ -13,53 +14,77 @@ namespace AmbleClient.RfqGui
     {
         string customerName;
         int rfqId;
+        RfqStatesEnum rfqState;
 
         public List<int> RfqIdsForSo=new List<int>();
         
-        public SoItemPicker(string customerName,int rfqId)
+        public SoItemPicker(string customerName,int rfqId,RfqStatesEnum rfqState)
         {
             InitializeComponent();
             this.customerName = customerName;
             this.rfqId = rfqId;
+            this.rfqState = rfqState;
         }
 
         private void RfqItemPicker_Load(object sender, EventArgs e)
         {
-            DataTable dt = AmbleClient.RfqGui.RfqManager.RfqMgr.GetRfqForSo(customerName, UserInfo.UserId);
 
-            
-            foreach (DataRow dr in dt.Rows)
+           if(rfqState==RfqStatesEnum.Quoted)
+           {
+               DataTable dt = AmbleClient.RfqGui.RfqManager.RfqMgr.GetRfqForSo(customerName, UserInfo.UserId);
+
+               foreach (DataRow dr in dt.Rows)
+               {
+                   if (Convert.ToInt32(dr["rfqNo"]) == this.rfqId)
+                   {
+                       dataGridView1.Rows.Insert(0,
+                           true,
+                       Tool.Get6DigitalNumberAccordingToId(Convert.ToInt32(dr["rfqNo"])),
+                       dr["partNo"].ToString(),
+                       dr["mfg"].ToString(),
+                       dr["dc"].ToString(),
+                       dr["targetPrice"].ToString(),
+                       dr["resale"].ToString(),
+                       dr["cost"].ToString());
+
+
+
+                   }
+                   else
+                   {
+                       dataGridView1.Rows.Add(true,
+                         Tool.Get6DigitalNumberAccordingToId(Convert.ToInt32(dr["rfqNo"])),
+                         dr["partNo"].ToString(),
+                         dr["mfg"].ToString(),
+                         dr["dc"].ToString(),
+                         dr["targetPrice"].ToString(),
+                         dr["resale"].ToString(),
+                         dr["cost"].ToString());
+                   }
+
+               }
+
+           }
+           else
+          {
+              Rfq rfq = AmbleClient.RfqGui.RfqManager.RfqMgr.GetRfqAccordingToRfqId(this.rfqId);
+              dataGridView1.Rows.Add(true,
+                   Tool.Get6DigitalNumberAccordingToId(this.rfqId),
+                   rfq.partNo,
+                   rfq.mfg,
+                   rfq.dc,
+                   rfq.targetPrice,
+                   rfq.resale,
+                   rfq.cost);
+
+           }
+
+
+
+            if (dataGridView1.Rows.Count > 0)
             {
-                if (Convert.ToInt32(dr["rfqNo"]) == this.rfqId)
-                {
-                    dataGridView1.Rows.Insert(0,
-                        true,
-                    Tool.Get6DigitalNumberAccordingToId(Convert.ToInt32(dr["rfqNo"])),
-                    dr["partNo"].ToString(),
-                    dr["mfg"].ToString(),
-                    dr["dc"].ToString(),
-                    dr["targetPrice"].ToString(),
-                    dr["resale"].ToString(),
-                    dr["cost"].ToString());
-
-
-
-                }
-                else
-                {
-                    dataGridView1.Rows.Add(true,
-                      Tool.Get6DigitalNumberAccordingToId(Convert.ToInt32(dr["rfqNo"])),
-                      dr["partNo"].ToString(),
-                      dr["mfg"].ToString(),
-                      dr["dc"].ToString(),
-                      dr["targetPrice"].ToString(),
-                      dr["resale"].ToString(),
-                      dr["cost"].ToString());
-                }
-
+                dataGridView1.Rows[0].Cells[0].ReadOnly = true;
             }
-            dataGridView1.Rows[0].Cells[0].ReadOnly = true;
-
         }
 
         private void tsbOK_Click(object sender, EventArgs e)

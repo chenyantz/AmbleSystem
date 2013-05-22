@@ -113,8 +113,7 @@ namespace AmbleClient.RfqGui.RfqManager
                     sb.Append(" or salesId=" + subIds[i]);
              }
             sb.Append(" )  ");
-           sb.Append(string.Format(" and rfqStates={0}", (int)RfqStatesEnum.Quoted));
-
+             sb.Append(string.Format(" and rfqStates={0}", (int)RfqStatesEnum.Quoted));
            return db.GetDataTable(sb.ToString(), "temp");
        }
       

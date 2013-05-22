@@ -162,7 +162,7 @@ namespace AmbleClient.RfqGui
         private void tsbSo_Click(object sender, EventArgs e)
         {
             //
-            SoItemPicker picker = new SoItemPicker(rfq.customerName, rfqId);
+            SoItemPicker picker = new SoItemPicker(rfq.customerName,rfqId,(RfqStatesEnum)rfq.rfqStates);
             if (DialogResult.OK == picker.ShowDialog())
             {
                 List<int> ids = picker.RfqIdsForSo;

@@ -15,7 +15,6 @@ namespace AmbleClient.Order
         protected string filterColumn=string.Empty;
         protected string filterString=string.Empty;
 
-        protected Dictionary<int, string> idNameDict;
         protected List<int> intStateList = new List<int>();
 
         protected Dictionary<string, string> filterColumnDict = new Dictionary<string, string>();
@@ -41,8 +40,6 @@ namespace AmbleClient.Order
             tscbList.SelectedIndex = 0;
             tscbList.SelectedIndexChanged += tscbList_SelectedIndexChanged;
 
-            FillTheIdNameDict();
-
             FillTheStateCombox();
             GetTheStateList();
 
@@ -51,11 +48,6 @@ namespace AmbleClient.Order
             
         }
 
-        private void FillTheIdNameDict()
-        {
-           // idNameDict =accountMgr.GetIdsAndNames(accountMgr.GetAllSubsId(UserInfo.UserId,null));
-            idNameDict = AmbleClient.Admin.AccountMgr.AccountMgr.GetIdsAndNames(AmbleClient.Admin.AccountMgr.AccountMgr.GetAllIds());
-        }
 
         protected virtual void FillTheFilterColumnDict()
         { 

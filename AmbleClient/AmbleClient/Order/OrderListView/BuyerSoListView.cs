@@ -128,12 +128,12 @@ namespace AmbleClient.Order
             {
                 if (UserInfo.Job == JobDescription.Purchaser)
                 {
-                    dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), idNameDict[so.salesId], so.orderDate.ToShortDateString(), so.customerPo,
+                    dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), AllAccountInfo.GetNameAccordingToId(so.salesId), so.orderDate.ToShortDateString(), so.customerPo,
                         so.paymentTerm, so.freightTerm, so.customerAccount, Enum.GetName(typeof(SoStatesEnum),so.soStates));
                 }
                 else
                 {
-                    dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), so.customerName, idNameDict[so.salesId], so.orderDate.ToShortDateString(), so.customerPo,
+                    dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), so.customerName,AllAccountInfo.GetNameAccordingToId(so.salesId), so.orderDate.ToShortDateString(), so.customerPo,
                           so.paymentTerm, so.freightTerm, so.customerAccount, Enum.GetName(typeof(SoStatesEnum), so.soStates));
                 
                 }

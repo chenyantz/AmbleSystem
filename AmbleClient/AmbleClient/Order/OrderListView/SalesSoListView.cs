@@ -109,7 +109,7 @@ namespace AmbleClient.Order
            int i = 0;
            foreach(So so in soList)
            {
-               dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), so.customerName, so.contact, idNameDict[so.salesId], so.orderDate.ToShortDateString(), so.customerPo,
+               dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), so.customerName, so.contact,AllAccountInfo.GetNameAccordingToId(so.salesId), so.orderDate.ToShortDateString(), so.customerPo,
                    so.paymentTerm, so.freightTerm, so.customerAccount,Enum.GetName(typeof(SoStatesEnum),so.soStates));
            }
 

@@ -165,7 +165,7 @@ namespace AmbleClient.Order
             int i = 0;
             foreach (SoCombine soc in soCombineList)
             {
-                dataGridView1.Rows.Add(i++,soc.soItemsId, Tool.Get6DigitalNumberAccordingToId(soc.soId), soc.partNo, soc.mfg, soc.dc ,soc.qty,soc.unitPrice,soc.customerName,soc.customerPo,soc.orderDate.ToShortDateString(), idNameDict[soc.salesId], soItemStateList.GetSoStateStringAccordingToValue(soc.soItemState));
+                dataGridView1.Rows.Add(i++,soc.soItemsId, Tool.Get6DigitalNumberAccordingToId(soc.soId), soc.partNo, soc.mfg, soc.dc ,soc.qty,soc.unitPrice,soc.customerName,soc.customerPo,soc.orderDate.ToShortDateString(), AllAccountInfo.GetNameAccordingToId(soc.salesId), soItemStateList.GetSoStateStringAccordingToValue(soc.soItemState));
             }
 
         }
