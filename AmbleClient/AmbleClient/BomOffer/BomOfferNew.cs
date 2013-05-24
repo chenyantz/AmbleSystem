@@ -21,7 +21,7 @@ namespace AmbleClient.BomOffer
             this.custVenId = custVenId;
             if (isOffer)
             {
-                this.Text = "Add a New Offer";
+                this.Text = "Add a New Excess";
 
             }
             else

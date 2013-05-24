@@ -82,6 +82,7 @@ namespace AmbleClient.Order.SoMgr
         public string mfg;
         public string dc;
         public int qty;
+        public string cpn;
         public float unitPrice;
         public int soItemState;
 

@@ -173,6 +173,9 @@
     <Compile Include="Help\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help\DownloadTool.cs" />
+    <Compile Include="Help\ReleaseList.cs" />
+    <Compile Include="Help\UpdateInfo.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

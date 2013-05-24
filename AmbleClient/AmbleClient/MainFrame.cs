@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
+using System.Deployment.Application;
+using System.Diagnostics;
 
 
 namespace AmbleClient
@@ -362,6 +365,29 @@ namespace AmbleClient
             Order.PoListView poListView = new Order.PoListView();
             poListView.MdiParent = this;
             poListView.Show();
+        }
+
+        private void autoUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AmbleClient.Help.UpdateInfo.NeedUpdate() == true)
+            {
+                if (DialogResult.Yes == MessageBox.Show("Exit the current Program to upgrade?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+                {
+                    Process.Start("AmbleUpdate.exe");
+                    Application.Exit();
+                    return;
+                
+                }
+            }
+            else
+            {
+                MessageBox.Show("New Version is not available");
+            
+            }
+
+
+
+
         }
     }
 }

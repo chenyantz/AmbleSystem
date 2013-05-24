@@ -24,7 +24,7 @@ namespace AmbleClient.BomOffer
 
             if (isOffer)
             {
-                this.Text = "Vendors For Offers";
+                this.Text = "Vendors For Excess";
                 this.toolStripButton1.Text = "New Vendor";
                 this.tsbImportFromExcel.Text = "Import Offer";
                 this.tsbNewBomOff.Text = "New Offer";

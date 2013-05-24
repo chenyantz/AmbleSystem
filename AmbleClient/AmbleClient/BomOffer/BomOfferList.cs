@@ -44,6 +44,7 @@ namespace AmbleClient.BomOffer
             System.Windows.Forms.DataGridViewTextBoxColumn Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Cpn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn EnterDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
             Company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             if (isOffer)
@@ -73,6 +74,10 @@ namespace AmbleClient.BomOffer
             Cpn.HeaderText = "CPN";
             Cpn.Name = "Cpn";
 
+            EnterDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            EnterDay.HeaderText = "Date";
+            EnterDay.Name = "EnterDay";
+
             dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             Id,
             Company,
@@ -80,7 +85,8 @@ namespace AmbleClient.BomOffer
             Mpn,
             Qty,
             Price,
-            Cpn
+            Cpn,
+            EnterDay
          });
 
         
@@ -92,7 +98,7 @@ namespace AmbleClient.BomOffer
         private void BomOfferList_Load(object sender, EventArgs e)
         {
             if (isOffer)
-                this.Text = "Offers List";
+                this.Text = "Excess List";
             else
                 this.Text = "BOMs List";
 
@@ -126,12 +132,13 @@ namespace AmbleClient.BomOffer
                                            MPN = bomOffer.mpn,
                                            Qty = bomOffer.qty,
                                            Price = bomOffer.price,
-                                           CPN = bomOffer.cpn
+                                           CPN = bomOffer.cpn,
+                                           Enterday=bomOffer.enerDay
                                        };
 
                     foreach (var bomOffer in bomOfferList)
                     {
-                        dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN);
+                        dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToShortDateString() : "");
                     }
 
                 }
@@ -149,12 +156,13 @@ namespace AmbleClient.BomOffer
                                            MPN = bomOffer.mpn,
                                            Qty = bomOffer.qty,
                                            Price = bomOffer.price,
-                                           CPN = bomOffer.cpn
+                                           CPN = bomOffer.cpn,
+                                           Enterday = bomOffer.enerDay
                                        };
 
                     foreach (var bomOffer in bomOfferList)
                     {
-                        dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN);
+                        dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN,bomOffer.Enterday.HasValue?bomOffer.Enterday.Value.ToShortDateString():"");
                     }
                 }
 
@@ -218,13 +226,14 @@ namespace AmbleClient.BomOffer
                                            MPN = bomOffer.mpn,
                                            Qty = bomOffer.qty,
                                            Price = bomOffer.price,
-                                           CPN = bomOffer.cpn
+                                           CPN = bomOffer.cpn,
+                                          Enterday = bomOffer.enerDay
                                        };
 
                     this.dataGridView1.Rows.Clear();
                     foreach (var bomOffer in bomOfferList)
                     {
-                        dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN);
+                        dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToShortDateString() : "");
                     }
 
                 }
@@ -249,13 +258,14 @@ namespace AmbleClient.BomOffer
                                                MPN = bomOffer.mpn,
                                                Qty = bomOffer.qty,
                                                Price = bomOffer.price,
-                                               CPN = bomOffer.cpn
+                                               CPN = bomOffer.cpn,
+                                               Enterday = bomOffer.enerDay
                                            };
 
                         this.dataGridView1.Rows.Clear();
                         foreach (var bomOffer in bomOfferList)
                         {
-                            dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN);
+                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToShortDateString() : "");
                         }
 
 
@@ -276,13 +286,14 @@ namespace AmbleClient.BomOffer
                                                MPN = bomOffer.mpn,
                                                Qty = bomOffer.qty,
                                                Price = bomOffer.price,
-                                               CPN = bomOffer.cpn
+                                               CPN = bomOffer.cpn,
+                                               Enterday = bomOffer.enerDay
                                            };
 
                         this.dataGridView1.Rows.Clear();
                         foreach (var bomOffer in bomOfferList)
                         {
-                            dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN);
+                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToShortDateString() : "");
                         }
 
                     }

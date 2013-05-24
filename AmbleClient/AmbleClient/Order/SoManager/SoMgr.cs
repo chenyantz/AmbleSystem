@@ -103,7 +103,7 @@ namespace AmbleClient.Order.SoMgr
            }
 
            StringBuilder sb = new StringBuilder();
-           sb.Append("select s.soId,customerName,salesId,orderDate,customerPo,soItemsId,partNo,mfg,dc,qty,unitPrice,soItemState from So s,SoItems si where(s.soId=si.soId) and  ( salesId=" + salesIds[0]);
+           sb.Append("select s.soId,customerName,salesId,orderDate,customerPo,soItemsId,partNo,mfg,dc,intPartNo,qty,unitPrice,soItemState from So s,SoItems si where(s.soId=si.soId) and  ( salesId=" + salesIds[0]);
            for (int i = 1; i < salesIds.Count; i++)
            {
                sb.Append(" or salesId=" + salesIds[i]);
@@ -139,6 +139,7 @@ namespace AmbleClient.Order.SoMgr
                     mfg=dr["mfg"].ToString(),
                     dc=dr["dc"].ToString(),
                     qty=Convert.ToInt32(dr["qty"]),
+                    cpn=dr["intPartNo"].ToString(),
                     unitPrice=Convert.ToSingle(dr["unitPrice"]),
                     soItemState=Convert.ToInt32(dr["soItemState"])
                    }
@@ -239,7 +240,7 @@ namespace AmbleClient.Order.SoMgr
            }
 
            StringBuilder sb = new StringBuilder();
-           sb.Append(string.Format("select s.soId,s.customerName,s.salesId,orderDate,customerPo,soItemsId,si.partNo,si.mfg,si.dc,si.qty,si.unitPrice,soItemState from So s,SoItems si,Rfq r where(s.soId=si.soId and si.rfqId=r.rfqNo) and ( (r.firstPA={0} or r.secondPa={0})", buyersIds[0]));
+           sb.Append(string.Format("select s.soId,s.customerName,s.salesId,orderDate,intPartNo,customerPo,soItemsId,si.partNo,si.mfg,si.dc,si.qty,si.unitPrice,soItemState from So s,SoItems si,Rfq r where(s.soId=si.soId and si.rfqId=r.rfqNo) and ( (r.firstPA={0} or r.secondPa={0})", buyersIds[0]));
            for (int i = 1; i < buyersIds.Count; i++)
            {
                sb.Append(string.Format(" or (firstPA={0} or secondPA={0}) ", buyersIds[i]));
@@ -283,6 +284,7 @@ namespace AmbleClient.Order.SoMgr
                            mfg = dr["mfg"].ToString(),
                            dc = dr["dc"].ToString(),
                            qty = Convert.ToInt32(dr["qty"]),
+                           cpn=dr["intPartNo"].ToString(),
                            unitPrice = Convert.ToSingle(dr["unitPrice"]),
                            soItemState = Convert.ToInt32(dr["soItemState"])
                        }

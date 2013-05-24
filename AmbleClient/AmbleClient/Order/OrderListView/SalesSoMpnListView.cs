@@ -25,6 +25,7 @@ namespace AmbleClient.Order
             System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn CustomerPo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn Cpn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
              System.Windows.Forms.DataGridViewTextBoxColumn SalePerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn SoItemState = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,7 +100,11 @@ namespace AmbleClient.Order
             CustomerPo.ReadOnly = true;
             CustomerPo.Width = 76;
 
-
+            Cpn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            Cpn.HeaderText = "CPN";
+            Cpn.Name = "Cpn";
+            Cpn.ReadOnly = true;
+            Cpn.Width = 76;
 
 
             // 
@@ -139,11 +144,10 @@ namespace AmbleClient.Order
             UnitPrice,
             Customer,
             CustomerPo,
+            Cpn,
             Date,
             SalePerson,
             SoItemState});
-
-
         }
 
 
@@ -165,7 +169,7 @@ namespace AmbleClient.Order
             int i = 0;
             foreach (SoCombine soc in soCombineList)
             {
-                dataGridView1.Rows.Add(i++,soc.soItemsId, Tool.Get6DigitalNumberAccordingToId(soc.soId), soc.partNo, soc.mfg, soc.dc ,soc.qty,soc.unitPrice,soc.customerName,soc.customerPo,soc.orderDate.ToShortDateString(), AllAccountInfo.GetNameAccordingToId(soc.salesId), soItemStateList.GetSoStateStringAccordingToValue(soc.soItemState));
+                dataGridView1.Rows.Add(i++,soc.soItemsId, Tool.Get6DigitalNumberAccordingToId(soc.soId), soc.partNo, soc.mfg, soc.dc ,soc.qty,soc.unitPrice,soc.customerName,soc.customerPo,soc.cpn,soc.orderDate.ToShortDateString(), AllAccountInfo.GetNameAccordingToId(soc.salesId), soItemStateList.GetSoStateStringAccordingToValue(soc.soItemState));
             }
 
         }

@@ -50,7 +50,7 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(393, 149);
             this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "If you meet any problems, please contact Yan Chen :13858002080.";
+            this.richTextBox1.Text = "Any problems, please contact Yan Chen :13858002080.";
             // 
             // About
             // 
