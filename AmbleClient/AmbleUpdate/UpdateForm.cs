@@ -20,9 +20,7 @@ namespace AmbleUpdate
 
         bool downloaded;
 
-        int totalSize;
-
-        const string RetryText = " Retry ";
+       const string RetryText = " Retry ";
         const string FinishText = "Complete ";
 
         public UpdateForm()
@@ -56,19 +54,11 @@ namespace AmbleUpdate
             //升级内容
             textBox1.Text = remoteRelease.UpdateDescription;
 
-            progressBar1.Maximum = totalSize * 1024;
-            progressBar1.Step = 10;
-
-          
         }
 
-        Thread trd;
         private void Upgrade()
-        {/*
-            trd = new Thread(new ThreadStart(DoUpgrade));
-            trd.IsBackground = true;
-            trd.Start();*/
-            DoUpgrade();
+        {
+           DoUpgrade();
         }
         private void DoUpgrade()
         {
@@ -87,8 +77,6 @@ namespace AmbleUpdate
                     MessageBox.Show(file.FileName + "Download Fail， Please try later");
                     return;
                 }
-
-             
             }
             try
             {
@@ -106,7 +94,6 @@ namespace AmbleUpdate
             {
                 AppTool.DeleteTempFolder(tempPath);
                 MessageBox.Show(ex.Message, "Upgrate Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                trd.Abort();
                 return;
             }
             downloaded = true;

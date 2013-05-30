@@ -46,8 +46,13 @@ namespace AmbleClient.RfqGui
 
         private void tsbOffer_Click(object sender, EventArgs e)
         {
+
             AmbleClient.OfferGui.NewOffer newOffer = new OfferGui.NewOffer(rfqId);
+            newOffer.NewOfferAutoFill(this.buyerRfqItems1.tbPartNo.Text, this.buyerRfqItems1.tbMfg.Text);
             newOffer.ShowDialog();
+            Rfq rfq = RfqMgr.GetRfqAccordingToRfqId(rfqId);
+            SetMenuStateAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
+
         }
 
 

@@ -9,7 +9,6 @@ namespace AmbleUpdate
 {
     public class UpdateInfo
     {
-        public  const string UPDATER_EXE_NAME = "AutoUpdate.exe";
         public  const string ReleaseConfigFileName = "ReleaseList.xml";
         public static string tempPath = Path.GetTempPath();
 
@@ -26,8 +25,6 @@ namespace AmbleUpdate
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show(ex.StackTrace);
                 MessageBox.Show("Can not connect to the server,Please contact the Admin");
             }
             remoteReleaseList = new ReleaseList(tempPath + ReleaseConfigFileName);

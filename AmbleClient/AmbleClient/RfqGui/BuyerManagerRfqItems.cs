@@ -30,8 +30,9 @@ namespace AmbleClient.RfqGui
            base.FillTheTable(rfq);
            tbCustomer.Text = rfq.customerName;
 
-           this.tbContact.Text = string.Empty;//can not be seen by sales Manager
-           this.tbPhone.Text = string.Empty; //can not be seen by sales Manager.
+           this.tbContact.Text = string.Empty; this.tbContact.ReadOnly = true;//can not be seen by sales Manager 
+           this.tbPhone.Text = string.Empty; this.tbPhone.ReadOnly = true; //can not be seen by sales Manager.
+           this.tbFax.Text = string.Empty; this.tbFax.ReadOnly = true;
 
 
            //Fill the sales

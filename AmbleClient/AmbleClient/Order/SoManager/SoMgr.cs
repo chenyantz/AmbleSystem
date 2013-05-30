@@ -683,7 +683,7 @@ namespace AmbleClient.Order.SoMgr
            string strsql = "insert into SoItems(soId,rfqId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,packingInstruction,soItemState) " +
         string.Format(" values({0},{1},{2},'{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}',{11},{12},{13},{14},'{15}',{16},'{17}','{18}',{19})", soItem.soId,soItem.rfqId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
         soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped.HasValue?soItem.qtyshipped.Value.ToString():"null", soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ?("'"+soItem.shippedDate.Value.ToShortDateString()+"'") : "null",
-        soItem.shippingInstruction, soItem.packingInstruction,0);
+        soItem.shippingInstruction, soItem.packingInstruction,soItem.soItemState);
            return strsql;
        }
 

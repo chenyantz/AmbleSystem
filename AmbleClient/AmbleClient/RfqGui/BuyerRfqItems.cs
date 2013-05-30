@@ -18,9 +18,10 @@ namespace AmbleClient.RfqGui
            base.FillTheTable(rfq);
 
 
-           this.tbCustomer.Text = string.Empty;
-           this.tbContact.Text = string.Empty;
-           this.tbPhone.Text = string.Empty;
+           this.tbCustomer.Text = string.Empty; this.tbCustomer.ReadOnly = true;
+           this.tbContact.Text = string.Empty; this.tbContact.ReadOnly = true;
+           this.tbPhone.Text = string.Empty; this.tbPhone.ReadOnly = true;
+           this.tbFax.Text = string.Empty; this.tbFax.ReadOnly = true;
 
            cbSales.Items.Add(AmbleClient.Admin.AccountMgr.AccountMgr.GetNameById(rfq.salesId));
            cbSales.SelectedIndex = 0;

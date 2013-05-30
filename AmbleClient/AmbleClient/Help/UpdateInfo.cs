@@ -24,10 +24,8 @@ namespace AmbleClient.Help
             {
                 DownloadTool.DownloadFile(tempPath, "http://" + ServerInfo.GetServerAddress() + "/AmbleUpdate/", ReleaseConfigFileName);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show(ex.StackTrace);
                 MessageBox.Show("Can not connect to the server,Please contact the Admin");
                 return false;
             }

@@ -89,6 +89,25 @@ namespace AmbleClient.SO
                 {
                     this.tsbOp.Enabled = false;
                 }
+
+                if (UserCombine.GetUserCanBeBuyers().Contains((int)UserInfo.Job))
+                {
+                    if(soItem.soItemState==new SoItemNew().GetStateValue())
+                    {
+                     this.tsbGeneratePo.Enabled=false;
+                    }
+                    else
+                    {
+                    this.tsbGeneratePo.Enabled = true;
+                    }
+                }
+                else
+                {
+                    this.tsbGeneratePo.Enabled = false;
+                }
+
+
+
             
             }
 

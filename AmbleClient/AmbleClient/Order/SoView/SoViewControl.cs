@@ -207,6 +207,7 @@ namespace AmbleClient.SO
                 soItem.dc = rfq.dc;
                 soItem.dockDate = rfq.dockdate;
                 soItem.rfqId = id;
+                soItem.soItemState = new SoItemNew().GetStateValue();
                 
                this.soItemsStateList.Add(
                new SoItemsContentAndState
@@ -221,10 +222,6 @@ namespace AmbleClient.SO
             ShowDataInDataGridView();
 
         }
-
-
-
-
 
         private void FillTheSalesComboBox()
         {
@@ -303,6 +300,21 @@ namespace AmbleClient.SO
             GetSoItems();
 
             ShowDataInDataGridView();
+
+
+            if (mySubs.Contains(so.salesId))
+            {
+                btAdd.Enabled = true;
+                btDelete.Enabled = true;
+                btSplit.Enabled = true;
+            }
+            else
+            {
+                btAdd.Enabled = false;
+                btDelete.Enabled = false;
+                btSplit.Enabled = false;
+            }
+
 
         }
 
@@ -521,7 +533,16 @@ namespace AmbleClient.SO
                 soItemContentAndState.soitem.soId = this.soId;
                 soItemContentAndState.soitem.qty = qty - firstValue;
                 soItemContentAndState.soitem.dockDate = itemSplit.GetSecondDateTime();
+                if ((soItemContentAndState.soitem.soItemState!=new SoItemNew().GetStateValue())
+                    &&(soItemContentAndState.soitem.soItemState!=new SoItemRejected().GetStateValue())
+                    &&(soItemContentAndState.soitem.soItemState!=new SoItemCancelled().GetStateValue())
+                    )
+                {
+                    soItemContentAndState.soitem.soItemState = new SoItemApprove().GetStateValue();
+                }
+
                 soItemContentAndState.state = OrderItemsState.New;
+
                 soItemsStateList.Insert(rowIndex + 1, soItemContentAndState);
 
                 if (!isNewCreateSo)

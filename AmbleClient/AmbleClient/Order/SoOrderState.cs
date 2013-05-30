@@ -464,7 +464,7 @@ public class SoItemPartialShipAfterPay : SoItemState
         }
         public override string GetStateString()
         {
-            return "PayMent Received After Ship";
+            return "Payment Received After Ship";
         }
 
     }

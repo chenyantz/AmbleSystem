@@ -136,6 +136,7 @@ namespace AmbleClient.Order.PoView
                 poItem.currency = (sbyte)((int)AmbleClient.Currency.USD);
                 poItem.soItemId = item.soItemsId;
                 poItem.salesAgent = (sbyte)so.salesId;
+                poItem.poItemState = (sbyte)new PoItemNew().GetStateValue();
 
                 this.poItemsStateList.Add(
                     new PoItemContentAndState
@@ -291,6 +292,19 @@ namespace AmbleClient.Order.PoView
             GetPoItemsList();
             FillTheDataGridPoItems();
 
+            if (mysubs.Contains(poMain.pa))
+            {
+                btAdd.Enabled = true;
+                btDelete.Enabled = true;
+                btSplit.Enabled = true;
+            }
+            else
+            {
+                btAdd.Enabled = false;
+                btDelete.Enabled = false;
+                btSplit.Enabled = false;
+            }
+
 
         }
 
@@ -373,12 +387,13 @@ namespace AmbleClient.Order.PoView
             if (DialogResult.Yes == nai.ShowDialog())
             {
                 SO.SoItemPicker sip = new SO.SoItemPicker(nai.soItemsList);
-                if (DialogResult.Yes == sip.ShowDialog())
+                if (DialogResult.OK == sip.ShowDialog())
                 {
-                    List<int> soItemList = sip.SoItemsIdsForPo;
+                    List<int> soItemList = new List<int>();
+                    soItemList.AddRange(sip.SoItemsIdsForPo);
                     List<poitems> poItems = new List<poitems>();
 
-                    foreach (int soItemsId in soItemsIdList)
+                    foreach (int soItemsId in soItemList)
                     {
                         Order.SoMgr.SoItems item = SoMgr.SoMgr.GetSoItemInfoAccordingToSoItemId(soItemsId);
                         Order.SoMgr.So so = SoMgr.SoMgr.GetSoAccordingToSoId(item.soId);
@@ -511,6 +526,15 @@ namespace AmbleClient.Order.PoView
                poItemContentAndState.poItem.poId = this.poId;
                poItemContentAndState.poItem.poItemState = poItemsStateList[rowIndex].poItem.poItemState;
                poItemContentAndState.poItem.qty = qty - firstValue;
+
+               if ((poItemsStateList[rowIndex].poItem.poItemState!= new PoItemNew().GetStateValue())
+    && (poItemsStateList[rowIndex].poItem.poItemState != new PoItemRejected().GetStateValue())
+    && (poItemsStateList[rowIndex].poItem.poItemState != new PoItemCancelled().GetStateValue())
+    )
+               {
+                   poItemContentAndState.poItem.poItemState = (sbyte)new PoItemApproved().GetStateValue();
+               }
+
                poItemContentAndState.state = OrderItemsState.New;
 
                poItemsStateList.Insert(rowIndex + 1, poItemContentAndState);

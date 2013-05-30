@@ -22,6 +22,13 @@ namespace AmbleClient.RfqGui
            GetValuesFromGui(rfq);
            rfq.rfqNo = rfqId;
            rfq.salesId = mySubs[cbSales.SelectedIndex];
+
+           if((rfq.rfqStates!=(int)RfqStatesEnum.Closed)&&(rfq.closeReason.HasValue))
+           {
+            rfq.closeReason=null;
+           }
+
+
            bool suc;
 
            try
