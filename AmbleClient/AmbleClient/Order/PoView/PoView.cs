@@ -102,6 +102,18 @@ namespace AmbleClient.Order.PoView
                 tsbForceClose.Enabled = false;
             }
 
+            if (!UserCombine.GetUserCanBeBuyerMananger().Contains((int)UserInfo.Job))
+            {
+                tsbApprove.Enabled = false;
+                tsbReject.Enabled = false;
+                tsbCancel.Enabled = false;
+                tsbForceClose.Enabled = false;
+            
+            }
+
+
+
+
         }
 
         private void SoView_Load(object sender, EventArgs e)

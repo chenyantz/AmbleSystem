@@ -56,21 +56,6 @@ namespace AmbleClient.SO
 
             So so = soList[tabControl1.SelectedIndex];
 
-
-            if (so.soStates != (int)SoStatesEnum.New && UserCombine.GetUserCanBeSalesManager().Contains((int)UserInfo.Job))
-            {
-                tsbUpdate.Enabled = true;
-            }
-            else if (so.soStates == (int)SoStatesEnum.New && UserCombine.GetUserCanBeSales().Contains((int)UserInfo.Job))
-            {
-                tsbUpdate.Enabled = true;
-            }
-            else
-            {
-                tsbUpdate.Enabled = false;
-            }
-            //for list
-
             //for view Po
             if (Order.PoMgr.PoMgr.GetPoNumberAccordingToSoId(soList[tabControl1.SelectedIndex].soId) <= 0)
             {
@@ -112,6 +97,29 @@ namespace AmbleClient.SO
             {
                 tsbForceClose.Enabled = false;
             }
+
+            if (so.soStates != (int)SoStatesEnum.New && UserCombine.GetUserCanBeSalesManager().Contains((int)UserInfo.Job))
+            {
+                tsbUpdate.Enabled = true;
+            }
+            else if (so.soStates == (int)SoStatesEnum.New && UserCombine.GetUserCanBeSales().Contains((int)UserInfo.Job))
+            {
+                tsbUpdate.Enabled = true;
+            }
+            else
+            {
+                tsbUpdate.Enabled = false;
+            }
+
+            if (!UserCombine.GetUserCanBeSalesManager().Contains((int)UserInfo.Job))
+            {
+                tsbApprove.Enabled = false;
+                tsbReject.Enabled = false;
+                tsbForceClose.Enabled = false;
+                tsbCancel.Enabled = false;
+            }
+
+
 
         }
 

@@ -498,7 +498,11 @@ namespace AmbleClient.Order.PoView
                int firstValue = itemSplit.GetFirstQty();
                poItemsStateList[rowIndex].poItem.qty = firstValue;
                poItemsStateList[rowIndex].poItem.dockDate = itemSplit.GetFirstDateTime();
-               poItemsStateList[rowIndex].state = OrderItemsState.Modified;
+
+               if (poItemsStateList[rowIndex].state != OrderItemsState.New)
+               {
+                   poItemsStateList[rowIndex].state = OrderItemsState.Modified;
+               }
                //set the second one
 
                var poItemContentAndState = new PoItemContentAndState();

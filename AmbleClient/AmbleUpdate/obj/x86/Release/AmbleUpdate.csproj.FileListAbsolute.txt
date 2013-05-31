@@ -1,0 +1,8 @@
+E:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.Properties.Resources.resources
+E:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.UpdateForm.resources
+E:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.csproj.GenerateResource.Cache
+E:\AmbleSystem\AmbleClient\AmbleUpdate\bin\Release\AmbleUpdate.exe
+E:\AmbleSystem\AmbleClient\AmbleUpdate\bin\Release\AmbleUpdate.pdb
+E:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.exe
+E:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.pdb
+E:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.csprojResolveAssemblyReference.cache

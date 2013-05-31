@@ -45,6 +45,7 @@ namespace AmbleClient.Order
       public override List<JobDescription> WhoCanUpdate()
       {
           var listJobDes = new List<JobDescription>();
+          listJobDes.Add(JobDescription.Purchaser);
           listJobDes.Add(JobDescription.PurchasersManager);
           listJobDes.Add(JobDescription.Boss);
           listJobDes.Add(JobDescription.Admin);

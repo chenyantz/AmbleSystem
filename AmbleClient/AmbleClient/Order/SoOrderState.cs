@@ -67,6 +67,18 @@ namespace AmbleClient.Order
       {
           return "New";
       }
+
+      public override List<JobDescription> WhoCanUpdate()
+      {
+          var listJobDes = new List<JobDescription>();
+          listJobDes.Add(JobDescription.Sales);
+          listJobDes.Add(JobDescription.SalesManager);
+          listJobDes.Add(JobDescription.Boss);
+          listJobDes.Add(JobDescription.Admin);
+          return listJobDes;
+      }
+
+
   }
 
 

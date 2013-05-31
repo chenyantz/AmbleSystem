@@ -533,6 +533,7 @@ namespace AmbleClient.SO
                 soItemContentAndState.soitem.soId = this.soId;
                 soItemContentAndState.soitem.qty = qty - firstValue;
                 soItemContentAndState.soitem.dockDate = itemSplit.GetSecondDateTime();
+                
                 if ((soItemContentAndState.soitem.soItemState!=new SoItemNew().GetStateValue())
                     &&(soItemContentAndState.soitem.soItemState!=new SoItemRejected().GetStateValue())
                     &&(soItemContentAndState.soitem.soItemState!=new SoItemCancelled().GetStateValue())

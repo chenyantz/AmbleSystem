@@ -515,7 +515,7 @@ namespace AmbleClient.Order.SoMgr
                        qtyshipped = qtyShippedLocal,
                        currencyType = Convert.ToInt32(dr["currency"]),
                        unitPrice = Convert.ToSingle(dr["unitPrice"]),
-                      
+                       rfqId=Convert.ToInt32(dr["rfqId"]),                      
                        dockDate = Convert.ToDateTime(dr["dockDate"]),
                        shippedDate =shippedDateLocal,
                        shippingInstruction = dr["shippingInstruction"].ToString(),
