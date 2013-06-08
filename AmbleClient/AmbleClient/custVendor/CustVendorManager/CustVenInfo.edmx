@@ -4,10 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CustVenInfoModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="CustVenInfoModelStoreContainer">
-          <EntitySet Name="custvendorinfo" EntityType="CustVenInfoModel.Store.custvendorinfo" store:Type="Tables" Schema="shenzhenerp" />
-          <EntitySet Name="custvendorinfoshipto" EntityType="CustVenInfoModel.Store.custvendorinfoshipto" store:Type="Tables" Schema="shenzhenerp" />
+    <Schema Namespace="shenzhenerpModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="shenzhenerpModelStoreContainer">
+          <EntitySet Name="custvendorinfo" EntityType="shenzhenerpModel.Store.custvendorinfo" store:Type="Tables" Schema="shenzhenerp" />
+          <EntitySet Name="custvendorinfoshipto" EntityType="shenzhenerpModel.Store.custvendorinfoshipto" store:Type="Tables" Schema="shenzhenerp" />
         </EntityContainer>
         <EntityType Name="custvendorinfo">
           <Key>
@@ -37,6 +37,7 @@
           <Property Name="paymentTerm" Type="varchar" MaxLength="255" />
           <Property Name="shippingTerm" Type="varchar" MaxLength="255" />
           <Property Name="billTo" Type="mediumtext" />
+          <Property Name="productLine" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="custvendorinfoshipto">
           <Key>
@@ -46,14 +47,13 @@
           <Property Name="cvId" Type="int" Nullable="false" />
           <Property Name="shipTo" Type="mediumtext" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CustVenInfoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Schema Namespace="shenzhenerpModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="CustVenInfoEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="custvendorinfo" EntityType="CustVenInfoModel.custvendorinfo" />
-          <EntitySet Name="custvendorinfoshipto" EntityType="CustVenInfoModel.custvendorinfoshipto" />
+          <EntitySet Name="custvendorinfo" EntityType="shenzhenerpModel.custvendorinfo" />
+          <EntitySet Name="custvendorinfoshipto" EntityType="shenzhenerpModel.custvendorinfoshipto" />
         </EntityContainer>
         <EntityType Name="custvendorinfo">
           <Key>
@@ -83,6 +83,7 @@
           <Property Name="paymentTerm" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
           <Property Name="shippingTerm" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
           <Property Name="billTo" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+          <Property Type="String" Name="productLine" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="custvendorinfoshipto">
           <Key>
@@ -97,9 +98,10 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CustVenInfoModelStoreContainer" CdmEntityContainer="CustVenInfoEntities">
-          <EntitySetMapping Name="custvendorinfo"><EntityTypeMapping TypeName="CustVenInfoModel.custvendorinfo"><MappingFragment StoreEntitySet="custvendorinfo">
-            <ScalarProperty Name="cvId" ColumnName="cvId" />
+        <EntityContainerMapping StorageEntityContainer="shenzhenerpModelStoreContainer" CdmEntityContainer="CustVenInfoEntities">
+          <EntitySetMapping Name="custvendorinfo"><EntityTypeMapping TypeName="shenzhenerpModel.custvendorinfo"><MappingFragment StoreEntitySet="custvendorinfo">
+            <ScalarProperty Name="productLine" ColumnName="productLine" />
+                <ScalarProperty Name="cvId" ColumnName="cvId" />
             <ScalarProperty Name="cvtype" ColumnName="cvtype" />
             <ScalarProperty Name="cvname" ColumnName="cvname" />
             <ScalarProperty Name="country" ColumnName="country" />
@@ -124,7 +126,7 @@
             <ScalarProperty Name="shippingTerm" ColumnName="shippingTerm" />
             <ScalarProperty Name="billTo" ColumnName="billTo" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="custvendorinfoshipto"><EntityTypeMapping TypeName="CustVenInfoModel.custvendorinfoshipto"><MappingFragment StoreEntitySet="custvendorinfoshipto">
+          <EntitySetMapping Name="custvendorinfoshipto"><EntityTypeMapping TypeName="shenzhenerpModel.custvendorinfoshipto"><MappingFragment StoreEntitySet="custvendorinfoshipto">
             <ScalarProperty Name="cvShipId" ColumnName="cvShipId" />
             <ScalarProperty Name="cvId" ColumnName="cvId" />
             <ScalarProperty Name="shipTo" ColumnName="shipTo" />
@@ -150,8 +152,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="CustVenInfo">
-        <EntityTypeShape EntityType="CustVenInfoModel.custvendorinfo" Width="1.5" PointX="0.75" PointY="0.75" Height="5.634013671875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CustVenInfoModel.custvendorinfoshipto" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="shenzhenerpModel.custvendorinfo" Width="1.5" PointX="0.75" PointY="0.75" Height="5.634013671875" IsExpanded="true" />
+        <EntityTypeShape EntityType="shenzhenerpModel.custvendorinfoshipto" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

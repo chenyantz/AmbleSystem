@@ -161,6 +161,7 @@ namespace AmbleClient.custVendor.CustVendorManager
             selectedcvInfo.phone2 = cvInfo.phone2;
             selectedcvInfo.rate = cvInfo.rate;
             selectedcvInfo.shippingTerm = cvInfo.shippingTerm;
+            selectedcvInfo.productLine = cvInfo.productLine;
 
             custVenEntity.SaveChanges();
 

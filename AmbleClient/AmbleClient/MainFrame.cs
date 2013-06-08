@@ -44,12 +44,15 @@ namespace AmbleClient
                     buyersToolStripMenuItem.Enabled = false;
                     warehousesToolStripMenuItem.Enabled = false;
                     adminToolStripMenuItem.Enabled = false;
+                    settingToolStripMenuItem.Enabled = false;
+                   
                     break;
                 case JobDescription.FinancialManager:
                     salesToolStripMenuItem.Enabled = false;
                     buyersToolStripMenuItem.Enabled = false;
                     warehousesToolStripMenuItem.Enabled = false;
                     adminToolStripMenuItem.Enabled = false;
+                    settingToolStripMenuItem.Enabled = false;
                     break;
                 case JobDescription.Logistics:
                     pOListViewToolStripMenuItem2.Enabled = false;
@@ -57,12 +60,14 @@ namespace AmbleClient
                     buyersToolStripMenuItem.Enabled = false;
                     financesToolStripMenuItem.Enabled = false;
                     adminToolStripMenuItem.Enabled = false;
+                    settingToolStripMenuItem.Enabled = false;
                     break;
                 case JobDescription.LogisticsManager:
                     salesToolStripMenuItem.Enabled = false;
                     buyersToolStripMenuItem.Enabled = false;
                     financesToolStripMenuItem.Enabled = false;
                     adminToolStripMenuItem.Enabled = false;
+                    settingToolStripMenuItem.Enabled = false;
                     break;
                 case JobDescription.Purchaser:
                 case JobDescription.PurchasersManager:
@@ -70,6 +75,7 @@ namespace AmbleClient
                     financesToolStripMenuItem.Enabled = false;
                     warehousesToolStripMenuItem.Enabled = false;
                     adminToolStripMenuItem.Enabled = false;
+                    settingToolStripMenuItem.Enabled = false;
                     break;
                 case JobDescription.Sales:
                 case JobDescription.SalesManager:
@@ -77,6 +83,7 @@ namespace AmbleClient
                     financesToolStripMenuItem.Enabled = false;
                     warehousesToolStripMenuItem.Enabled = false;
                     adminToolStripMenuItem.Enabled = false;
+                    settingToolStripMenuItem.Enabled = false;
                     break;
             
             }

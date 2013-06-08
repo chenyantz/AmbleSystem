@@ -16,6 +16,7 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 using MySql.Data.MySqlClient;
 
+
 [assembly: EdmSchemaAttribute()]
 
 namespace AmbleClient.custVendor.CustVendorManager
@@ -58,7 +59,6 @@ namespace AmbleClient.custVendor.CustVendorManager
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-
         private void ChangeString()
         {
             MySqlConnectionStringBuilder sb = new MySqlConnectionStringBuilder(((EntityConnection)Connection).StoreConnection.ConnectionString);
@@ -69,8 +69,6 @@ namespace AmbleClient.custVendor.CustVendorManager
             ((EntityConnection)Connection).StoreConnection.ConnectionString = sb.ConnectionString;
 
         }
-    
-
         #endregion
     
         #region 分部方法
@@ -143,7 +141,7 @@ namespace AmbleClient.custVendor.CustVendorManager
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CustVenInfoModel", Name="custvendorinfo")]
+    [EdmEntityTypeAttribute(NamespaceName="shenzhenerpModel", Name="custvendorinfo")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class custvendorinfo : EntityObject
@@ -748,6 +746,30 @@ namespace AmbleClient.custVendor.CustVendorManager
         private global::System.String _billTo;
         partial void OnbillToChanging(global::System.String value);
         partial void OnbillToChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String productLine
+        {
+            get
+            {
+                return _productLine;
+            }
+            set
+            {
+                OnproductLineChanging(value);
+                ReportPropertyChanging("productLine");
+                _productLine = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("productLine");
+                OnproductLineChanged();
+            }
+        }
+        private global::System.String _productLine;
+        partial void OnproductLineChanging(global::System.String value);
+        partial void OnproductLineChanged();
 
         #endregion
     
@@ -756,7 +778,7 @@ namespace AmbleClient.custVendor.CustVendorManager
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CustVenInfoModel", Name="custvendorinfoshipto")]
+    [EdmEntityTypeAttribute(NamespaceName="shenzhenerpModel", Name="custvendorinfoshipto")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class custvendorinfoshipto : EntityObject

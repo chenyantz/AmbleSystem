@@ -99,7 +99,7 @@ namespace AmbleClient.custVendor
         {
            if(e.RowIndex>=0&&e.ColumnIndex>=0)
            {
-              if(e.RowIndex>dataGridView1.ColumnCount-1)
+              if(e.RowIndex>dataGridView1.RowCount-1)
                   return;
 
                //get the real index.

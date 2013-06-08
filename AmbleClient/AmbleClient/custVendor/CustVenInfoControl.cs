@@ -26,7 +26,10 @@ namespace AmbleClient.custVendor
 
             InitializeComponent();
             if (cvtype == 0)
+            {
                 label1.Text = " Customer Name:*";
+                tbProductLine.Enabled = false;
+            }
             if (cvtype == 1)
                 label1.Text = "   Vendor Name:*";
 
@@ -90,6 +93,7 @@ namespace AmbleClient.custVendor
             tbAmount.Text = cvinfo.amount.ToString();
             tbNotes.Text = cvinfo.notes;
             comboBox2.SelectedIndex = cvinfo.blacklisted.HasValue? cvinfo.blacklisted.Value : -1;
+            tbProductLine.Text = cvinfo.productLine;
         }
 
         public custvendorinfo  GetValues()
@@ -124,7 +128,7 @@ namespace AmbleClient.custVendor
             }
             cvInfo.notes = tbNotes.Text.Trim();
             cvInfo.blacklisted = (sbyte)comboBox2.SelectedIndex;
-
+            cvInfo.productLine = tbProductLine.Text.Trim();
 
             return cvInfo;
         

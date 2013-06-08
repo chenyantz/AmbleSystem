@@ -78,7 +78,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(29, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(28, 22);
             this.toolStripLabel1.Text = "List:";
             // 
             // tscbList
@@ -96,7 +96,7 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(52, 22);
             this.toolStripLabel2.Text = "Filter By:";
             // 
             // tscbFilterColumn
@@ -108,7 +108,7 @@
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(76, 22);
+            this.toolStripLabel3.Size = new System.Drawing.Size(70, 22);
             this.toolStripLabel3.Text = "Filter String:";
             // 
             // tstbFilterString
@@ -122,7 +122,7 @@
             this.tsbApply.Image = ((System.Drawing.Image)(resources.GetObject("tsbApply.Image")));
             this.tsbApply.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbApply.Name = "tsbApply";
-            this.tsbApply.Size = new System.Drawing.Size(44, 22);
+            this.tsbApply.Size = new System.Drawing.Size(42, 22);
             this.tsbApply.Text = "Apply";
             this.tsbApply.Click += new System.EventHandler(this.tsbApply_Click);
             // 
@@ -132,7 +132,7 @@
             this.tsbClear.Image = ((System.Drawing.Image)(resources.GetObject("tsbClear.Image")));
             this.tsbClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClear.Name = "tsbClear";
-            this.tsbClear.Size = new System.Drawing.Size(41, 22);
+            this.tsbClear.Size = new System.Drawing.Size(38, 22);
             this.tsbClear.Text = "Clear";
             this.tsbClear.Click += new System.EventHandler(this.tsbClear_Click);
             // 
@@ -147,7 +147,7 @@
             this.tsbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsbRefresh.Image")));
             this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRefresh.Name = "tsbRefresh";
-            this.tsbRefresh.Size = new System.Drawing.Size(55, 22);
+            this.tsbRefresh.Size = new System.Drawing.Size(50, 22);
             this.tsbRefresh.Text = "Refresh";
             this.tsbRefresh.Click += new System.EventHandler(this.tsbRefresh_Click);
             // 
@@ -159,7 +159,7 @@
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(98, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(90, 22);
             this.toolStripLabel4.Text = "Only Lists State:";
             // 
             // tscbListState
@@ -192,7 +192,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 26);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -205,16 +205,16 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1074, 478);
+            this.dataGridView1.Size = new System.Drawing.Size(1074, 518);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // OrderListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1074, 503);
+            this.ClientSize = new System.Drawing.Size(1074, 545);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

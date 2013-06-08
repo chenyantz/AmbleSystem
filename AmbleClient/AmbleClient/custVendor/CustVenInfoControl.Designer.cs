@@ -60,6 +60,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbProductLine = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // comboBox2
@@ -359,10 +361,30 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Company Name:*";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(449, 287);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 16);
+            this.label4.TabIndex = 51;
+            this.label4.Text = "Product Line:";
+            // 
+            // tbProductLine
+            // 
+            this.tbProductLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbProductLine.Location = new System.Drawing.Point(563, 284);
+            this.tbProductLine.Name = "tbProductLine";
+            this.tbProductLine.Size = new System.Drawing.Size(210, 22);
+            this.tbProductLine.TabIndex = 30;
+            // 
             // CustVenInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tbProductLine);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.tbNotes);
             this.Controls.Add(this.tbAmount);
@@ -436,5 +458,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbProductLine;
     }
 }

@@ -37,6 +37,8 @@ namespace AmbleClient.Settings
                 return;
             }
            AmbleClient.Admin.AccountMgr.AccountMgr.ChangePasswd(UserInfo.UserId, maskedTextBox1.Text.Trim());
+           MessageBox.Show("New password has been saved.");
+
            this.Close();
         }
     }
