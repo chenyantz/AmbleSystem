@@ -15,14 +15,14 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_1079BA69750943BC9AF048EAAA7F992D"
+        "MsmKey" = "8:_195E92A6D1AA47D5A45AE9C063C55FA5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_1CB12C1ECD8FD4AAB5CF0FCD492E61B1"
-        "OwnerKey" = "8:_F55EEF042EFE43CDA5A342862EDEC73D"
+        "OwnerKey" = "8:_688045B50C61486D8128B418FFFA71F1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -33,37 +33,37 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_34F9A3419A5C3F1D0A38EB4E9A4EF899"
-        "OwnerKey" = "8:_F55EEF042EFE43CDA5A342862EDEC73D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3880B80CE218F7C9745CB19DF9EC709F"
-        "OwnerKey" = "8:_F55EEF042EFE43CDA5A342862EDEC73D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3880B80CE218F7C9745CB19DF9EC709F"
-        "OwnerKey" = "8:_9F5E7C8453F9B012E6B2F7A280FD729D"
+        "MsmKey" = "8:_219BD10CF22F4A81A0D1FC804756C040"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_50595CDA728D192343F1636EE9F680F4"
-        "OwnerKey" = "8:_F55EEF042EFE43CDA5A342862EDEC73D"
+        "OwnerKey" = "8:_688045B50C61486D8128B418FFFA71F1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_68E0FF41C12A4EACA5F7BC3190F2177B"
+        "MsmKey" = "8:_593F78D85B6B4F739D8BAACD4D4B0C51"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_688045B50C61486D8128B418FFFA71F1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_7DEDE4B65EBA4CCBA324CBE3D480241D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7F12875F61EB41C9863DC478DD03A710"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -76,13 +76,7 @@
         "Entry"
         {
         "MsmKey" = "8:_9F5E7C8453F9B012E6B2F7A280FD729D"
-        "OwnerKey" = "8:_F55EEF042EFE43CDA5A342862EDEC73D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C8F37E0684950A90D8962B9B90F99226"
-        "OwnerKey" = "8:_F55EEF042EFE43CDA5A342862EDEC73D"
+        "OwnerKey" = "8:_688045B50C61486D8128B418FFFA71F1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -93,20 +87,38 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CA6970DAF1A340D0A5787B94E56F58BE"
+        "MsmKey" = "8:_F45B5B0FC19C4952862BBD1E1F91B1CB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F55EEF042EFE43CDA5A342862EDEC73D"
+        "MsmKey" = "8:_FD989816FE374A81A4FB0A38839998E9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FE387242EE504426A32C97334BDE03E6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F55EEF042EFE43CDA5A342862EDEC73D"
+        "OwnerKey" = "8:_688045B50C61486D8128B418FFFA71F1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F45B5B0FC19C4952862BBD1E1F91B1CB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7F12875F61EB41C9863DC478DD03A710"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,19 +142,31 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3880B80CE218F7C9745CB19DF9EC709F"
+        "OwnerKey" = "8:_9F5E7C8453F9B012E6B2F7A280FD729D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C8F37E0684950A90D8962B9B90F99226"
+        "OwnerKey" = "8:_688045B50C61486D8128B418FFFA71F1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_34F9A3419A5C3F1D0A38EB4E9A4EF899"
+        "OwnerKey" = "8:_688045B50C61486D8128B418FFFA71F1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_219BD10CF22F4A81A0D1FC804756C040"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_688045B50C61486D8128B418FFFA71F1"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -250,10 +274,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1079BA69750943BC9AF048EAAA7F992D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_195E92A6D1AA47D5A45AE9C063C55FA5"
             {
-            "SourcePath" = "8:..\\AmbleClient\\bin\\Release\\PoTemplate.dll"
-            "TargetName" = "8:PoTemplate.dll"
+            "SourcePath" = "8:..\\AmbleClient\\bin\\Release\\SoTemplate.dll"
+            "TargetName" = "8:SoTemplate.dll"
             "Tag" = "8:"
             "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
             "Condition" = "8:"
@@ -284,68 +308,6 @@
                     }
                 }
             "SourcePath" = "8:MySql.Data.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_34F9A3419A5C3F1D0A38EB4E9A4EF899"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_34F9A3419A5C3F1D0A38EB4E9A4EF899"
-                    {
-                    "Name" = "8:log4net.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:log4net.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3880B80CE218F7C9745CB19DF9EC709F"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_3880B80CE218F7C9745CB19DF9EC709F"
-                    {
-                    "Name" = "8:ICSharpCode.SharpZipLib.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:ICSharpCode.SharpZipLib.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
@@ -394,10 +356,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_68E0FF41C12A4EACA5F7BC3190F2177B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_593F78D85B6B4F739D8BAACD4D4B0C51"
             {
-            "SourcePath" = "8:..\\AmbleClient\\bin\\Release\\AmbleAppServer.ini"
-            "TargetName" = "8:AmbleAppServer.ini"
+            "SourcePath" = "8:..\\AmbleClient\\bin\\Release\\NPOI.xml"
+            "TargetName" = "8:NPOI.xml"
             "Tag" = "8:"
             "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
             "Condition" = "8:"
@@ -418,6 +380,37 @@
             {
             "SourcePath" = "8:AmbleClient.exe.config"
             "TargetName" = "8:AmbleClient.exe.config"
+            "Tag" = "8:"
+            "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7F12875F61EB41C9863DC478DD03A710"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_7F12875F61EB41C9863DC478DD03A710"
+                    {
+                    "Name" = "8:log4net.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\AmbleClient\\bin\\Release\\log4net.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
             "Condition" = "8:"
@@ -485,37 +478,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C8F37E0684950A90D8962B9B90F99226"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PasswordServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_C8F37E0684950A90D8962B9B90F99226"
-                    {
-                    "Name" = "8:PasswordServer.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:PasswordServer.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CA08413AE58F4E098F7FF193C9270B5E"
             {
             "SourcePath" = "8:..\\AmbleClient\\bin\\Release\\log4net.config"
@@ -536,10 +498,61 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CA6970DAF1A340D0A5787B94E56F58BE"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F45B5B0FC19C4952862BBD1E1F91B1CB"
             {
-            "SourcePath" = "8:..\\AmbleClient\\bin\\Release\\SoTemplate.dll"
-            "TargetName" = "8:SoTemplate.dll"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PasswordServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_F45B5B0FC19C4952862BBD1E1F91B1CB"
+                    {
+                    "Name" = "8:PasswordServer.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\AmbleClient\\bin\\Release\\PasswordServer.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FD989816FE374A81A4FB0A38839998E9"
+            {
+            "SourcePath" = "8:..\\AmbleClient\\bin\\Release\\PoTemplate.dll"
+            "TargetName" = "8:PoTemplate.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FE387242EE504426A32C97334BDE03E6"
+            {
+            "SourcePath" = "8:..\\AmbleClient\\bin\\Release\\AmbleAppServer.ini"
+            "TargetName" = "8:AmbleAppServer.ini"
             "Tag" = "8:"
             "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
             "Condition" = "8:"
@@ -613,7 +626,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AmbleInfoSystem"
         "ProductCode" = "8:{1290780F-43D7-4084-9692-BC5B6C9FF380}"
-        "PackageCode" = "8:{71B11070-F7A3-446B-BE41-755A21DE0128}"
+        "PackageCode" = "8:{9367AEB2-0EED-489D-816C-52FBB95DD61B}"
         "UpgradeCode" = "8:{4F296C07-308F-40F4-958F-9C3BB136564C}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -733,29 +746,29 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_00DC9A69512640E78D52076A42EF97F2"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_097D5E357F6B47E490636B528F9D09FA"
             {
-            "Name" = "8:Amble Info System"
+            "Name" = "8:AmbleInfoSystem"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_F55EEF042EFE43CDA5A342862EDEC73D"
+            "Target" = "8:_688045B50C61486D8128B418FFFA71F1"
             "Folder" = "8:_C9B5E947AFB2474C8C6CF63C6EE527E7"
             "WorkingFolder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
             "Icon" = "8:_9D39417D3EA1411F8FE28ABFB647AF91"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C5452AA656C649A889A05CD3E3695DAA"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E0B3BADD19054B449607F272AA95832A"
             {
-            "Name" = "8:Amble Info System"
+            "Name" = "8:AmbleInfoSystem"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_F55EEF042EFE43CDA5A342862EDEC73D"
+            "Target" = "8:_688045B50C61486D8128B418FFFA71F1"
             "Folder" = "8:_4EE8CFDCB0F1433AA1BF62B8F5E88E91"
             "WorkingFolder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
             "Icon" = "8:_9D39417D3EA1411F8FE28ABFB647AF91"
@@ -1160,6 +1173,64 @@
         }
         "ProjectOutput"
         {
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_219BD10CF22F4A81A0D1FC804756C040"
+            {
+            "SourcePath" = "8:..\\AmbleUpdate\\obj\\x86\\Release\\AmbleUpdate.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{AA5D0A7B-99C1-4D20-BDF7-A23FEE7ABFBD}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_688045B50C61486D8128B418FFFA71F1"
+            {
+            "SourcePath" = "8:..\\AmbleClient\\obj\\x86\\Release\\AmbleClient.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{87B4F290-C4B4-4488-957D-20774AFEFD06}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                "ExcludeFilter" = "8:*.config"
+                "ExcludeFilter" = "8:*.ini"
+                }
+            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_BD5115F4B9E14DB2979A917894C3B8F4"
             {
             "SourcePath" = "8:"
@@ -1186,35 +1257,6 @@
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
-                }
-            }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F55EEF042EFE43CDA5A342862EDEC73D"
-            {
-            "SourcePath" = "8:..\\AmbleClient\\obj\\x86\\Release\\AmbleClient.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_37428BE9D49B4FA7B9D4BD2CEE43E836"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{87B4F290-C4B4-4488-957D-20774AFEFD06}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                "ExcludeFilter" = "8:*.exe.config"
                 }
             }
         }

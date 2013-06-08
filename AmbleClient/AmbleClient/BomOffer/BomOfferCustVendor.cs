@@ -321,25 +321,54 @@ namespace AmbleClient.BomOffer
                     foreach (DataRow dr in dt.Rows)
                     {
 
-                        if (!ItemsCheck.CheckIntNumber(dr[qtyColumn]))
+                        //Qty omit the ","
+
+                        string qtyString = dr[qtyColumn].ToString();
+                        qtyString = qtyString.Replace(",",string.Empty);
+                        
+                        if (!string.IsNullOrWhiteSpace(qtyString) && (!ItemsCheck.CheckIntNumber(qtyString)))
                         {
+                            
                             MessageBox.Show("The Qty value is not correct in row " + i.ToString());
                             return;
                         }
-                        if (!ItemsCheck.CheckFloatNumber(dr[priceColumn]))
+                        if (!string.IsNullOrWhiteSpace(dr[priceColumn].ToString()) && (!ItemsCheck.CheckFloatNumber(dr[priceColumn])))
                         {
+                           
+
                             MessageBox.Show("The Price value is not correct in row " + i.ToString());
                             return;
                         }
-                        
-                        
+
+                        int? qtyLocal;
+                        float? priceLocal;
+
+                        if (string.IsNullOrWhiteSpace(qtyString))
+                        {
+                            qtyLocal = null;
+                        }
+                        else
+                        {
+                            qtyLocal = Convert.ToInt32(qtyString);
+                        }
+
+                        if (string.IsNullOrWhiteSpace(dr[priceColumn].ToString()))
+                        {
+                            priceLocal = null;
+                        }
+                        else
+                        {
+                            priceLocal = Convert.ToSingle(dr[priceColumn]);
+                        }
+
+
                         entity.publicbomoffer.AddObject(
                         new publicbomoffer
                          {
                        mfg = dr[mfgColumn].ToString(),
                        mpn = dr[mpnColumn].ToString(),
-                       qty = Convert.ToInt32(dr[qtyColumn]),
-                       price = Convert.ToSingle(dr[priceColumn]),
+                       qty =qtyLocal,
+                       price = priceLocal,
                        cpn = dr[cpnColumn].ToString(),
                        userID = (short)UserInfo.UserId,
                        BomCustVendId = custVenId,

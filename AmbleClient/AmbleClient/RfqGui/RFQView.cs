@@ -108,6 +108,7 @@ namespace AmbleClient.RfqGui
                 {
                     RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Quoted the RFQ");
                     GuiOpAccordingToRfqState(RfqStatesEnum.Quoted);
+                    this.Close();
                 }
                 else
                 {
@@ -129,7 +130,7 @@ namespace AmbleClient.RfqGui
                 {
                     RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Routed the RFQ");
                     GuiOpAccordingToRfqState(RfqStatesEnum.Routed);
-
+                    this.Close();
                 }
                 else
                 {
