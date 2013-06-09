@@ -49,6 +49,13 @@ namespace AmbleClient.custVendor.CustVendorManager
                          select custVen;
                 return cv.ToList();
             }
+            else if (filterColumn == "cvnumber")
+            {
+                var cv = from custVen in custVenEntity.custvendorinfo
+                         where custVen.cvnumber.Contains(filterString.Trim())
+                         select custVen;
+                return cv.ToList();
+            }
             else
             {
                 return GetAllCustomerAndVendors();
@@ -101,6 +108,14 @@ namespace AmbleClient.custVendor.CustVendorManager
                 return cv.ToList();
 
             }
+            else if (filterColumn == "cvnumber")
+            {
+                var cv = from custVen in custVenEntity.custvendorinfo
+                         where custVen.cvtype == cvtype && custVen.ownerName == (short)usrId && custVen.cvnumber.Contains(filterString.Trim())
+                         select custVen;
+                return cv.ToList();
+
+            }
             else
             {
                 return new List<custvendorinfo>();
@@ -127,6 +142,13 @@ namespace AmbleClient.custVendor.CustVendorManager
                          select custVen;
                 return cv.ToList();
 
+            }
+            else if (filterColumn == "cvnumber")
+            {
+                var cv = from custVen in custVenEntity.custvendorinfo
+                         where custVen.cvtype == cvtype && subIds.Contains(custVen.ownerName) && custVen.cvnumber.Contains(filterString.Trim())
+                         select custVen;
+                return cv.ToList();
             }
             else
             {

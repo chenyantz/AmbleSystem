@@ -26,6 +26,7 @@ namespace AmbleClient.custVendor
         protected override void SetFilterByDict()
         {
             filterByDict.Add("Company Name", "cvname");
+            filterByDict.Add("Company Number", "cvnumber");
         }
 
         protected override void SetTheDataGridViewColumn()

@@ -11,13 +11,58 @@ namespace AmbleClient.BomOffer
 {
     public partial class BomOfferCustVendor : Form
     {
-        bool isOffer; //false为BOM，true为offer
-        
+        //bool isOffer; //false为BOM，true为offer
+        BomOfferTypeEnum bomOfferType;
+
+
         public BomOfferCustVendor()
         {
             InitializeComponent();
         }
 
+
+        public BomOfferCustVendor(BomOfferTypeEnum bomOfferType):this()
+        {
+            this.bomOfferType = bomOfferType;
+            switch (bomOfferType)
+            { 
+                case BomOfferTypeEnum.BOM:
+                this.Text = "Customer For BOMs";
+                this.toolStripButton1.Text = "New Customer";
+                this.tsbImportFromExcel.Text = "Import BOM";
+                this.tsbNewBomOff.Text = "New BOM";
+                this.tsbDelete.Text="Delete";
+                this.tscbSearchBy.Items.Add("Customer Name");
+            
+                    break;
+                case BomOfferTypeEnum.Excess:
+                
+                this.Text = "Vendors For Excess";
+                this.toolStripButton1.Text = "New Vendor";
+                this.tsbImportFromExcel.Text = "Import Offer";
+                this.tsbNewBomOff.Text = "New Offer";
+                this.tsbDelete.Text = "Delete";
+                this.tscbSearchBy.Items.Add("Vendor Name");
+                    break;
+
+                case BomOfferTypeEnum.LTOffer:
+                this.Text = "Company For L/T Offer";
+                this.toolStripButton1.Text = "New Company";
+                this.tsbImportFromExcel.Text = "Import Offer";
+                this.tsbNewBomOff.Text = "New Offer";
+                this.tsbDelete.Text = "Delete";
+                this.tscbSearchBy.Items.Add("Company Name"); 
+                    
+                    break;
+            }
+
+            FillTheDataGridViewColumn();
+
+        }
+
+
+
+/*
         public BomOfferCustVendor(bool isOffer):this()
         {
             this.isOffer = isOffer;
@@ -46,7 +91,7 @@ namespace AmbleClient.BomOffer
             FillTheDataGridViewColumn();
 
 
-        }
+        }*/
 
 
         private void FillTheDataGridViewColumn()
@@ -63,10 +108,12 @@ namespace AmbleClient.BomOffer
             Id.Visible = false;
 
             Company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            if (isOffer)
+            if (this.bomOfferType == BomOfferTypeEnum.Excess)
                 Company.HeaderText = "Vendor";
-            else
+            else if (this.bomOfferType == BomOfferTypeEnum.BOM)
                 Company.HeaderText = "Customer";
+            else
+                Company.HeaderText = "Company";
             Company.Name = "Compnay";
 
             Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -82,10 +129,7 @@ namespace AmbleClient.BomOffer
             Email.Name = "Email";
 
             User.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            if (isOffer)
-                User.HeaderText = "Sales";
-            else
-                User.HeaderText = "PA";
+            User.HeaderText = "Owner";
             User.Name = "User";
 
             EnterDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -116,7 +160,7 @@ namespace AmbleClient.BomOffer
 
                     var bomOfferList = from bomOffer in entity.publiccustven
                                        join myaccount in entity.account on bomOffer.userID equals myaccount.id
-                                       where bomOffer.custVendorType == (isOffer ? 1 : 0)
+                                       where bomOffer.custVendorType == (int)bomOfferType
                                        select new
                                        {
                                            Id = bomOffer.custVenId,
@@ -138,7 +182,7 @@ namespace AmbleClient.BomOffer
 
                     var bomOfferList = from bomOffer in entity.publiccustven
                                        join myaccount in entity.account on bomOffer.userID equals myaccount.id
-                                       where bomOffer.custVendorType == (isOffer ? 1 : 0) &&bomOffer.custVenName.Contains(tstbFilterString.Text.Trim())
+                                       where bomOffer.custVendorType == ((int)bomOfferType) &&bomOffer.custVenName.Contains(tstbFilterString.Text.Trim())
 
                                        select new
                                        {
@@ -175,7 +219,7 @@ namespace AmbleClient.BomOffer
 
         private void toolStripButton1_Click(object sender, EventArgs e)
           {
-              BomOfferNewCustVen bomOfferNewCustVen = new BomOfferNewCustVen(isOffer);
+              BomOfferNewCustVen bomOfferNewCustVen = new BomOfferNewCustVen(bomOfferType);
               if (bomOfferNewCustVen.ShowDialog() == DialogResult.OK)
               {
                   BomOfferCustVendor_Load(this, null);
@@ -199,7 +243,7 @@ namespace AmbleClient.BomOffer
 
         private void NewBomOffer(int custVenId)
         {
-            BomOfferNew bomOfferNew = new BomOfferNew(isOffer, custVenId);
+            BomOfferNew bomOfferNew = new BomOfferNew(bomOfferType, custVenId);
             bomOfferNew.ShowDialog();
 
         
@@ -212,7 +256,7 @@ namespace AmbleClient.BomOffer
 
             DataGridViewRow dgvr = dataGridView1.SelectedRows[0];
             int custVenId = Convert.ToInt32(dgvr.Cells["Id"].Value);
-            BomOffer.BomOfferList bomOfferList = new BomOfferList(isOffer, custVenId);
+            BomOffer.BomOfferList bomOfferList = new BomOfferList(bomOfferType, custVenId);
             bomOfferList.ShowDialog();
 
         }
@@ -256,7 +300,7 @@ namespace AmbleClient.BomOffer
 
             DataGridViewRow dgvr = dataGridView1.Rows[rowIndex];
             int custVenId = Convert.ToInt32(dgvr.Cells["Id"].Value);
-            BomOffer.BomOfferList bomOfferList = new BomOfferList(isOffer, custVenId);
+            BomOffer.BomOfferList bomOfferList = new BomOfferList(bomOfferType, custVenId);
             bomOfferList.ShowDialog();
         }
 

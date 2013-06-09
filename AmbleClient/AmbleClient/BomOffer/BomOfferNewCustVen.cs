@@ -12,20 +12,29 @@ namespace AmbleClient.BomOffer
     public partial class BomOfferNewCustVen : Form
     {
 
-        bool isOffer;
-        public BomOfferNewCustVen(bool isOffer)
+        //bool isOffer;
+        BomOfferTypeEnum bomOfferType;
+        
+        public BomOfferNewCustVen(BomOfferTypeEnum bomOfferType)
         {
             InitializeComponent();
-            this.isOffer=isOffer;
-            if (isOffer)
+            this.bomOfferType = bomOfferType;
+            if (bomOfferType==BomOfferTypeEnum.Excess)
             {
                 this.Text = "Add a Vendor's Info";
-                label1.Text="Customer Name*:";
+                label1.Text="Vendor Name*:";
+            }
+            else if (bomOfferType == BomOfferTypeEnum.BOM)
+            {
+                this.Text = "Add a Customer's Info";
+                label1.Text = "Customer Name*:";
             }
             else
-                this.Text = "Add a Customer's Info";
-            label1.Text = "Vendor Name*:";
-
+            {
+                this.Text = "Add a Company's Info";
+                label1.Text = "Company Name*:";
+              
+            }
 
         }
 
@@ -38,7 +47,7 @@ namespace AmbleClient.BomOffer
             var publicCustVen = new publiccustven
             {
                 custVenName=tbCustVenName.Text.Trim(),
-                custVendorType=(sbyte)(isOffer?1:0),
+                custVendorType=(sbyte)(bomOfferType),
                 contact=tbContact.Text.Trim(),
                 tel=tbTel.Text.Trim(),
                 email=tbEmail.Text.Trim(),

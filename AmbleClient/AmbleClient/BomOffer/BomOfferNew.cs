@@ -11,24 +11,28 @@ namespace AmbleClient.BomOffer
 {
     public partial class BomOfferNew : Form
     {
-        bool isOffer;
+       // bool isOffer;
+        BomOfferTypeEnum bomOfferType;
         int custVenId;
 
-        public BomOfferNew(bool isOffer, int custVenId)
+        public BomOfferNew(BomOfferTypeEnum bomOfferType, int custVenId)
         {
             InitializeComponent();
-            this.isOffer = isOffer;
+            this.bomOfferType = bomOfferType;
             this.custVenId = custVenId;
-            if (isOffer)
+            if (this.bomOfferType==BomOfferTypeEnum.Excess)
             {
                 this.Text = "Add a New Excess";
 
             }
-            else
+            else if (this.bomOfferType == BomOfferTypeEnum.BOM)
             {
                 this.Text = "Add a New BOM";
             }
-
+            else
+            {
+                this.Text = "Add a New Company";
+            }
 
         
         }

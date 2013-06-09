@@ -121,6 +121,7 @@
     <Compile Include="BomOffer\BomOfferNewCustVen.Designer.cs">
       <DependentUpon>BomOfferNewCustVen.cs</DependentUpon>
     </Compile>
+    <Compile Include="BomOffer\BomOfferType.cs" />
     <Compile Include="ComClass\OperatorFile.cs" />
     <Compile Include="custVendor\CustVenderListView.cs">
       <SubType>Form</SubType>

@@ -70,8 +70,8 @@
             this.tsbDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("tsbDeleteItem.Image")));
             this.tsbDeleteItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDeleteItem.Name = "tsbDeleteItem";
-            this.tsbDeleteItem.Size = new System.Drawing.Size(118, 22);
-            this.tsbDeleteItem.Text = "Delete Selected Item";
+            this.tsbDeleteItem.Size = new System.Drawing.Size(123, 22);
+            this.tsbDeleteItem.Text = "Delete Selected Items";
             this.tsbDeleteItem.Click += new System.EventHandler(this.tsbDeleteItem_Click);
             // 
             // toolStripSeparator1
@@ -92,6 +92,7 @@
             "MPN"});
             this.tscbFilterBy.Name = "tscbFilterBy";
             this.tscbFilterBy.Size = new System.Drawing.Size(121, 25);
+            this.tscbFilterBy.SelectedIndexChanged += new System.EventHandler(this.tscbFilterBy_SelectedIndexChanged);
             // 
             // toolStripLabel2
             // 
@@ -147,7 +148,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
-            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(999, 491);

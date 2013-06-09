@@ -11,18 +11,20 @@ namespace AmbleClient.BomOffer
 {
     public partial class BomOfferList : Form
     {
-         bool isOffer;
-         bool listbyCustVen = false;
+        // bool isOffer;
+
+        BomOfferTypeEnum bomOfferType;
+        bool listbyCustVen = false;
          int custVenId;
 
-        public BomOfferList(bool isOffer)
+        public BomOfferList(BomOfferTypeEnum bomOfferType)
         {
             InitializeComponent();
-            this.isOffer = isOffer;
+            this.bomOfferType = bomOfferType;
             FillTheDataGridColumn();
         }
-        public BomOfferList(bool isOffer, int custVenId)
-            : this(isOffer)
+        public BomOfferList(BomOfferTypeEnum bomOfferType, int custVenId)
+            : this(bomOfferType)
         {
             this.listbyCustVen = true;
             this.custVenId = custVenId;
@@ -44,14 +46,17 @@ namespace AmbleClient.BomOffer
             System.Windows.Forms.DataGridViewTextBoxColumn Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Cpn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewTextBoxColumn User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn EnterDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
             Company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            if (isOffer)
+            if (this.bomOfferType==BomOfferTypeEnum.Excess)
                 Company.HeaderText = "Vendor";
-            else
+            else if(this.bomOfferType==BomOfferTypeEnum.BOM)
                 Company.HeaderText = "Customer";
-            Company.Name = "Compnay";
+            else 
+                Company.HeaderText="Company";
+            Company.Name = "Company";
 
             Mfg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             Mfg.HeaderText = "MFG";
@@ -74,6 +79,10 @@ namespace AmbleClient.BomOffer
             Cpn.HeaderText = "CPN";
             Cpn.Name = "Cpn";
 
+            User.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            User.HeaderText = "Owner";
+            User.Name = "User";
+
             EnterDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             EnterDay.HeaderText = "Date";
             EnterDay.Name = "EnterDay";
@@ -86,6 +95,7 @@ namespace AmbleClient.BomOffer
             Qty,
             Price,
             Cpn,
+            User,
             EnterDay
          });
 
@@ -97,10 +107,12 @@ namespace AmbleClient.BomOffer
 
         private void BomOfferList_Load(object sender, EventArgs e)
         {
-            if (isOffer)
+            if (this.bomOfferType==BomOfferTypeEnum.Excess)
                 this.Text = "Excess List";
-            else
+            else if(this.bomOfferType==BomOfferTypeEnum.BOM)
                 this.Text = "BOMs List";
+            else
+                this.Text="L/T Offer List";
 
             tscbFilterBy.Items.Clear();
             if (listbyCustVen)
@@ -110,12 +122,14 @@ namespace AmbleClient.BomOffer
             else
             {
                 tscbFilterBy.Items.Add("MPN");
-                if (isOffer)
+                if (this.bomOfferType == BomOfferTypeEnum.Excess)
                     tscbFilterBy.Items.Add("Vendor Name");
-                else
+                else if (this.bomOfferType == BomOfferTypeEnum.BOM)
                     tscbFilterBy.Items.Add("Customer Name");
+                else
+                    tscbFilterBy.Items.Add("Company Name");
             }
-
+            tscbFilterBy.Items.Add("Date");
             this.dataGridView1.Rows.Clear();
             using (BomOfferEntities entity = new BomOfferEntities())
             {
@@ -123,22 +137,23 @@ namespace AmbleClient.BomOffer
                 {
                     var bomOfferList = from bomOffer in entity.publicbomoffer
                                        join custVen in entity.publiccustven on bomOffer.BomCustVendId equals custVen.custVenId
-                                       where custVen.custVendorType == (isOffer ? 1 : 0) && custVen.custVenId==this.custVenId
+                                       where custVen.custVendorType == (int)this.bomOfferType && custVen.custVenId==this.custVenId
                                        select new
                                        {
-                                          Id = bomOffer.BomCustVendId,
+                                          Id = bomOffer.bomOfferId,
                                            Company = custVen.custVenName,
                                            MFG = bomOffer.mfg,
                                            MPN = bomOffer.mpn,
                                            Qty = bomOffer.qty,
                                            Price = bomOffer.price,
+                                           User=bomOffer.userID,
                                            CPN = bomOffer.cpn,
                                            Enterday=bomOffer.enerDay
                                        };
 
                     foreach (var bomOffer in bomOfferList)
                     {
-                        dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToShortDateString() : "");
+                        dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN,AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
                     }
 
                 }
@@ -147,22 +162,23 @@ namespace AmbleClient.BomOffer
                 {
                     var bomOfferList = from bomOffer in entity.publicbomoffer
                                        join custVen in entity.publiccustven on bomOffer.BomCustVendId equals custVen.custVenId
-                                       where custVen.custVendorType == (isOffer ? 1 : 0)
+                                       where custVen.custVendorType == (int)this.bomOfferType
                                        select new
                                        {
-                                           Id=bomOffer.BomCustVendId,
+                                           Id=bomOffer.bomOfferId,
                                            Company = custVen.custVenName,
                                            MFG = bomOffer.mfg,
                                            MPN = bomOffer.mpn,
                                            Qty = bomOffer.qty,
                                            Price = bomOffer.price,
                                            CPN = bomOffer.cpn,
+                                           User = bomOffer.userID,
                                            Enterday = bomOffer.enerDay
                                        };
 
                     foreach (var bomOffer in bomOfferList)
                     {
-                        dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN,bomOffer.Enterday.HasValue?bomOffer.Enterday.Value.ToShortDateString():"");
+                        dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN,AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue?bomOffer.Enterday.Value.ToString():"");
                     }
                 }
 
@@ -178,19 +194,20 @@ namespace AmbleClient.BomOffer
                 return;
             }
 
-           DataGridViewRow dgvr = dataGridView1.SelectedRows[0];
-           int bomOfferId = Convert.ToInt32(dgvr.Cells["Id"].Value);
-
+            DataGridViewSelectedRowCollection dgvrrc = dataGridView1.SelectedRows;
+            int bomOfferId;
 
             using (BomOfferEntities entity = new BomOfferEntities())
             {
-                var bomOfferItem = entity.publicbomoffer.First(item => item.BomCustVendId == bomOfferId);
-                entity.DeleteObject(bomOfferItem);
+                foreach (DataGridViewRow dgvr in dgvrrc)
+                {
+                    bomOfferId = Convert.ToInt32(dgvr.Cells["Id"].Value);
+                    var bomOfferItem = entity.publicbomoffer.First(item => item.bomOfferId == bomOfferId);
+                    entity.DeleteObject(bomOfferItem);
+                }
                 entity.SaveChanges();
             }
-            BomOfferList_Load(this,null);
-
-
+            BomOfferList_Load(this, null);
 
         }
 
@@ -207,7 +224,8 @@ namespace AmbleClient.BomOffer
             if ((tscbFilterBy.Text.Trim().Length == 0)|| (tstbFilterString.Text.Trim().Length == 0))
                 return;
 
-            if (((tscbFilterBy.Text.Trim() == "Vendor Name") || (tscbFilterBy.Text.Trim() == "Customer Name")) && (tstbFilterString.Text.Trim().Length != 0))
+            if (((tscbFilterBy.Text.Trim() == "Vendor Name") || (tscbFilterBy.Text.Trim() == "Customer Name")||(tscbFilterBy.Text.Trim()=="Company Name"))
+                && (tstbFilterString.Text.Trim().Length != 0))
             {
                 if (listbyCustVen)
                 {
@@ -217,30 +235,31 @@ namespace AmbleClient.BomOffer
                 {
                     var bomOfferList = from bomOffer in entity.publicbomoffer
                                        join custVen in entity.publiccustven on bomOffer.BomCustVendId equals custVen.custVenId
-                                       where custVen.custVendorType == (isOffer ? 1 : 0) &&(custVen.custVenName.Contains(tstbFilterString.Text.Trim()))
+                                       where custVen.custVendorType == (int)this.bomOfferType &&(custVen.custVenName.Contains(tstbFilterString.Text.Trim()))
                                        select new
                                        {
-                                          Id = bomOffer.BomCustVendId,
+                                          Id = bomOffer.bomOfferId,
                                            Company = custVen.custVenName,
                                            MFG = bomOffer.mfg,
                                            MPN = bomOffer.mpn,
                                            Qty = bomOffer.qty,
                                            Price = bomOffer.price,
                                            CPN = bomOffer.cpn,
+                                          User = bomOffer.userID,
                                           Enterday = bomOffer.enerDay
                                        };
 
                     this.dataGridView1.Rows.Clear();
                     foreach (var bomOffer in bomOfferList)
                     {
-                        dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToShortDateString() : "");
+                        dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString(): "");
                     }
 
                 }
             
             
             }
-            if ((tscbFilterBy.Text.Trim() == "MPN") && (tstbFilterString.Text.Trim().Length != 0))
+            else if ((tscbFilterBy.Text.Trim() == "MPN") && (tstbFilterString.Text.Trim().Length != 0))
             {
                 using (BomOfferEntities entity = new BomOfferEntities())
                 {
@@ -248,24 +267,25 @@ namespace AmbleClient.BomOffer
                     {
                         var bomOfferList = from bomOffer in entity.publicbomoffer
                                            join custVen in entity.publiccustven on bomOffer.BomCustVendId equals custVen.custVenId
-                                           where custVen.custVendorType == (isOffer ? 1 : 0) && (bomOffer.mpn.Contains(tstbFilterString.Text.Trim())
+                                           where custVen.custVendorType == (int)this.bomOfferType && (bomOffer.mpn.Contains(tstbFilterString.Text.Trim())
                                            && (custVen.custVenId == this.custVenId))
                                            select new
                                            {
-                                               Id = bomOffer.BomCustVendId,
+                                               Id = bomOffer.bomOfferId,
                                                Company = custVen.custVenName,
                                                MFG = bomOffer.mfg,
                                                MPN = bomOffer.mpn,
                                                Qty = bomOffer.qty,
                                                Price = bomOffer.price,
                                                CPN = bomOffer.cpn,
+                                               User = bomOffer.userID,
                                                Enterday = bomOffer.enerDay
                                            };
 
                         this.dataGridView1.Rows.Clear();
                         foreach (var bomOffer in bomOfferList)
                         {
-                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToShortDateString() : "");
+                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
                         }
 
 
@@ -277,23 +297,24 @@ namespace AmbleClient.BomOffer
 
                         var bomOfferList = from bomOffer in entity.publicbomoffer
                                            join custVen in entity.publiccustven on bomOffer.BomCustVendId equals custVen.custVenId
-                                           where custVen.custVendorType == (isOffer ? 1 : 0) && (bomOffer.mpn.Contains(tstbFilterString.Text.Trim()))
+                                           where custVen.custVendorType == (int)this.bomOfferType && (bomOffer.mpn.Contains(tstbFilterString.Text.Trim()))
                                            select new
                                            {
-                                               Id = bomOffer.BomCustVendId,
+                                               Id = bomOffer.bomOfferId,
                                                Company = custVen.custVenName,
                                                MFG = bomOffer.mfg,
                                                MPN = bomOffer.mpn,
                                                Qty = bomOffer.qty,
                                                Price = bomOffer.price,
                                                CPN = bomOffer.cpn,
+                                               User=bomOffer.userID,
                                                Enterday = bomOffer.enerDay
                                            };
 
                         this.dataGridView1.Rows.Clear();
                         foreach (var bomOffer in bomOfferList)
                         {
-                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToShortDateString() : "");
+                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
                         }
 
                     }
@@ -301,6 +322,96 @@ namespace AmbleClient.BomOffer
 
             }
 
+            else if ((tscbFilterBy.Text.Trim() == "Date") && (tstbFilterString.Text.Trim().Length != 0))
+            {
+                string[] date = AmbleClient.RfqGui.RfqManager.RfqMgr.GetStartDateAndEndDate(tstbFilterString.Text.Trim());
+                if (string.IsNullOrWhiteSpace(date[0]) || string.IsNullOrWhiteSpace(date[1]))
+                {
+                    MessageBox.Show("Format error in the Filter String");
+                    return;
+                }
+                DateTime startDate,endDate;
+
+                try{
+                   startDate=DateTime.Parse(date[0]);
+                   endDate=DateTime.Parse(date[1]);  
+                }
+                catch
+                {
+                    MessageBox.Show("Format error in the Filter String");
+                    return;
+                }
+
+
+
+                using (BomOfferEntities entity = new BomOfferEntities())
+                {
+                    if (listbyCustVen)
+                    {
+                        var bomOfferList = from bomOffer in entity.publicbomoffer
+                                           join custVen in entity.publiccustven on bomOffer.BomCustVendId equals custVen.custVenId
+                                           where (custVen.custVendorType == (int)this.bomOfferType && ((bomOffer.enerDay.HasValue)&&(bomOffer.enerDay.Value>startDate)&&(bomOffer.enerDay.Value<endDate))
+                                           && (custVen.custVenId == this.custVenId))
+                                            select new
+                                           {
+                                               Id = bomOffer.bomOfferId,
+                                               Company = custVen.custVenName,
+                                               MFG = bomOffer.mfg,
+                                               MPN = bomOffer.mpn,
+                                               Qty = bomOffer.qty,
+                                               Price = bomOffer.price,
+                                               CPN = bomOffer.cpn,
+                                               User = bomOffer.userID,
+                                               Enterday = bomOffer.enerDay
+                                           };
+
+                        this.dataGridView1.Rows.Clear();
+                        foreach (var bomOffer in bomOfferList)
+                        {
+                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                        }
+
+
+
+                    }
+                    else
+                    {
+
+
+                        var bomOfferList = from bomOffer in entity.publicbomoffer
+                                           join custVen in entity.publiccustven on bomOffer.BomCustVendId equals custVen.custVenId
+                                           where custVen.custVendorType == (int)this.bomOfferType && ((bomOffer.enerDay.HasValue) && (bomOffer.enerDay.Value > startDate) && (bomOffer.enerDay.Value < endDate))
+                                           
+                                           select new
+                                           {
+                                               Id = bomOffer.bomOfferId,
+                                               Company = custVen.custVenName,
+                                               MFG = bomOffer.mfg,
+                                               MPN = bomOffer.mpn,
+                                               Qty = bomOffer.qty,
+                                               Price = bomOffer.price,
+                                               CPN = bomOffer.cpn,
+                                               User = bomOffer.userID,
+                                               Enterday = bomOffer.enerDay
+                                           };
+
+                        this.dataGridView1.Rows.Clear();
+                        foreach (var bomOffer in bomOfferList)
+                        {
+                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                        }
+
+                    }
+                }
+
+
+
+
+
+            }
+
+            else
+            { }
 
 
 
@@ -337,7 +448,7 @@ namespace AmbleClient.BomOffer
 
               if (saveFileDialog1.ShowDialog() == DialogResult.OK)
               {
-                  AmbleClient.ExcelHelper.ExcelHelper.Export(dt, this.isOffer?"Offer":"BOM", saveFileDialog1.FileName, "WorkSheet1",columnName.ToArray(),columnName.ToArray());
+                  AmbleClient.ExcelHelper.ExcelHelper.Export(dt,Enum.GetName(typeof(BomOfferTypeEnum),this.bomOfferType)/*this.isOffer?"Offer":"BOM"*/, saveFileDialog1.FileName, "WorkSheet1",columnName.ToArray(),columnName.ToArray());
               }
 
 
@@ -381,8 +492,14 @@ namespace AmbleClient.BomOffer
                         }
                         else
                         {*/
+                        if (cellValue == null)
+                        {
+                            row[j] = "";
+                        }
+                        else
+                        {
                             row[j] = cellValue.ToString();
-
+                        }
                        // }
                             j++;
                   
@@ -391,6 +508,17 @@ namespace AmbleClient.BomOffer
             }
             return table;
      }
+
+         private void tscbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
+         {
+             if (tscbFilterBy.SelectedItem!=null&&tscbFilterBy.SelectedItem.ToString() == "Date")
+             {
+                 basicGui.TimePicker tp = new basicGui.TimePicker();
+                 tp.ShowDialog();
+                 tstbFilterString.Text = tp.FromTo;
+             }
+
+         }
 
 
      

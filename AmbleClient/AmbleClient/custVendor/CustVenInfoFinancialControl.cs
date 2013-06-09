@@ -57,7 +57,17 @@ namespace AmbleClient.custVendor
         public void FillTheInfo(custvendorinfo cvInfo)
         {
             tbName.Text = cvInfo.cvname;
-            tbCompnayNumber.Text = cvInfo.cvnumber;
+
+            if (string.IsNullOrWhiteSpace(cvInfo.cvnumber))
+            {
+                string sixNumber=Tool.Get6DigitalNumberAccordingToId(cvInfo.cvId);
+                tbCompnayNumber.Text = (cvInfo.cvtype == 0 ? "C" : "V")+ sixNumber;
+            }
+            else
+            {
+                tbCompnayNumber.Text = cvInfo.cvnumber;
+            }
+            
             tbPaymentTerm.Text = cvInfo.paymentTerm;
             tbShippingTerm.Text = cvInfo.shippingTerm;
             tbBillto.Text = cvInfo.billTo;
@@ -105,11 +115,7 @@ namespace AmbleClient.custVendor
            
            }
 
-
-
-           
-        
-        }
+       }
 
         private void btAddShip_Click(object sender, EventArgs e)
         {

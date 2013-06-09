@@ -40,11 +40,15 @@ namespace AmbleClient.custVendor
             if (cvtype == 0)
             {
                 filterByDict.Add("Customer Name", "cvname");
+                filterByDict.Add("Customer Number", "cvnumber");
             }
             if (cvtype == 1)
             {
                 filterByDict.Add("Vendor Name", "cvname");
+                filterByDict.Add("Vendor Number", "cvnumber");
+
             }
+
         }
 
         protected override void SetTheDataGridViewColumn()

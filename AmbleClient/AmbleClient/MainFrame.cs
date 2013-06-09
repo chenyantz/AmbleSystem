@@ -203,7 +203,7 @@ namespace AmbleClient
 
         private void bOMCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AmbleClient.BomOffer.BomOfferCustVendor bomCustomer = new BomOffer.BomOfferCustVendor(false);
+            AmbleClient.BomOffer.BomOfferCustVendor bomCustomer = new BomOffer.BomOfferCustVendor(AmbleClient.BomOffer.BomOfferTypeEnum.BOM);
             bomCustomer.MdiParent = this;
             bomCustomer.Show();
 
@@ -212,7 +212,7 @@ namespace AmbleClient
 
         private void bOMListViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BomOffer.BomOfferList bomOfferList=new BomOffer.BomOfferList(false);
+            BomOffer.BomOfferList bomOfferList = new BomOffer.BomOfferList(AmbleClient.BomOffer.BomOfferTypeEnum.BOM);
             bomOfferList.MdiParent=this;
             bomOfferList.Show();
 
@@ -220,14 +220,14 @@ namespace AmbleClient
 
         private void offerVendorListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AmbleClient.BomOffer.BomOfferCustVendor bomCustomer = new BomOffer.BomOfferCustVendor(true);
+            AmbleClient.BomOffer.BomOfferCustVendor bomCustomer = new BomOffer.BomOfferCustVendor(AmbleClient.BomOffer.BomOfferTypeEnum.Excess);
             bomCustomer.MdiParent = this;
             bomCustomer.Show();
         }
 
         private void offerListViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BomOffer.BomOfferList bomOfferList = new BomOffer.BomOfferList(true);
+            BomOffer.BomOfferList bomOfferList = new BomOffer.BomOfferList(AmbleClient.BomOffer.BomOfferTypeEnum.Excess);
             bomOfferList.MdiParent = this;
             bomOfferList.Show();
         }
@@ -396,5 +396,25 @@ namespace AmbleClient
 
 
         }
+
+        private void lToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AmbleClient.BomOffer.BomOfferCustVendor bomCustomer = new BomOffer.BomOfferCustVendor(AmbleClient.BomOffer.BomOfferTypeEnum.LTOffer);
+            bomCustomer.MdiParent = this;
+            bomCustomer.Show();
+        }
+
+        private void lTOfferListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BomOffer.BomOfferList bomOfferList = new BomOffer.BomOfferList(AmbleClient.BomOffer.BomOfferTypeEnum.LTOffer);
+            bomOfferList.MdiParent = this;
+            bomOfferList.Show();
+        }
+
+
+
+
+
+
     }
 }

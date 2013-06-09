@@ -71,6 +71,8 @@
             this.bOMListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offerVendorListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.offerListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lTOfferListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.autoUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -389,10 +391,12 @@
             this.bOMCustomerToolStripMenuItem,
             this.bOMListViewToolStripMenuItem,
             this.offerVendorListToolStripMenuItem,
-            this.offerListViewToolStripMenuItem});
+            this.offerListViewToolStripMenuItem,
+            this.lToolStripMenuItem,
+            this.lTOfferListToolStripMenuItem});
             this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
-            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
-            this.bOMToolStripMenuItem.Text = "BOM+Excess+LT Offer";
+            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(143, 20);
+            this.bOMToolStripMenuItem.Text = "BOM+Excess+L/T Offer";
             // 
             // bOMCustomerToolStripMenuItem
             // 
@@ -421,6 +425,20 @@
             this.offerListViewToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.offerListViewToolStripMenuItem.Text = "Excess List";
             this.offerListViewToolStripMenuItem.Click += new System.EventHandler(this.offerListViewToolStripMenuItem_Click);
+            // 
+            // lToolStripMenuItem
+            // 
+            this.lToolStripMenuItem.Name = "lToolStripMenuItem";
+            this.lToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.lToolStripMenuItem.Text = "L/T Company List";
+            this.lToolStripMenuItem.Click += new System.EventHandler(this.lToolStripMenuItem_Click);
+            // 
+            // lTOfferListToolStripMenuItem
+            // 
+            this.lTOfferListToolStripMenuItem.Name = "lTOfferListToolStripMenuItem";
+            this.lTOfferListToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.lTOfferListToolStripMenuItem.Text = "L/T Offer List";
+            this.lTOfferListToolStripMenuItem.Click += new System.EventHandler(this.lTOfferListToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem1
             // 
@@ -514,5 +532,7 @@
         private System.Windows.Forms.ToolStripMenuItem byVendorToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem byMPNToolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem autoUpdateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lTOfferListToolStripMenuItem;
     }
 }

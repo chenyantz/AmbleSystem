@@ -39,24 +39,26 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 73);
+            this.pictureBox1.Size = new System.Drawing.Size(75, 79);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(2, 73);
+            this.richTextBox1.Location = new System.Drawing.Point(2, 79);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(393, 149);
+            this.richTextBox1.Size = new System.Drawing.Size(393, 161);
             this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "Any problems, please contact Yan Chen :13858002080.";
+            this.richTextBox1.Text = "If some errors occur, please copy the details in the Dialogbox and send it to ema" +
+                "il:unitednationschen@126.com with description of how to reproduce the issue.  Or" +
+                " you can call Yan Chen :13858002080.";
             // 
             // About
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 225);
+            this.ClientSize = new System.Drawing.Size(398, 244);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
