@@ -35,6 +35,29 @@ namespace AmbleClient.custVendor.CustVendorManager
             return cv.ToList();
         }
 
+
+        public static List<custvendorinfo> GetAllCustomerAndVendors(string filterColumn, string filterString)
+        {
+            if (filterColumn.Trim().Length == 0 || filterString.Trim().Length == 0)
+            {
+                return GetAllCustomerAndVendors();
+            }
+            else if (filterColumn == "cvname")
+            {
+                var cv = from custVen in custVenEntity.custvendorinfo
+                         where custVen.cvname.Contains(filterString.Trim())
+                         select custVen;
+                return cv.ToList();
+            }
+            else
+            {
+                return GetAllCustomerAndVendors();
+            }
+
+        }
+
+
+
         public static custvendorinfo GetUniqueCustVenInfo(int cvtype, string cvName, int ownerId)
         {
             List<int> subIds;

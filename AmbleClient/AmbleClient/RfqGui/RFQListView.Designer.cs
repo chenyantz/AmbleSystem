@@ -261,7 +261,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 78);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 85);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -273,7 +273,7 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1111, 598);
+            this.dataGridView1.Size = new System.Drawing.Size(1111, 648);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -414,7 +414,7 @@
             this.tsbMoveFirst.Image = ((System.Drawing.Image)(resources.GetObject("tsbMoveFirst.Image")));
             this.tsbMoveFirst.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMoveFirst.Name = "tsbMoveFirst";
-            this.tsbMoveFirst.Size = new System.Drawing.Size(32, 22);
+            this.tsbMoveFirst.Size = new System.Drawing.Size(30, 22);
             this.tsbMoveFirst.Text = "|<<";
             this.tsbMoveFirst.Click += new System.EventHandler(this.tsbMoveFirst_Click);
             // 
@@ -438,7 +438,7 @@
             // tslCount
             // 
             this.tslCount.Name = "tslCount";
-            this.tslCount.Size = new System.Drawing.Size(31, 22);
+            this.tslCount.Size = new System.Drawing.Size(29, 22);
             this.tslCount.Text = "/ {0}";
             this.tslCount.Click += new System.EventHandler(this.tslCount_Click);
             // 
@@ -458,7 +458,7 @@
             this.tsbMoveLast.Image = ((System.Drawing.Image)(resources.GetObject("tsbMoveLast.Image")));
             this.tsbMoveLast.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMoveLast.Name = "tsbMoveLast";
-            this.tsbMoveLast.Size = new System.Drawing.Size(32, 22);
+            this.tsbMoveLast.Size = new System.Drawing.Size(30, 22);
             this.tsbMoveLast.Text = ">>|";
             this.tsbMoveLast.Click += new System.EventHandler(this.tsbMoveLast_Click);
             // 
@@ -470,7 +470,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(98, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(88, 22);
             this.toolStripLabel1.Text = "Items Per Page:";
             // 
             // toolStripTextBox2
@@ -485,7 +485,7 @@
             this.tsbSet.Image = ((System.Drawing.Image)(resources.GetObject("tsbSet.Image")));
             this.tsbSet.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSet.Name = "tsbSet";
-            this.tsbSet.Size = new System.Drawing.Size(29, 22);
+            this.tsbSet.Size = new System.Drawing.Size(27, 22);
             this.tsbSet.Text = "Set";
             this.tsbSet.Click += new System.EventHandler(this.tsbSet_Click);
             // 
@@ -503,9 +503,9 @@
             this.toolStripLabel1,
             this.toolStripTextBox2,
             this.tsbSet});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 50);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 54);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(345, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(327, 25);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -520,7 +520,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1111, 25);
+            this.panel1.Size = new System.Drawing.Size(1111, 27);
             this.panel1.TabIndex = 6;
             // 
             // cbOffered
@@ -591,9 +591,9 @@
             // 
             // RFQListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 673);
+            this.ClientSize = new System.Drawing.Size(1111, 729);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);

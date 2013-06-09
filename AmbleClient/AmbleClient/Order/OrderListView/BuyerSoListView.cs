@@ -74,6 +74,9 @@ namespace AmbleClient.Order
             SoState.HeaderText = "So State";
             SoState.Name = "SoState";
 
+
+           
+
           
             if (UserInfo.Job != JobDescription.Purchaser)
             {
@@ -133,6 +136,7 @@ namespace AmbleClient.Order
                 }
                 else
                 {
+                    
                     dataGridView1.Rows.Add(i++, Tool.Get6DigitalNumberAccordingToId(so.soId), so.customerName,AllAccountInfo.GetNameAccordingToId(so.salesId), so.orderDate.ToShortDateString(), so.customerPo,
                           so.paymentTerm, so.freightTerm, so.customerAccount, Enum.GetName(typeof(SoStatesEnum), so.soStates));
                 

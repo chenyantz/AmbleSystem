@@ -246,7 +246,6 @@ namespace AmbleClient.SO
             this.selectedSoItemId = selectedItem;
             this.isNewCreateSo = false;
 
-
             if (UserInfo.Job == JobDescription.Purchaser)
             {
                 tbCustomer.Text = "";
@@ -255,6 +254,9 @@ namespace AmbleClient.SO
             {
                 tbCustomer.Text = so.customerName;
             }
+
+
+
             if (UserInfo.Job == JobDescription.Purchaser || UserInfo.Job == JobDescription.PurchasersManager)
             {
                 tbContact.Text = "";
@@ -314,6 +316,16 @@ namespace AmbleClient.SO
                 btDelete.Enabled = false;
                 btSplit.Enabled = false;
             }
+
+            if (so.soStates != (int)SoStatesEnum.New)
+            {
+                btAdd.Enabled = false;
+            }
+            else
+            {
+                btAdd.Enabled = true;
+            }
+
 
 
         }

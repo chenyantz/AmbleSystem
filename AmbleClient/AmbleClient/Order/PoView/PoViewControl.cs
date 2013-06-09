@@ -305,6 +305,15 @@ namespace AmbleClient.Order.PoView
                 btSplit.Enabled = false;
             }
 
+            if (poMain.poStates != (sbyte)PoStatesEnum.New)
+            {
+                btAdd.Enabled = false;
+            }
+            else
+            {
+                btAdd.Enabled = true;
+            }
+
 
         }
 

@@ -81,7 +81,7 @@ namespace AmbleClient.custVendor
         protected override void FillTheDataGrid()
         {
             custVenInfoList.Clear();
-            custVenInfoList.AddRange(CustVendorManager.CustVenInfoManager.GetAllCustomerAndVendors());
+            custVenInfoList.AddRange(CustVendorManager.CustVenInfoManager.GetAllCustomerAndVendors(filterColumn,tstbFilterString.Text.Trim()));
             int i = 0;
             foreach(custvendorinfo info in custVenInfoList)
             {

@@ -38,6 +38,8 @@ namespace AmbleClient.RfqGui
             base.cbHasSo.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
             base.cbClosed.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
             base.rfqStatesSelectedChanged(this, null);
+
+
         }
 
       public override int GetPageCount(int itemsPerPage, string filterColumn, string filterString,List<RfqStatesEnum> selections,bool includeSubs)

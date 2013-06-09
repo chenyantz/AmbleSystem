@@ -28,7 +28,10 @@ namespace AmbleClient.RfqGui
        public override void FillTheTable(AmbleClient.RfqGui.RfqManager.Rfq rfq)
        {
            base.FillTheTable(rfq);
+           
+           
            tbCustomer.Text = rfq.customerName;
+          
 
            this.tbContact.Text = string.Empty; this.tbContact.ReadOnly = true;//can not be seen by sales Manager 
            this.tbPhone.Text = string.Empty; this.tbPhone.ReadOnly = true; //can not be seen by sales Manager.

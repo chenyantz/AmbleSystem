@@ -391,8 +391,8 @@
             this.offerVendorListToolStripMenuItem,
             this.offerListViewToolStripMenuItem});
             this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
-            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
-            this.bOMToolStripMenuItem.Text = "Public BOM&&Offer";
+            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
+            this.bOMToolStripMenuItem.Text = "BOM+Excess+LT Offer";
             // 
             // bOMCustomerToolStripMenuItem
             // 
@@ -434,14 +434,14 @@
             // autoUpdateToolStripMenuItem
             // 
             this.autoUpdateToolStripMenuItem.Name = "autoUpdateToolStripMenuItem";
-            this.autoUpdateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.autoUpdateToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.autoUpdateToolStripMenuItem.Text = "Auto Update";
             this.autoUpdateToolStripMenuItem.Click += new System.EventHandler(this.autoUpdateToolStripMenuItem_Click);
             // 
             // testsToolStripMenuItem
             // 
             this.testsToolStripMenuItem.Name = "testsToolStripMenuItem";
-            this.testsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.testsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.testsToolStripMenuItem.Text = "About";
             this.testsToolStripMenuItem.Click += new System.EventHandler(this.testsToolStripMenuItem_Click);
             // 
