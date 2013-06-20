@@ -218,6 +218,44 @@ namespace AmbleClient.Admin.AccountMgr
        
        }
 
+       public static int GetSuperviserId(int id)
+       {
+           string strSql = "select superviser from account where id=" + id;
+           int superId=Convert.ToInt32(db.GetSingleObject(strSql));
+           if (superId == -1)
+           {
+               superId = 1;
+           }
+           return superId;
+
+
+       }
+
+       public static string GetEmailAddressById(int id)
+       {
+           string strSql = "select email from account where id=" + id;
+           return (string)db.GetSingleObject(strSql);
+       
+       }
+
+       public static List<string> GetEmailsAccordingToJob(JobDescription job)
+       {
+           List<string> mails=new List<string>();
+           string strsql = "select email from account where job=" + (int)job;
+            DataTable dt = db.GetDataTable(strsql,"idTable");
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    mails.Add(dr[0].ToString());
+
+                }
+            }
+         return mails;
+       }
+
+
+
     }
 }
 ;

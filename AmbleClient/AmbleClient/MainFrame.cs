@@ -32,11 +32,24 @@ namespace AmbleClient
 
         private void SecurityControl()
         {
+            bOMCustomerToolStripMenuItem.Enabled = false;
+            offerVendorListToolStripMenuItem.Enabled = false;
+            lToolStripMenuItem.Enabled = false;
+
+
             switch (UserInfo.Job)
             { 
+                case JobDescription.Admin:
+             bOMCustomerToolStripMenuItem.Enabled = true;
+            offerVendorListToolStripMenuItem.Enabled = true;
+            lToolStripMenuItem.Enabled = true;
+            break;
                 case JobDescription.Boss:
                     //grey admin
                     adminToolStripMenuItem.Enabled = false;
+                                 bOMCustomerToolStripMenuItem.Enabled = true;
+            offerVendorListToolStripMenuItem.Enabled = true;
+            lToolStripMenuItem.Enabled = true;
                     break;
                 case JobDescription.Financial:
                     pOListViewToolStripMenuItem1.Enabled = false;

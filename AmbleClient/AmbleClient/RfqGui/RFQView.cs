@@ -130,6 +130,7 @@ namespace AmbleClient.RfqGui
                 {
                     RfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Routed the RFQ");
                     GuiOpAccordingToRfqState(RfqStatesEnum.Routed);
+                    SendRfqRouteEmail();
                     this.Close();
                 }
                 else
@@ -139,6 +140,45 @@ namespace AmbleClient.RfqGui
 
             }
         }
+
+
+        private void SendRfqRouteEmail()
+        {
+            List<string> emailTos = new List<string>();
+            emailTos.AddRange(Admin.AccountMgr.AccountMgr.GetEmailsAccordingToJob(JobDescription.Admin));
+            emailTos.AddRange(Admin.AccountMgr.AccountMgr.GetEmailsAccordingToJob(JobDescription.Boss));
+            string address1 = Admin.AccountMgr.AccountMgr.GetEmailAddressById(UserInfo.UserId);
+            if (!emailTos.Contains(address1))
+            {
+                emailTos.Add(address1);
+            }
+            string address2 = Admin.AccountMgr.AccountMgr.GetEmailAddressById(Admin.AccountMgr.AccountMgr.GetSuperviserId(UserInfo.UserId));
+            if (!emailTos.Contains(address2))
+            {
+                emailTos.Add(address2);
+            }
+
+            string subject = string.Format("The RFQ {0} (MPN {1},sales {2} )has been Routed.", Tool.Get6DigitalNumberAccordingToId(rfq.rfqNo), rfq.partNo, AllAccountInfo.GetNameAccordingToId(rfq.salesId));
+            StringBuilder body = new StringBuilder();
+            body.Append("<table border=\"0\">");
+            body.Append(string.Format("<tr><td>RFQ ID</td><td>{0}</td>",Tool.Get6DigitalNumberAccordingToId(rfq.rfqNo)));
+            body.Append(string.Format("<tr><td>Customer Name</td><td>{0}</td>", rfq.customerName));
+            body.Append(string.Format("<tr><td>Contact</td><td>{0}</td>", rfq.contact));
+            body.Append(string.Format("<tr><td>MPN</td><td>{0}</td>", rfq.partNo));
+            body.Append(string.Format("<tr><td>MFG</td><td>{0}</td>", rfq.mfg));
+            body.Append(string.Format("<tr><td>DC</td><td>{0}</td>", rfq.dc));
+            body.Append(string.Format("<tr><td>CPN</td><td>{0}</td>", rfq.custPartNo));
+            body.Append(string.Format("<tr><td>Sales Name</td><td>{0}</td>", AllAccountInfo.GetNameAccordingToId(rfq.salesId)));
+            body.Append("</table>");
+
+            AmbleClient.MailService.MailService.SendMail(emailTos, subject, body.ToString());
+
+                   
+        }
+
+
+
+
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {

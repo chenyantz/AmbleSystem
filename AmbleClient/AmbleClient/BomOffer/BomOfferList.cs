@@ -151,10 +151,21 @@ namespace AmbleClient.BomOffer
                                            Enterday=bomOffer.enerDay
                                        };
 
-                    foreach (var bomOffer in bomOfferList)
+                    if (UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss)
                     {
-                        dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN,AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                        foreach (var bomOffer in bomOfferList)
+                        {
+                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                        }
                     }
+                    else
+                    {
+                        foreach (var bomOffer in bomOfferList)
+                        {
+                            dataGridView1.Rows.Add(bomOffer.Id, "OEM", bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                        }
+                    }
+
 
                 }
 
@@ -175,10 +186,19 @@ namespace AmbleClient.BomOffer
                                            User = bomOffer.userID,
                                            Enterday = bomOffer.enerDay
                                        };
-
-                    foreach (var bomOffer in bomOfferList)
+                    if (UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss)
                     {
-                        dataGridView1.Rows.Add(bomOffer.Id,bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN,AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue?bomOffer.Enterday.Value.ToString():"");
+                        foreach (var bomOffer in bomOfferList)
+                        {
+                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                        }
+                    }
+                    else
+                    {
+                        foreach (var bomOffer in bomOfferList)
+                        {
+                            dataGridView1.Rows.Add(bomOffer.Id, "OEM", bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                        }
                     }
                 }
 
@@ -250,11 +270,20 @@ namespace AmbleClient.BomOffer
                                        };
 
                     this.dataGridView1.Rows.Clear();
-                    foreach (var bomOffer in bomOfferList)
+                    if (UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss)
                     {
-                        dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString(): "");
+                        foreach (var bomOffer in bomOfferList)
+                        {
+                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                        }
                     }
-
+                    else
+                    {
+                        foreach (var bomOffer in bomOfferList)
+                        {
+                            dataGridView1.Rows.Add(bomOffer.Id, "OEM", bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                        }
+                    }
                 }
             
             
@@ -283,11 +312,21 @@ namespace AmbleClient.BomOffer
                                            };
 
                         this.dataGridView1.Rows.Clear();
-                        foreach (var bomOffer in bomOfferList)
+                        if (UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss)
                         {
-                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            foreach (var bomOffer in bomOfferList)
+                            {
+                                dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            }
                         }
-
+                        else
+                        {
+                            foreach (var bomOffer in bomOfferList)
+                            {
+                                dataGridView1.Rows.Add(bomOffer.Id, "OEM", bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            }
+                        
+                        }
 
 
                     }
@@ -312,11 +351,20 @@ namespace AmbleClient.BomOffer
                                            };
 
                         this.dataGridView1.Rows.Clear();
-                        foreach (var bomOffer in bomOfferList)
+                        if (UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss)
                         {
-                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            foreach (var bomOffer in bomOfferList)
+                            {
+                                dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            }
                         }
-
+                        else
+                        {
+                            foreach (var bomOffer in bomOfferList)
+                            {
+                                dataGridView1.Rows.Add(bomOffer.Id, "OEM", bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            }
+                        }
                     }
                 }
 
@@ -366,11 +414,20 @@ namespace AmbleClient.BomOffer
                                            };
 
                         this.dataGridView1.Rows.Clear();
-                        foreach (var bomOffer in bomOfferList)
+                        if (UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss)
                         {
-                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            foreach (var bomOffer in bomOfferList)
+                            {
+                                dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            }
                         }
-
+                        else
+                        {
+                            foreach (var bomOffer in bomOfferList)
+                            {
+                                dataGridView1.Rows.Add(bomOffer.Id, "OEM", bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            }
+                        }
 
 
                     }
@@ -396,11 +453,21 @@ namespace AmbleClient.BomOffer
                                            };
 
                         this.dataGridView1.Rows.Clear();
-                        foreach (var bomOffer in bomOfferList)
+                        if (UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss)
                         {
-                            dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            foreach (var bomOffer in bomOfferList)
+                            {
+                                dataGridView1.Rows.Add(bomOffer.Id, bomOffer.Company, bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            }
                         }
-
+                        else
+                        {
+                            foreach (var bomOffer in bomOfferList)
+                            {
+                                dataGridView1.Rows.Add(bomOffer.Id,"OEM", bomOffer.MFG, bomOffer.MPN, bomOffer.Qty, bomOffer.Price, bomOffer.CPN, AllAccountInfo.GetNameAccordingToId(bomOffer.User), bomOffer.Enterday.HasValue ? bomOffer.Enterday.Value.ToString() : "");
+                            }
+                        
+                        }
                     }
                 }
 
