@@ -57,6 +57,10 @@ namespace AmbleClient.OfferGui
         {
             tsbRoute.Enabled = false;
             OfferMgr.OfferMgr.ChangeOfferState(1, newOfferId.Value);
+            if (newOfferId.HasValue)
+            {
+                OfferMgr.OfferMgr.SendOfferRouteEmail(newOfferId.Value);
+            }
             this.Close();
 
 

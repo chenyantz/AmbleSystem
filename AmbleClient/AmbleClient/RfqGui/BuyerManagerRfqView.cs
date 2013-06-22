@@ -13,6 +13,7 @@ namespace AmbleClient.RfqGui
     public partial class BuyerManagerRfqView : Form
     {
         int rfqId;
+        Rfq rfq;
         public BuyerManagerRfqView(int rfqId)
         {
             this.rfqId = rfqId;
@@ -22,7 +23,7 @@ namespace AmbleClient.RfqGui
 
         private void BuyerManagerRfqView_Load(object sender, EventArgs e)
         {
-            Rfq rfq = RfqMgr.GetRfqAccordingToRfqId(rfqId);
+            rfq = RfqMgr.GetRfqAccordingToRfqId(rfqId);
             buyerManagerRfqItems1.FillTheTable(rfq);
             SetMenuStateAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
         }
@@ -51,8 +52,8 @@ namespace AmbleClient.RfqGui
             {
              tsbViewOffers.Enabled=false;
             }
-            Rfq rfq = RfqMgr.GetRfqAccordingToRfqId(rfqId);
-            if ((!rfq.firstPA.HasValue) && (!rfq.secondPA.HasValue))
+            Rfq rfq1 = RfqMgr.GetRfqAccordingToRfqId(rfqId);
+            if ((!rfq1.firstPA.HasValue) && (!rfq1.secondPA.HasValue))
             {
                 tsbEnterOffer.Enabled = false;
             }
@@ -98,6 +99,7 @@ namespace AmbleClient.RfqGui
             if (RfqMgr.AssignPAForRfq(rfqId, primaryPA, altPA))
             {
                 MessageBox.Show("Assign the RFQ to Buyer(s) successfully");
+                SendRfqAssignEmail(primaryPA, altPA);
             }
             else
             {
@@ -107,6 +109,46 @@ namespace AmbleClient.RfqGui
             this.Close();
 
         }
+
+        private void SendRfqAssignEmail(int? buyer1, int? buyer2)
+        {
+            List<string> emailTos = new List<string>();
+            List<string> ccTos = new List<string>();
+            if (buyer1 != null)
+            {
+                emailTos.Add(Admin.AccountMgr.AccountMgr.GetEmailAddressById(buyer1.Value));
+            }
+            if (buyer2 != null)
+            {
+                string email2 = Admin.AccountMgr.AccountMgr.GetEmailAddressById(buyer2.Value);
+                if (!emailTos.Contains(email2))
+                {
+                    emailTos.Add(email2);
+                }
+
+            }
+            string email3 = Admin.AccountMgr.AccountMgr.GetEmailAddressById(UserInfo.UserId);
+            {
+                if(!emailTos.Contains(email3))
+                {
+                ccTos.Add(email3);
+                }
+            }
+
+            string subject = string.Format("The RFQ {0} (MPN：{1})has been Assigned to you.", Tool.Get6DigitalNumberAccordingToId(rfq.rfqNo),rfq.partNo);
+            StringBuilder body = new StringBuilder();
+            body.Append("<table border=\"0\">");
+            body.Append(string.Format("<tr><td>RFQ ID</td><td>{0}</td>", Tool.Get6DigitalNumberAccordingToId(rfq.rfqNo)));
+            body.Append(string.Format("<tr><td>MPN</td><td>{0}</td>", rfq.partNo));
+            body.Append(string.Format("<tr><td>MFG</td><td>{0}</td>", rfq.mfg));
+            body.Append(string.Format("<tr><td>DC</td><td>{0}</td>", rfq.dc));
+            body.Append("</table>");
+
+            AmbleClient.MailService.MailService.SendMail(emailTos,ccTos, subject, body.ToString());
+
+
+        }
+
 
         private void tsbOffer_Click(object sender, EventArgs e)
         {

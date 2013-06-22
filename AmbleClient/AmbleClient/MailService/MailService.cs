@@ -10,7 +10,7 @@ namespace AmbleClient.MailService
     {
         static MailAddress from = new MailAddress("system@ambleasia.com", "AmbleInfo System");
 
-        public static void SendMail(List<string> receiverAddress, string subject, string content)
+        public static void SendMail(List<string> receiverAddress, List<string> ccAddress,string subject, string content)
         {
             MailMessage mail = new MailMessage();
             mail.From = from;
@@ -21,6 +21,19 @@ namespace AmbleClient.MailService
                     continue;
                 mail.To.Add(revAddr);
             }
+            foreach (string ccAddr in ccAddress)
+            {
+                if (string.IsNullOrWhiteSpace(ccAddr))
+                    continue;
+                mail.CC.Add(ccAddr);
+            }
+
+            if (mail.To.Count == 0)
+            {
+                return;
+            }
+
+
             mail.Subject = subject;
             mail.Body = content;
             mail.BodyEncoding = System.Text.Encoding.UTF8;

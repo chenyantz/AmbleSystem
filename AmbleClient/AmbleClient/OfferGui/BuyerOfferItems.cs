@@ -179,7 +179,10 @@ namespace AmbleClient.OfferGui
        
        }
 
-
+       public int GetOfferId()
+       {
+           return offerId;
+       }
 
 
     }

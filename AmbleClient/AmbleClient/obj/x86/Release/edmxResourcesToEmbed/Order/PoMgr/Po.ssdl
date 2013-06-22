@@ -9,13 +9,11 @@
       <PropertyRef Name="poId" />
     </Key>
     <Property Name="poId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="soId" Type="int" />
-    <Property Name="vendorName" Type="varchar" MaxLength="255" />
-    <Property Name="contact" Type="varchar" MaxLength="255" />
-    <Property Name="pa" Type="smallint" />
-    <Property Name="paDate" Type="date" />
+    <Property Name="vendorName" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="contact" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="pa" Type="smallint" Nullable="false" />
     <Property Name="vendorNumber" Type="varchar" MaxLength="50" />
-    <Property Name="poDate" Type="date" />
+    <Property Name="poDate" Type="date" Nullable="false" />
     <Property Name="poNo" Type="varchar" MaxLength="50" />
     <Property Name="paymentTerms" Type="varchar" MaxLength="255" />
     <Property Name="shipMethod" Type="varchar" MaxLength="50" />
@@ -27,16 +25,17 @@
   </EntityType>
   <EntityType Name="poitems">
     <Key>
-      <PropertyRef Name="PoItemsId" />
+      <PropertyRef Name="poItemsId" />
     </Key>
-    <Property Name="PoItemsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="poId" Type="int" />
-    <Property Name="partNo" Type="varchar" MaxLength="255" />
-    <Property Name="mfg" Type="varchar" MaxLength="20" />
-    <Property Name="dc" Type="varchar" MaxLength="20" />
+    <Property Name="poItemsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="poId" Type="int" Nullable="false" />
+    <Property Name="soItemId" Type="int" Nullable="false" />
+    <Property Name="partNo" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="mfg" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="dc" Type="varchar" Nullable="false" MaxLength="20" />
     <Property Name="vendorIntPartNo" Type="varchar" MaxLength="255" />
-    <Property Name="org" Type="varchar" MaxLength="20" />
-    <Property Name="qty" Type="int" />
+    <Property Name="coo" Type="varchar" MaxLength="255" />
+    <Property Name="qty" Type="int" Nullable="false" />
     <Property Name="qtyRecd" Type="int" />
     <Property Name="qtyCorrected" Type="int" />
     <Property Name="qtyAccept" Type="int" />
@@ -45,10 +44,11 @@
     <Property Name="qcPending" Type="int" />
     <Property Name="currency" Type="tinyint" />
     <Property Name="unitPrice" Type="float" />
-    <Property Name="dueDate" Type="date" />
+    <Property Name="dockDate" Type="date" Nullable="false" />
     <Property Name="receiveDate" Type="date" />
     <Property Name="stepCode" Type="varchar" MaxLength="255" />
-    <Property Name="salesAgent" Type="tinyint" />
+    <Property Name="salesAgent" Type="tinyint" Nullable="false" />
     <Property Name="noteToVendor" Type="mediumtext" />
+    <Property Name="poItemState" Type="tinyint" Nullable="false" />
   </EntityType>
 </Schema>

@@ -158,7 +158,7 @@ namespace AmbleClient.RfqGui
                 emailTos.Add(address2);
             }
 
-            string subject = string.Format("The RFQ {0} (MPN {1},sales {2} )has been Routed.", Tool.Get6DigitalNumberAccordingToId(rfq.rfqNo), rfq.partNo, AllAccountInfo.GetNameAccordingToId(rfq.salesId));
+            string subject = string.Format("The RFQ {0} (MPN：{1},sales：{2} )has been Routed.", Tool.Get6DigitalNumberAccordingToId(rfq.rfqNo), rfq.partNo, AllAccountInfo.GetNameAccordingToId(rfq.salesId));
             StringBuilder body = new StringBuilder();
             body.Append("<table border=\"0\">");
             body.Append(string.Format("<tr><td>RFQ ID</td><td>{0}</td>",Tool.Get6DigitalNumberAccordingToId(rfq.rfqNo)));
@@ -171,8 +171,8 @@ namespace AmbleClient.RfqGui
             body.Append(string.Format("<tr><td>Sales Name</td><td>{0}</td>", AllAccountInfo.GetNameAccordingToId(rfq.salesId)));
             body.Append("</table>");
 
-            AmbleClient.MailService.MailService.SendMail(emailTos, subject, body.ToString());
-
+            AmbleClient.MailService.MailService.SendMail(emailTos,new List<string>(),subject, body.ToString());
+            
                    
         }
 

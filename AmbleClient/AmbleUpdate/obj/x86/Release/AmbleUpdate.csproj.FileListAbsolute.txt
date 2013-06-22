@@ -6,3 +6,12 @@ E:\AmbleSystem\AmbleClient\AmbleUpdate\bin\Release\AmbleUpdate.pdb
 E:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.exe
 E:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.pdb
 E:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.csprojResolveAssemblyReference.cache
+C:\AmbleSystem\AmbleClient\AmbleUpdate\bin\Release\AmbleUpdate.exe
+C:\AmbleSystem\AmbleClient\AmbleUpdate\bin\Release\AmbleUpdate.pdb
+C:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\ResolveAssemblyReference.cache
+C:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.Properties.Resources.resources
+C:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.UpdateForm.resources
+C:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\GenerateResource.read.1.tlog
+C:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\GenerateResource.write.1.tlog
+C:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.exe
+C:\AmbleSystem\AmbleClient\AmbleUpdate\obj\x86\Release\AmbleUpdate.pdb

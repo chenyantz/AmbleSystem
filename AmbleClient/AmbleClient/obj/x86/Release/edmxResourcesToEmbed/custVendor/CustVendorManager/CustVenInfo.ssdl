@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CustVenInfoModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="CustVenInfoModelStoreContainer">
-    <EntitySet Name="custvendorinfo" EntityType="CustVenInfoModel.Store.custvendorinfo" store:Type="Tables" Schema="shenzhenerp" />
-    <EntitySet Name="custvendorinfoshipto" EntityType="CustVenInfoModel.Store.custvendorinfoshipto" store:Type="Tables" Schema="shenzhenerp" />
+<Schema Namespace="shenzhenerpModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="shenzhenerpModelStoreContainer">
+    <EntitySet Name="custvendorinfo" EntityType="shenzhenerpModel.Store.custvendorinfo" store:Type="Tables" Schema="shenzhenerp" />
+    <EntitySet Name="custvendorinfoshipto" EntityType="shenzhenerpModel.Store.custvendorinfoshipto" store:Type="Tables" Schema="shenzhenerp" />
   </EntityContainer>
   <EntityType Name="custvendorinfo">
     <Key>
@@ -32,6 +32,7 @@
     <Property Name="paymentTerm" Type="varchar" MaxLength="255" />
     <Property Name="shippingTerm" Type="varchar" MaxLength="255" />
     <Property Name="billTo" Type="mediumtext" />
+    <Property Name="productLine" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="custvendorinfoshipto">
     <Key>

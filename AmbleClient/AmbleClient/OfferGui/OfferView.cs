@@ -142,9 +142,14 @@ namespace AmbleClient.OfferGui
             BuyerOfferItems bItem = item as BuyerOfferItems;
             bItem.UpdateOfferState((int)OfferState.Routed);
             this.tsbRoute.Enabled = false;
+            OfferMgr.OfferMgr.SendOfferRouteEmail(bItem.GetOfferId());
             }
             this.DialogResult = DialogResult.Yes;
         }
+
+
+
+
 
         private void tsbCloseOffer_Click(object sender, EventArgs e)
         {

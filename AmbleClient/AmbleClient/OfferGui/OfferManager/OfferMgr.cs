@@ -293,7 +293,38 @@ namespace AmbleClient.OfferGui.OfferMgr
            }
        }
 
+       public static void SendOfferRouteEmail(int offerId)
+       {
+           List<string> emailTos = new List<string>();
 
+           Offer offer = GetOfferByOfferId(offerId);
+
+           AmbleClient.RfqGui.RfqManager.Rfq rfq = AmbleClient.RfqGui.RfqManager.RfqMgr.GetRfqAccordingToRfqId(offer.rfqNo);
+
+           int salesId = rfq.salesId;
+           emailTos.Add(AmbleClient.Admin.AccountMgr.AccountMgr.GetEmailAddressById(salesId));
+
+           List<string> ccTos = new List<string>();
+           string email1 = Admin.AccountMgr.AccountMgr.GetEmailAddressById(UserInfo.UserId);
+           if (!emailTos.Contains(email1))
+           {
+               ccTos.Add(email1);
+           }
+           string subject = string.Format("Your RFQ {0} (MPN：{1}) has an Offer.", Tool.Get6DigitalNumberAccordingToId(rfq.rfqNo), rfq.partNo);
+           StringBuilder body = new StringBuilder();
+           body.Append("<table border=\"0\">");
+           body.Append(string.Format("<tr><td>Offer ID</td><td>{0}</td>", Tool.Get6DigitalNumberAccordingToId(offer.offerId)));
+           body.Append(string.Format("<tr><td>MPN</td><td>{0}</td>", offer.mpn));
+           body.Append(string.Format("<tr><td>MFG</td><td>{0}</td>", offer.mfg));
+           body.Append(string.Format("<tr><td>QTY</td><td>{0}</td>", offer.quantity));
+           body.Append(string.Format("<tr><td>LT</td><td>{0}</td>", offer.LT));
+           body.Append(string.Format("<tr><td>Price</td><td>{0}</td>", offer.price));
+           body.Append("</table>");
+
+           AmbleClient.MailService.MailService.SendMail(emailTos, ccTos, subject, body.ToString());
+
+
+       }
 
     }
 }

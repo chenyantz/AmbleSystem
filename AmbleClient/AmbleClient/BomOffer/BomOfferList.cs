@@ -114,6 +114,10 @@ namespace AmbleClient.BomOffer
             else
                 this.Text="L/T Offer List";
 
+            if (UserInfo.Job != JobDescription.Admin && UserInfo.Job != JobDescription.Boss)
+            {
+                tsbToExcel.Enabled = false;
+            }
             tscbFilterBy.Items.Clear();
             if (listbyCustVen)
             {

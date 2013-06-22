@@ -1,35 +1,6 @@
-2013-04-18 14:34:45,897 [10] ERROR Amble (null) - Object reference not set to an instance of an object.
-2013-04-18 14:34:45,930 [10] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
-2013-04-18 14:34:48,019 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-18 14:43:47,209 [9] ERROR Amble (null) - Object reference not set to an instance of an object.
-2013-04-18 14:43:47,240 [9] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
-2013-04-18 14:44:27,089 [9] ERROR Amble (null) - Object reference not set to an instance of an object.
-2013-04-18 14:44:27,105 [9] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
-2013-04-18 14:44:36,910 [9] ERROR Amble (null) - Object reference not set to an instance of an object.
-2013-04-18 14:44:36,910 [9] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
-2013-04-18 14:44:44,845 [9] ERROR Amble (null) - Object reference not set to an instance of an object.
-2013-04-18 14:44:44,846 [9] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
-2013-04-18 14:47:23,424 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-18 15:02:20,732 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-18 15:02:50,695 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-18 15:07:40,565 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-18 15:08:40,339 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-18 15:16:21,608 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-18 15:54:39,975 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-18 16:00:51,559 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-18 16:02:34,076 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-18 16:10:26,421 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-18 16:11:47,190 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-18 16:17:52,590 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-18 16:22:17,363 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-18 16:33:02,019 [9] ERROR Amble (null) - Data is Null. This method or property cannot be called on Null values.
-2013-04-18 16:33:02,050 [9] ERROR Amble (null) -    at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue(Int32 index, Boolean checkNull)
-   at MySql.Data.MySqlClient.MySqlDataReader.GetInt32(Int32 i)
-   at MySql.Data.MySqlClient.MySqlDataReader.GetInt32(String column)
-   at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 57
-2013-04-18 16:33:02,050 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-18 21:34:19,715 [1] ERROR Amble (null) - A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 192.168.1.234:1111
-2013-04-18 21:34:19,871 [1] ERROR Amble (null) - 
+2013-06-05 19:59:30,101 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-06 14:37:43,191 [10] ERROR Amble (null) - A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 192.168.1.234:1111
+2013-06-06 14:37:43,238 [10] ERROR Amble (null) - 
 Server stack trace: 
    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
    at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
@@ -45,202 +16,24 @@ Exception rethrown at [0]:
    at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
    at PasswordServer.DatabaseInfo.GetDbUser()
-   at AmbleClient.ServerInfo..cctor() in C:\AmbleSystem\AmbleClient\AmbleClient\global.cs:line 261
-2013-04-18 21:34:55,494 [1] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
-2013-04-18 21:34:55,509 [1] ERROR Amble (null) -    at AmbleClient.DataClass.DataBase.GetDataReader(String strSql) in C:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:line 179
-   at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 47
-2013-04-18 21:40:01,763 [9] ERROR Amble (null) - A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 192.168.1.234:1111
-2013-04-18 21:40:01,826 [9] ERROR Amble (null) - 
-Server stack trace: 
-   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
-   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
-   at System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
-   at System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
-   at System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
-   at System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
-   at System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
-   at System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
-   at System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
-
-Exception rethrown at [0]: 
-   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
-   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
-   at PasswordServer.DatabaseInfo.GetDbUser()
-   at AmbleClient.ServerInfo..cctor() in C:\AmbleSystem\AmbleClient\AmbleClient\global.cs:line 261
-2013-04-18 21:40:27,181 [9] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
-2013-04-18 21:40:27,181 [9] ERROR Amble (null) -    at AmbleClient.DataClass.DataBase.GetDataReader(String strSql) in C:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:line 179
-   at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 47
-2013-04-18 21:40:50,609 [9] ERROR Amble (null) - Object reference not set to an instance of an object.
-2013-04-18 21:40:50,609 [9] ERROR Amble (null) -    at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 68
+   at AmbleClient.ServerInfo..cctor() in C:\AmbleSystem\AmbleClient\AmbleClient\global.cs:line 323
+2013-06-06 14:38:03,564 [10] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
+2013-06-06 14:38:03,564 [10] ERROR Amble (null) -    at AmbleClient.DataClass.DataBase.GetDataReader(String strSql) in C:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:line 238
+   at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 42
+2013-06-06 14:38:18,077 [10] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-06-06 14:38:18,077 [10] ERROR Amble (null) -    at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 63
    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 50
-2013-04-18 21:41:14,371 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-19 09:52:52,182 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-19 09:56:11,313 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-19 10:08:02,807 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-19 10:11:23,314 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-19 10:13:23,507 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-19 10:18:48,744 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-19 10:24:12,234 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-19 10:26:30,012 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-19 10:28:44,009 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-19 10:36:57,895 [11] INFO  Amble (null) - 1,0 logged in
-2013-04-19 13:02:18,722 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-23 13:26:40,797 [8] INFO  Amble (null) - 2,1 logged in
-2013-04-23 13:33:49,377 [8] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:04:32,198 [9] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:20:39,924 [8] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:22:26,375 [9] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:24:57,329 [9] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:26:05,080 [10] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:32:36,174 [8] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:35:09,543 [8] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:39:10,561 [9] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:40:24,559 [8] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:41:05,648 [9] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:42:43,268 [8] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:45:02,364 [9] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:46:52,095 [9] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:47:51,336 [9] INFO  Amble (null) - 2,1 logged in
-2013-04-23 14:50:30,983 [9] INFO  Amble (null) - 2,1 logged in
-2013-04-23 15:20:42,449 [10] INFO  Amble (null) - 2,1 logged in
-2013-04-23 15:24:36,117 [9] INFO  Amble (null) - 2,1 logged in
-2013-04-23 15:31:35,981 [9] INFO  Amble (null) - 2,1 logged in
-2013-04-23 16:56:10,346 [8] INFO  Amble (null) - 2,1 logged in
-2013-04-23 16:59:13,436 [8] INFO  Amble (null) - 2,1 logged in
-2013-04-23 17:02:26,456 [8] INFO  Amble (null) - 2,1 logged in
-2013-04-23 21:21:17,486 [10] ERROR Amble (null) - Object reference not set to an instance of an object.
-2013-04-23 21:21:17,513 [10] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
-2013-04-23 21:21:26,817 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-23 21:39:13,542 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-23 21:43:15,230 [8] ERROR Amble (null) - Object reference not set to an instance of an object.
-2013-04-23 21:43:15,259 [8] ERROR Amble (null) -    at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 51
-2013-04-23 22:42:24,971 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-23 23:41:58,467 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 01:49:06,088 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 01:53:01,606 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 02:00:23,967 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 02:01:29,937 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 02:07:14,407 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 02:12:51,325 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 02:14:19,618 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 02:23:11,652 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 02:26:04,922 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 02:27:57,781 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 02:41:38,192 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 02:45:37,834 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 10:34:49,838 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 12:50:14,314 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 14:35:05,658 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 14:39:47,926 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 14:42:20,902 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 14:45:24,573 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 14:46:35,770 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 15:39:04,624 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 15:41:03,181 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 15:49:57,125 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 15:50:24,916 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 16:16:45,441 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 16:21:22,939 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 16:23:56,315 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 16:29:41,450 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 16:31:24,539 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 16:32:57,126 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 16:34:15,472 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 16:39:59,920 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 16:42:15,171 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 16:44:31,518 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 17:03:56,038 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 20:09:47,103 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 20:12:10,247 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 20:55:39,633 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 20:58:14,177 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 21:02:20,012 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 21:08:44,680 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 21:26:44,993 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 21:28:04,470 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 21:33:09,885 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 21:36:33,374 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 21:40:11,903 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 21:42:43,039 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 22:00:27,559 [9] INFO  Amble (null) - 6,4 logged in
-2013-04-24 22:03:09,961 [8] INFO  Amble (null) - 6,4 logged in
-2013-04-24 22:04:05,664 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 22:09:38,062 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-24 22:18:40,622 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 22:20:40,638 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 22:22:51,930 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 22:26:00,409 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-24 23:35:48,123 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-24 23:37:45,257 [10] INFO  Amble (null) - 5,2 logged in
-2013-04-24 23:53:56,925 [8] INFO  Amble (null) - 5,2 logged in
-2013-04-24 23:55:05,786 [9] INFO  Amble (null) - 6,4 logged in
-2013-04-25 00:02:07,891 [9] INFO  Amble (null) - 6,4 logged in
-2013-04-25 09:40:42,602 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-25 11:09:23,613 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 11:12:17,351 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 11:13:34,356 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 11:17:28,881 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 11:20:37,545 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 11:47:30,652 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 13:29:49,425 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-25 13:34:34,939 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-25 13:40:54,746 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 13:42:13,562 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 13:43:17,644 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-25 14:08:27,257 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-25 14:11:57,829 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 14:15:07,549 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 14:16:48,912 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-25 14:18:33,656 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-25 14:21:48,278 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-25 14:25:28,463 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 14:28:01,972 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 14:45:43,338 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-25 15:08:35,774 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 15:12:00,948 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 15:15:55,578 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 15:16:52,831 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-25 15:21:23,428 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-25 15:24:35,225 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 15:25:19,015 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-25 16:00:01,958 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 20:52:56,051 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-25 21:01:15,104 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 21:03:35,399 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 21:05:18,379 [9] INFO  Amble (null) - 5,2 logged in
-2013-04-25 21:06:58,437 [9] INFO  Amble (null) - 5,2 logged in
-2013-04-25 21:09:44,946 [10] INFO  Amble (null) - 9,8 logged in
-2013-04-25 21:12:04,041 [10] INFO  Amble (null) - 5,2 logged in
-2013-04-25 21:13:19,990 [9] INFO  Amble (null) - 9,8 logged in
-2013-04-25 21:13:43,935 [10] INFO  Amble (null) - 5,2 logged in
-2013-04-25 21:18:59,971 [8] INFO  Amble (null) - 5,2 logged in
-2013-04-25 21:23:28,642 [9] INFO  Amble (null) - 5,2 logged in
-2013-04-25 21:30:12,409 [8] INFO  Amble (null) - 5,2 logged in
-2013-04-25 21:38:11,254 [8] INFO  Amble (null) - 5,2 logged in
-2013-04-25 21:39:53,355 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 21:41:50,398 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-25 21:43:13,607 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-25 21:43:49,747 [10] INFO  Amble (null) - 6,4 logged in
-2013-04-25 21:45:55,410 [9] INFO  Amble (null) - 6,4 logged in
-2013-04-25 21:47:15,982 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-25 21:48:32,474 [10] INFO  Amble (null) - 5,2 logged in
-2013-04-25 21:48:46,172 [10] INFO  Amble (null) - 6,4 logged in
-2013-04-25 22:01:15,452 [9] INFO  Amble (null) - 6,4 logged in
-2013-04-25 23:46:30,646 [10] INFO  Amble (null) - 3,3 logged in
-2013-04-25 23:57:39,101 [9] INFO  Amble (null) - 3,3 logged in
-2013-04-26 00:07:21,462 [8] INFO  Amble (null) - 4,5 logged in
-2013-04-26 00:10:28,232 [9] INFO  Amble (null) - 4,5 logged in
-2013-04-26 00:15:17,323 [9] INFO  Amble (null) - 4,5 logged in
-2013-04-26 00:18:39,956 [10] INFO  Amble (null) - 4,5 logged in
-2013-04-26 00:20:48,052 [10] INFO  Amble (null) - 4,5 logged in
-2013-04-26 00:22:55,422 [9] INFO  Amble (null) - 4,5 logged in
-2013-04-26 00:31:33,780 [9] INFO  Amble (null) - 4,5 logged in
-2013-04-26 00:33:52,233 [8] INFO  Amble (null) - 4,5 logged in
-2013-04-26 00:36:50,583 [10] INFO  Amble (null) - 5,2 logged in
-2013-04-26 00:37:11,357 [10] INFO  Amble (null) - 3,3 logged in
-2013-04-26 00:39:33,180 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-26 02:05:54,158 [10] ERROR Amble (null) - A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 192.168.1.234:1111
-2013-04-26 02:05:54,189 [10] ERROR Amble (null) - 
+2013-06-06 14:43:10,807 [9] INFO  Amble (null) - 2,1 logged in
+2013-06-06 17:33:36,474 [10] INFO  Amble (null) - 12,5 logged in
+2013-06-06 17:36:58,477 [10] INFO  Amble (null) - 12,5 logged in
+2013-06-07 14:40:45,005 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-07 14:44:38,745 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-07 15:13:44,215 [7] INFO  Amble (null) - 1,0 logged in
+2013-06-07 16:25:54,121 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-07 16:26:54,717 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-07 16:28:29,237 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-08 10:34:32,181 [8] ERROR Amble (null) - A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 192.168.1.234:1111
+2013-06-08 10:34:32,252 [8] ERROR Amble (null) - 
 Server stack trace: 
    at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
    at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
@@ -256,51 +49,108 @@ Exception rethrown at [0]:
    at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
    at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
    at PasswordServer.DatabaseInfo.GetDbUser()
-   at AmbleClient.ServerInfo..cctor() in C:\AmbleSystem\AmbleClient\AmbleClient\global.cs:line 302
-2013-04-26 02:06:14,703 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-26 02:09:13,253 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 02:29:54,449 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 02:32:14,260 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 02:36:02,487 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 02:39:02,260 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 02:39:55,176 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 02:41:00,329 [10] INFO  Amble (null) - 8,9 logged in
-2013-04-26 02:44:50,633 [8] INFO  Amble (null) - 8,9 logged in
-2013-04-26 02:45:51,552 [8] INFO  Amble (null) - 8,9 logged in
-2013-04-26 02:46:03,267 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-26 02:47:27,465 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-26 02:49:53,832 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 03:02:36,922 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 09:45:34,961 [9] INFO  Amble (null) - 9,8 logged in
-2013-04-26 09:52:56,679 [9] INFO  Amble (null) - 9,8 logged in
-2013-04-26 09:54:18,705 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-26 09:58:07,576 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-26 09:59:33,201 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-26 10:04:07,920 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-26 10:05:26,324 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 10:13:10,051 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-26 10:17:18,110 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 10:21:45,647 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-26 10:26:10,950 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 10:58:56,199 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:13:34,685 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:14:26,951 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:27:49,042 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:31:11,977 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:38:14,515 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:40:08,473 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:42:18,577 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:44:06,291 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:48:57,007 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:49:43,094 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:51:10,364 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:52:24,801 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:54:53,484 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-26 11:56:08,884 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 12:01:30,782 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 14:31:50,860 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-26 14:53:14,130 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 14:58:21,124 [9] INFO  Amble (null) - 1,0 logged in
-2013-04-26 15:44:00,294 [10] INFO  Amble (null) - 1,0 logged in
-2013-04-26 15:48:29,790 [8] INFO  Amble (null) - 1,0 logged in
-2013-04-26 15:52:31,336 [9] INFO  Amble (null) - 1,0 logged in
+   at AmbleClient.ServerInfo..cctor() in C:\AmbleSystem\AmbleClient\AmbleClient\global.cs:line 323
+2013-06-08 10:34:54,065 [8] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
+2013-06-08 10:34:54,066 [8] ERROR Amble (null) -    at AmbleClient.DataClass.DataBase.GetDataReader(String strSql) in C:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:line 238
+   at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 42
+2013-06-08 10:35:54,743 [8] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-06-08 10:35:54,744 [8] ERROR Amble (null) -    at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 63
+   at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 50
+2013-06-08 10:36:21,343 [8] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
+2013-06-08 10:36:21,343 [8] ERROR Amble (null) -    at AmbleClient.DataClass.DataBase.GetDataReader(String strSql) in C:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:line 238
+   at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 42
+2013-06-08 10:36:30,539 [8] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-06-08 10:36:30,539 [8] ERROR Amble (null) -    at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 63
+   at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 50
+2013-06-08 10:36:46,128 [8] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
+2013-06-08 10:36:46,128 [8] ERROR Amble (null) -    at AmbleClient.DataClass.DataBase.GetDataReader(String strSql) in C:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:line 238
+   at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 42
+2013-06-08 10:36:47,122 [8] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-06-08 10:36:47,123 [8] ERROR Amble (null) -    at AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) in C:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:line 63
+   at AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:line 50
+2013-06-08 10:37:03,664 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-08 10:37:44,625 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-08 10:41:13,764 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-08 10:41:27,149 [10] INFO  Amble (null) - 2,1 logged in
+2013-06-08 10:41:40,749 [10] INFO  Amble (null) - 3,3 logged in
+2013-06-08 10:41:59,500 [10] INFO  Amble (null) - 5,2 logged in
+2013-06-08 10:42:18,776 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-08 16:37:08,650 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-08 16:41:14,446 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-08 16:55:45,023 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-08 17:00:56,869 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-08 17:07:53,232 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-08 17:15:36,770 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 11:02:09,029 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-09 11:19:32,488 [9] INFO  Amble (null) - 4,5 logged in
+2013-06-09 11:35:40,374 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 11:57:01,610 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-09 11:57:17,146 [10] INFO  Amble (null) - 4,5 logged in
+2013-06-09 14:16:22,565 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-09 14:19:14,389 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 14:22:05,046 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-09 14:26:08,344 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-09 14:35:09,224 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 14:56:39,768 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-09 15:31:37,054 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-09 15:34:26,996 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 15:47:36,021 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 16:15:34,344 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 16:21:24,091 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 16:23:52,540 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-09 16:47:14,862 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 16:52:10,340 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 16:59:27,507 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 17:04:43,787 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-09 17:05:35,847 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 17:11:32,482 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 23:02:07,679 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-09 23:03:06,244 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-09 23:06:41,793 [10] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-06-09 23:06:41,796 [10] ERROR Amble (null) -    at AmbleClient.BomOffer.BomOfferList.GridView2DataTable(DataGridView gv) in C:\AmbleSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:line 404
+   at AmbleClient.BomOffer.BomOfferList.tsbToExcel_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:line 336
+2013-06-09 23:06:47,469 [10] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-06-09 23:06:47,469 [10] ERROR Amble (null) -    at AmbleClient.BomOffer.BomOfferList.GridView2DataTable(DataGridView gv) in C:\AmbleSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:line 404
+   at AmbleClient.BomOffer.BomOfferList.tsbToExcel_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:line 336
+2013-06-09 23:06:56,240 [10] ERROR Amble (null) - Object reference not set to an instance of an object.
+2013-06-09 23:06:56,240 [10] ERROR Amble (null) -    at AmbleClient.BomOffer.BomOfferList.GridView2DataTable(DataGridView gv) in C:\AmbleSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:line 404
+   at AmbleClient.BomOffer.BomOfferList.tsbToExcel_Click(Object sender, EventArgs e) in C:\AmbleSystem\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:line 336
+2013-06-09 23:10:27,261 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 23:20:08,338 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 23:21:03,224 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-09 23:23:40,730 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 23:27:00,939 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-09 23:28:03,159 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 23:43:23,690 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 23:46:05,989 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-09 23:51:25,571 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-10 00:00:26,362 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-10 00:09:13,223 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-10 00:20:20,450 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-13 10:20:05,423 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-13 10:55:37,253 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-13 15:02:12,324 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-14 20:24:06,073 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-14 20:46:13,312 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-18 00:19:39,815 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-18 00:27:39,326 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-18 19:46:34,036 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-18 19:47:51,698 [9] INFO  Amble (null) - 12,5 logged in
+2013-06-18 19:49:08,751 [9] INFO  Amble (null) - 12,5 logged in
+2013-06-18 19:53:07,235 [10] INFO  Amble (null) - 12,5 logged in
+2013-06-18 19:55:22,343 [11] INFO  Amble (null) - 12,5 logged in
+2013-06-18 19:56:23,151 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-18 19:56:44,175 [10] INFO  Amble (null) - 11,1 logged in
+2013-06-20 23:45:56,660 [9] INFO  Amble (null) - 15,2 logged in
+2013-06-20 23:46:19,431 [10] INFO  Amble (null) - 10,1 logged in
+2013-06-20 23:47:11,963 [9] INFO  Amble (null) - 10,1 logged in
+2013-06-20 23:48:08,003 [9] INFO  Amble (null) - 10,1 logged in
+2013-06-22 18:11:39,607 [10] INFO  Amble (null) - 11,1 logged in
+2013-06-22 18:12:40,584 [10] INFO  Amble (null) - 11,1 logged in
+2013-06-22 18:13:38,197 [10] INFO  Amble (null) - 11,1 logged in
+2013-06-22 18:18:31,603 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-22 18:21:53,635 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-22 18:23:41,180 [10] INFO  Amble (null) - 10,1 logged in
+2013-06-22 18:26:25,665 [8] INFO  Amble (null) - 10,1 logged in
+2013-06-22 18:31:46,331 [8] INFO  Amble (null) - 10,1 logged in
+2013-06-22 18:34:38,309 [10] INFO  Amble (null) - 10,1 logged in

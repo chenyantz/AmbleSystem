@@ -5,11 +5,9 @@
       <EntityTypeMapping TypeName="PoModel.po">
         <MappingFragment StoreEntitySet="po">
           <ScalarProperty Name="poId" ColumnName="poId" />
-          <ScalarProperty Name="soId" ColumnName="soId" />
           <ScalarProperty Name="vendorName" ColumnName="vendorName" />
           <ScalarProperty Name="contact" ColumnName="contact" />
           <ScalarProperty Name="pa" ColumnName="pa" />
-          <ScalarProperty Name="paDate" ColumnName="paDate" />
           <ScalarProperty Name="vendorNumber" ColumnName="vendorNumber" />
           <ScalarProperty Name="poDate" ColumnName="poDate" />
           <ScalarProperty Name="poNo" ColumnName="poNo" />
@@ -26,13 +24,14 @@
     <EntitySetMapping Name="poitems">
       <EntityTypeMapping TypeName="PoModel.poitems">
         <MappingFragment StoreEntitySet="poitems">
-          <ScalarProperty Name="PoItemsId" ColumnName="PoItemsId" />
+          <ScalarProperty Name="poItemsId" ColumnName="poItemsId" />
           <ScalarProperty Name="poId" ColumnName="poId" />
+          <ScalarProperty Name="soItemId" ColumnName="soItemId" />
           <ScalarProperty Name="partNo" ColumnName="partNo" />
           <ScalarProperty Name="mfg" ColumnName="mfg" />
           <ScalarProperty Name="dc" ColumnName="dc" />
           <ScalarProperty Name="vendorIntPartNo" ColumnName="vendorIntPartNo" />
-          <ScalarProperty Name="org" ColumnName="org" />
+          <ScalarProperty Name="coo" ColumnName="coo" />
           <ScalarProperty Name="qty" ColumnName="qty" />
           <ScalarProperty Name="qtyRecd" ColumnName="qtyRecd" />
           <ScalarProperty Name="qtyCorrected" ColumnName="qtyCorrected" />
@@ -42,11 +41,12 @@
           <ScalarProperty Name="qcPending" ColumnName="qcPending" />
           <ScalarProperty Name="currency" ColumnName="currency" />
           <ScalarProperty Name="unitPrice" ColumnName="unitPrice" />
-          <ScalarProperty Name="dueDate" ColumnName="dueDate" />
+          <ScalarProperty Name="dockDate" ColumnName="dockDate" />
           <ScalarProperty Name="receiveDate" ColumnName="receiveDate" />
           <ScalarProperty Name="stepCode" ColumnName="stepCode" />
           <ScalarProperty Name="salesAgent" ColumnName="salesAgent" />
           <ScalarProperty Name="noteToVendor" ColumnName="noteToVendor" />
+          <ScalarProperty Name="poItemState" ColumnName="poItemState" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

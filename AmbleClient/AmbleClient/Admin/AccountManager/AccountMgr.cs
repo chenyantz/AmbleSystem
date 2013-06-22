@@ -147,10 +147,50 @@ namespace AmbleClient.Admin.AccountMgr
        
        }
 
+       public static List<int> GetAllIds(List<int> jobs)
+       {
+           if (jobs == null)
+               return GetAllIds();
+
+           List<int> ids = new List<int>();
+           string strSql = "select id from account where job="+jobs[0];
+           for (int i = 1; i < jobs.Count; i++)
+           {
+               strSql += " or job=" + jobs[i];
+           }
+
+           DataTable dt = db.GetDataTable(strSql, "idTable");
+           if (dt.Rows.Count > 0)
+           {
+               foreach (DataRow dr in dt.Rows)
+               {
+                   ids.Add(Convert.ToInt32(dr["id"]));
+               }
+           }
+           return ids;
+       
+       }
+
+       public static int GetJobById(int id)
+       {
+           string strSql = "select job from account where id=" + id;
+           return Convert.ToInt32(db.GetSingleObject(strSql));
+       
+       }
+
+    
 
        public static List<int> GetAllSubsId(int id,List<int> jobs)
        {
-            List<int> allSubsId = new List<int>();
+           int jobId = GetJobById(id);
+           if (jobId == (int)JobDescription.Admin || jobId == (int)JobDescription.Boss)
+           {
+               if (jobs == null)
+                   return GetAllIds();
+               else
+                   return GetAllIds(jobs);
+           }
+           List<int> allSubsId = new List<int>();
            allSubsId.Add(id);
 
            for (int startIndex = 0; allSubsId.Count > startIndex; startIndex++)

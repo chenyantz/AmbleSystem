@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="CustVenInfoModelStoreContainer" CdmEntityContainer="CustVenInfoEntities">
+  <EntityContainerMapping StorageEntityContainer="shenzhenerpModelStoreContainer" CdmEntityContainer="CustVenInfoEntities">
     <EntitySetMapping Name="custvendorinfo">
-      <EntityTypeMapping TypeName="CustVenInfoModel.custvendorinfo">
+      <EntityTypeMapping TypeName="shenzhenerpModel.custvendorinfo">
         <MappingFragment StoreEntitySet="custvendorinfo">
+          <ScalarProperty Name="productLine" ColumnName="productLine" />
           <ScalarProperty Name="cvId" ColumnName="cvId" />
           <ScalarProperty Name="cvtype" ColumnName="cvtype" />
           <ScalarProperty Name="cvname" ColumnName="cvname" />
@@ -32,7 +33,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="custvendorinfoshipto">
-      <EntityTypeMapping TypeName="CustVenInfoModel.custvendorinfoshipto">
+      <EntityTypeMapping TypeName="shenzhenerpModel.custvendorinfoshipto">
         <MappingFragment StoreEntitySet="custvendorinfoshipto">
           <ScalarProperty Name="cvShipId" ColumnName="cvShipId" />
           <ScalarProperty Name="cvId" ColumnName="cvId" />
