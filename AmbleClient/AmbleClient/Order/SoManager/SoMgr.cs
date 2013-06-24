@@ -72,7 +72,7 @@ namespace AmbleClient.Order.SoMgr
             sb.Append(" or soStates="+states[i]);
            
            }
-           sb.Append(" )");
+           sb.Append(" ) order by soId desc ");
 
            DataTable dt=db.GetDataTable(sb.ToString(),"soId");
 
@@ -121,7 +121,7 @@ namespace AmbleClient.Order.SoMgr
                sb.Append(" or soItemState=" + states[i]);
 
            }
-           sb.Append(" )");
+           sb.Append(" ) order by s.soId desc ");
 
            DataTable dt = db.GetDataTable(sb.ToString(), "soId");
 
@@ -208,7 +208,7 @@ namespace AmbleClient.Order.SoMgr
                sb.Append(" or soStates=" + states[i]);
 
            }
-           sb.Append(" )");
+           sb.Append(" ) order by s.soId desc");
 
            DataTable dt = db.GetDataTable(sb.ToString(), "soId");
 
@@ -265,7 +265,7 @@ namespace AmbleClient.Order.SoMgr
                    sb.Append(" or soItemState=" + states[i]);
 
                }
-               sb.Append(" )");
+               sb.Append(" ) order by s.soId desc");
 
                DataTable dt = db.GetDataTable(sb.ToString(), "soId");
 

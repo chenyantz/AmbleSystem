@@ -31,6 +31,7 @@ namespace AmbleClient.custVendor.CustVendorManager
         public static List<custvendorinfo> GetAllCustomerAndVendors()
         {
             var cv = from custVen in custVenEntity.custvendorinfo
+                     orderby custVen.lastUpdateDate descending
                      select custVen;
             return cv.ToList();
         }
@@ -46,6 +47,7 @@ namespace AmbleClient.custVendor.CustVendorManager
             {
                 var cv = from custVen in custVenEntity.custvendorinfo
                          where custVen.cvname.Contains(filterString.Trim())
+                         orderby custVen.lastUpdateDate descending
                          select custVen;
                 return cv.ToList();
             }
@@ -53,6 +55,7 @@ namespace AmbleClient.custVendor.CustVendorManager
             {
                 var cv = from custVen in custVenEntity.custvendorinfo
                          where custVen.cvnumber.Contains(filterString.Trim())
+                         orderby custVen.lastUpdateDate descending
                          select custVen;
                 return cv.ToList();
             }
@@ -97,6 +100,7 @@ namespace AmbleClient.custVendor.CustVendorManager
 
                 var cv = from custVen in custVenEntity.custvendorinfo
                          where custVen.cvtype == cvtype && custVen.ownerName == (short)usrId
+                         orderby custVen.lastUpdateDate descending
                          select custVen;
                 return cv.ToList();
             }
@@ -104,6 +108,7 @@ namespace AmbleClient.custVendor.CustVendorManager
             {
                 var cv = from custVen in custVenEntity.custvendorinfo
                          where custVen.cvtype == cvtype && custVen.ownerName == (short)usrId && custVen.cvname.Contains(filterString.Trim())
+                         orderby custVen.lastUpdateDate descending
                          select custVen;
                 return cv.ToList();
 
@@ -112,6 +117,7 @@ namespace AmbleClient.custVendor.CustVendorManager
             {
                 var cv = from custVen in custVenEntity.custvendorinfo
                          where custVen.cvtype == cvtype && custVen.ownerName == (short)usrId && custVen.cvnumber.Contains(filterString.Trim())
+                         orderby custVen.lastUpdateDate descending
                          select custVen;
                 return cv.ToList();
 
@@ -132,6 +138,7 @@ namespace AmbleClient.custVendor.CustVendorManager
             {
                 var cv = from custVen in custVenEntity.custvendorinfo
                          where custVen.cvtype == cvtype && subIds.Contains(custVen.ownerName)
+                         orderby custVen.lastUpdateDate descending
                          select custVen;
                 return cv.ToList();
             }
@@ -139,6 +146,7 @@ namespace AmbleClient.custVendor.CustVendorManager
             {
                 var cv = from custVen in custVenEntity.custvendorinfo
                          where custVen.cvtype == cvtype && subIds.Contains(custVen.ownerName) && custVen.cvname.Contains(filterString.Trim())
+                         orderby custVen.lastUpdateDate descending
                          select custVen;
                 return cv.ToList();
 
@@ -147,6 +155,7 @@ namespace AmbleClient.custVendor.CustVendorManager
             {
                 var cv = from custVen in custVenEntity.custvendorinfo
                          where custVen.cvtype == cvtype && subIds.Contains(custVen.ownerName) && custVen.cvnumber.Contains(filterString.Trim())
+                         orderby custVen.lastUpdateDate descending
                          select custVen;
                 return cv.ToList();
             }
@@ -252,6 +261,7 @@ namespace AmbleClient.custVendor.CustVendorManager
 
             var cvs = from cv in custVenEntity.custvendorinfo
                       where cv.cvtype == (sbyte)cvtype && subIds.Contains(cv.ownerName)
+                      orderby cv.lastUpdateDate descending
                       select cv.cvname;
             return cvs.ToList();
 

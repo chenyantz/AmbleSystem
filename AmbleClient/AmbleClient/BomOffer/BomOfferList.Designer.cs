@@ -41,6 +41,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbToExcel = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tsbListAll = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +50,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbListAll,
+            this.toolStripSeparator3,
             this.tsbDeleteItem,
             this.toolStripSeparator1,
             this.toolStripLabel1,
@@ -70,7 +74,7 @@
             this.tsbDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("tsbDeleteItem.Image")));
             this.tsbDeleteItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDeleteItem.Name = "tsbDeleteItem";
-            this.tsbDeleteItem.Size = new System.Drawing.Size(123, 22);
+            this.tsbDeleteItem.Size = new System.Drawing.Size(137, 22);
             this.tsbDeleteItem.Text = "Delete Selected Items";
             this.tsbDeleteItem.Click += new System.EventHandler(this.tsbDeleteItem_Click);
             // 
@@ -82,7 +86,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(52, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(56, 22);
             this.toolStripLabel1.Text = "Filter by:";
             // 
             // tscbFilterBy
@@ -97,7 +101,7 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(70, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(76, 22);
             this.toolStripLabel2.Text = "Filter String:";
             // 
             // tstbFilterString
@@ -111,7 +115,7 @@
             this.tsbSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearch.Image")));
             this.tsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSearch.Name = "tsbSearch";
-            this.tsbSearch.Size = new System.Drawing.Size(42, 22);
+            this.tsbSearch.Size = new System.Drawing.Size(44, 22);
             this.tsbSearch.Text = "Apply";
             this.tsbSearch.Click += new System.EventHandler(this.tsbSearch_Click);
             // 
@@ -121,7 +125,7 @@
             this.tsbCancel.Image = ((System.Drawing.Image)(resources.GetObject("tsbCancel.Image")));
             this.tsbCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCancel.Name = "tsbCancel";
-            this.tsbCancel.Size = new System.Drawing.Size(47, 22);
+            this.tsbCancel.Size = new System.Drawing.Size(49, 22);
             this.tsbCancel.Text = "Cancel";
             this.tsbCancel.Click += new System.EventHandler(this.tsbCancel_Click);
             // 
@@ -136,7 +140,7 @@
             this.tsbToExcel.Image = ((System.Drawing.Image)(resources.GetObject("tsbToExcel.Image")));
             this.tsbToExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbToExcel.Name = "tsbToExcel";
-            this.tsbToExcel.Size = new System.Drawing.Size(88, 22);
+            this.tsbToExcel.Size = new System.Drawing.Size(98, 22);
             this.tsbToExcel.Text = "Save As xls File";
             this.tsbToExcel.Click += new System.EventHandler(this.tsbToExcel_Click);
             // 
@@ -150,14 +154,29 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(999, 491);
+            this.dataGridView1.Size = new System.Drawing.Size(999, 451);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // tsbListAll
+            // 
+            this.tsbListAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbListAll.Image = ((System.Drawing.Image)(resources.GetObject("tsbListAll.Image")));
+            this.tsbListAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbListAll.Name = "tsbListAll";
+            this.tsbListAll.Size = new System.Drawing.Size(48, 22);
+            this.tsbListAll.Text = "List All";
+            this.tsbListAll.Click += new System.EventHandler(this.tsbListAll_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // BomOfferList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 516);
+            this.ClientSize = new System.Drawing.Size(999, 476);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -186,5 +205,7 @@
         private System.Windows.Forms.ToolStripButton tsbCancel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tsbToExcel;
+        private System.Windows.Forms.ToolStripButton tsbListAll;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }

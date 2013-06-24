@@ -161,6 +161,7 @@ namespace AmbleClient.BomOffer
                     var bomOfferList = from bomOffer in entity.publiccustven
                                        join myaccount in entity.account on bomOffer.userID equals myaccount.id
                                        where bomOffer.custVendorType == (int)bomOfferType
+                                       orderby bomOffer.enterDay descending
                                        select new
                                        {
                                            Id = bomOffer.custVenId,
@@ -183,7 +184,7 @@ namespace AmbleClient.BomOffer
                     var bomOfferList = from bomOffer in entity.publiccustven
                                        join myaccount in entity.account on bomOffer.userID equals myaccount.id
                                        where bomOffer.custVendorType == ((int)bomOfferType) &&bomOffer.custVenName.Contains(tstbFilterString.Text.Trim())
-
+                                       orderby bomOffer.enterDay descending
                                        select new
                                        {
                                            Id = bomOffer.custVenId,

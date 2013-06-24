@@ -319,7 +319,7 @@ namespace AmbleClient.RfqGui.RfqManager
             strSql.Append(" )");
 
 
-           strSql.Append(string.Format(" limit {0},{1}", pageNumber * itemsPerPage, itemsPerPage));
+            strSql.Append(string.Format(" order by rfqNo desc limit {0},{1} ", pageNumber * itemsPerPage, itemsPerPage));
 
             return  db.GetDataTable(strSql.ToString(),"Table"+pageNumber);
         }
@@ -366,8 +366,8 @@ namespace AmbleClient.RfqGui.RfqManager
             {
                 sb.Append(" or rfqstates=" + selections[i].GetHashCode());
             }
- 
-            sb.Append(string.Format(")  limit {0},{1}", pageNumber*itemsPerPage, itemsPerPage));
+
+            sb.Append(string.Format(")  order by rfqNo desc  limit {0},{1}", pageNumber * itemsPerPage, itemsPerPage));
 
             return db.GetDataTable(sb.ToString(), "Table" + pageNumber);
 
@@ -449,7 +449,7 @@ namespace AmbleClient.RfqGui.RfqManager
             }
             strSql.Append(" )");
 
-           strSql.Append(string.Format(" limit {0},{1}", pageNumber * itemsPerPage, itemsPerPage));
+            strSql.Append(string.Format(" order by rfqNo desc limit {0},{1} ", pageNumber * itemsPerPage, itemsPerPage));
 
             return  db.GetDataTable(strSql.ToString(),"Table"+pageNumber);
         
@@ -530,7 +530,7 @@ namespace AmbleClient.RfqGui.RfqManager
             strSql.Append(" )");
 
 
-            strSql.Append(string.Format(" limit {0},{1}", pageNumber * itemsPerPage, itemsPerPage));
+            strSql.Append(string.Format(" order by rfqNo desc limit {0},{1}", pageNumber * itemsPerPage, itemsPerPage));
 
             return db.GetDataTable(strSql.ToString(), "Table" + pageNumber);
         }

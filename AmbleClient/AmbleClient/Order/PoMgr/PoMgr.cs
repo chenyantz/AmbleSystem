@@ -52,6 +52,7 @@ namespace AmbleClient.Order.PoMgr
                {
                 var poListFromDb= from poItem in poEntity.po 
                                   where (userIds.Contains((int)poItem.pa)) &&(stateList.Contains((int)poItem.poStates))
+                                  orderby poItem.poId descending
                                   select poItem;
 
                 poList.AddRange(poListFromDb);
@@ -63,6 +64,7 @@ namespace AmbleClient.Order.PoMgr
                    var poListFromDb = from poItem in poEntity.po
                                       where (userIds.Contains((int)poItem.pa)) && (stateList.Contains((int)poItem.poStates)&&
                                       (poItem.vendorName.Contains(filterString.Trim())))
+                                      orderby poItem.poId descending
                                        select poItem;
 
                    poList.AddRange(poListFromDb);
@@ -73,6 +75,7 @@ namespace AmbleClient.Order.PoMgr
                    var poListFromDb = from poItem in poEntity.po
                                       where (userIds.Contains((int)poItem.pa)) && (stateList.Contains((int)poItem.poStates) &&
                                       (poItem.poNo.Contains(filterString.Trim())))
+                                      orderby poItem.poId descending
                                       select poItem;
 
                    poList.AddRange(poListFromDb);
@@ -86,6 +89,7 @@ namespace AmbleClient.Order.PoMgr
                    var poListFromDb = from poItem in poEntity.po
                                       where (userIds.Contains((int)poItem.pa)) && (stateList.Contains((int)poItem.poStates) &&
                                       (poIds.Contains(poItem.poId)))
+                                      orderby poItem.poId descending
                                       select poItem;
                    poList.AddRange(poListFromDb);
                }
@@ -121,6 +125,7 @@ namespace AmbleClient.Order.PoMgr
                                   join poItems in poEntity.poitems
                                   on pos.poId equals poItems.poId
                                   where (userIds.Contains((int)pos.pa)) && (stateList.Contains((int)poItems.poItemState))
+                                  orderby pos.poId descending
                                   select new PoCombine
                                   {
                                       poId = pos.poId,
@@ -150,6 +155,7 @@ namespace AmbleClient.Order.PoMgr
                                   on pos.poId equals poItems.poId
                                   where (userIds.Contains((int)pos.pa)) && (stateList.Contains((int)pos.poStates) &&
                                   (pos.vendorName.Contains(filterString.Trim())))
+                                  orderby pos.poId descending
                                   select new PoCombine
                                   {
                                       poId = pos.poId,
@@ -179,6 +185,7 @@ namespace AmbleClient.Order.PoMgr
                                   on pos.poId equals poItems.poId
                                   where (userIds.Contains((int)pos.pa)) && (stateList.Contains((int)pos.poStates) &&
                                    (pos.poNo.Contains(filterString.Trim())))
+                                   orderby pos.poId descending
                                   select new PoCombine
                                   {
                                       poId = pos.poId,
@@ -205,6 +212,7 @@ namespace AmbleClient.Order.PoMgr
                                   on pos.poId equals poItems.poId
                                   where (userIds.Contains((int)pos.pa)) && (stateList.Contains((int)pos.poStates) &&
                                    (poItems.partNo.Contains(filterString.Trim())))
+                                   orderby pos.poId descending
                                   select new PoCombine
                                   {
                                       poId = pos.poId,
