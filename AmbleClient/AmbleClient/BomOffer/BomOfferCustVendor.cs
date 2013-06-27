@@ -328,27 +328,27 @@ namespace AmbleClient.BomOffer
                 int cpnColumn = -1, mpnColumn = -1, mfgColumn = -1, qtyColumn = -1, priceColumn = -1;
                 foreach (DataColumn dc in dt.Columns)
                 { 
-                    if (dc.ColumnName.ToUpper() == "MPN")
+                    if (dc.ColumnName.Trim().ToUpper() == "MPN")
                     {
                         hasMpn = true;
                         mpnColumn=dt.Columns.IndexOf(dc);
                     }
-                    if (dc.ColumnName.ToUpper() == "CPN")
+                    if (dc.ColumnName.Trim().ToUpper() == "CPN")
                     {
                         hasCpn = true;
                         cpnColumn = dt.Columns.IndexOf(dc);
                     }
-                    if (dc.ColumnName.ToUpper() == "MFG")
+                    if (dc.ColumnName.Trim().ToUpper() == "MFG")
                     {
                         hasMfg = true;
                         mfgColumn = dt.Columns.IndexOf(dc);
                     }
-                    if (dc.ColumnName.ToUpper() == "QTY")
+                    if (dc.ColumnName.Trim().ToUpper() == "QTY")
                     {
                         hasQty = true;
                         qtyColumn = dt.Columns.IndexOf(dc);
                     }
-                    if (dc.ColumnName.ToUpper() == "PRICE")
+                    if (dc.ColumnName.Trim().ToUpper() == "PRICE")
                     {
                         hasPrice = true;
                         priceColumn = dt.Columns.IndexOf(dc);

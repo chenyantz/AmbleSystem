@@ -22,5 +22,16 @@ namespace AmbleClient.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.1.101;User Id=root;password=chenlq;Persist Security Info=True;data" +
+            "base=shenzhenerp")]
+        public string shenzhenerpConnectionString {
+            get {
+                return ((string)(this["shenzhenerpConnectionString"]));
+            }
+        }
     }
 }

@@ -86,6 +86,12 @@
     <Compile Include="Admin\ModifyAccount.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AmbleStock\Stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AmbleStock\Stock.Designer.cs">
+      <DependentUpon>Stock.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicGui\TimePicker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -438,11 +444,19 @@
     <Compile Include="Order\SoView\SoViewControl.Designer.cs">
       <DependentUpon>SoViewControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AmbleStock\stockDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>stockDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\AccountMainFrame.resx">
       <DependentUpon>AccountMainFrame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AccountOperation.resx">
       <DependentUpon>AccountOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AmbleStock\Stock.resx">
+      <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BasicGui\TimePicker.resx">
       <DependentUpon>TimePicker.cs</DependentUpon>
@@ -613,6 +627,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="AmbleStock\stockDataSet.xsc">
+      <DependentUpon>stockDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AmbleStock\stockDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>stockDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AmbleStock\stockDataSet.xss">
+      <DependentUpon>stockDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OrderTemplate\" />

@@ -424,6 +424,13 @@ namespace AmbleClient
             bomOfferList.Show();
         }
 
+        private void ambleStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AmbleStock.Stock stock = new AmbleStock.Stock();
+            stock.MdiParent = this;
+            stock.Show();
+        }
+
 
 
 
