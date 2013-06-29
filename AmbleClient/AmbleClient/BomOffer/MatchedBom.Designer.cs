@@ -1,4 +1,4 @@
-﻿namespace AmbleClient.AmbleStock
+﻿namespace AmbleClient.BomOffer
 {
     partial class MatchedBom
     {
@@ -31,20 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatchedBom));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.stockIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mpnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.machedBomIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mfgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dcDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mpnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resaleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buyerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.stockDataSet1 = new AmbleClient.AmbleStock.stockDataSet();
+            this.matchedBomDataSet = new AmbleClient.BomOffer.matchedBomDataSet();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.tsbRestore = new System.Windows.Forms.ToolStripButton();
@@ -57,10 +54,10 @@
             this.tstbFilterString = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tsbClear = new System.Windows.Forms.ToolStripButton();
-            this.amblestockTableAdapter = new AmbleClient.AmbleStock.stockDataSetTableAdapters.amblestockTableAdapter();
+            this.matchbomTableAdapter = new AmbleClient.BomOffer.matchedBomDataSetTableAdapters.matchbomTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchedBomDataSet)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,18 +69,15 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.stockIdDataGridViewTextBoxColumn,
-            this.mpnDataGridViewTextBoxColumn,
+            this.machedBomIdDataGridViewTextBoxColumn,
+            this.customerDataGridViewTextBoxColumn,
             this.mfgDataGridViewTextBoxColumn,
-            this.dcDataGridViewTextBoxColumn,
+            this.mpnDataGridViewTextBoxColumn,
             this.qtyDataGridViewTextBoxColumn,
-            this.resaleDataGridViewTextBoxColumn,
-            this.costDataGridViewTextBoxColumn,
-            this.packingDataGridViewTextBoxColumn,
-            this.contactDataGridViewTextBoxColumn,
-            this.statuDataGridViewTextBoxColumn,
-            this.notesDataGridViewTextBoxColumn,
-            this.stockDateDataGridViewTextBoxColumn});
+            this.priceDataGridViewTextBoxColumn,
+            this.cpnDataGridViewTextBoxColumn,
+            this.buyerDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.Name = "dataGridView1";
@@ -93,110 +87,71 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
-            // stockIdDataGridViewTextBoxColumn
+            // machedBomIdDataGridViewTextBoxColumn
             // 
-            this.stockIdDataGridViewTextBoxColumn.DataPropertyName = "stockId";
-            this.stockIdDataGridViewTextBoxColumn.HeaderText = "stockId";
-            this.stockIdDataGridViewTextBoxColumn.Name = "stockIdDataGridViewTextBoxColumn";
-            this.stockIdDataGridViewTextBoxColumn.Visible = false;
+            this.machedBomIdDataGridViewTextBoxColumn.DataPropertyName = "machedBomId";
+            this.machedBomIdDataGridViewTextBoxColumn.HeaderText = "machedBomId";
+            this.machedBomIdDataGridViewTextBoxColumn.Name = "machedBomIdDataGridViewTextBoxColumn";
+            this.machedBomIdDataGridViewTextBoxColumn.Visible = false;
             // 
-            // mpnDataGridViewTextBoxColumn
+            // customerDataGridViewTextBoxColumn
             // 
-            this.mpnDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.mpnDataGridViewTextBoxColumn.DataPropertyName = "mpn";
-            this.mpnDataGridViewTextBoxColumn.HeaderText = "MPN";
-            this.mpnDataGridViewTextBoxColumn.Name = "mpnDataGridViewTextBoxColumn";
-            this.mpnDataGridViewTextBoxColumn.Width = 48;
+            this.customerDataGridViewTextBoxColumn.DataPropertyName = "customer";
+            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
             // 
             // mfgDataGridViewTextBoxColumn
             // 
-            this.mfgDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.mfgDataGridViewTextBoxColumn.DataPropertyName = "mfg";
             this.mfgDataGridViewTextBoxColumn.HeaderText = "MFG";
             this.mfgDataGridViewTextBoxColumn.Name = "mfgDataGridViewTextBoxColumn";
-            this.mfgDataGridViewTextBoxColumn.Width = 48;
             // 
-            // dcDataGridViewTextBoxColumn
+            // mpnDataGridViewTextBoxColumn
             // 
-            this.dcDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dcDataGridViewTextBoxColumn.DataPropertyName = "dc";
-            this.dcDataGridViewTextBoxColumn.HeaderText = "DC";
-            this.dcDataGridViewTextBoxColumn.Name = "dcDataGridViewTextBoxColumn";
-            this.dcDataGridViewTextBoxColumn.Width = 42;
+            this.mpnDataGridViewTextBoxColumn.DataPropertyName = "mpn";
+            this.mpnDataGridViewTextBoxColumn.HeaderText = "MPN";
+            this.mpnDataGridViewTextBoxColumn.Name = "mpnDataGridViewTextBoxColumn";
             // 
             // qtyDataGridViewTextBoxColumn
             // 
-            this.qtyDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.qtyDataGridViewTextBoxColumn.DataPropertyName = "qty";
             this.qtyDataGridViewTextBoxColumn.HeaderText = "QTY";
             this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
-            this.qtyDataGridViewTextBoxColumn.Width = 48;
             // 
-            // resaleDataGridViewTextBoxColumn
+            // priceDataGridViewTextBoxColumn
             // 
-            this.resaleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.resaleDataGridViewTextBoxColumn.DataPropertyName = "resale";
-            this.resaleDataGridViewTextBoxColumn.HeaderText = "Resale";
-            this.resaleDataGridViewTextBoxColumn.Name = "resaleDataGridViewTextBoxColumn";
-            this.resaleDataGridViewTextBoxColumn.Width = 66;
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             // 
-            // costDataGridViewTextBoxColumn
+            // cpnDataGridViewTextBoxColumn
             // 
-            this.costDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
-            this.costDataGridViewTextBoxColumn.HeaderText = "Cost";
-            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
-            this.costDataGridViewTextBoxColumn.Width = 54;
+            this.cpnDataGridViewTextBoxColumn.DataPropertyName = "cpn";
+            this.cpnDataGridViewTextBoxColumn.HeaderText = "CPN";
+            this.cpnDataGridViewTextBoxColumn.Name = "cpnDataGridViewTextBoxColumn";
             // 
-            // packingDataGridViewTextBoxColumn
+            // buyerDataGridViewTextBoxColumn
             // 
-            this.packingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.packingDataGridViewTextBoxColumn.DataPropertyName = "packing";
-            this.packingDataGridViewTextBoxColumn.HeaderText = "Packing";
-            this.packingDataGridViewTextBoxColumn.Name = "packingDataGridViewTextBoxColumn";
-            this.packingDataGridViewTextBoxColumn.Width = 72;
+            this.buyerDataGridViewTextBoxColumn.DataPropertyName = "buyer";
+            this.buyerDataGridViewTextBoxColumn.HeaderText = "Buyer";
+            this.buyerDataGridViewTextBoxColumn.Name = "buyerDataGridViewTextBoxColumn";
             // 
-            // contactDataGridViewTextBoxColumn
+            // dateDataGridViewTextBoxColumn
             // 
-            this.contactDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.contactDataGridViewTextBoxColumn.DataPropertyName = "contact";
-            this.contactDataGridViewTextBoxColumn.HeaderText = "Contact";
-            this.contactDataGridViewTextBoxColumn.Name = "contactDataGridViewTextBoxColumn";
-            this.contactDataGridViewTextBoxColumn.Width = 72;
-            // 
-            // statuDataGridViewTextBoxColumn
-            // 
-            this.statuDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.statuDataGridViewTextBoxColumn.DataPropertyName = "statu";
-            this.statuDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statuDataGridViewTextBoxColumn.Name = "statuDataGridViewTextBoxColumn";
-            this.statuDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // notesDataGridViewTextBoxColumn
-            // 
-            this.notesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.notesDataGridViewTextBoxColumn.DataPropertyName = "notes";
-            this.notesDataGridViewTextBoxColumn.HeaderText = "Notes";
-            this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
-            this.notesDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // stockDateDataGridViewTextBoxColumn
-            // 
-            this.stockDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.stockDateDataGridViewTextBoxColumn.DataPropertyName = "stockDate";
-            this.stockDateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.stockDateDataGridViewTextBoxColumn.Name = "stockDateDataGridViewTextBoxColumn";
-            this.stockDateDataGridViewTextBoxColumn.Width = 54;
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataMember = "amblestock";
-            this.bindingSource1.DataSource = this.stockDataSet1;
+            this.bindingSource1.DataMember = "matchbom";
+            this.bindingSource1.DataSource = this.matchedBomDataSet;
             // 
-            // stockDataSet1
+            // matchedBomDataSet
             // 
-            this.stockDataSet1.DataSetName = "stockDataSet";
-            this.stockDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.matchedBomDataSet.DataSetName = "matchedBomDataSet";
+            this.matchedBomDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // toolStrip1
             // 
@@ -267,7 +222,8 @@
             // tscbFilterBy
             // 
             this.tscbFilterBy.Items.AddRange(new object[] {
-            "MPN"});
+            "MPN",
+            "Customer"});
             this.tscbFilterBy.Name = "tscbFilterBy";
             this.tscbFilterBy.Size = new System.Drawing.Size(121, 25);
             // 
@@ -302,9 +258,9 @@
             this.tsbClear.Text = "Clear";
             this.tsbClear.Click += new System.EventHandler(this.tsbClear_Click);
             // 
-            // amblestockTableAdapter
+            // matchbomTableAdapter
             // 
-            this.amblestockTableAdapter.ClearBeforeFill = true;
+            this.matchbomTableAdapter.ClearBeforeFill = true;
             // 
             // MatchedBom
             // 
@@ -314,11 +270,11 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "MatchedBom";
-            this.Text = "Stock";
+            this.Text = "Matched BOMs";
             this.Load += new System.EventHandler(this.Stock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchedBomDataSet)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -331,24 +287,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbSave;
-        private System.Windows.Forms.BindingSource bindingSource1;
-        private stockDataSet stockDataSet1;
-        private stockDataSetTableAdapters.amblestockTableAdapter amblestockTableAdapter;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbImport;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mpnDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mfgDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dcDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resaleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn packingDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripComboBox tscbFilterBy;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
@@ -356,5 +297,17 @@
         private System.Windows.Forms.ToolStripButton tsbRestore;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton tsbClear;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private matchedBomDataSet matchedBomDataSet;
+        private matchedBomDataSetTableAdapters.matchbomTableAdapter matchbomTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn machedBomIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mfgDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mpnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cpnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn buyerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
     }
 }

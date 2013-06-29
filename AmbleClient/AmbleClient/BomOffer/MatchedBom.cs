@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace AmbleClient.AmbleStock
+namespace AmbleClient.BomOffer
 {
     public partial class MatchedBom : Form
     {
@@ -17,7 +17,7 @@ namespace AmbleClient.AmbleStock
         public MatchedBom()
         {
             InitializeComponent();
-            if (!UserCombine.GetuserCanBeLogistics().Contains((int)UserInfo.Job))
+            if (UserInfo.Job!=JobDescription.Admin&&UserInfo.Job!=JobDescription.Boss)
             {
                 tsbSave.Enabled = false;
                 tsbRestore.Enabled = false;
@@ -30,7 +30,9 @@ namespace AmbleClient.AmbleStock
 
         private void Stock_Load(object sender, EventArgs e)
         {
-            this.amblestockTableAdapter.Fill(this.stockDataSet1.amblestock);
+            // TODO: 这行代码将数据加载到表“matchedBomDataSet.matchbom”中。您可以根据需要移动或删除它。
+            this.matchbomTableAdapter.Fill(this.matchedBomDataSet.matchbom);
+
         }
 
         private void tsbSave_Click(object sender, EventArgs e)
@@ -38,14 +40,13 @@ namespace AmbleClient.AmbleStock
             try
             {
                 this.dataGridView1.CurrentCell = null;
-                this.stockDataSet1.AcceptChanges();
-                this.amblestockTableAdapter.Update(this.stockDataSet1);
+                this.matchedBomDataSet.AcceptChanges();
+                this.matchbomTableAdapter.Update(this.matchedBomDataSet);
             }
             catch 
             {
-               
+              
             }
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -68,19 +69,20 @@ namespace AmbleClient.AmbleStock
                 if (dt.Rows.Count == 0)
                     return;
 
-                bool hasDc = false, hasMpn = false, hasMfg = false, hasQty = false, hasCost = false, hasResale = false, hasStatus = false, hasNotes = false, hasStockDate = false, hasPacking = false, hasContact = false;
-                int dcColumn = -1, mpnColumn = -1, mfgColumn = -1, qtyColumn = -1, costColumn = -1, resaleColumn = -1, statusColumn = -1, notesColumn = -1, stockDateColumn = -1, packingColumn = -1, contactColumn = -1;
+                bool hasCustomer=false,hasMpn = false, hasMfg = false, hasQty = false, hasPrice=false,hasCpn=false,hasBuyer = false;
+                int customerColumn = -1, mpnColumn = -1, mfgColumn = -1, qtyColumn = -1, priceColumn = -1,cpnColumn = -1, buyerColumn = -1;
                 foreach (DataColumn dc in dt.Columns)
                 {
+                    if (dc.ColumnName.Trim().ToUpper() == "CUSTOMER")
+                    {
+                        hasCustomer = true;
+                        customerColumn = dt.Columns.IndexOf(dc);
+                    }
+
                     if (dc.ColumnName.Trim().ToUpper() == "MPN")
                     {
                         hasMpn = true;
                         mpnColumn = dt.Columns.IndexOf(dc);
-                    }
-                    if (dc.ColumnName.Trim().ToUpper() == "DC"||dc.ColumnName.Trim().ToUpper()=="D/C")
-                    {
-                        hasDc = true;
-                        dcColumn = dt.Columns.IndexOf(dc);
                     }
                     if (dc.ColumnName.Trim().ToUpper() == "MFG")
                     {
@@ -92,53 +94,33 @@ namespace AmbleClient.AmbleStock
                         hasQty = true;
                         qtyColumn = dt.Columns.IndexOf(dc);
                     }
-                    if (dc.ColumnName.Trim().ToUpper() == "COST")
+                    if (dc.ColumnName.Trim().ToUpper() == "PRICE")
                     {
-                        hasCost = true;
-                        costColumn = dt.Columns.IndexOf(dc);
+                        hasPrice = true;
+                        priceColumn = dt.Columns.IndexOf(dc);
                     }
-
-                    if (dc.ColumnName.Trim().ToUpper() == "RESALE")
+                    if (dc.ColumnName.Trim().ToUpper() == "CPN")
                     {
-                        hasResale = true;
-                        resaleColumn = dt.Columns.IndexOf(dc);
+                        hasCpn = true;
+                        cpnColumn = dt.Columns.IndexOf(dc);
                     }
-                    if (dc.ColumnName.Trim().ToUpper() == "STATUS")
+                    
+                    if (dc.ColumnName.Trim().ToUpper() == "BUYER")
                     {
-                        hasStatus = true;
-                        statusColumn = dt.Columns.IndexOf(dc);
-                    }
-                    if (dc.ColumnName.Trim().ToUpper() == "NOTES")
-                    {
-                        hasNotes = true;
-                        notesColumn = dt.Columns.IndexOf(dc);
-                    }
-                    if (dc.ColumnName.Trim().ToUpper() == "DATE")
-                    {
-                        hasStockDate = true;
-                        stockDateColumn = dt.Columns.IndexOf(dc);
-                    }
-                    if (dc.ColumnName.Trim().ToUpper() == "PACKING")
-                    {
-                        hasPacking = true;
-                        packingColumn = dt.Columns.IndexOf(dc);
-                    }
-                    if (dc.ColumnName.Trim().ToUpper() == "CONTACT")
-                    {
-                        hasContact = true;
-                        contactColumn = dt.Columns.IndexOf(dc);
+                        hasBuyer = true;
+                        buyerColumn = dt.Columns.IndexOf(dc);
                     }
                 }
-                if (false == (hasCost && hasMpn && hasDc && hasMfg && hasQty && hasCost && hasResale && hasStatus && hasNotes && hasStockDate && hasPacking && hasContact))
+                if (false == (hasCustomer && hasMpn && hasMfg && hasQty && hasPrice && hasCpn && hasBuyer))
                 {
-                    MessageBox.Show("Please check the xls File Column.(DC,MPN,MFG,QTY,COST,RESALE,STATUS,NOTES,DATE,PACKING,CONTACT)");
+                    MessageBox.Show("Please check the xls File Column.(CUSTOMER,MFG,MPN,QTY,PRICE,CPN,BUYER)");
                     return;
                 }
 
                 int i = 1;
 
                 StringBuilder sb = new StringBuilder();
-                sb.Append("insert into ambleStock(mpn,mfg,dc,qty,resale,cost,packing,contact,statu,notes,stockDate) values ");
+                sb.Append("insert into matchBom(customer,mfg,mpn,qty,price,cpn,buyer,date) values ");
 
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -153,24 +135,14 @@ namespace AmbleClient.AmbleStock
                         MessageBox.Show("The Qty value is not correct in row " + i.ToString());
                         return;
                     }
-                    if (!string.IsNullOrWhiteSpace(dr[resaleColumn].ToString()) && (!ItemsCheck.CheckFloatNumber(dr[resaleColumn])))
+                    if (!string.IsNullOrWhiteSpace(dr[priceColumn].ToString()) && (!ItemsCheck.CheckFloatNumber(dr[priceColumn])))
                     {
-
-
-                        MessageBox.Show("The Resale value is not correct in row " + i.ToString());
+                        MessageBox.Show("The Price value is not correct in row " + i.ToString());
                         return;
                     }
-                    if (!string.IsNullOrWhiteSpace(dr[costColumn].ToString()) && (!ItemsCheck.CheckFloatNumber(dr[costColumn])))
-                    {
-
-
-                        MessageBox.Show("The Cost value is not correct in row " + i.ToString());
-                        return;
-                    }
-
                     
                     int? qtyLocal;
-                    float? resaleLocal,costLocal;
+                    float? priceLocal;
 
                     if (string.IsNullOrWhiteSpace(qtyString))
                     {
@@ -181,27 +153,17 @@ namespace AmbleClient.AmbleStock
                         qtyLocal = Convert.ToInt32(qtyString);
                     }
 
-                    if (string.IsNullOrWhiteSpace(dr[resaleColumn].ToString()))
+                    if (string.IsNullOrWhiteSpace(dr[priceColumn].ToString()))
                     {
-                        resaleLocal = null;
+                        priceLocal = null;
                     }
                     else
                     {
-                        resaleLocal = Convert.ToSingle(dr[resaleColumn]);
-                    }
-                    
-                    if (string.IsNullOrWhiteSpace(dr[costColumn].ToString()))
-                    {
-                        costLocal = null;
-                    }
-                    else
-                    {
-                        costLocal = Convert.ToSingle(dr[costColumn]);
+                        priceLocal = Convert.ToSingle(dr[priceColumn]);
                     }
 
-
-                    sb.AppendFormat("('{0}','{1}','{2}',{3},{4},{5},'{6}','{7}','{8}','{9}','{10}'),", dr[mpnColumn].ToString(), dr[mfgColumn].ToString(), dr[dcColumn].ToString(),
-                        qtyLocal.HasValue? qtyLocal.Value.ToString():"null", resaleLocal.HasValue? resaleLocal.Value.ToString():"null", costLocal.HasValue? costLocal.Value.ToString():"null", dr[packingColumn].ToString(),dr[contactColumn].ToString(),dr[statusColumn].ToString(),dr[notesColumn].ToString(), dr[stockDateColumn].ToString());
+                    sb.AppendFormat("('{0}','{1}','{2}',{3},{4},'{5}','{6}','{7}'),", dr[customerColumn].ToString(), dr[mfgColumn].ToString(), dr[mpnColumn].ToString(),
+                        qtyLocal.HasValue? qtyLocal.Value.ToString():"null", priceLocal.HasValue? priceLocal.Value.ToString():"null",dr[cpnColumn].ToString(),dr[buyerColumn].ToString(),DateTime.Now.ToString());
 
                 }
                 string sql=sb.ToString();
@@ -216,7 +178,7 @@ namespace AmbleClient.AmbleStock
 
         private void tsbRestore_Click(object sender, EventArgs e)
         {
-            this.stockDataSet1.RejectChanges();
+            this.matchedBomDataSet.RejectChanges();
             Stock_Load(this, null);
 
 
@@ -229,7 +191,11 @@ namespace AmbleClient.AmbleStock
              bindingSource1.Filter=string.Format("mpn like '%{0}%'",tstbFilterString.Text.Trim());
                        
             }
+            if (tscbFilterBy.Text.Trim() == "Customer" && !(string.IsNullOrWhiteSpace(tstbFilterString.Text.Trim())))
+            {
+                bindingSource1.Filter = string.Format("customer like '%{0}%'", tstbFilterString.Text.Trim());
 
+            }
 
 
         }
@@ -246,7 +212,6 @@ namespace AmbleClient.AmbleStock
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             MessageBox.Show("Please check the input values");
-
         }
     }
 }

@@ -55,15 +55,18 @@ namespace AmbleClient
                     pOListViewToolStripMenuItem1.Enabled = false;
                     salesToolStripMenuItem.Enabled = false;
                     buyersToolStripMenuItem.Enabled = false;
-                    warehousesToolStripMenuItem.Enabled = false;
-                    adminToolStripMenuItem.Enabled = false;
+                  //  warehousesToolStripMenuItem.Enabled = false;
+                    sOListViewToolStripMenuItem1.Enabled = false;
+                    pOListViewToolStripMenuItem2.Enabled = false;
+                  adminToolStripMenuItem.Enabled = false;
                     settingToolStripMenuItem.Enabled = false;
                    
                     break;
                 case JobDescription.FinancialManager:
                     salesToolStripMenuItem.Enabled = false;
                     buyersToolStripMenuItem.Enabled = false;
-                    warehousesToolStripMenuItem.Enabled = false;
+                                        sOListViewToolStripMenuItem1.Enabled = false;
+                    pOListViewToolStripMenuItem2.Enabled = false;
                     adminToolStripMenuItem.Enabled = false;
                     settingToolStripMenuItem.Enabled = false;
                     break;
@@ -86,7 +89,8 @@ namespace AmbleClient
                 case JobDescription.PurchasersManager:
                     salesToolStripMenuItem.Enabled = false;
                     financesToolStripMenuItem.Enabled = false;
-                    warehousesToolStripMenuItem.Enabled = false;
+                                        sOListViewToolStripMenuItem1.Enabled = false;
+                    pOListViewToolStripMenuItem2.Enabled = false;
                     adminToolStripMenuItem.Enabled = false;
                     settingToolStripMenuItem.Enabled = false;
                     break;
@@ -94,7 +98,8 @@ namespace AmbleClient
                 case JobDescription.SalesManager:
                     buyersToolStripMenuItem.Enabled = false;
                     financesToolStripMenuItem.Enabled = false;
-                    warehousesToolStripMenuItem.Enabled = false;
+                                        sOListViewToolStripMenuItem1.Enabled = false;
+                    pOListViewToolStripMenuItem2.Enabled = false;
                     adminToolStripMenuItem.Enabled = false;
                     settingToolStripMenuItem.Enabled = false;
                     break;
@@ -426,9 +431,16 @@ namespace AmbleClient
 
         private void ambleStockToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AmbleStock.Stock stock = new AmbleStock.Stock();
+            AmbleStock.MatchedBom stock = new AmbleStock.MatchedBom();
             stock.MdiParent = this;
             stock.Show();
+        }
+
+        private void matchedBOMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BomOffer.MatchedBom mactchBom = new BomOffer.MatchedBom();
+            mactchBom.MdiParent = this;
+            mactchBom.Show();
         }
 
 
