@@ -17,14 +17,12 @@ namespace AmbleClient.BomOffer
         public MatchedBom()
         {
             InitializeComponent();
+
             if (UserInfo.Job!=JobDescription.Admin&&UserInfo.Job!=JobDescription.Boss)
             {
-                tsbSave.Enabled = false;
-                tsbRestore.Enabled = false;
+                tsbAdd.Enabled = false;
+                tsbDelete.Enabled = false;
                 tsbImport.Enabled = false;
-
-                this.dataGridView1.ReadOnly = true;
-                this.dataGridView1.AllowUserToDeleteRows = false;
             }
         }
 
@@ -35,19 +33,6 @@ namespace AmbleClient.BomOffer
 
         }
 
-        private void tsbSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.dataGridView1.CurrentCell = null;
-                this.matchedBomDataSet.AcceptChanges();
-                this.matchbomTableAdapter.Update(this.matchedBomDataSet);
-            }
-            catch 
-            {
-              
-            }
-        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -209,9 +194,40 @@ namespace AmbleClient.BomOffer
             bindingSource1.Filter = string.Empty;
         }
 
-        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+
+        private void tsbDelete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Please check the input values");
+ if (dataGridView1.SelectedRows.Count == 0) return;
+            if (MessageBox.Show("Delete the selected items?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                return;
+            }
+
+            DataGridViewSelectedRowCollection dgvrrc = dataGridView1.SelectedRows;
+               List<int> deletedIds=new List<int>();
+
+               foreach (DataGridViewRow dgvr in dgvrrc)
+               {
+                   deletedIds.Add(Convert.ToInt32(dgvr.Cells["machedBomIdDataGridViewTextBoxColumn"].Value));
+               }
+               List<string> strSqls = new List<string>();
+
+               foreach (int id in deletedIds)
+               { 
+                strSqls.Add("delete from matchbom where machedBomId="+id);
+               }
+               db.ExecDataBySqls(strSqls);
+               Stock_Load(this, null);
+        }
+
+        private void tsbAdd_Click(object sender, EventArgs e)
+        {
+           MatchedBomNew matchedBomNew=new MatchedBomNew();
+           if (DialogResult.OK == matchedBomNew.ShowDialog())
+           {
+               Stock_Load(this, null);
+           }
+        
         }
     }
 }

@@ -43,8 +43,8 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.matchedBomDataSet = new AmbleClient.BomOffer.matchedBomDataSet();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbSave = new System.Windows.Forms.ToolStripButton();
-            this.tsbRestore = new System.Windows.Forms.ToolStripButton();
+            this.tsbAdd = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbImport = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -63,6 +63,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -81,17 +83,18 @@
             this.dataGridView1.DataSource = this.bindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(976, 457);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
             // machedBomIdDataGridViewTextBoxColumn
             // 
             this.machedBomIdDataGridViewTextBoxColumn.DataPropertyName = "machedBomId";
             this.machedBomIdDataGridViewTextBoxColumn.HeaderText = "machedBomId";
             this.machedBomIdDataGridViewTextBoxColumn.Name = "machedBomIdDataGridViewTextBoxColumn";
+            this.machedBomIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.machedBomIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // customerDataGridViewTextBoxColumn
@@ -99,42 +102,49 @@
             this.customerDataGridViewTextBoxColumn.DataPropertyName = "customer";
             this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
             this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // mfgDataGridViewTextBoxColumn
             // 
             this.mfgDataGridViewTextBoxColumn.DataPropertyName = "mfg";
             this.mfgDataGridViewTextBoxColumn.HeaderText = "MFG";
             this.mfgDataGridViewTextBoxColumn.Name = "mfgDataGridViewTextBoxColumn";
+            this.mfgDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // mpnDataGridViewTextBoxColumn
             // 
             this.mpnDataGridViewTextBoxColumn.DataPropertyName = "mpn";
             this.mpnDataGridViewTextBoxColumn.HeaderText = "MPN";
             this.mpnDataGridViewTextBoxColumn.Name = "mpnDataGridViewTextBoxColumn";
+            this.mpnDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // qtyDataGridViewTextBoxColumn
             // 
             this.qtyDataGridViewTextBoxColumn.DataPropertyName = "qty";
             this.qtyDataGridViewTextBoxColumn.HeaderText = "QTY";
             this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
+            this.qtyDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // priceDataGridViewTextBoxColumn
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
             this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cpnDataGridViewTextBoxColumn
             // 
             this.cpnDataGridViewTextBoxColumn.DataPropertyName = "cpn";
             this.cpnDataGridViewTextBoxColumn.HeaderText = "CPN";
             this.cpnDataGridViewTextBoxColumn.Name = "cpnDataGridViewTextBoxColumn";
+            this.cpnDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // buyerDataGridViewTextBoxColumn
             // 
             this.buyerDataGridViewTextBoxColumn.DataPropertyName = "buyer";
             this.buyerDataGridViewTextBoxColumn.HeaderText = "Buyer";
             this.buyerDataGridViewTextBoxColumn.Name = "buyerDataGridViewTextBoxColumn";
+            this.buyerDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dateDataGridViewTextBoxColumn
             // 
@@ -147,6 +157,7 @@
             // 
             this.bindingSource1.DataMember = "matchbom";
             this.bindingSource1.DataSource = this.matchedBomDataSet;
+            this.bindingSource1.Sort = "machedBomId DESC";
             // 
             // matchedBomDataSet
             // 
@@ -156,8 +167,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbSave,
-            this.tsbRestore,
+            this.tsbAdd,
+            this.tsbDelete,
             this.toolStripSeparator1,
             this.tsbImport,
             this.toolStripSeparator2,
@@ -173,25 +184,25 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tsbSave
+            // tsbAdd
             // 
-            this.tsbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
-            this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(38, 22);
-            this.tsbSave.Text = "Save";
-            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
+            this.tsbAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsbAdd.Image")));
+            this.tsbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAdd.Name = "tsbAdd";
+            this.tsbAdd.Size = new System.Drawing.Size(35, 22);
+            this.tsbAdd.Text = "Add";
+            this.tsbAdd.Click += new System.EventHandler(this.tsbAdd_Click);
             // 
-            // tsbRestore
+            // tsbDelete
             // 
-            this.tsbRestore.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbRestore.Image = ((System.Drawing.Image)(resources.GetObject("tsbRestore.Image")));
-            this.tsbRestore.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRestore.Name = "tsbRestore";
-            this.tsbRestore.Size = new System.Drawing.Size(56, 22);
-            this.tsbRestore.Text = "Restore";
-            this.tsbRestore.Click += new System.EventHandler(this.tsbRestore_Click);
+            this.tsbDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(48, 22);
+            this.tsbDelete.Text = "Delete";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // toolStripSeparator1
             // 
@@ -286,7 +297,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsbSave;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbImport;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -294,7 +304,6 @@
         private System.Windows.Forms.ToolStripComboBox tscbFilterBy;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripTextBox tstbFilterString;
-        private System.Windows.Forms.ToolStripButton tsbRestore;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton tsbClear;
         private System.Windows.Forms.BindingSource bindingSource1;
@@ -309,5 +318,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cpnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn buyerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton tsbAdd;
+        private System.Windows.Forms.ToolStripButton tsbDelete;
     }
 }

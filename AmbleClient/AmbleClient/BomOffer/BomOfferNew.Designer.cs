@@ -52,6 +52,7 @@
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "MFG*:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tbMfg
             // 
@@ -60,6 +61,7 @@
             this.tbMfg.Name = "tbMfg";
             this.tbMfg.Size = new System.Drawing.Size(171, 23);
             this.tbMfg.TabIndex = 1;
+            this.tbMfg.TextChanged += new System.EventHandler(this.tbMfg_TextChanged);
             // 
             // label2
             // 
@@ -70,6 +72,7 @@
             this.label2.Size = new System.Drawing.Size(47, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "MPN*:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbMpn
             // 
@@ -78,6 +81,7 @@
             this.tbMpn.Name = "tbMpn";
             this.tbMpn.Size = new System.Drawing.Size(158, 23);
             this.tbMpn.TabIndex = 3;
+            this.tbMpn.TextChanged += new System.EventHandler(this.tbMpn_TextChanged);
             // 
             // label3
             // 
@@ -88,6 +92,7 @@
             this.label3.Size = new System.Drawing.Size(41, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "QTY:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // tbQty
             // 
@@ -96,6 +101,7 @@
             this.tbQty.Name = "tbQty";
             this.tbQty.Size = new System.Drawing.Size(171, 23);
             this.tbQty.TabIndex = 5;
+            this.tbQty.TextChanged += new System.EventHandler(this.tbQty_TextChanged);
             // 
             // label4
             // 
@@ -106,6 +112,7 @@
             this.label4.Size = new System.Drawing.Size(49, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Price*:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // tbPrice
             // 
@@ -114,6 +121,7 @@
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(158, 23);
             this.tbPrice.TabIndex = 7;
+            this.tbPrice.TextChanged += new System.EventHandler(this.tbPrice_TextChanged);
             // 
             // label5
             // 
@@ -124,6 +132,7 @@
             this.label5.Size = new System.Drawing.Size(40, 17);
             this.label5.TabIndex = 8;
             this.label5.Text = "CPN:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // tbCpn
             // 
@@ -132,6 +141,7 @@
             this.tbCpn.Name = "tbCpn";
             this.tbCpn.Size = new System.Drawing.Size(171, 23);
             this.tbCpn.TabIndex = 9;
+            this.tbCpn.TextChanged += new System.EventHandler(this.tbCpn_TextChanged);
             // 
             // button1
             // 

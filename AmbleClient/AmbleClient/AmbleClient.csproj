@@ -92,6 +92,12 @@
     <Compile Include="AmbleStock\Stock.Designer.cs">
       <DependentUpon>Stock.cs</DependentUpon>
     </Compile>
+    <Compile Include="AmbleStock\StockOp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AmbleStock\StockOp.Designer.cs">
+      <DependentUpon>StockOp.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicGui\TimePicker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>matchedBomDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\MatchedBomNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BomOffer\MatchedBomNew.Designer.cs">
+      <DependentUpon>MatchedBomNew.cs</DependentUpon>
     </Compile>
     <Compile Include="ComClass\OperatorFile.cs" />
     <Compile Include="custVendor\CustVenderListView.cs">
@@ -469,6 +481,9 @@
     <EmbeddedResource Include="AmbleStock\Stock.resx">
       <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AmbleStock\StockOp.resx">
+      <DependentUpon>StockOp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BasicGui\TimePicker.resx">
       <DependentUpon>TimePicker.cs</DependentUpon>
     </EmbeddedResource>
@@ -486,6 +501,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BomOffer\MatchedBom.resx">
       <DependentUpon>MatchedBom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BomOffer\MatchedBomNew.resx">
+      <DependentUpon>MatchedBomNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="custVendor\CustVenderListView.resx">
       <DependentUpon>CustVenderListView.cs</DependentUpon>
@@ -642,6 +660,7 @@
     </None>
     <None Include="Properties\DataSources\AmbleAppServer.SoMgr.So.datasource" />
     <None Include="Properties\DataSources\AmbleClient.BomOffer.BomOfferEntities.datasource" />
+    <None Include="Properties\DataSources\AmbleClient.custVendor.CustVendorManager.CustVenInfoEntities1.datasource" />
     <None Include="Properties\DataSources\AmbleClient.Order.PoMgr.PoEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

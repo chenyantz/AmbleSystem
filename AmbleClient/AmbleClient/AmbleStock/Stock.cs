@@ -19,12 +19,10 @@ namespace AmbleClient.AmbleStock
             InitializeComponent();
             if (!UserCombine.GetuserCanBeLogistics().Contains((int)UserInfo.Job))
             {
-                tsbSave.Enabled = false;
-                tsbRestore.Enabled = false;
                 tsbImport.Enabled = false;
+                tsbAdd.Enabled = false;
+                tsbDelete.Enabled = false;
 
-                this.dataGridView1.ReadOnly = true;
-                this.dataGridView1.AllowUserToDeleteRows = false;
             }
         }
 
@@ -33,31 +31,10 @@ namespace AmbleClient.AmbleStock
             this.amblestockTableAdapter.Fill(this.stockDataSet1.amblestock);
         }
 
-        private void tsbSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.dataGridView1.CurrentCell = null;
-                this.stockDataSet1.AcceptChanges();
-                this.amblestockTableAdapter.Update(this.stockDataSet1);
-            }
-            catch 
-            {
-               
-            }
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-        }
-
         private void tsbImport_Click(object sender, EventArgs e)
         {
 
-             OpenFileDialog ofd = new OpenFileDialog();
+            OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Excel文件(*.xls)|*.xls";
             ofd.RestoreDirectory = true;
             ofd.Multiselect = false;
@@ -77,7 +54,7 @@ namespace AmbleClient.AmbleStock
                         hasMpn = true;
                         mpnColumn = dt.Columns.IndexOf(dc);
                     }
-                    if (dc.ColumnName.Trim().ToUpper() == "DC"||dc.ColumnName.Trim().ToUpper()=="D/C")
+                    if (dc.ColumnName.Trim().ToUpper() == "DC" || dc.ColumnName.Trim().ToUpper() == "D/C")
                     {
                         hasDc = true;
                         dcColumn = dt.Columns.IndexOf(dc);
@@ -168,9 +145,9 @@ namespace AmbleClient.AmbleStock
                         return;
                     }
 
-                    
+
                     int? qtyLocal;
-                    float? resaleLocal,costLocal;
+                    float? resaleLocal, costLocal;
 
                     if (string.IsNullOrWhiteSpace(qtyString))
                     {
@@ -189,7 +166,7 @@ namespace AmbleClient.AmbleStock
                     {
                         resaleLocal = Convert.ToSingle(dr[resaleColumn]);
                     }
-                    
+
                     if (string.IsNullOrWhiteSpace(dr[costColumn].ToString()))
                     {
                         costLocal = null;
@@ -201,11 +178,11 @@ namespace AmbleClient.AmbleStock
 
 
                     sb.AppendFormat("('{0}','{1}','{2}',{3},{4},{5},'{6}','{7}','{8}','{9}','{10}'),", dr[mpnColumn].ToString(), dr[mfgColumn].ToString(), dr[dcColumn].ToString(),
-                        qtyLocal.HasValue? qtyLocal.Value.ToString():"null", resaleLocal.HasValue? resaleLocal.Value.ToString():"null", costLocal.HasValue? costLocal.Value.ToString():"null", dr[packingColumn].ToString(),dr[contactColumn].ToString(),dr[statusColumn].ToString(),dr[notesColumn].ToString(), dr[stockDateColumn].ToString());
+                        qtyLocal.HasValue ? qtyLocal.Value.ToString() : "null", resaleLocal.HasValue ? resaleLocal.Value.ToString() : "null", costLocal.HasValue ? costLocal.Value.ToString() : "null", dr[packingColumn].ToString(), dr[contactColumn].ToString(), dr[statusColumn].ToString(), dr[notesColumn].ToString(), dr[stockDateColumn].ToString());
 
                 }
-                string sql=sb.ToString();
-                sql=sql.Substring(0,sql.Length-1);
+                string sql = sb.ToString();
+                sql = sql.Substring(0, sql.Length - 1);
                 db.ExecDataBySql(sql);
 
 
@@ -214,31 +191,21 @@ namespace AmbleClient.AmbleStock
             Stock_Load(this, null);
         }
 
-        private void tsbRestore_Click(object sender, EventArgs e)
-        {
-            this.stockDataSet1.RejectChanges();
-            Stock_Load(this, null);
-
-
-        }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            if(tscbFilterBy.Text.Trim()=="MPN" &&!(string.IsNullOrWhiteSpace(tstbFilterString.Text.Trim())))
+            if (tscbFilterBy.Text.Trim() == "MPN" && !(string.IsNullOrWhiteSpace(tstbFilterString.Text.Trim())))
             {
-             bindingSource1.Filter=string.Format("mpn like '%{0}%'",tstbFilterString.Text.Trim());
-                       
+                bindingSource1.Filter = string.Format("mpn like '%{0}%'", tstbFilterString.Text.Trim());
+
             }
-
-
-
         }
 
         private void tsbClear_Click(object sender, EventArgs e)
         {
             this.tscbFilterBy.SelectedIndex = -1;
             this.tstbFilterString.Text = "";
-            
+
             this.dataGridView1.CurrentCell = null;
             bindingSource1.Filter = string.Empty;
         }
@@ -248,5 +215,77 @@ namespace AmbleClient.AmbleStock
             MessageBox.Show("Please check the input values");
 
         }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0) return;
+            if (MessageBox.Show("Delete the selected items?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                return;
+            }
+
+            DataGridViewSelectedRowCollection dgvrrc = dataGridView1.SelectedRows;
+            List<int> deletedIds = new List<int>();
+
+            foreach (DataGridViewRow dgvr in dgvrrc)
+            {
+                deletedIds.Add(Convert.ToInt32(dgvr.Cells["stockIdDataGridViewTextBoxColumn"].Value));
+            }
+            List<string> strSqls = new List<string>();
+
+            foreach (int id in deletedIds)
+            {
+                strSqls.Add("delete from ambleStock where stockId=" + id);
+            }
+            db.ExecDataBySqls(strSqls);
+            Stock_Load(this, null);
+        }
+
+        private void tsbAdd_Click(object sender, EventArgs e)
+        {
+            StockOp op = new StockOp(true);
+            if (DialogResult.OK == op.ShowDialog())
+            {
+                Stock_Load(this, null);
+            }
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                if (e.RowIndex > dataGridView1.RowCount - 1)
+                    return;
+
+                //get the real index.
+                int stockId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                AmbleStock.stockDataSet.amblestockRow selectedRow = null;
+
+                foreach (AmbleStock.stockDataSet.amblestockRow row in this.stockDataSet1.amblestock.Rows)
+                {
+                    if (row.stockId == stockId)
+                    {
+                        selectedRow = row;
+                        break;
+                    }
+
+                }
+                if (selectedRow != null)
+                {
+                    StockOp op = new StockOp(false);
+                    op.FillTheTable(selectedRow);
+                    if (DialogResult.OK == op.ShowDialog())
+                    {
+                        Stock_Load(this, null);
+
+                    }
+                }
+
+
+
+            }
+        }
+
     }
 }
