@@ -29,7 +29,7 @@ namespace AmbleClient.BomOffer
         private void Stock_Load(object sender, EventArgs e)
         {
             // TODO: 这行代码将数据加载到表“matchedBomDataSet.matchbom”中。您可以根据需要移动或删除它。
-            this.matchbomTableAdapter.Fill(this.matchedBomDataSet.matchbom);
+            this.matchbomTableAdapter.Fill(this.matchedBomDataSet1.matchbom);
 
         }
 
@@ -105,7 +105,7 @@ namespace AmbleClient.BomOffer
                 int i = 1;
 
                 StringBuilder sb = new StringBuilder();
-                sb.Append("insert into matchBom(customer,mfg,mpn,qty,price,cpn,buyer,date) values ");
+                sb.Append("insert into matchBom(customer,mfg,mpn,qty,price,cpn,buyer,bomOwner,bomdate) values ");
 
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -147,8 +147,9 @@ namespace AmbleClient.BomOffer
                         priceLocal = Convert.ToSingle(dr[priceColumn]);
                     }
 
-                    sb.AppendFormat("('{0}','{1}','{2}',{3},{4},'{5}','{6}','{7}'),", dr[customerColumn].ToString(), dr[mfgColumn].ToString(), dr[mpnColumn].ToString(),
-                        qtyLocal.HasValue? qtyLocal.Value.ToString():"null", priceLocal.HasValue? priceLocal.Value.ToString():"null",dr[cpnColumn].ToString(),dr[buyerColumn].ToString(),DateTime.Now.ToString());
+                    sb.AppendFormat("('{0}','{1}','{2}',{3},{4},'{5}','{6}',{7},'{8}'),", dr[customerColumn].ToString(), dr[mfgColumn].ToString(), dr[mpnColumn].ToString(),
+                        qtyLocal.HasValue? qtyLocal.Value.ToString():"null", priceLocal.HasValue? priceLocal.Value.ToString():"null",dr[cpnColumn].ToString(),dr[buyerColumn].ToString(),
+                        UserInfo.UserId,DateTime.Now.ToString());
 
                 }
                 string sql=sb.ToString();
@@ -163,7 +164,7 @@ namespace AmbleClient.BomOffer
 
         private void tsbRestore_Click(object sender, EventArgs e)
         {
-            this.matchedBomDataSet.RejectChanges();
+            this.matchedBomDataSet1.RejectChanges();
             Stock_Load(this, null);
 
 
@@ -228,6 +229,15 @@ namespace AmbleClient.BomOffer
                Stock_Load(this, null);
            }
         
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if(e.ColumnIndex==dataGridView1.Columns.IndexOf(bomOwnerDataGridViewTextBoxColumn))
+            {
+              e.Value=AllAccountInfo.GetNameAccordingToId(Convert.ToInt32(e.Value));
+
+            }
         }
     }
 }

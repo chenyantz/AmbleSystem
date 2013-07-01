@@ -10,11 +10,11 @@ using MySql.Data.MySqlClient;
 
 namespace AmbleClient.AmbleStock
 {
-    public partial class MatchedBom : Form
+    public partial class AmbleStock : Form
     {
         DataClass.DataBase db = new DataClass.DataBase();
-
-        public MatchedBom()
+        int selectedRow=0;
+        public AmbleStock()
         {
             InitializeComponent();
             if (!UserCombine.GetuserCanBeLogistics().Contains((int)UserInfo.Job))
@@ -253,6 +253,11 @@ namespace AmbleClient.AmbleStock
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (!UserCombine.GetuserCanBeLogistics().Contains((int)UserInfo.Job))
+            {
+                return;
+            }
+
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 if (e.RowIndex > dataGridView1.RowCount - 1)
@@ -260,9 +265,10 @@ namespace AmbleClient.AmbleStock
 
                 //get the real index.
                 int stockId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                AmbleStock.stockDataSet.amblestockRow selectedRow = null;
+                
+                AmbleClient.AmbleStock.stockDataSet.amblestockRow selectedRow = null;
 
-                foreach (AmbleStock.stockDataSet.amblestockRow row in this.stockDataSet1.amblestock.Rows)
+                foreach (AmbleClient.AmbleStock.stockDataSet.amblestockRow row in this.stockDataSet1.amblestock.Rows)
                 {
                     if (row.stockId == stockId)
                     {
@@ -281,11 +287,34 @@ namespace AmbleClient.AmbleStock
 
                     }
                 }
-
-
-
             }
+            RestoreSelectedRow();
         }
+
+        private void RestoreSelectedRow()
+        {
+            if (dataGridView1.Rows.Count == 0)
+                return;
+            dataGridView1.Rows[0].Selected = false;
+            if (selectedRow > dataGridView1.Rows.Count - 1)
+            {
+                selectedRow = dataGridView1.Rows.Count - 1;
+            }
+            else if (selectedRow < 0)
+            {
+                selectedRow = 0;
+            }
+            dataGridView1.Rows[selectedRow].Selected = true;
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.selectedRow = e.RowIndex;
+        }
+
+
+
 
     }
 }

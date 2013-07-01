@@ -431,7 +431,7 @@ namespace AmbleClient
 
         private void ambleStockToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AmbleStock.MatchedBom stock = new AmbleStock.MatchedBom();
+            AmbleStock.AmbleStock stock = new AmbleStock.AmbleStock();
             stock.MdiParent = this;
             stock.Show();
         }

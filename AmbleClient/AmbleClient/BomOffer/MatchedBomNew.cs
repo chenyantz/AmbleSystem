@@ -66,8 +66,8 @@ namespace AmbleClient.BomOffer
                 }
             }
 
-            string sql = string.Format("insert into matchBom(customer,mfg,mpn,qty,price,cpn,buyer,date) values('{0}','{1}','{2}',{3},{4},'{5}','{6}','{7}')", tbCustomer.Text.Trim(),
-                tbMfg.Text.Trim(), tbMpn.Text.Trim(), tbQty.Text.Trim(), tbPrice.Text.Trim(), tbCpn.Text.Trim(), tbBuyer.Text.Trim(), DateTime.Now.ToString());
+            string sql = string.Format("insert into matchBom(customer,mfg,mpn,qty,price,cpn,buyer,bomOwner,bomdate) values('{0}','{1}','{2}',{3},{4},'{5}','{6}',{7},'{8}')", tbCustomer.Text.Trim(),
+                tbMfg.Text.Trim(), tbMpn.Text.Trim(), tbQty.Text.Trim(), tbPrice.Text.Trim(), tbCpn.Text.Trim(), tbBuyer.Text.Trim(), UserInfo.UserId,DateTime.Now.ToString());
             db.ExecDataBySql(sql);
             
             this.DialogResult = DialogResult.OK;

@@ -140,11 +140,6 @@
     <Compile Include="BomOffer\MatchedBom.Designer.cs">
       <DependentUpon>MatchedBom.cs</DependentUpon>
     </Compile>
-    <Compile Include="BomOffer\matchedBomDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>matchedBomDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="BomOffer\MatchedBomNew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +213,11 @@
     </Compile>
     <Compile Include="MainFrame.Designer.cs">
       <DependentUpon>MainFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\matchedBomDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>matchedBomDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="OfferGui\BuyerOfferItems.cs">
       <SubType>UserControl</SubType>
@@ -651,9 +651,9 @@
       <DependentUpon>matchedBomDataSet.xsd</DependentUpon>
     </None>
     <None Include="BomOffer\matchedBomDataSet.xsd">
-      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>matchedBomDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="BomOffer\matchedBomDataSet.xss">
       <DependentUpon>matchedBomDataSet.xsd</DependentUpon>

@@ -35,7 +35,7 @@ namespace AmbleClient.AmbleStock
 
         }
 
-        public void FillTheTable(AmbleStock.stockDataSet.amblestockRow row)
+        public void FillTheTable(AmbleClient.AmbleStock.stockDataSet.amblestockRow row)
         {
             this.stockId=row.stockId;
             tbMpn.Text = row.mpn;

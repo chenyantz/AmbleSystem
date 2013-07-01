@@ -1,6 +1,6 @@
 ﻿namespace AmbleClient.AmbleStock
 {
-    partial class MatchedBom
+    partial class AmbleStock
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatchedBom));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AmbleStock));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.stockIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mpnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,6 +94,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(976, 457);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
@@ -102,6 +103,7 @@
             this.stockIdDataGridViewTextBoxColumn.DataPropertyName = "stockId";
             this.stockIdDataGridViewTextBoxColumn.HeaderText = "stockId";
             this.stockIdDataGridViewTextBoxColumn.Name = "stockIdDataGridViewTextBoxColumn";
+            this.stockIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.stockIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // mpnDataGridViewTextBoxColumn
@@ -110,6 +112,7 @@
             this.mpnDataGridViewTextBoxColumn.DataPropertyName = "mpn";
             this.mpnDataGridViewTextBoxColumn.HeaderText = "MPN";
             this.mpnDataGridViewTextBoxColumn.Name = "mpnDataGridViewTextBoxColumn";
+            this.mpnDataGridViewTextBoxColumn.ReadOnly = true;
             this.mpnDataGridViewTextBoxColumn.Width = 48;
             // 
             // mfgDataGridViewTextBoxColumn
@@ -118,6 +121,7 @@
             this.mfgDataGridViewTextBoxColumn.DataPropertyName = "mfg";
             this.mfgDataGridViewTextBoxColumn.HeaderText = "MFG";
             this.mfgDataGridViewTextBoxColumn.Name = "mfgDataGridViewTextBoxColumn";
+            this.mfgDataGridViewTextBoxColumn.ReadOnly = true;
             this.mfgDataGridViewTextBoxColumn.Width = 48;
             // 
             // dcDataGridViewTextBoxColumn
@@ -126,6 +130,7 @@
             this.dcDataGridViewTextBoxColumn.DataPropertyName = "dc";
             this.dcDataGridViewTextBoxColumn.HeaderText = "DC";
             this.dcDataGridViewTextBoxColumn.Name = "dcDataGridViewTextBoxColumn";
+            this.dcDataGridViewTextBoxColumn.ReadOnly = true;
             this.dcDataGridViewTextBoxColumn.Width = 42;
             // 
             // qtyDataGridViewTextBoxColumn
@@ -134,6 +139,7 @@
             this.qtyDataGridViewTextBoxColumn.DataPropertyName = "qty";
             this.qtyDataGridViewTextBoxColumn.HeaderText = "QTY";
             this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
+            this.qtyDataGridViewTextBoxColumn.ReadOnly = true;
             this.qtyDataGridViewTextBoxColumn.Width = 48;
             // 
             // resaleDataGridViewTextBoxColumn
@@ -142,6 +148,7 @@
             this.resaleDataGridViewTextBoxColumn.DataPropertyName = "resale";
             this.resaleDataGridViewTextBoxColumn.HeaderText = "Resale";
             this.resaleDataGridViewTextBoxColumn.Name = "resaleDataGridViewTextBoxColumn";
+            this.resaleDataGridViewTextBoxColumn.ReadOnly = true;
             this.resaleDataGridViewTextBoxColumn.Width = 66;
             // 
             // costDataGridViewTextBoxColumn
@@ -150,6 +157,7 @@
             this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
             this.costDataGridViewTextBoxColumn.HeaderText = "Cost";
             this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            this.costDataGridViewTextBoxColumn.ReadOnly = true;
             this.costDataGridViewTextBoxColumn.Width = 54;
             // 
             // packingDataGridViewTextBoxColumn
@@ -158,6 +166,7 @@
             this.packingDataGridViewTextBoxColumn.DataPropertyName = "packing";
             this.packingDataGridViewTextBoxColumn.HeaderText = "Packing";
             this.packingDataGridViewTextBoxColumn.Name = "packingDataGridViewTextBoxColumn";
+            this.packingDataGridViewTextBoxColumn.ReadOnly = true;
             this.packingDataGridViewTextBoxColumn.Width = 72;
             // 
             // contactDataGridViewTextBoxColumn
@@ -166,6 +175,7 @@
             this.contactDataGridViewTextBoxColumn.DataPropertyName = "contact";
             this.contactDataGridViewTextBoxColumn.HeaderText = "Contact";
             this.contactDataGridViewTextBoxColumn.Name = "contactDataGridViewTextBoxColumn";
+            this.contactDataGridViewTextBoxColumn.ReadOnly = true;
             this.contactDataGridViewTextBoxColumn.Width = 72;
             // 
             // statuDataGridViewTextBoxColumn
@@ -174,6 +184,7 @@
             this.statuDataGridViewTextBoxColumn.DataPropertyName = "statu";
             this.statuDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statuDataGridViewTextBoxColumn.Name = "statuDataGridViewTextBoxColumn";
+            this.statuDataGridViewTextBoxColumn.ReadOnly = true;
             this.statuDataGridViewTextBoxColumn.Width = 66;
             // 
             // notesDataGridViewTextBoxColumn
@@ -182,6 +193,7 @@
             this.notesDataGridViewTextBoxColumn.DataPropertyName = "notes";
             this.notesDataGridViewTextBoxColumn.HeaderText = "Notes";
             this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
+            this.notesDataGridViewTextBoxColumn.ReadOnly = true;
             this.notesDataGridViewTextBoxColumn.Width = 60;
             // 
             // stockDateDataGridViewTextBoxColumn
@@ -190,6 +202,7 @@
             this.stockDateDataGridViewTextBoxColumn.DataPropertyName = "stockDate";
             this.stockDateDataGridViewTextBoxColumn.HeaderText = "Date";
             this.stockDateDataGridViewTextBoxColumn.Name = "stockDateDataGridViewTextBoxColumn";
+            this.stockDateDataGridViewTextBoxColumn.ReadOnly = true;
             this.stockDateDataGridViewTextBoxColumn.Width = 54;
             // 
             // bindingSource1
@@ -311,14 +324,14 @@
             // 
             this.amblestockTableAdapter.ClearBeforeFill = true;
             // 
-            // MatchedBom
+            // AmbleStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 485);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "MatchedBom";
+            this.Name = "AmbleStock";
             this.Text = "Stock";
             this.Load += new System.EventHandler(this.Stock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

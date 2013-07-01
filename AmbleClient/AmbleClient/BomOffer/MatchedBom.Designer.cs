@@ -31,17 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatchedBom));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.machedBomIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mfgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mpnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.matchedBomDataSet = new AmbleClient.BomOffer.matchedBomDataSet();
+            this.matchedBomDataSet1 = new AmbleClient.BomOffer.matchedBomDataSet();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
@@ -55,9 +46,19 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tsbClear = new System.Windows.Forms.ToolStripButton();
             this.matchbomTableAdapter = new AmbleClient.BomOffer.matchedBomDataSetTableAdapters.matchbomTableAdapter();
+            this.machedBomIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mfgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mpnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buyerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bomOwnerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bomdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.matchedBomDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchedBomDataSet1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +80,8 @@
             this.priceDataGridViewTextBoxColumn,
             this.cpnDataGridViewTextBoxColumn,
             this.buyerDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn});
+            this.bomOwnerDataGridViewTextBoxColumn,
+            this.bomdateDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.Name = "dataGridView1";
@@ -88,81 +90,18 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(976, 457);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // machedBomIdDataGridViewTextBoxColumn
-            // 
-            this.machedBomIdDataGridViewTextBoxColumn.DataPropertyName = "machedBomId";
-            this.machedBomIdDataGridViewTextBoxColumn.HeaderText = "machedBomId";
-            this.machedBomIdDataGridViewTextBoxColumn.Name = "machedBomIdDataGridViewTextBoxColumn";
-            this.machedBomIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.machedBomIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // customerDataGridViewTextBoxColumn
-            // 
-            this.customerDataGridViewTextBoxColumn.DataPropertyName = "customer";
-            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
-            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mfgDataGridViewTextBoxColumn
-            // 
-            this.mfgDataGridViewTextBoxColumn.DataPropertyName = "mfg";
-            this.mfgDataGridViewTextBoxColumn.HeaderText = "MFG";
-            this.mfgDataGridViewTextBoxColumn.Name = "mfgDataGridViewTextBoxColumn";
-            this.mfgDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mpnDataGridViewTextBoxColumn
-            // 
-            this.mpnDataGridViewTextBoxColumn.DataPropertyName = "mpn";
-            this.mpnDataGridViewTextBoxColumn.HeaderText = "MPN";
-            this.mpnDataGridViewTextBoxColumn.Name = "mpnDataGridViewTextBoxColumn";
-            this.mpnDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // qtyDataGridViewTextBoxColumn
-            // 
-            this.qtyDataGridViewTextBoxColumn.DataPropertyName = "qty";
-            this.qtyDataGridViewTextBoxColumn.HeaderText = "QTY";
-            this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
-            this.qtyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cpnDataGridViewTextBoxColumn
-            // 
-            this.cpnDataGridViewTextBoxColumn.DataPropertyName = "cpn";
-            this.cpnDataGridViewTextBoxColumn.HeaderText = "CPN";
-            this.cpnDataGridViewTextBoxColumn.Name = "cpnDataGridViewTextBoxColumn";
-            this.cpnDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // buyerDataGridViewTextBoxColumn
-            // 
-            this.buyerDataGridViewTextBoxColumn.DataPropertyName = "buyer";
-            this.buyerDataGridViewTextBoxColumn.HeaderText = "Buyer";
-            this.buyerDataGridViewTextBoxColumn.Name = "buyerDataGridViewTextBoxColumn";
-            this.buyerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // bindingSource1
             // 
             this.bindingSource1.DataMember = "matchbom";
-            this.bindingSource1.DataSource = this.matchedBomDataSet;
+            this.bindingSource1.DataSource = this.matchedBomDataSet1;
             this.bindingSource1.Sort = "machedBomId DESC";
             // 
-            // matchedBomDataSet
+            // matchedBomDataSet1
             // 
-            this.matchedBomDataSet.DataSetName = "matchedBomDataSet";
-            this.matchedBomDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.matchedBomDataSet1.DataSetName = "matchedBomDataSet";
+            this.matchedBomDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // toolStrip1
             // 
@@ -273,6 +212,95 @@
             // 
             this.matchbomTableAdapter.ClearBeforeFill = true;
             // 
+            // machedBomIdDataGridViewTextBoxColumn
+            // 
+            this.machedBomIdDataGridViewTextBoxColumn.DataPropertyName = "machedBomId";
+            this.machedBomIdDataGridViewTextBoxColumn.HeaderText = "machedBomId";
+            this.machedBomIdDataGridViewTextBoxColumn.Name = "machedBomIdDataGridViewTextBoxColumn";
+            this.machedBomIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.machedBomIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // customerDataGridViewTextBoxColumn
+            // 
+            this.customerDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.customerDataGridViewTextBoxColumn.DataPropertyName = "customer";
+            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // mfgDataGridViewTextBoxColumn
+            // 
+            this.mfgDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.mfgDataGridViewTextBoxColumn.DataPropertyName = "mfg";
+            this.mfgDataGridViewTextBoxColumn.HeaderText = "MFG";
+            this.mfgDataGridViewTextBoxColumn.Name = "mfgDataGridViewTextBoxColumn";
+            this.mfgDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mfgDataGridViewTextBoxColumn.Width = 48;
+            // 
+            // mpnDataGridViewTextBoxColumn
+            // 
+            this.mpnDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.mpnDataGridViewTextBoxColumn.DataPropertyName = "mpn";
+            this.mpnDataGridViewTextBoxColumn.HeaderText = "MPN";
+            this.mpnDataGridViewTextBoxColumn.Name = "mpnDataGridViewTextBoxColumn";
+            this.mpnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mpnDataGridViewTextBoxColumn.Width = 48;
+            // 
+            // qtyDataGridViewTextBoxColumn
+            // 
+            this.qtyDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.qtyDataGridViewTextBoxColumn.DataPropertyName = "qty";
+            this.qtyDataGridViewTextBoxColumn.HeaderText = "QTY";
+            this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
+            this.qtyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.qtyDataGridViewTextBoxColumn.Width = 48;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // cpnDataGridViewTextBoxColumn
+            // 
+            this.cpnDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cpnDataGridViewTextBoxColumn.DataPropertyName = "cpn";
+            this.cpnDataGridViewTextBoxColumn.HeaderText = "CPN";
+            this.cpnDataGridViewTextBoxColumn.Name = "cpnDataGridViewTextBoxColumn";
+            this.cpnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cpnDataGridViewTextBoxColumn.Width = 48;
+            // 
+            // buyerDataGridViewTextBoxColumn
+            // 
+            this.buyerDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.buyerDataGridViewTextBoxColumn.DataPropertyName = "buyer";
+            this.buyerDataGridViewTextBoxColumn.HeaderText = "Buyer";
+            this.buyerDataGridViewTextBoxColumn.Name = "buyerDataGridViewTextBoxColumn";
+            this.buyerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.buyerDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // bomOwnerDataGridViewTextBoxColumn
+            // 
+            this.bomOwnerDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.bomOwnerDataGridViewTextBoxColumn.DataPropertyName = "bomOwner";
+            this.bomOwnerDataGridViewTextBoxColumn.HeaderText = "Owner";
+            this.bomOwnerDataGridViewTextBoxColumn.Name = "bomOwnerDataGridViewTextBoxColumn";
+            this.bomOwnerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bomOwnerDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // bomdateDataGridViewTextBoxColumn
+            // 
+            this.bomdateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.bomdateDataGridViewTextBoxColumn.DataPropertyName = "bomdate";
+            this.bomdateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.bomdateDataGridViewTextBoxColumn.Name = "bomdateDataGridViewTextBoxColumn";
+            this.bomdateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bomdateDataGridViewTextBoxColumn.Width = 54;
+            // 
             // MatchedBom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -285,7 +313,7 @@
             this.Load += new System.EventHandler(this.Stock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.matchedBomDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchedBomDataSet1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -307,8 +335,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton tsbClear;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private matchedBomDataSet matchedBomDataSet;
         private matchedBomDataSetTableAdapters.matchbomTableAdapter matchbomTableAdapter;
+        private System.Windows.Forms.ToolStripButton tsbAdd;
+        private System.Windows.Forms.ToolStripButton tsbDelete;
+        private AmbleClient.BomOffer.matchedBomDataSet matchedBomDataSet1;
         private System.Windows.Forms.DataGridViewTextBoxColumn machedBomIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mfgDataGridViewTextBoxColumn;
@@ -317,8 +347,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cpnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn buyerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripButton tsbAdd;
-        private System.Windows.Forms.ToolStripButton tsbDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bomOwnerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bomdateDataGridViewTextBoxColumn;
     }
 }
