@@ -37,12 +37,22 @@
     <ApplicationIcon>amble128.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocX, Version=1.0.0.12, Culture=neutral, PublicKeyToken=37109ff9afe21939, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\DocX.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data.Entity, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\MySql.Data.Entity.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI">
       <HintPath>C:\Users\yan\Desktop\npoi\dotnet4\NPOI.dll</HintPath>
     </Reference>
@@ -341,6 +351,7 @@
     <Compile Include="Order\PoView\PoItemsControl.Designer.cs">
       <DependentUpon>PoItemsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order\SoPoDocxHelper.cs" />
     <Compile Include="Order\SoPoExcelHelper.cs" />
     <Compile Include="Order\SoView\SoItemPicker.cs">
       <SubType>Form</SubType>

@@ -39,6 +39,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbExportToExcel = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tsbToDocx = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,8 @@
             this.tsbCancel,
             this.tsbForceClose,
             this.toolStripSeparator2,
-            this.tsbExportToExcel});
+            this.tsbExportToExcel,
+            this.tsbToDocx});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(938, 25);
@@ -124,8 +126,8 @@
             this.tsbExportToExcel.Image = ((System.Drawing.Image)(resources.GetObject("tsbExportToExcel.Image")));
             this.tsbExportToExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbExportToExcel.Name = "tsbExportToExcel";
-            this.tsbExportToExcel.Size = new System.Drawing.Size(110, 22);
-            this.tsbExportToExcel.Text = "Export To xls File";
+            this.tsbExportToExcel.Size = new System.Drawing.Size(92, 22);
+            this.tsbExportToExcel.Text = "Save All as xls";
             this.tsbExportToExcel.Click += new System.EventHandler(this.tsbExportToExcel_Click);
             // 
             // tabControl1
@@ -137,6 +139,16 @@
             this.tabControl1.Size = new System.Drawing.Size(938, 525);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // tsbToDocx
+            // 
+            this.tsbToDocx.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbToDocx.Image = ((System.Drawing.Image)(resources.GetObject("tsbToDocx.Image")));
+            this.tsbToDocx.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbToDocx.Name = "tsbToDocx";
+            this.tsbToDocx.Size = new System.Drawing.Size(134, 22);
+            this.tsbToDocx.Text = "Save Current as docx";
+            this.tsbToDocx.Click += new System.EventHandler(this.tsbToDocx_Click);
             // 
             // PoView
             // 
@@ -171,6 +183,7 @@
         private System.Windows.Forms.ToolStripButton tsbReject;
         private System.Windows.Forms.ToolStripButton tsbCancel;
         private System.Windows.Forms.ToolStripButton tsbForceClose;
+        private System.Windows.Forms.ToolStripButton tsbToDocx;
         // private System.Windows.Forms.TabPage tabPage1;
         //private System.Windows.Forms.TabPage tabPage2;
     }

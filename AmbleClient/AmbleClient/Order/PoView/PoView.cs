@@ -250,5 +250,24 @@ namespace AmbleClient.Order.PoView
                 }
             }
         }
+
+        private void tsbToDocx_Click(object sender, EventArgs e)
+        {
+            List<PoItemContentAndState> poItemsList = poViewControlList[tabControl1.SelectedIndex].GetPoItemsStateList();
+            po po = poList[tabControl1.SelectedIndex];
+
+            if (UserInfo.Job == JobDescription.Sales || UserInfo.Job == JobDescription.SalesManager)
+            {
+                   po.vendorName = "";
+                    po.contact = "";
+
+            }
+            SoPoDocxHelper.SavePoDocx(po, poItemsList);
+        }
+        /*
+        private void tsbToInvoice_Click(object sender, EventArgs e)
+        {
+
+        }*/
     }
 }

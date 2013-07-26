@@ -22,8 +22,7 @@ namespace AmbleClient.Order
 
         static HSSFWorkbook hssfworkbook;
 
-
-
+       
 
 
 
@@ -293,10 +292,6 @@ namespace AmbleClient.Order
            si.Subject = "Amble Order Info";
            hssfworkbook.SummaryInformation = si;
        }
-
-
-
-
 
        static void WriteToFile()
        {

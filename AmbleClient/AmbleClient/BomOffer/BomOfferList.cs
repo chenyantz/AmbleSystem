@@ -16,7 +16,7 @@ namespace AmbleClient.BomOffer
         BomOfferTypeEnum bomOfferType;
         bool listbyCustVen = false;
          int custVenId;
-
+ 
         public BomOfferList(BomOfferTypeEnum bomOfferType)
         {
             InitializeComponent();
@@ -37,8 +37,6 @@ namespace AmbleClient.BomOffer
 
             Id.Name = "Id";
             Id.Visible = false;
-
-
 
             System.Windows.Forms.DataGridViewTextBoxColumn Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn Mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -155,11 +153,14 @@ namespace AmbleClient.BomOffer
                 {
                     bomOfferId = Convert.ToInt32(dgvr.Cells["Id"].Value);
                     var bomOfferItem = entity.publicbomoffer.First(item => item.bomOfferId == bomOfferId);
-                    entity.DeleteObject(bomOfferItem);
                 }
                 entity.SaveChanges();
             }
-            BomOfferList_Load(this, null);
+
+            foreach (DataGridViewRow dgvr in dgvrrc)
+            {
+                dataGridView1.Rows.Remove(dgvr);
+            }
 
         }
 
@@ -167,8 +168,8 @@ namespace AmbleClient.BomOffer
         {
             tscbFilterBy.SelectedIndex = -1;
             tstbFilterString.Text = string.Empty;
-            
-            BomOfferList_Load(this, null);
+
+            dataGridView1.Rows.Clear();
         }
 
         private void tsbSearch_Click(object sender, EventArgs e)
@@ -601,13 +602,6 @@ namespace AmbleClient.BomOffer
 
              }
          }
-
-
-     
-
-
-    
-    
     
     }
 }

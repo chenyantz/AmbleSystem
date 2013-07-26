@@ -272,6 +272,24 @@ namespace AmbleClient.SO
 
             }
         }
+
+        private void tsbToDocx_Click(object sender, EventArgs e)
+        {
+            So so = soList[tabControl1.SelectedIndex];
+            List<SoItemsContentAndState> soItemStateList = soViewControlList[tabControl1.SelectedIndex].GetItemsStateList();
+            if (UserInfo.Job == JobDescription.PurchasersManager || UserInfo.Job == JobDescription.Purchaser)
+            {
+                    so.contact = "";
+                    if (UserInfo.Job == JobDescription.Purchaser)
+                    {
+                        so.customerName = "";
+                    }
+            }
+            SoPoDocxHelper.SaveSoDocx(so, soItemStateList);
+
+        }
+
+
     }
 }
 
