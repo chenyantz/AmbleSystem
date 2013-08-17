@@ -154,3 +154,244 @@ Exception rethrown at [0]:
 2013-06-22 18:26:25,665 [8] INFO  Amble (null) - 10,1 logged in
 2013-06-22 18:31:46,331 [8] INFO  Amble (null) - 10,1 logged in
 2013-06-22 18:34:38,309 [10] INFO  Amble (null) - 10,1 logged in
+2013-06-23 21:40:52,863 [9] INFO  Amble (null) - 10,1 logged in
+2013-06-24 19:41:25,512 [10] INFO  Amble (null) - 10,1 logged in
+2013-06-24 19:46:03,002 [10] INFO  Amble (null) - 10,1 logged in
+2013-06-24 19:55:57,223 [9] INFO  Amble (null) - 10,1 logged in
+2013-06-24 20:42:39,215 [9] INFO  Amble (null) - 10,1 logged in
+2013-06-24 20:53:19,769 [9] INFO  Amble (null) - 10,1 logged in
+2013-06-24 21:00:28,301 [10] INFO  Amble (null) - 10,1 logged in
+2013-06-24 21:02:27,391 [9] INFO  Amble (null) - 10,1 logged in
+2013-06-24 21:07:12,737 [10] INFO  Amble (null) - 10,1 logged in
+2013-06-24 21:12:05,085 [9] INFO  Amble (null) - 10,1 logged in
+2013-06-24 21:16:56,102 [9] INFO  Amble (null) - 10,1 logged in
+2013-06-24 21:21:38,195 [10] INFO  Amble (null) - 10,1 logged in
+2013-06-24 21:39:59,774 [9] INFO  Amble (null) - 13,2 logged in
+2013-06-24 21:41:17,048 [10] INFO  Amble (null) - 13,2 logged in
+2013-06-25 19:50:50,746 [10] INFO  Amble (null) - 13,2 logged in
+2013-06-25 20:07:22,980 [1] INFO  Amble (null) - 1,0 logged in
+2013-06-26 21:04:53,759 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-26 22:02:09,587 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-26 22:17:12,933 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-26 22:18:14,878 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-26 22:26:35,048 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-26 22:35:04,266 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-26 22:35:22,632 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-26 22:41:35,107 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-26 22:42:18,400 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-26 22:43:14,044 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-26 22:46:55,188 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-26 22:49:50,851 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-27 20:34:45,877 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-27 20:36:11,029 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-27 20:38:05,489 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-27 22:02:39,005 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-27 22:04:41,210 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-27 22:08:54,833 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-27 22:12:10,524 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-27 22:13:49,052 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-27 22:17:41,336 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-27 22:19:25,006 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-27 22:24:50,386 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-27 23:27:45,205 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-27 23:28:14,717 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-27 23:35:50,655 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-27 23:40:06,887 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-27 23:42:49,617 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-27 23:45:46,659 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-27 23:56:10,266 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-27 23:56:49,336 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-28 00:08:16,444 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-28 00:09:13,493 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-28 00:11:16,388 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-28 00:12:07,291 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-28 00:14:30,157 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-28 00:15:19,946 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-28 00:16:47,705 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-28 00:18:40,569 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 10:03:39,252 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 10:18:52,372 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 10:29:56,701 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 10:31:33,058 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 10:35:36,239 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 10:40:04,104 [10] INFO  Amble (null) - 15,2 logged in
+2013-06-29 10:43:33,449 [10] INFO  Amble (null) - 15,2 logged in
+2013-06-29 12:53:27,926 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 12:54:45,579 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 12:55:22,132 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 12:56:20,220 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-29 12:59:44,353 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 13:03:27,466 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 13:10:34,213 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 13:37:42,736 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 13:41:35,372 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 13:43:29,625 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 13:44:52,481 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 13:47:58,277 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 13:49:26,622 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 13:50:45,149 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-29 13:51:59,367 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-29 14:27:57,065 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 14:29:18,101 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 14:30:28,233 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 14:33:57,051 [8] INFO  Amble (null) - 1,0 logged in
+2013-06-29 21:47:24,209 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 21:52:41,015 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 22:00:01,613 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 22:06:36,920 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 22:07:40,686 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 22:12:07,579 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 22:15:21,628 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 22:24:30,366 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 22:30:43,884 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 22:31:31,858 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 22:32:43,775 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 22:48:50,588 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-29 22:51:04,337 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-29 23:42:09,289 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-30 00:49:45,619 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-30 00:50:42,138 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-30 00:52:35,628 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-30 00:55:17,682 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-30 00:56:44,503 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-30 00:57:38,201 [9] INFO  Amble (null) - 1,0 logged in
+2013-06-30 01:09:26,803 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-30 01:10:48,747 [10] INFO  Amble (null) - 1,0 logged in
+2013-06-30 23:56:43,894 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-01 00:12:42,211 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-01 19:38:22,283 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-01 19:41:13,839 [8] INFO  Amble (null) - 1,0 logged in
+2013-07-01 19:41:58,581 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-01 19:44:05,274 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-01 19:46:46,063 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-01 19:51:41,069 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-01 19:52:50,852 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-01 20:09:12,706 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-01 20:11:11,906 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-01 20:11:51,161 [8] INFO  Amble (null) - 1,0 logged in
+2013-07-01 20:14:42,447 [10] INFO  Amble (null) - 12,5 logged in
+2013-07-01 20:28:01,178 [9] INFO  Amble (null) - 12,5 logged in
+2013-07-01 20:28:21,250 [10] INFO  Amble (null) - 12,5 logged in
+2013-07-01 20:29:01,354 [9] INFO  Amble (null) - 11,1 logged in
+2013-07-20 00:24:59,434 [9] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
+2013-07-20 00:24:59,500 [9] ERROR Amble (null) -    在 AmbleClient.DataClass.DataBase.GetDataReader(String strSql) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:行号 238
+   在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 42
+2013-07-20 00:25:01,029 [9] ERROR Amble (null) - 未将对象引用设置到对象的实例。
+2013-07-20 00:25:01,030 [9] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 63
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:行号 50
+2013-07-20 00:25:31,287 [9] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
+2013-07-20 00:25:31,312 [9] ERROR Amble (null) -    在 AmbleClient.DataClass.DataBase.GetDataReader(String strSql) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:行号 238
+   在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 42
+2013-07-20 00:26:07,532 [9] ERROR Amble (null) - 未将对象引用设置到对象的实例。
+2013-07-20 00:26:07,533 [9] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 63
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:行号 50
+2013-07-20 02:41:15,172 [11] ERROR Amble (null) - Host 'YanPC' is not allowed to connect to this MySQL server
+2013-07-20 02:41:15,234 [11] ERROR Amble (null) -    在 AmbleClient.DataClass.DataBase.GetDataReader(String strSql) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:行号 238
+   在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 42
+2013-07-20 02:41:16,525 [11] ERROR Amble (null) - 未将对象引用设置到对象的实例。
+2013-07-20 02:41:16,526 [11] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 63
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:行号 50
+2013-07-20 02:43:04,125 [9] ERROR Amble (null) - Host 'YanPC' is not allowed to connect to this MySQL server
+2013-07-20 02:43:04,149 [9] ERROR Amble (null) -    在 AmbleClient.DataClass.DataBase.GetDataReader(String strSql) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:行号 238
+   在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 42
+2013-07-20 02:43:06,157 [9] ERROR Amble (null) - 未将对象引用设置到对象的实例。
+2013-07-20 02:43:06,157 [9] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 63
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:行号 50
+2013-07-20 02:43:06,895 [9] INFO  Amble (null) - 11,1 logged in
+2013-07-20 02:43:43,857 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-20 02:44:49,613 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-20 02:46:29,222 [8] INFO  Amble (null) - 1,0 logged in
+2013-07-20 02:47:43,055 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-20 02:49:55,467 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-20 02:51:28,858 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-20 02:52:20,760 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-20 02:53:15,543 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-20 02:56:17,235 [1] INFO  Amble (null) - 1,0 logged in
+2013-07-20 02:57:34,122 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-20 03:02:58,299 [7] INFO  Amble (null) - 1,0 logged in
+2013-07-20 03:05:03,219 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-22 23:53:36,642 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-23 00:21:05,768 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-23 00:22:11,977 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-23 23:14:50,003 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-23 23:27:56,222 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-23 23:29:36,646 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-25 23:56:01,381 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-26 20:00:04,830 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-26 20:01:33,212 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-26 20:14:33,735 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-26 20:50:03,404 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-26 20:53:45,232 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-26 21:03:47,211 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-26 21:04:09,691 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-26 21:25:22,005 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-26 21:26:28,405 [8] INFO  Amble (null) - 1,0 logged in
+2013-07-26 21:28:30,207 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-26 21:28:56,133 [8] INFO  Amble (null) - 1,0 logged in
+2013-07-26 21:38:34,779 [10] INFO  Amble (null) - 1,0 logged in
+2013-07-26 21:40:11,061 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-26 21:49:53,542 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-26 22:07:43,278 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-26 22:27:24,976 [9] INFO  Amble (null) - 1,0 logged in
+2013-07-28 19:12:13,512 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-16 22:20:08,758 [1] ERROR Amble (null) - 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.1.100:1111
+2013-08-16 22:20:08,803 [1] ERROR Amble (null) - 
+Server stack trace: 
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket(EndPoint ipEndPoint)
+   在 System.Runtime.Remoting.Channels.RemoteConnection.CreateNewSocket()
+   在 System.Runtime.Remoting.Channels.RemoteConnection.GetSocket()
+   在 System.Runtime.Remoting.Channels.SocketCache.GetSocket(String machinePortAndSid, Boolean openNew)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.SendRequestWithRetry(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream)
+   在 System.Runtime.Remoting.Channels.Tcp.TcpClientTransportSink.ProcessMessage(IMessage msg, ITransportHeaders requestHeaders, Stream requestStream, ITransportHeaders& responseHeaders, Stream& responseStream)
+   在 System.Runtime.Remoting.Channels.BinaryClientFormatterSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 PasswordServer.DatabaseInfo.GetDbUser()
+   在 AmbleClient.ServerInfo..cctor() 位置 E:\AmbleSystem\AmbleClient\AmbleClient\global.cs:行号 323
+2013-08-16 22:20:23,848 [1] ERROR Amble (null) - Unable to connect to any of the specified MySQL hosts.
+2013-08-16 22:20:23,849 [1] ERROR Amble (null) -    在 AmbleClient.DataClass.DataBase.GetDataReader(String strSql) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\DataClass\DataClass.cs:行号 238
+   在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 42
+2013-08-16 22:30:19,235 [1] ERROR Amble (null) - 未将对象引用设置到对象的实例。
+2013-08-16 22:30:19,236 [1] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 63
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\AmbleSystem\AmbleClient\AmbleClient\Login.cs:行号 50
+2013-08-16 22:42:37,702 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-16 22:47:38,138 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-16 22:56:29,866 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-16 23:03:38,172 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-16 23:04:16,646 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-16 23:06:56,357 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-16 23:09:28,108 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-16 23:12:33,379 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-16 23:14:55,573 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-16 23:20:49,284 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-16 23:51:12,792 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-17 00:15:33,346 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-17 10:07:09,261 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 10:17:49,749 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 10:18:14,301 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-17 10:18:35,890 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 10:19:58,059 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 10:22:48,260 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 10:40:17,054 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-17 11:03:20,583 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 11:25:06,490 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 11:26:17,482 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-17 11:44:10,375 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 11:49:48,779 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 11:57:43,398 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-17 12:00:02,920 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 12:01:03,653 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-17 12:02:12,042 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 12:04:14,162 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 12:16:22,786 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 12:19:13,146 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 12:21:36,074 [8] INFO  Amble (null) - 1,0 logged in
+2013-08-17 12:31:54,633 [9] INFO  Amble (null) - 1,0 logged in
+2013-08-17 12:36:54,169 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-17 12:48:50,245 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-17 12:52:34,448 [10] INFO  Amble (null) - 1,0 logged in
+2013-08-17 13:04:13,034 [9] INFO  Amble (null) - 1,0 logged in

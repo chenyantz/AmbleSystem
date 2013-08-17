@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BomOfferList));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbListAll = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -41,8 +43,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbToExcel = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tsbListAll = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,21 @@
             this.toolStrip1.Size = new System.Drawing.Size(999, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbListAll
+            // 
+            this.tsbListAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbListAll.Image = ((System.Drawing.Image)(resources.GetObject("tsbListAll.Image")));
+            this.tsbListAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbListAll.Name = "tsbListAll";
+            this.tsbListAll.Size = new System.Drawing.Size(48, 22);
+            this.tsbListAll.Text = "List All";
+            this.tsbListAll.Click += new System.EventHandler(this.tsbListAll_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // tsbDeleteItem
             // 
@@ -156,21 +171,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(999, 451);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // tsbListAll
-            // 
-            this.tsbListAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbListAll.Image = ((System.Drawing.Image)(resources.GetObject("tsbListAll.Image")));
-            this.tsbListAll.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbListAll.Name = "tsbListAll";
-            this.tsbListAll.Size = new System.Drawing.Size(48, 22);
-            this.tsbListAll.Text = "List All";
-            this.tsbListAll.Click += new System.EventHandler(this.tsbListAll_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // BomOfferList
             // 

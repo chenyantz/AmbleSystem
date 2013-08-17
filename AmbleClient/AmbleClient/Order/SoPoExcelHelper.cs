@@ -298,7 +298,7 @@ namespace AmbleClient.Order
            SaveFileDialog sfd = new SaveFileDialog();
            sfd.Filter = "Excel 文件(*.xls)|*.xls|Excel 文件(*.xlsx)|*.xlsx|所有文件(*.*)|*.*";
            if (DialogResult.OK == sfd.ShowDialog())
-           {
+           {  
                FileStream file = new FileStream(sfd.FileName, FileMode.Create);
                hssfworkbook.Write(file);
                file.Close();
