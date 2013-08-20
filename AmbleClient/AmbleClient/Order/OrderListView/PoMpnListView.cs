@@ -158,6 +158,14 @@ namespace AmbleClient.Order
             filterColumnDict.Add("MPN", "mpn");
 
         }
+        protected override int GetFilterIndexWhenExternalSearch(bool isMpnSearch)
+        {
+            if (isMpnSearch)
+                return 2;
+            else
+                return 0;
+
+        }
 
 
         protected override void GetTheStateList()

@@ -20,11 +20,29 @@ namespace AmbleClient.Order
         protected Dictionary<string, string> filterColumnDict = new Dictionary<string, string>();
 
          private int selectedRow=0;
+
+
+         protected bool externalSearch = false;
+         protected bool externalSearchByMpn;
+         protected string externalSearchString;
+
+
         
         public OrderListView()
         {
             InitializeComponent();
         }
+
+        public void SetExternalSearch(bool isMpnSearch, string searchString)
+        {
+            externalSearch = true;
+            externalSearchByMpn = isMpnSearch;
+            externalSearchString = searchString;
+        
+        }
+
+
+
 
         private void OrderListView_Load(object sender, EventArgs e)
         {
@@ -42,12 +60,24 @@ namespace AmbleClient.Order
 
             FillTheStateCombox();
             GetTheStateList();
-
-            FillTheDataGrid();
-
+            if (!externalSearch)
+            {
+                FillTheDataGrid();
+            }
+            else
+            {
+                int selectedIndex = GetFilterIndexWhenExternalSearch(this.externalSearchByMpn);
+                tscbFilterColumn.SelectedIndex = selectedIndex;
+                tstbFilterString.Text = externalSearchString;
+                tsbApply_Click(this, null);
+            }
             
         }
 
+        protected virtual int GetFilterIndexWhenExternalSearch(bool isMpn)
+        {
+            return 0;
+        }
 
         protected virtual void FillTheFilterColumnDict()
         { 

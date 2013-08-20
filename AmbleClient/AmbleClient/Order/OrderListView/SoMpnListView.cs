@@ -47,6 +47,17 @@ namespace AmbleClient.Order
            filterColumnDict.Add("MPN", "partNo");
        }
 
+       protected override int GetFilterIndexWhenExternalSearch(bool isMpnSearch)
+       {
+           if (isMpnSearch)
+               return 3;
+           else
+               return 0;
+
+       }
+
+
+
        protected override void StateChanged(object sender, EventArgs e)
        {
            intStateList.Clear();

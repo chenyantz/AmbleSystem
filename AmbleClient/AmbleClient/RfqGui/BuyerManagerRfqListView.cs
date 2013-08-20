@@ -11,7 +11,17 @@ namespace AmbleClient.RfqGui
     {
         public BuyerManagerRfqListView()
         {
+            ConstructBase();
+        }
 
+        public BuyerManagerRfqListView(bool isMpnSearch, string searchString)
+        {
+            SetExternalSearch(isMpnSearch, searchString);
+            ConstructBase();
+        }
+
+        private void ConstructBase()
+        {
             base.Text = "RFQ List for Purchaser Manager";
 
             base.tsbNewRfq.Enabled = false;
@@ -23,7 +33,7 @@ namespace AmbleClient.RfqGui
             tscbAllOrMine.SelectedIndexChanged -= tscbAllOrMine_SelectedIndexChanged;
             tscbAllOrMine.SelectedIndex = 0;
             tscbAllOrMine.SelectedIndexChanged += tscbAllOrMine_SelectedIndexChanged;
-            
+
             base.cbNew.Checked = false;
             base.cbRouted.Checked = true;
             base.cbOffered.Checked = true;
@@ -38,9 +48,10 @@ namespace AmbleClient.RfqGui
             base.cbHasSo.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
             base.cbClosed.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
             base.rfqStatesSelectedChanged(this, null);
-
-
         }
+
+
+
 
       public override int GetPageCount(int itemsPerPage, string filterColumn, string filterString,List<RfqStatesEnum> selections,bool includeSubs)
       {

@@ -443,10 +443,217 @@ namespace AmbleClient
             mactchBom.Show();
         }
 
+        private void byMPNToolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            string searchString;
+            AmbleClient.SearchBy.SearchBy search = new SearchBy.SearchBy(true);
+            if (DialogResult.OK == search.ShowDialog())
+            {
+                searchString = search.searchString;
+            }
+            else
+            {
+                return;
+            }
+
+            switch (UserInfo.Job)
+            { 
+                case JobDescription.Admin:
+                case JobDescription.Boss:
+                    AmbleClient.RfqGui.SalesRfqListView rfqListView = new RfqGui.SalesRfqListView(true, searchString);
+                    rfqListView.Show();
+                    rfqListView.MdiParent = this;
+                    AmbleClient.Order.OrderListView offerListView = new AmbleClient.OfferGui.OfferListView(false);
+                    offerListView.SetExternalSearch(true, searchString);
+                    offerListView.Show();
+                    offerListView.MdiParent = this;
+                    AmbleClient.Order.OrderListView soMpnListView = new Order.SalesSoMpnListView();
+                    soMpnListView.SetExternalSearch(true, searchString);
+                    soMpnListView.Show();
+                    soMpnListView.MdiParent = this;
+                    AmbleClient.Order.OrderListView poMpnListView = new Order.PoMpnListView();
+                    poMpnListView.SetExternalSearch(true, searchString);
+                    poMpnListView.Show();
+                    poMpnListView.MdiParent = this;
+                    break;
+                case JobDescription.Sales:
+                case JobDescription.SalesManager:
+                    AmbleClient.RfqGui.SalesRfqListView rfqListView1 = new RfqGui.SalesRfqListView(true, searchString);
+                    rfqListView1.Show();
+                    rfqListView1.MdiParent = this;
+                    AmbleClient.Order.OrderListView offerListView1 = new AmbleClient.OfferGui.OfferListView(true);
+                    offerListView1.SetExternalSearch(true, searchString);
+                    offerListView1.Show();
+                    offerListView1.MdiParent = this;
+                    AmbleClient.Order.OrderListView soMpnListView1 = new Order.SalesSoMpnListView();
+                    soMpnListView1.SetExternalSearch(true, searchString);
+                    soMpnListView1.Show();
+                    soMpnListView1.MdiParent = this;
+                    break;
+                case JobDescription.PurchasersManager:
+                    AmbleClient.RfqGui.BuyerManagerRfqListView rfqListView2 = new RfqGui.BuyerManagerRfqListView(true, searchString);
+                    rfqListView2.Show();
+                    rfqListView2.MdiParent = this;
+                    AmbleClient.Order.OrderListView offerListView2 = new AmbleClient.OfferGui.OfferListView(true);
+                    offerListView2.SetExternalSearch(true, searchString);
+                    offerListView2.Show();
+                    offerListView2.MdiParent = this;
+                    AmbleClient.Order.OrderListView soMpnListView2 = new Order.BuyerSoMpnListView();
+                    soMpnListView2.SetExternalSearch(true, searchString);
+                    soMpnListView2.Show();
+                    soMpnListView2.MdiParent = this;
+                    AmbleClient.Order.OrderListView poMpnListView2 = new Order.PoMpnListView();
+                    poMpnListView2.SetExternalSearch(true, searchString);
+                    poMpnListView2.Show();
+                    poMpnListView2.MdiParent = this;
+                    break;
+                case JobDescription.Purchaser:
+                    AmbleClient.RfqGui.BuyerRfqListView rfqListView3 = new RfqGui.BuyerRfqListView(true, searchString);
+                    rfqListView3.Show();
+                    rfqListView3.MdiParent = this;
+                    AmbleClient.Order.OrderListView offerListView3 = new AmbleClient.OfferGui.OfferListView(true);
+                    offerListView3.SetExternalSearch(true, searchString);
+                    offerListView3.Show();
+                    offerListView3.MdiParent = this;
+                    AmbleClient.Order.OrderListView soMpnListView3 = new Order.BuyerSoMpnListView();
+                    soMpnListView3.SetExternalSearch(true, searchString);
+                    soMpnListView3.Show();
+                    soMpnListView3.MdiParent = this;
+                    AmbleClient.Order.OrderListView poMpnListView3 = new Order.PoMpnListView();
+                    poMpnListView3.SetExternalSearch(true, searchString);
+                    poMpnListView3.Show();
+                    poMpnListView3.MdiParent = this;
+                    break;
+                case JobDescription.Logistics:
+                case JobDescription.Financial:
+                case JobDescription.FinancialManager:
+                case JobDescription.LogisticsManager:
+                    AmbleClient.Order.OrderListView soMpnListView4 = new Order.FLSoMpnListView();
+                    soMpnListView4.SetExternalSearch(true, searchString);
+                    soMpnListView4.Show();
+                    soMpnListView4.MdiParent = this;
+                    AmbleClient.Order.OrderListView poMpnListView4 = new Order.FLPoMpnListView();
+                    poMpnListView4.SetExternalSearch(true, searchString);
+                    poMpnListView4.Show();
+                    poMpnListView4.MdiParent = this;
+                    break;
+            }
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+
+        }
+
+        private void byCompanyNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string searchString;
+            AmbleClient.SearchBy.SearchBy search = new SearchBy.SearchBy(false);
+            if (DialogResult.OK == search.ShowDialog())
+            {
+                searchString = search.searchString;
+            }
+            else
+            {
+                return;
+            }
+
+            switch (UserInfo.Job)
+            {
+                case JobDescription.Admin:
+                case JobDescription.Boss:
+                    AmbleClient.custVendor.CustVenderListView custListView = new custVendor.SalesBuyerCustomerListView(0);
+                    custListView.SetExternalSearch(searchString);
+                    custListView.Show();
+                    custListView.MdiParent = this;
+                    AmbleClient.custVendor.CustVenderListView venderListView = new custVendor.SalesBuyerCustomerListView(1);
+                    venderListView.SetExternalSearch(searchString);
+                    venderListView.Show();
+                    venderListView.MdiParent = this;
 
 
+                    AmbleClient.RfqGui.SalesRfqListView rfqListView = new RfqGui.SalesRfqListView(false, searchString);
+                    rfqListView.Show();
+                    rfqListView.MdiParent = this;
+                    AmbleClient.Order.OrderListView offerListView = new AmbleClient.OfferGui.OfferListView(false);
+                    offerListView.SetExternalSearch(false, searchString);
+                    offerListView.Show();
+                    offerListView.MdiParent = this;
+                    AmbleClient.Order.OrderListView soMpnListView = new Order.SalesSoMpnListView();
+                    soMpnListView.SetExternalSearch(false, searchString);
+                    soMpnListView.Show();
+                    soMpnListView.MdiParent = this;
+                    AmbleClient.Order.OrderListView poMpnListView = new Order.PoMpnListView();
+                    poMpnListView.SetExternalSearch(false, searchString);
+                    poMpnListView.Show();
+                    poMpnListView.MdiParent = this;
+                    break;
+                case JobDescription.Sales:
+                case JobDescription.SalesManager:
+                    AmbleClient.custVendor.CustVenderListView custListView2 = new custVendor.SalesBuyerCustomerListView(0);
+                    custListView2.SetExternalSearch(searchString);
+                    custListView2.Show();
+                    custListView2.MdiParent = this;
+                    AmbleClient.RfqGui.SalesRfqListView rfqListView1 = new RfqGui.SalesRfqListView(false, searchString);
+                    rfqListView1.Show();
+                    rfqListView1.MdiParent = this;
+                    AmbleClient.Order.OrderListView soMpnListView1 = new Order.SalesSoMpnListView();
+                    soMpnListView1.SetExternalSearch(false, searchString);
+                    soMpnListView1.Show();
+                    soMpnListView1.MdiParent = this;
+                    break;
+                case JobDescription.PurchasersManager:
 
+                    AmbleClient.custVendor.CustVenderListView venderListView3 = new custVendor.SalesBuyerCustomerListView(1);
+                    venderListView3.SetExternalSearch(searchString);
+                    venderListView3.Show();
+                    venderListView3.MdiParent = this;
 
+                    AmbleClient.RfqGui.BuyerManagerRfqListView rfqListView2 = new RfqGui.BuyerManagerRfqListView(false, searchString);
+                    rfqListView2.Show();
+                    rfqListView2.MdiParent = this;
 
+                    AmbleClient.Order.OrderListView offerListView2 = new AmbleClient.OfferGui.OfferListView(true);
+                    offerListView2.SetExternalSearch(false, searchString);
+                    offerListView2.Show();
+                    offerListView2.MdiParent = this;
+                    AmbleClient.Order.OrderListView soMpnListView2 = new Order.BuyerSoMpnListView();
+                    soMpnListView2.SetExternalSearch(false, searchString);
+                    soMpnListView2.Show();
+                    soMpnListView2.MdiParent = this;
+                    AmbleClient.Order.OrderListView poMpnListView2 = new Order.PoMpnListView();
+                    poMpnListView2.SetExternalSearch(false, searchString);
+                    poMpnListView2.Show();
+                    poMpnListView2.MdiParent = this;
+                    break;
+                case JobDescription.Purchaser:
+
+                     AmbleClient.custVendor.CustVenderListView venderListView4 = new custVendor.SalesBuyerCustomerListView(1);
+                    venderListView4.SetExternalSearch(searchString);
+                    venderListView4.Show();
+                    venderListView4.MdiParent = this;
+                    AmbleClient.Order.OrderListView poMpnListView3 = new Order.PoMpnListView();
+                    poMpnListView3.SetExternalSearch(true, searchString);
+                    poMpnListView3.Show();
+                    poMpnListView3.MdiParent = this;
+                    break;
+                case JobDescription.Logistics:
+                case JobDescription.Financial:
+                case JobDescription.FinancialManager:
+                case JobDescription.LogisticsManager:
+
+                    AmbleClient.custVendor.CustVenderListView companyListView = new custVendor.FinanceCustVendorListView();;
+                    companyListView.SetExternalSearch(searchString);
+                    companyListView.Show();
+                    companyListView.MdiParent = this;
+                    AmbleClient.Order.OrderListView soMpnListView4 = new Order.FLSoMpnListView();
+                    soMpnListView4.SetExternalSearch(false, searchString);
+                    soMpnListView4.Show();
+                    soMpnListView4.MdiParent = this;
+                    AmbleClient.Order.OrderListView poMpnListView4 = new Order.FLPoMpnListView();
+                    poMpnListView4.SetExternalSearch(false, searchString);
+                    poMpnListView4.Show();
+                    poMpnListView4.MdiParent = this;
+                    break;
+            }
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+        }
     }
 }

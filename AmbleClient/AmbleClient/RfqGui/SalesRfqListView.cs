@@ -12,6 +12,18 @@ namespace AmbleClient.RfqGui
 
         public SalesRfqListView()
         {
+            ConstructBase();
+
+        }
+
+        public SalesRfqListView(bool isMpnSearch, string searchString)
+        {
+            SetExternalSearch(isMpnSearch, searchString);
+            ConstructBase();
+        }
+
+        private void ConstructBase()
+        {
             base.Text = "RFQ List for Sales";
             base.tscbAllOrMine.Items.Add("All RFQs");
             base.tscbAllOrMine.Items.Add("My RFQs");
@@ -35,8 +47,12 @@ namespace AmbleClient.RfqGui
             base.cbClosed.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
 
             base.rfqStatesSelectedChanged(this, null);
-
+        
+        
         }
+
+
+
 
         public override int GetPageCount(int itemsPerPage,string filterColumn, string filterString,List<RfqStatesEnum> selections, bool includeSubs)
         {

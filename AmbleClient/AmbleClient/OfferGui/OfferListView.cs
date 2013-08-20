@@ -18,12 +18,9 @@ namespace AmbleClient.OfferGui
             this.isSaleView = isSaleView;
         
         }
-
         public OfferListView()
-        { 
-        
+        {
         }
-
 
         protected override void ViewStart()
         {
@@ -156,6 +153,14 @@ namespace AmbleClient.OfferGui
             }
         }
 
+        protected override int GetFilterIndexWhenExternalSearch(bool isMpnSearch)
+        {
+            if (isMpnSearch)
+                return 0;
+            else
+                return 1;
+        
+        }
 
 
         protected override void GetTheStateList()

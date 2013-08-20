@@ -432,6 +432,12 @@
     <Compile Include="RfqGui\SalesRfqListView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SearchBy\SearchBy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchBy\SearchBy.Designer.cs">
+      <DependentUpon>SearchBy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\PasswordChange.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -614,6 +620,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\SalesRfqListView.resx">
       <DependentUpon>SalesRfqListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchBy\SearchBy.resx">
+      <DependentUpon>SearchBy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\PasswordChange.resx">
       <DependentUpon>PasswordChange.cs</DependentUpon>

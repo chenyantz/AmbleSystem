@@ -65,8 +65,6 @@
             this.ambleStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewEditAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOMCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bOMListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,6 +73,11 @@
             this.offerListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lTOfferListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byMPNToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.byCompanyNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.autoUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,8 +92,9 @@
             this.financesToolStripMenuItem,
             this.warehousesToolStripMenuItem,
             this.adminToolStripMenuItem,
-            this.settingToolStripMenuItem,
             this.bOMToolStripMenuItem,
+            this.searchToolStripMenuItem,
+            this.settingToolStripMenuItem,
             this.helpToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -380,21 +384,6 @@
             this.viewEditAccountToolStripMenuItem.Text = "View Accounts";
             this.viewEditAccountToolStripMenuItem.Click += new System.EventHandler(this.viewEditAccountToolStripMenuItem_Click);
             // 
-            // settingToolStripMenuItem
-            // 
-            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changePasswordToolStripMenuItem});
-            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.settingToolStripMenuItem.Text = "Settings";
-            // 
-            // changePasswordToolStripMenuItem
-            // 
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.changePasswordToolStripMenuItem.Text = "Change Password";
-            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
-            // 
             // bOMToolStripMenuItem
             // 
             this.bOMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -457,6 +446,44 @@
             this.lTOfferListToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.lTOfferListToolStripMenuItem.Text = "L/T Offer List";
             this.lTOfferListToolStripMenuItem.Click += new System.EventHandler(this.lTOfferListToolStripMenuItem_Click);
+            // 
+            // searchToolStripMenuItem
+            // 
+            this.searchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.byMPNToolStripMenuItem7,
+            this.byCompanyNameToolStripMenuItem});
+            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.searchToolStripMenuItem.Text = "Search";
+            // 
+            // byMPNToolStripMenuItem7
+            // 
+            this.byMPNToolStripMenuItem7.Name = "byMPNToolStripMenuItem7";
+            this.byMPNToolStripMenuItem7.Size = new System.Drawing.Size(186, 22);
+            this.byMPNToolStripMenuItem7.Text = "by MPN";
+            this.byMPNToolStripMenuItem7.Click += new System.EventHandler(this.byMPNToolStripMenuItem7_Click);
+            // 
+            // byCompanyNameToolStripMenuItem
+            // 
+            this.byCompanyNameToolStripMenuItem.Name = "byCompanyNameToolStripMenuItem";
+            this.byCompanyNameToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.byCompanyNameToolStripMenuItem.Text = "by Company Name";
+            this.byCompanyNameToolStripMenuItem.Click += new System.EventHandler(this.byCompanyNameToolStripMenuItem_Click);
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changePasswordToolStripMenuItem});
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.settingToolStripMenuItem.Text = "Settings";
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem1
             // 
@@ -554,5 +581,8 @@
         private System.Windows.Forms.ToolStripMenuItem lTOfferListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem matchedBOMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ambleStockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem byMPNToolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem byCompanyNameToolStripMenuItem;
     }
 }

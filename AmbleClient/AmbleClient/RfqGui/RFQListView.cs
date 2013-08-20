@@ -14,8 +14,8 @@ namespace AmbleClient.RfqGui
     {
         int itemsPerPage=30;
         DataTable tableCurrentPage;
-        string filterColumn = string.Empty;
-        string filterString = string.Empty;
+       protected string filterColumn = string.Empty;
+       protected string filterString = string.Empty;
         Dictionary<int,string> idToName=new Dictionary<int,string>();
         int currentPage=0;
         int totalPage=0;
@@ -25,6 +25,12 @@ namespace AmbleClient.RfqGui
         List<RfqStatesEnum> rfqStatesSelected = new List<RfqStatesEnum>();
 
         protected RfqManager.RfqMgr rfqMgr;
+
+
+        protected bool externalSearch=false;
+        protected bool externalSearchByMpn;
+        protected string externalSearchString;
+
         
         public RFQListView()
         {
@@ -34,9 +40,29 @@ namespace AmbleClient.RfqGui
             FillTheIdNameDict();
             GetRfqStatesSelected();
             this.Text = "RFQ List";
-          
-
         }
+
+        protected void SetExternalSearch(bool isMpnSearch, string searchString)
+        {
+            this.externalSearch = true;
+            this.externalSearchByMpn = isMpnSearch;
+            this.externalSearchString = searchString;
+
+            if (externalSearchByMpn)
+            {
+                filterColumn = "partNo"; tscbFilterColumn.SelectedIndex = 0;
+            }
+            else
+            {
+                filterColumn = "customerName"; tscbFilterColumn.SelectedIndex = 1;
+
+            }
+        
+         filterString=tstbFilterString.Text=externalSearchString;
+        }
+
+
+
 
 
         private void RFQView_Load(object sender, EventArgs e)

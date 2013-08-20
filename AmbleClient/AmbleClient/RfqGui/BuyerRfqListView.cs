@@ -11,6 +11,16 @@ namespace AmbleClient.RfqGui
     {
         public BuyerRfqListView()
         {
+            ConstructBase();
+        }
+        public BuyerRfqListView(bool isMpnSearch, string searchString)
+        {
+            SetExternalSearch(isMpnSearch, searchString);
+            ConstructBase();
+        }
+
+        private void ConstructBase()
+        {
             base.Text = "RFQ List for Purchasers";
             base.tsbNewRfq.Enabled = false;
             base.tscbAllOrMine.Items.Add("All RFQs");
@@ -36,8 +46,6 @@ namespace AmbleClient.RfqGui
 
             //in the list ,do not show the customer
             Customer.Visible = false;
-
-
         }
 
         public override int GetPageCount(int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections, bool includeSubs)
